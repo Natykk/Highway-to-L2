@@ -1,2 +1,12 @@
-Cours n°1 : Création d'un espace Github.
-Définition des limites du projet.
+Cours n°1 : 
+- Création d'un espace Github.
+- Définition du projet : Le projet est de type Roguelike. Un personnage se déplacera de pièce en pièce pour battre des mobs/monstres et activer des mécanismes afin de dévérouiller des coffres, salles.
+- Définition des taches à réaliser (dans Gantt) : 
+  - Design des maps (générateur automatique de maps)
+  - Design des personnages/monstres.
+  - Design items.
+  - Codage des maps et des personnages/monstres.
+  - Codage interaction surfaces/personnage et sortie/personnage.
+  - Codage interaction items_drop/personnage.
+  - Codage interaction personnages/monstres.
+  - Phase de test
