@@ -2,11 +2,48 @@ Cours n°1 :
 - Création d'un espace Github.
 - Définition du projet : Le projet est de type Roguelike. Un personnage se déplacera de pièce en pièce pour battre des mobs/monstres et activer des mécanismes afin de dévérouiller des coffres, salles.
 - Définition des taches à réaliser (dans Gantt) : 
+  1. Codage de la map:
+   - Par niveau : 3-5 étages.
+   - Par étage : 10 salles.
+   - Porte qui s'ouvre uniquement si les mobs meurent.
+   - Génération de l'étage entier à l'apparition ou entre les étages.
+   - Salles : carrée 20/20 pour salles normales et 30/30 pour salle de boss.
+   
+  2. Codage du personnage:
+    - Choix de classe en fonction de l'arbre de compétence du personnage:
+      - Archer (vitesse d'attaque)
+      - Mage (bcp degat)
+      - Guerrier (tank)
+      - Assassin (vitesse depl)
+    - Caractéristique de personnage
+      - Vie
+      - Dégats
+      - Vitesse depl
+      - Vitesse d'att
+      - Coordonnées (x,y)
+      
+  3. Codage des attaques/parades :
+    - 1 touche pour attaque légère, à faible temps de recharge.
+    - 1 touche pour attaque lourde, à long temps de recharge
+    - 1 touche pour une Garde, pouvant être mise n'importe quand.
+  
+  4. Codage mobs:
+    - Structure d'entite commune entre mobs et personnage.
+      - Coordonnées.
+      - Même critère statistique que perso. 
+      - Fichier avec infos monstre en fonction de l'étage (+ étage haut, + stat mobs élevée)
+      - Apparition : aléatoire dans la salle (attention au placement des objets de salle).
+  
+   
   - Design des maps (générateur automatique de maps)
   - Design des personnages/monstres.
   - Design items.
   - Codage des maps et des personnages/monstres.
+  - Codage+design arbre de compétence.
   - Codage interaction surfaces/personnage et sortie/personnage.
   - Codage interaction items_drop/personnage.
   - Codage interaction personnages/monstres.
+  
+  
+  PS : Mobs = Monstres
   - Phase de test
