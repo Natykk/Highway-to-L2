@@ -1,3 +1,6 @@
+Diagramme de Gantt - https://docs.google.com/spreadsheets/d/1rPNUkicPhAYSG0FYRukwM39FNhrYawlg/edit?usp=sharing&ouid=103603094111502813858&rtpof=true&sd=true
+
+
 Cours n°1 : 
 - Création d'un espace Github.
 - Définition du projet : Le projet est de type Roguelike. Un personnage se déplacera de pièce en pièce pour battre des mobs/monstres et activer des mécanismes afin de dévérouiller des coffres, salles.
@@ -47,3 +50,4 @@ Cours n°1 :
   
   PS : Mobs = Monstres
   - Phase de test
+
