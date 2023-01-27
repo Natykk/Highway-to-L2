@@ -1,9 +1,13 @@
-typedef enum {COMMON, START, EXIT} t_statut;
-
 #define SALLE_UNUSED -1
 #define DIM_ETAGE 5
 #define DIM_SALLE 20
 #define DIM_SALLE_BOSS 30
+
+typedef enum {COMMON, START, EXIT} t_statut;
+
+typedef struct position{
+    int x, y;
+} t_pos;
 
 typedef struct salle {
     int nb_mobs;
