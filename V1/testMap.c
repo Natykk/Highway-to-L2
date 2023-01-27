@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
-#include <time.h>
+
 #define TAILLE_X_MAP 10
-#define TAILLE_Y_MAP 10
+#define TAILLE_Y_MAP 20
 
 #define FERME -3
 #define OUVERT -2
@@ -33,21 +33,17 @@ void affichage(int map[TAILLE_X_MAP][TAILLE_Y_MAP]){
             if(map[i][j]==PERS){
                 printf("P");
             }
-            else if(map[i][j]==FERME){
-                printf("#");
-            }
             else if(map[i][j]==MUR){   
-                printf("@");
+                printf("\u25A3");
             }
-            else if(map[i][j]==VIDE){
-                printf(" ");
+            else if(map[i][j]==VIDE || map[i][j]==OUVERT){
+                printf("\u25A2");
             }
             else if(map[i][j]==BOUTON){
                 printf("B");
             }
-            
-            else if(map[i][j]==OUVERT){
-                printf("~");
+            else if(map[i][j]==FERME){
+                printf("F");
             }
         }
         printf("\n");
@@ -59,10 +55,15 @@ void remplissageMap(int map[TAILLE_X_MAP][TAILLE_Y_MAP], t_pos pers, t_porte por
     int i, j;
     map[porte.x][porte.y]=porte.statut;
     map[porte.bouton.x][porte.bouton.y]=BOUTON;
-    printf("Bouton : %d, %d\n", porte.bouton.x, porte.bouton.y);
     for(i=0; i<TAILLE_X_MAP; i++){
         for(j=0; j<TAILLE_Y_MAP; j++){
-            if(i==porte.x && j==porte.y){
+            if(i==0 || i==TAILLE_X_MAP-1 || j==0 || j==TAILLE_Y_MAP-1){
+                map[i][j]=MUR;
+            }
+            else if(i==TAILLE_X_MAP/2 && j!=TAILLE_Y_MAP/2){
+                map[i][j]=MUR;
+            }
+            else if(i==porte.x && j==porte.y){
                 map[i][j]=porte.statut;
             }
             else if(i==porte.bouton.x && j==porte.bouton.y){
@@ -70,9 +71,6 @@ void remplissageMap(int map[TAILLE_X_MAP][TAILLE_Y_MAP], t_pos pers, t_porte por
             }
             else if(i==pers.x && j==pers.y){
                 map[i][j]=PERS;
-            }
-            else if(i==0 || i==TAILLE_X_MAP-1 || j==0 || j==TAILLE_Y_MAP-1){
-                map[i][j]=MUR;
             }
             else{
                 map[i][j]=VIDE;
@@ -90,30 +88,14 @@ int est_valide(int map[TAILLE_X_MAP][TAILLE_Y_MAP], int x, int y){
     }
 }
 
-int parametrage(int map[TAILLE_X_MAP][TAILLE_Y_MAP]){
-    struct bouton btn;
-    btn.x=1;
-    btn.y=1;
 
-        
-    do{
-        btn.y=rand()%TAILLE_Y_MAP-1;
-        btn.x=rand()%TAILLE_X_MAP-1;
-    }while((btn.x%TAILLE_X_MAP-1)<1 || (btn.y%TAILLE_Y_MAP-1)<1); // Cherche des coordonnées aléatoires correcte pour le bouton
-    t_porte porte = {porte.x, porte.y, FERME , {btn.x, btn.y}};
-    porte.x=1;
-    porte.y=1;
-    //printf("Bouton genere en %d, %d\n", btn.x, btn.y);
-    
-    do{
-        porte.y=rand()%TAILLE_Y_MAP;
-        porte.x=rand()%TAILLE_X_MAP;
-    }while((porte.x!=0 || porte.y!=0) && (porte.x==porte.y) && (porte.x==btn.x && porte.y==btn.y)); // Cherche des coordonnées aléatoires correcte pour la porte
-    //printf("Porte genere en %d, %d\n", porte.x, porte.y);
-    t_pos pers = {2,2};
+int main(){
+    int map[TAILLE_X_MAP][TAILLE_Y_MAP];
+    t_porte porte = {TAILLE_X_MAP/2, TAILLE_Y_MAP/2, FERME ,{3,4}};
+    t_pos pers = {1,1};
     remplissageMap(map, pers, porte);
 
-    //system("clear");
+    system("clear");
     affichage(map);
 
     printf("OBJECTIF : Aller sur la case du bouton !\n");
@@ -121,10 +103,7 @@ int parametrage(int map[TAILLE_X_MAP][TAILLE_Y_MAP]){
     int prev_x;
     int prev_y;
 
-    while((pers.x != porte.x) || (pers.y != porte.y)){ // Tant que le perso n'est pas sur la porte
-        if(porte.statut==OUVERT){
-            printf("La porte est ouverte !\n");
-        } 
+    while(porte.statut!=OUVERT){
         prev_x = pers.x;
         prev_y = pers.y;
 
@@ -188,24 +167,7 @@ int parametrage(int map[TAILLE_X_MAP][TAILLE_Y_MAP]){
         affichage(map);
     }
     map[porte.x][porte.y] = OUVERT;
-    printf("Les coordonnées du la porte sont : %d, %d\n", porte.x, porte.y);
-    printf("Les coordonnées de perso sont : %d, %d\n", pers.x, pers.y);
     printf("Félicitation la porte est ouverte !\n");
-    return 0;
-}
-void nettoyage(int map[TAILLE_X_MAP][TAILLE_Y_MAP]){
-    int i, j;
-    for(i=0; i<TAILLE_X_MAP; i++){
-        for(j=0; j<TAILLE_Y_MAP; j++){
-            map[i][j]=VIDE;
-        }
-    }
-}
-int main(){
-    int map[TAILLE_X_MAP][TAILLE_Y_MAP];
-    srand(time(NULL));
-    parametrage(map);
-    nettoyage(map);
-    parametrage(map);
+
     return 0;
 }
