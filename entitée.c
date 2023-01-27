@@ -113,9 +113,7 @@ entite_t creer_personnage (entite_t * entite){
 entite_t creer_monstre (entite_t * entite, char * nom) {
     int emplacement = acces_mob(nom);
     entite = malloc(sizeof(entite_t));
-    entite_t temp = tab_mob[emplacement];
-
-    entite = &temp;
+    *entite = tab_mob[emplacement];
     return *entite;
 }
 
