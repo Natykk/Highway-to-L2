@@ -7,7 +7,7 @@
 /**
  * @file test_entitées.c
  * @brief Programme de début pour gerer les entitées
- * @author GEORGET Rémy, GALLAIS Mathéo
+ * @author GEORGET Rémy, GALLAIS Mathéo , GAUTERON Nathan
  * @version 1.0
  * @date 27/01/2023
  */
@@ -25,7 +25,7 @@
  */
 typedef struct entite_s {
     char* nom;
-    int vie;
+    int vie;    // vie en int et degats en float ??
     float degats;
     float vitesse_att;
     float vitesse_depl;
@@ -79,7 +79,6 @@ int acces_mob(char* chaine) {
             return i;
         }
     }
-    
 }
 
 /**
@@ -89,10 +88,9 @@ int acces_mob(char* chaine) {
  * @return entite_t 
  */
 
-entite_t creer_personnage (entite_t * entite){
+entite_t* creer_personnage (entite_t * entite){
     entite = malloc(sizeof(entite_t));
     entite->nom = malloc(sizeof(char)*30);
-    entite->nom = NULL;
 
     entite->vie = 20;
     entite->degats = 5.0;
@@ -100,6 +98,7 @@ entite_t creer_personnage (entite_t * entite){
     entite->vitesse_depl = 1.0;
     entite->x = 0;
     entite->y = 0;
+    return entite;
 }
 
 /**
@@ -110,24 +109,41 @@ entite_t creer_personnage (entite_t * entite){
  * @param nom Ici le nom permet de retrouver quel mob on veut avoir. 
  * @return entite_t 
  */
-entite_t creer_monstre (entite_t * entite, char * nom) {
+entite_t* creer_monstre (entite_t * entite, char * nom) {
     int emplacement = acces_mob(nom);
     entite = malloc(sizeof(entite_t));
     *entite = tab_mob[emplacement];
-    return *entite;
+    return entite;
 }
-
+/**
+ * @fn detruire
+ * @brief Fonction pour libéré la memoire utilisé pour les entités
+ * @param entite  
+ * @return rien 
+ */
 void detruire(entite_t* entite){
-    entite = malloc(sizeof(entite_t));
+
     free(entite->nom);
     free(entite);
     entite=NULL;
 }
 
+void degats(entite_t* donneur,entite_t* receveur){
+    receveur->vie=(receveur->vie)-(donneur->degats);
+}
+
 int main() {
-    entite_t *temp;
-    *temp = creer_monstre(temp, "Chaman");
-    afficher_entite(temp);
-    detruire(temp);
+    entite_t *mob;
+    entite_t *perso;
+    mob = creer_monstre(mob, "Chaman");
+    perso = creer_personnage(perso);
+    afficher_entite(mob);
+    afficher_entite(perso);
+    degats(mob,perso);
+    printf("\n\n");
+    afficher_entite(mob);
+    afficher_entite(perso);
+    detruire(mob);
+    detruire(perso);
 }
 
