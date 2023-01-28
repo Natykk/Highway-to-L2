@@ -117,10 +117,17 @@ entite_t creer_monstre (entite_t * entite, char * nom) {
     return *entite;
 }
 
+void detruire(entite_t* entite){
+    entite = malloc(sizeof(entite_t));
+    free(entite->nom);
+    free(entite);
+    entite=NULL;
+}
+
 int main() {
     entite_t *temp;
     *temp = creer_monstre(temp, "Chaman");
     afficher_entite(temp);
-   
+    detruire(temp);
 }
 
