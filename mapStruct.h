@@ -1,4 +1,7 @@
 #define SALLE_UNUSED -1
+#define MUR -10
+#define VIDE 0
+#define PORTE 1
 #define DIM_ETAGE 5
 #define DIM_SALLE 20
 #define DIM_SALLE_BOSS 30
@@ -12,7 +15,8 @@ typedef struct position{
 typedef struct salle {
     int nb_mobs;
     int num_salle;
-    int salle[DIM_SALLE][DIM_SALLE];
+    int nb_porte;
+    int dim[DIM_SALLE][DIM_SALLE];
     t_statut statut;
 } t_salle;
 
