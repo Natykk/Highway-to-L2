@@ -135,6 +135,7 @@ entite_t* creer_monstre (entite_t * entite, char * nom) {
 void detruire_entitee(entite_t* entite){
 
     free(entite->nom);
+    entite->nom = NULL;
     free(entite);
     entite=NULL;
 }
