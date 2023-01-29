@@ -4,6 +4,20 @@
 
 #include "mapStruct.h"
 
+/**
+ * @file mapStruct.c
+ * @brief Fichier contenant les fonctions de gestion de la map
+ * @version 1.0
+ * @date 28/01/2023
+ */
+
+
+/**
+ * \fn void affichier_num_salle(t_etage * etage)
+ * \brief Fonction d'affichage des numéros de salle
+ * \return affichage des numéros de salle
+ */
+
 void affichier_num_salle(t_etage * etage){
     int i, j;
     for(i=0; i<DIM_ETAGE; i++){
@@ -15,6 +29,12 @@ void affichier_num_salle(t_etage * etage){
     printf("\n\n");
 }
 
+
+/**
+ * \fn void afficher_salle(t_salle salle)
+ *  \param salle la salle à afficher
+ * \brief Fonction d'affichage d'une salle
+ */
 void afficher_salle(t_salle salle){
     int i, j;
     for(i=0; i<DIM_SALLE; i++){
@@ -28,6 +48,13 @@ void afficher_salle(t_salle salle){
         printf("\n");
     }
 }
+
+
+/**
+ * \fn void afficher_salle_etage(t_etage * etage)
+ * \param etage l'étage à afficher
+ * \brief Fonction d'affichage des salles d'un étage
+ */
 
 void afficher_salle_etage(t_etage * etage){
     int i, j;
@@ -46,6 +73,12 @@ void afficher_salle_etage(t_etage * etage){
     
 }
 
+
+/**
+ * \fn void afficher_etage(t_etage * etage)
+ * \param etage l'étage à afficher
+ * \brief Fonction d'affichage d'un étage
+ */
 void afficher_etage(t_etage * etage){
     int i, j;
     for(i=0; i<DIM_ETAGE; i++){
@@ -72,6 +105,15 @@ void afficher_etage(t_etage * etage){
     affichier_num_salle(etage);
 }
 
+
+
+/**
+ * \fn int salle_disponible(int x, int y, t_salle etage[DIM_ETAGE][DIM_ETAGE])
+ * \param x coordonnée x de la salle
+ * \param y coordonnée y de la salle
+ * \param etage l'étage à vérifier
+ * \brief Fonction de vérification de la disponibilité d'une salle
+ */
 int salle_disponible(int x, int y, t_salle etage[DIM_ETAGE][DIM_ETAGE]){
     if(x>=0 && x<DIM_ETAGE && y>=0 && y<DIM_ETAGE){
         if(etage[x][y].num_salle==SALLE_UNUSED){
@@ -86,6 +128,14 @@ int salle_disponible(int x, int y, t_salle etage[DIM_ETAGE][DIM_ETAGE]){
     }
 }
 
+
+/** 
+ * \fn t_pos trouverSalle(int num_salle, t_etage * etage)
+ * \param num_salle le numéro de la salle à trouver
+ * \param etage l'étage dans lequel chercher
+ * \brief Fonction de recherche d'une salle dans un étage
+ * \return la position de la salle dans l'étage
+*/
 t_pos trouverSalle(int num_salle, t_etage * etage){
     int i, j;
     t_pos pos_salle={-1,-1};
@@ -100,7 +150,13 @@ t_pos trouverSalle(int num_salle, t_etage * etage){
     }
     return pos_salle;
 }
-
+/**
+ * \fn int nb_lieu_libre(int x, int y, t_salle etage[DIM_ETAGE][DIM_ETAGE])
+ * \param x coordonnée x de la salle
+ * \param y coordonnée y de la salle
+ * \param etage l'étage à vérifier
+ * \brief Fonction de vérification du nombre d'endroit libre autour d'une salle
+ */
 int nb_lieu_libre(int x, int y, t_salle etage[DIM_ETAGE][DIM_ETAGE]){
     int cpt=0;
     if(etage[x+1][y].num_salle==SALLE_UNUSED) cpt++;
@@ -110,6 +166,15 @@ int nb_lieu_libre(int x, int y, t_salle etage[DIM_ETAGE][DIM_ETAGE]){
 
     return cpt;
 }
+
+/**
+ * \fn int nbVoisin(int x, int y, t_etage * etage)
+ * \param x coordonnée x de la salle
+ * \param y coordonnée y de la salle
+ * \param etage l'étage à vérifier
+ * \brief Fonction de vérification du nombre de salle autour d'une salle
+ * \return le nombre de salle autour de la salle
+*/
 
 int nbVoisin(int x, int y, t_etage * etage){
     int cpt=0;
@@ -121,6 +186,15 @@ int nbVoisin(int x, int y, t_etage * etage){
     return cpt;
 }
 
+
+/**
+ * \fn int genererSalle(int x_salle, int y_salle, t_etage * etage)
+ * \param x_salle coordonnée x de la salle
+ * \param y_salle coordonnée y de la salle
+ * \param etage l'étage dans lequel sont générer les salles
+ * \brief La fonction sert à générer une salle aléatoirement dans un étage en spécifiant les coordonnées x et y. Elle modifie les données de l'étage en ajoutant une nouvelle salle aux coordonnées spécifiées, avec un nombre de murs, de portes et d'espaces vides aléatoires.
+ * \return 1 si la génération s'est bien passée, 0 sinon
+*/
 int genererSalle(int x_salle, int y_salle, t_etage * etage){
     int i, j;
     for(i=0; i<DIM_SALLE; i++){
@@ -212,7 +286,13 @@ int genererSalle(int x_salle, int y_salle, t_etage * etage){
 }
 
 
-//fonction de création d'un etage, retourne 0 si la map a bien été créée sinon renvoie 100
+
+/**
+ * \fn int genererEtage(t_etage * etage)
+ * \brief Fonction de création d'un étage  
+ * \param etage pointeur sur l'étage à créer
+ * \return 0 si la map a bien été créée sinon renvoie 100
+*/
 int genererEtage(t_etage * etage){
     srand(time(NULL));
     int i, j;
@@ -303,7 +383,13 @@ int genererEtage(t_etage * etage){
     return OK;
 }
 
-//fonction de création d'un niveau, retourne 0 si la map a bien été créée sinon renvoie 100
+/**
+ * \fn int genererNiv(t_niv * niveau)
+ * \brief Fonction de création d'un niveau
+ * \param niveau pointeur sur le niveau à créer
+ * \return 0 si la map a bien été créée sinon renvoie 100
+ * 
+*/
 int genererNiv(t_niv * niveau){
     srand(time( NULL ));
     niveau->etages[0].nb_salle = rand()%4+8;
@@ -313,7 +399,12 @@ int genererNiv(t_niv * niveau){
 
     return OK;
 }
-
+/**
+ * \fn int detruireNiv(t_niv ** niveau)
+ * \brief Fonction de destruction d'un niveau
+ * \param niveau pointeur sur le niveau à détruire
+ * \return 0 si la map a bien été détruite
+*/
 int detruireNiv(t_niv ** niveau){
     free(*niveau);
     (*niveau)=NULL;
@@ -321,7 +412,11 @@ int detruireNiv(t_niv ** niveau){
     return OK;
 }
 
-
+/**
+ * \fn int main()
+ * \brief Fonction principale qui malloc un niveau et le détruit
+ * 
+*/
 int main(){
     t_niv * niveau = malloc(sizeof(t_niv));;
     genererNiv(niveau);
