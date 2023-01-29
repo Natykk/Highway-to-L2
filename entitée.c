@@ -25,7 +25,7 @@
  */
 typedef struct entite_s {
     char* nom;
-    int vie;    // vie en int et degats en float ??
+    int vie;    
     float degats;
     float vitesse_att;
     float vitesse_depl;
@@ -111,25 +111,32 @@ entite_t* creer_personnage (entite_t * entite){
  */
 entite_t* creer_monstre (entite_t * entite, char * nom) {
     int emplacement = acces_mob(nom);
+    int taille_nom = strlen(tab_mob[emplacement].nom);
+
     entite = malloc(sizeof(entite_t));
-    *entite = tab_mob[emplacement];
+    entite->nom = malloc(sizeof(char)*taille_nom);
+    
+    strcpy(entite->nom,tab_mob[emplacement].nom);
+    entite->vie = tab_mob[emplacement].vie;
+    entite->degats = tab_mob[emplacement].degats;
+    entite->vitesse_att = tab_mob[emplacement].vitesse_att;
+    entite->vitesse_depl = tab_mob[emplacement].vitesse_depl;
+    entite->x = tab_mob[emplacement].x;
+    entite->y = tab_mob[emplacement].y;
+
     return entite;
 }
 /**
- * @fn detruire
- * @brief Fonction pour libéré la memoire utilisé pour les entités
+ * @fn detruire_entitee
+ * @brief Fonction pour libérer la memoire utilisé pour les entités
  * @param entite  
  * @return rien 
  */
-void detruire(entite_t* entite){
+void detruire_entitee(entite_t* entite){
 
     free(entite->nom);
     free(entite);
     entite=NULL;
-}
-
-void degats(entite_t* donneur,entite_t* receveur){
-    receveur->vie=(receveur->vie)-(donneur->degats);
 }
 
 int main() {
@@ -137,13 +144,10 @@ int main() {
     entite_t *perso;
     mob = creer_monstre(mob, "Chaman");
     perso = creer_personnage(perso);
-    afficher_entite(mob);
-    afficher_entite(perso);
-    degats(mob,perso);
     printf("\n\n");
     afficher_entite(mob);
     afficher_entite(perso);
-    detruire(mob);
-    detruire(perso);
+    detruire_entitee(mob);
+    detruire_entitee(perso);
 }
 
