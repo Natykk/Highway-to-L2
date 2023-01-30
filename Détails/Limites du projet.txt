@@ -51,3 +51,19 @@ Cours n°1 :
   PS : Mobs = Monstres
   - Phase de test
 
+
+Détails pour la sauvegarde : 
+  - Stats 
+  - Inventaire
+  - L'arbre de compétences
+  
+Boss : 
+  - Toujours la meme map --> Apres l'étage
+    -> Piege sur la map qui met des dégats 
+  - Stats Abusés
+  
+  
+
+ 
+  
+  
