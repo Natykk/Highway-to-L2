@@ -289,7 +289,7 @@ int genererSalle(int x_salle, int y_salle, t_etage * etage){
 
 /**
  * \fn int genererEtage(t_etage * etage)
- * \brief Fonction de création d'un étage  
+ * \brief La fonction commence par initialiser un tableau pour représenter l'étage et mettre toutes les pièces de l'étage dans un état inutilisé. Ensuite, elle choisit aléatoirement une pièce de départ et, à l'aide d'une boucle while, elle ajoute des pièces à l'étage une par une. La boucle while continue jusqu'à ce que toutes les pièces aient été ajoutées. La fonction utilise un générateur de nombres aléatoires pour déterminer l'emplacement de chaque nouvelle pièce, et vérifie s'il existe des pièces inutilisées adjacentes à la pièce actuelle. Si c'est le cas, elle ajoute la nouvelle pièce à l'étage et met à jour la pièce actuelle en fonction de la nouvelle pièce. S'il n'y a pas de pièces inutilisées adjacentes à la pièce actuelle, il marque la pièce actuelle comme étant la pièce de sortie, trouve une nouvelle pièce de départ et continue à ajouter des pièces à partir de cette nouvelle pièce de départ.  
  * \param etage pointeur sur l'étage à créer
  * \return 0 si la map a bien été créée sinon renvoie 100
 */
@@ -417,8 +417,4 @@ int detruireNiv(t_niv ** niveau){
  * \brief Fonction principale qui malloc un niveau et le détruit
  * 
 */
-int main(){
-    t_niv * niveau = malloc(sizeof(t_niv));;
-    genererNiv(niveau);
-    detruireNiv(&niveau);
-}
+
