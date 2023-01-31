@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <objet.h>
 
 #define NB_MOBS 12 
 
@@ -29,6 +30,7 @@ typedef struct entite_s {
     float degats;
     float vitesse_att;
     float vitesse_depl;
+    objet_inv_t inventaire[30];
     int x;
     int y;
 }entite_t;
