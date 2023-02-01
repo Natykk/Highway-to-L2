@@ -2,7 +2,7 @@
 #include <entite.h>
 #include <objet.c>
 
-#define NB_OBJET 30
+#define NB_OBJET 17
 
 /**
  * @file objet.h

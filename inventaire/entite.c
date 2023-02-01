@@ -48,6 +48,7 @@ int acces_mob(char* chaine) {
  */
 extern
 entite_t* creer_personnage (entite_t * entite){
+    int i;
     entite = malloc(sizeof(entite_t));
     entite->nom = malloc(sizeof(char)*30);
 
@@ -58,6 +59,8 @@ entite_t* creer_personnage (entite_t * entite){
     entite->x = 0;
     entite->y = 0;
     entite->inventaire = malloc(sizeof(objet_inv_t)*(entite->place_inv));
+    entite->place_inv = NB_OBJET;
+    for(i=0; i<place_inv; i++) (entite->inventaire)[i] = tab_objet[i];
     return entite;
 }
 

@@ -3,7 +3,7 @@
 #include <string.h>
 #include <objet.h>
 
-#define NB_MOBS 17
+#define NB_MOBS 12
 
 /**
  * @file entite.h
