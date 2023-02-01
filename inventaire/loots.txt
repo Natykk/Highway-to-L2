@@ -1,0 +1,66 @@
+{"Slime_Vert", 2, 1, 0.75, 0.40, 0, 0},
+= Boule de Slime Vert,
+1
+
+{"Loup", 10, 4, 1.0, 1.2, 0, 0},
+= Fourrure, Griffe
+2
+
+{"Brigant", 20, 6, 0.9, 1.1, 0, 0},
+= Beaucoup d'or
+1
+
+{"Chaman", 12, 12, 0.8, 1, 0, 0},
+= Grimoire, Or
+2
+
+{"Slime_Gris", 10, 5, 0.75, 0.40, 0, 0},
+= Boule de Slime Gris,
+1
+
+{"Nain", 30, 8, 0.75, 0.40, 0, 0},
+= Or, Pioche
+2
+
+{"Nain_Rider", 20, 5, 1.5, 1.2, 0, 0},
+= Or, Lance_Pierre, Cailloux
+3
+
+{"Orc", 80, 20, 0.10, 0.20, 0, 0},
+= Or, Massue
+2 
+
+{"Slime_Rouge", 50, 25, 0.75, 0.40, 0, 0},
+= Boule de Slime Rouge
+1
+
+{"Diablotin", 40, 40, 1.4, 1.0, 0, 0},
+= Cornes de Diablotin, Queue de Diablotin, Or
+3
+
+{"Diable", 80, 80, 0.8, 1.2, 0, 0},
+= Lance, Coeur de dibale.
+2
+
+{"Cerbere", 200, 100, 1.8, 0.7, 0, 0}
+= Tetes, Croquettes
+2 
+
+NB_OBJET = 17 Objets
+green Goo
+fourrure
+griffe
+or
+Grimoire
+grey Goo
+Pioche
+lance Lance_Pierre
+Cailloux
+Massue
+red Goo
+Cornes de diablotins
+queues de Diablotin
+lance
+coeur de Diable
+Tetes
+Croquettes

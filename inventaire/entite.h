@@ -3,7 +3,7 @@
 #include <string.h>
 #include <objet.h>
 
-#define NB_MOBS 12 
+#define NB_MOBS 17
 
 /**
  * @file entite.h
@@ -30,27 +30,28 @@ typedef struct entite_s {
     float degats;
     float vitesse_att;
     float vitesse_depl;
-    objet_inv_t inventaire[30];
     int x;
     int y;
+    objet_inv_t * inventaire;
+    int place_inv;
 }entite_t;
 
 /**
  * @brief Tableau qui réference tout les mobs du jeu avec leurs stats de base
  */
 entite_t tab_mob[NB_MOBS] = {
-    {"Slime_Vert", 2, 1, 0.75, 0.40, 0, 0},
-    {"Loup", 10, 4, 1.0, 1.2, 0, 0},
-    {"Brigant", 20, 6, 0.9, 1.1, 0, 0},
-    {"Chaman", 12, 12, 0.8, 1, 0, 0},
-    {"Slime_Gris", 10, 5, 0.75, 0.40, 0, 0},
-    {"Nain", 30, 8, 0.75, 0.40, 0, 0},
-    {"Nain_Rider", 20, 5, 1.5, 1.2, 0, 0},
-    {"Orc", 80, 20, 0.10, 0.20, 0, 0},
-    {"Slime_Rouge", 50, 25, 0.75, 0.40, 0, 0},
-    {"Diablotin", 40, 40, 1.4, 1.0, 0, 0},
-    {"Diable", 80, 80, 0.8, 1.2, 0, 0},
-    {"Cerbere", 200, 100, 1.8, 0.7, 0, 0}
+    {"Slime_Vert", 2, 1, 0.75, 0.40, 0, 0, 1},
+    {"Loup", 10, 4, 1.0, 1.2, 0, 0, 2},
+    {"Brigant", 20, 6, 0.9, 1.1, 0, 0, 1},
+    {"Chaman", 12, 12, 0.8, 1, 0, 0, 2},
+    {"Slime_Gris", 10, 5, 0.75, 0.40, 0, 0, 1},
+    {"Nain", 30, 8, 0.75, 0.40, 0, 0, 2},
+    {"Nain_Rider", 20, 5, 1.5, 1.2, 0, 0, 3},
+    {"Orc", 80, 20, 0.10, 0.20, 0, 0, 2},
+    {"Slime_Rouge", 50, 25, 0.75, 0.40, 0, 0, 1},
+    {"Diablotin", 40, 40, 1.4, 1.0, 0, 0, 3},
+    {"Diable", 80, 80, 0.8, 1.2, 0, 0, 2},
+    {"Cerbere", 200, 100, 1.8, 0.7, 0, 0, 2}
 };
 
 void afficher_entite(entite_t *);
