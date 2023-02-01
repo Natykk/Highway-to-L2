@@ -18,7 +18,7 @@
  * \return affichage des numéros de salle
  */
 
-/*
+
 void affichier_num_salle(t_etage * etage){
     int i, j;
     for(i=0; i<DIM_ETAGE; i++){
@@ -29,7 +29,7 @@ void affichier_num_salle(t_etage * etage){
     }
     printf("\n\n");
 }
-*/
+
 
 /**
  * \fn void afficher_salle(t_salle salle)
@@ -278,7 +278,6 @@ int genererSalle(int x_salle, int y_salle, t_etage * etage){
             
         }
     }
-
     return OK;
 }
 
@@ -322,7 +321,6 @@ int etageConforme(t_etage * etage){
  * \return 0 si la map a bien été créée sinon renvoie 100
 */
 int genererEtage(t_etage * etage){
-    srand(time(NULL));
     int i, j;
     for(i=0; i<DIM_ETAGE; i++){
         for(j=0; j<DIM_ETAGE; j++){
@@ -333,16 +331,16 @@ int genererEtage(t_etage * etage){
     int x=rand()%DIM_ETAGE;
     int y=rand()%DIM_ETAGE;
     int i_salle = 1;
-    int i_new;
     etage->etage[x][y].num_salle=i_salle++;
     etage->etage[x][y].statut=START;
+    
+    int i_new;
     int exit_attribue=0;
     int new_salle_trouve=0;
     int prev_x;
     int prev_y;
     int choix_direction_salle;
 
-    printf("Nb Salle : %d\n", etage->nb_salle);
     while (i_salle<=etage->nb_salle){
         prev_x = x;
         prev_y = y;
@@ -374,8 +372,8 @@ int genererEtage(t_etage * etage){
 
         do{
             choix_direction_salle = rand()%4;
-            printf("Choix direction : %d\n", choix_direction_salle);
-            printf("A ce moment, i_salle = %d\n", i_salle);
+            //printf("Choix direction : %d\n", choix_direction_salle);
+            //printf("A ce moment, i_salle = %d\n", i_salle);
             if(choix_direction_salle==0 && salle_disponible(x+1,y,etage->etage)==1){
                 etage->etage[++x][y].num_salle=i_salle;
             }
@@ -406,6 +404,7 @@ int genererEtage(t_etage * etage){
             }
         }
     }
+    
     return OK;
 }
 
@@ -419,6 +418,8 @@ int genererEtage(t_etage * etage){
 int genererNiv(t_niv * niveau){
     srand(time( NULL ));
     niveau->etages[0].nb_salle = rand()%4+8;
+    niveau->etages[1].nb_salle = rand()%4+8;
+    niveau->etages[2].nb_salle = rand()%4+8;
     do{
         genererEtage(&niveau->etages[0]);
     }while(!etageConforme(&niveau->etages[0]));
@@ -428,7 +429,6 @@ int genererNiv(t_niv * niveau){
     do{
         genererEtage(&niveau->etages[2]);
     }while(!etageConforme(&niveau->etages[2]));
-    //afficher_etage(&niveau->etages[0]);
 
     return OK;
 }
@@ -451,10 +451,10 @@ int detruireNiv(t_niv ** niveau){
  * \brief Fonction principale qui génère un niveau et le détruit.
  * 
 */
-/*
+
 int main(){
     t_niv * niveau = malloc(sizeof(t_niv));;
     genererNiv(niveau);
     detruireNiv(&niveau);
 }
-*/
+
