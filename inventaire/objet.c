@@ -43,3 +43,6 @@ int acces_obj(char* chaine) {
         }
     }
 }
+
+
+objet_t * creer_objet(objet_inv_t*);
