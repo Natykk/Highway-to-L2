@@ -18,7 +18,7 @@
  * \return affichage des numéros de salle
  */
 
-
+/*
 void affichier_num_salle(t_etage * etage){
     int i, j;
     for(i=0; i<DIM_ETAGE; i++){
@@ -29,6 +29,7 @@ void affichier_num_salle(t_etage * etage){
     }
     printf("\n\n");
 }
+*/
 
 
 /**
@@ -451,10 +452,10 @@ int detruireNiv(t_niv ** niveau){
  * \brief Fonction principale qui génère un niveau et le détruit.
  * 
 */
-
+/*
 int main(){
     t_niv * niveau = malloc(sizeof(t_niv));;
     genererNiv(niveau);
     detruireNiv(&niveau);
 }
-
+*/
