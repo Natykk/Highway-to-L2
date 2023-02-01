@@ -6,7 +6,7 @@
 
 /**
  * @file objet.h
- * @brief Fichier contenant toutes les structutes de données lié aux objets
+ * @brief Fichier contenant toutes les structutes de données liées aux objets
  * @author GEORGET Rémy, GALLAIS Mathéo
  * @version 1.0
  * @date 31/01/2023
@@ -41,13 +41,16 @@ typedef struct objet_inv_s
 }objet_inv_t;
 
 /**
- * @brief Tableau qui réference tous les objets du jeu avec leurs stats de bases
+ * @brief Tableau qui réference tous les objets du jeu
  */
 objet_t tab_objet[NB_OBJET] = {
     {
         "Feuille",
         "Bah c'est une feuille quoi...",
-        1
+    }
+    {
+        "Slime Goo",
+        "T'en a encore au coin de la bouche",
     }
     /**
      * @brief a remplir
