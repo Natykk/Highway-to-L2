@@ -9,6 +9,14 @@ const int TILE_SIZE = 32;
 const int MAP_WIDTH = 20;
 const int MAP_HEIGHT = 20;
 
+
+/**
+ * \fn transfer(t_salle salle,int map[DIM_SALLE][DIM_SALLE])
+ *  \brief Transfert la salle dans la map
+ *  @param salle La salle
+ *  @param map La map
+ *  
+*/
 void transfer(t_salle salle,int map[DIM_SALLE][DIM_SALLE]){
     int i, j;
     for(i=0; i<DIM_SALLE; i++){
@@ -42,28 +50,56 @@ void trouve_salle(t_niv niveau, int posSalle[2],int salle){
         printf("\n");
     }
 }
-
+/**
+ * \fn void changement(t_niv niv,int move, int posPerso[2],int posSalle[2], int map[DIM_SALLE][DIM_SALLE])
+ *  @brief Change de salle
+ *  @param niv Le niveau
+ *  @param move La direction du changement
+ *  @param posPerso La position du personnage
+ *  @param posSalle La position de la salle
+ *  @param map La map de la salle
+ *  
+*/
 void changement(t_niv niv,int move, int posPerso[2],int posSalle[2], int map[DIM_SALLE][DIM_SALLE]){
     if(move==0){
         posSalle[0]--;
-        posPerso[0]=DIM_SALLE-2;
+        posPerso[1]=DIM_SALLE-2;
+        posPerso[0]=(DIM_SALLE/2)-1;
     }
     if(move==1){
         posSalle[1]++;
-        posPerso[1]=1;
+        posPerso[1]=(DIM_SALLE/2)-1;
+        posPerso[0]=1;
     }
     if(move==2){
         posSalle[0]++;
-        posPerso[0]=1;
+        posPerso[0]=(DIM_SALLE/2)-1;
+        posPerso[1]=1;
     }
     if(move==3){
         posSalle[1]--;
-        posPerso[1]=DIM_SALLE-2;
+        posPerso[0]=DIM_SALLE-2;
+        posPerso[1]=(DIM_SALLE/2)-1;
+    }
+    if(niv.etages[0].etage[posSalle[0]][posSalle[1]].statut==EXIT){
+        printf("C\'est la fin !\n");
     }
     transfer(niv.etages[0].etage[posSalle[0]][posSalle[1]],map);
-    map[posPerso[0]][posPerso[1]] = PERSO;
+    map[posPerso[1]][posPerso[0]] = PERSO;
+    printf("Salle %d-%d\n",posSalle[0],posSalle[1]);
+    printf("PosPerso %d-%d\n",posPerso[0],posPerso[1]);
 }
-
+/**
+ * \fn void mouvement(int map[DIM_SALLE][DIM_SALLE],int move, int posPerso[2], int posPorte[2], int posSalle[2], t_niv niv)
+ * @brief Déplace le perso dans la salle
+ * @param map La salle
+ * @param move La direction du mouvement
+ * @param posPerso La position du perso
+ * @param posPorte La position de la porte
+ * @param posSalle La position de la salle
+ * @param niv Le niveau
+ * 
+*/
 void mouvement(int map[DIM_SALLE][DIM_SALLE],int move, int posPerso[2], int posPorte[2], int posSalle[2], t_niv niv){
     int x = posPerso[0];
     int y = posPerso[1];
@@ -72,7 +108,7 @@ void mouvement(int map[DIM_SALLE][DIM_SALLE],int move, int posPerso[2], int posP
             changement(niv, move, posPerso,posSalle,map); 
         }
         if(map[y-1][x] != MUR && map[y-1][x] != PORTE){ // Si la case du haut n'est pas un mur
-            map[y-1][x]=5;  //map[(y-1)*MAP_WIDTH+x] = 5; // On met le perso sur la case du haut
+            map[y-1][x]=PERSO;  //map[(y-1)*MAP_WIDTH+x] = 5; // On met le perso sur la case du haut
             map[y][x]=0;   //map[y*MAP_WIDTH+x] = 0; // On met la case du perso à vide
             posPerso[0] = x; // On met à jour la position du perso
             posPerso[1] = y-1;
@@ -125,6 +161,8 @@ void mouvement(int map[DIM_SALLE][DIM_SALLE],int move, int posPerso[2], int posP
 
 
 int main() {
+  t_niv niv;
+  genererNiv(&niv);
   SDL_Init(SDL_INIT_VIDEO);
   SDL_Window* window = SDL_CreateWindow("Map", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, TILE_SIZE * MAP_WIDTH,TILE_SIZE * MAP_HEIGHT, 0); // On crée la fenêtre
   SDL_Renderer* renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC); // On crée le renderer
@@ -144,23 +182,14 @@ int main() {
   SDL_Surface* tilePerso = IMG_Load("character.png"); 
   SDL_Texture* PersoTex = SDL_CreateTextureFromSurface(renderer, tilePerso);
   SDL_FreeSurface(tilePerso);
-  t_niv niv;
-  genererNiv(&niv);
-  
-  /*
-  int map[100] = {
-    1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-    1, 5, 0, 0, 0, 0, 0, 0, 0, 1,
-    1, 0, 0, 0, 0, 0, 0, 0, 0, 1,
-    1, 0, 0, 0, 0, 0, 0, 0, 0, 1,
-    1, 0, 0, 0, 0, 0, 0, 0, 0, 1,
-    1, 0, 0, 0, 0, 0, 0, 0, 0, 1,
-    1, 0, 0, 0, 0, 0, 0, 0, 0, 1,
-    1, 0, 0, 0, 0, 0, 0, 0, 0, 1,
-    1, 0, 0, 0, 0, 0, 0, 0, 0, 1,
-    1, 1, 1, 1, 1, 1, 1, 1, 1, 1
-  };
-  */
+
+ // faire l'animation de sprite du perso en SDL2 
+
+
+
+
+
+
     int map[DIM_SALLE][DIM_SALLE]; // Matrice de la salle
     int posSalle[2]; // Position de la 1er salle
     int posPerso[2] = {DIM_SALLE/2,DIM_SALLE/2}; // Position du perso au millieu de la salle

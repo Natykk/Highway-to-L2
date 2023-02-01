@@ -160,10 +160,10 @@ t_pos trouverSalle(int num_salle, t_etage * etage){
  */
 int nb_lieu_libre(int x, int y, t_salle etage[DIM_ETAGE][DIM_ETAGE]){
     int cpt=0;
-    if(etage[x+1][y].num_salle==SALLE_UNUSED) cpt++;
-    if(etage[x-1][y].num_salle==SALLE_UNUSED) cpt++;
-    if(etage[x][y-1].num_salle==SALLE_UNUSED) cpt++;
-    if(etage[x][y+1].num_salle==SALLE_UNUSED) cpt++;
+    if(x+1>=0 && x+1<DIM_ETAGE && etage[x+1][y].num_salle==SALLE_UNUSED) cpt++;
+    if(x-1>=0 && x-1<DIM_ETAGE && etage[x-1][y].num_salle==SALLE_UNUSED) cpt++;
+    if(y-1>=0 && y-1<DIM_ETAGE && etage[x][y-1].num_salle==SALLE_UNUSED) cpt++;
+    if(y+1>=0 && y+1<DIM_ETAGE && etage[x][y+1].num_salle==SALLE_UNUSED) cpt++;
 
     return cpt;
 }
@@ -178,10 +178,10 @@ int nb_lieu_libre(int x, int y, t_salle etage[DIM_ETAGE][DIM_ETAGE]){
 */
 int nbVoisin(int x, int y, t_etage * etage){
     int cpt=0;
-    if(etage->etage[x+1][y].num_salle!=SALLE_UNUSED) cpt++;
-    if(etage->etage[x-1][y].num_salle!=SALLE_UNUSED) cpt++;
-    if(etage->etage[x][y+1].num_salle!=SALLE_UNUSED) cpt++;
-    if(etage->etage[x][y-1].num_salle!=SALLE_UNUSED) cpt++;
+    if(x+1>=0 && x+1<DIM_ETAGE && etage->etage[x+1][y].num_salle!=SALLE_UNUSED) cpt++;
+    if(x-1>=0 && x-1<DIM_ETAGE && etage->etage[x-1][y].num_salle!=SALLE_UNUSED) cpt++;
+    if(y+1>=0 && y+1<DIM_ETAGE && etage->etage[x][y+1].num_salle!=SALLE_UNUSED) cpt++;
+    if(y-1>=0 && y-1<DIM_ETAGE && etage->etage[x][y-1].num_salle!=SALLE_UNUSED) cpt++;
 
     return cpt;
 }
@@ -292,16 +292,16 @@ int etageConforme(t_etage * etage){
     int i=1;
     t_pos salle1 = trouverSalle(i++,etage);
     while(i<etage->nb_salle){
-        if(etage->etage[salle1.x][salle1.y+1].num_salle==i+1){
+        if(salle1.y+1>=0 && salle1.y+1<DIM_ETAGE && etage->etage[salle1.x][salle1.y+1].num_salle==i+1){
             salle1.y++;
         }
-        else if(etage->etage[salle1.x][salle1.y-1].num_salle==i+1){
+        else if(salle1.y-1>=0 && salle1.y-1<DIM_ETAGE && etage->etage[salle1.x][salle1.y-1].num_salle==i+1){
             salle1.y--;
         }
-        else if(etage->etage[salle1.x+1][salle1.y].num_salle==i+1){
+        else if(salle1.x+1>=0 && salle1.x+1<DIM_ETAGE && etage->etage[salle1.x+1][salle1.y].num_salle==i+1){
             salle1.x++;
         }
-        else if(etage->etage[salle1.x-1][salle1.y].num_salle==i+1){
+        else if(salle1.x-1>=0 && salle1.x-1<DIM_ETAGE && etage->etage[salle1.x-1][salle1.y].num_salle==i+1){
             salle1.x--;   
         }
         i++;
@@ -351,7 +351,6 @@ int genererEtage(t_etage * etage){
                 exit_attribue=1;
             }
             new_salle_trouve=0;
-            t_pos pos_salle;
             i_new=1;
             
 
