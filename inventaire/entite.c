@@ -57,6 +57,7 @@ entite_t* creer_personnage (entite_t * entite){
     entite->vitesse_depl = 1.0;
     entite->x = 0;
     entite->y = 0;
+    entite->inventaire = malloc(sizeof(objet_inv_t)*(entite->place_inv));
     return entite;
 }
 
@@ -83,6 +84,7 @@ entite_t* creer_monstre (entite_t * entite, char * nom) {
     entite->vitesse_depl = tab_mob[emplacement].vitesse_depl;
     entite->x = tab_mob[emplacement].x;
     entite->y = tab_mob[emplacement].y;
+    entite->inventaire = malloc(sizeof(objet_inv_t)*(entite->place_inv));
 
     return entite;
 }
@@ -94,9 +96,11 @@ entite_t* creer_monstre (entite_t * entite, char * nom) {
  */
 extern
 void detruire_entitee(entite_t* entite){
-
+    int i;
     free(entite->nom);
     entite->nom = NULL;
+    free(entite->inventaire);
+    entite->inventaire = NULL;
     free(entite);
     entite=NULL;
 }
