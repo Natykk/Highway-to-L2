@@ -18,6 +18,7 @@
  * \return affichage des numéros de salle
  */
 
+/*
 void affichier_num_salle(t_etage * etage){
     int i, j;
     for(i=0; i<DIM_ETAGE; i++){
@@ -28,13 +29,14 @@ void affichier_num_salle(t_etage * etage){
     }
     printf("\n\n");
 }
-
+*/
 
 /**
  * \fn void afficher_salle(t_salle salle)
  *  \param salle la salle à afficher
  * \brief Fonction d'affichage d'une salle
  */
+/*
 void afficher_salle(t_salle salle){
     int i, j;
     for(i=0; i<DIM_SALLE; i++){
@@ -48,14 +50,14 @@ void afficher_salle(t_salle salle){
         printf("\n");
     }
 }
-
+*/
 
 /**
  * \fn void afficher_salle_etage(t_etage * etage)
  * \param etage l'étage à afficher
  * \brief Fonction d'affichage des salles d'un étage
  */
-
+/*
 void afficher_salle_etage(t_etage * etage){
     int i, j;
     for(i=0; i<DIM_ETAGE; i++){
@@ -69,16 +71,16 @@ void afficher_salle_etage(t_etage * etage){
             printf("\n\n");
             }
         }
-    }
-    
+    } 
 }
-
+*/
 
 /**
  * \fn void afficher_etage(t_etage * etage)
  * \param etage l'étage à afficher
  * \brief Fonction d'affichage d'un étage
  */
+/*
 void afficher_etage(t_etage * etage){
     int i, j;
     for(i=0; i<DIM_ETAGE; i++){
@@ -100,12 +102,10 @@ void afficher_etage(t_etage * etage){
     }
     printf("\n\n");
     
-
-    afficher_salle_etage(etage);
+    //afficher_salle_etage(etage);
     affichier_num_salle(etage);
 }
-
-
+*/
 
 /**
  * \fn int salle_disponible(int x, int y, t_salle etage[DIM_ETAGE][DIM_ETAGE])
@@ -128,7 +128,6 @@ int salle_disponible(int x, int y, t_salle etage[DIM_ETAGE][DIM_ETAGE]){
     }
 }
 
-
 /** 
  * \fn t_pos trouverSalle(int num_salle, t_etage * etage)
  * \param num_salle le numéro de la salle à trouver
@@ -150,6 +149,7 @@ t_pos trouverSalle(int num_salle, t_etage * etage){
     }
     return pos_salle;
 }
+
 /**
  * \fn int nb_lieu_libre(int x, int y, t_salle etage[DIM_ETAGE][DIM_ETAGE])
  * \param x coordonnée x de la salle
@@ -175,17 +175,15 @@ int nb_lieu_libre(int x, int y, t_salle etage[DIM_ETAGE][DIM_ETAGE]){
  * \brief Fonction de vérification du nombre de salle autour d'une salle
  * \return le nombre de salle autour de la salle
 */
-
 int nbVoisin(int x, int y, t_etage * etage){
     int cpt=0;
-    if(etage->etage[x+1][y].num_salle!=-1) cpt++;
-    if(etage->etage[x-1][y].num_salle!=-1) cpt++;
-    if(etage->etage[x][y+1].num_salle!=-1) cpt++;
-    if(etage->etage[x][y-1].num_salle!=-1) cpt++;
+    if(etage->etage[x+1][y].num_salle!=SALLE_UNUSED) cpt++;
+    if(etage->etage[x-1][y].num_salle!=SALLE_UNUSED) cpt++;
+    if(etage->etage[x][y+1].num_salle!=SALLE_UNUSED) cpt++;
+    if(etage->etage[x][y-1].num_salle!=SALLE_UNUSED) cpt++;
 
     return cpt;
 }
-
 
 /**
  * \fn int genererSalle(int x_salle, int y_salle, t_etage * etage)
@@ -209,7 +207,6 @@ int genererSalle(int x_salle, int y_salle, t_etage * etage){
     }
 
     int cpt_porte=0;
-    printf("Gestion des portes :\n");
     if(etage->etage[x_salle][y_salle].statut==EXIT){
         etage->etage[x_salle][y_salle].nb_porte=1;
         if(salle_disponible(x_salle-1, y_salle, etage->etage)==-1 && etage->etage[x_salle-1][y_salle].num_salle == etage->etage[x_salle][y_salle].num_salle-1){
@@ -285,6 +282,37 @@ int genererSalle(int x_salle, int y_salle, t_etage * etage){
     return OK;
 }
 
+/**
+ * \fn int etageConforme(t_etage * etage)
+ * \brief Fonction vérifiant si l'étage possède autant de salles que etage->nb_salle et verifie la numerotation des chaque pièce.
+ * \param etage pointeur sur l'étage à vérifier
+ * \return 0 si l'étage n'est pas complet ou si il manque des salles (ex : 3-4-6-7), sinon si tout va bien retourne 1
+*/
+int etageConforme(t_etage * etage){
+    int i=1;
+    t_pos salle1 = trouverSalle(i++,etage);
+    while(i<etage->nb_salle){
+        if(etage->etage[salle1.x][salle1.y+1].num_salle==i+1){
+            salle1.y++;
+        }
+        else if(etage->etage[salle1.x][salle1.y-1].num_salle==i+1){
+            salle1.y--;
+        }
+        else if(etage->etage[salle1.x+1][salle1.y].num_salle==i+1){
+            salle1.x++;
+        }
+        else if(etage->etage[salle1.x-1][salle1.y].num_salle==i+1){
+            salle1.x--;   
+        }
+        i++;
+    }
+    if(i==etage->nb_salle){
+        return 1;
+    }
+    else{
+        return 0;
+    }
+}
 
 
 /**
@@ -306,16 +334,48 @@ int genererEtage(t_etage * etage){
     int y=rand()%DIM_ETAGE;
     int i_salle = 1;
     int i_new;
-    etage->etage[x][y].num_salle=i_salle;
+    etage->etage[x][y].num_salle=i_salle++;
     etage->etage[x][y].statut=START;
     int exit_attribue=0;
     int new_salle_trouve=0;
+    int prev_x;
+    int prev_y;
+    int choix_direction_salle;
 
-    while (i_salle++<etage->nb_salle){
-        int prev_x = x;
-        int prev_y = y;
+    printf("Nb Salle : %d\n", etage->nb_salle);
+    while (i_salle<=etage->nb_salle){
+        prev_x = x;
+        prev_y = y;
+        if(salle_disponible(x,y-1,etage->etage)!=1 && salle_disponible(x,y+1,etage->etage)!=1 && salle_disponible(x-1,y,etage->etage)!=1 && salle_disponible(x+1,y,etage->etage)!=1){
+            if(exit_attribue==0){
+                etage->etage[prev_x][prev_y].statut=EXIT;
+                exit_attribue=1;
+            }
+            new_salle_trouve=0;
+            t_pos pos_salle;
+            i_new=1;
+            
+
+            while(!new_salle_trouve){
+                t_pos new_pos=trouverSalle(i_new, etage);
+                x=new_pos.x;
+                y=new_pos.y;
+                prev_x=x;
+                prev_y=y;
+                
+                if(nb_lieu_libre(x,y,etage->etage)>1){
+                    new_salle_trouve=1;
+                }
+                else{
+                    i_new++;
+                }
+            }
+        }
+
         do{
-            int choix_direction_salle = rand()%4;
+            choix_direction_salle = rand()%4;
+            printf("Choix direction : %d\n", choix_direction_salle);
+            printf("A ce moment, i_salle = %d\n", i_salle);
             if(choix_direction_salle==0 && salle_disponible(x+1,y,etage->etage)==1){
                 etage->etage[++x][y].num_salle=i_salle;
             }
@@ -328,41 +388,6 @@ int genererEtage(t_etage * etage){
             else if(choix_direction_salle==3 && salle_disponible(x,y-1,etage->etage)==1){
                 etage->etage[x][--y].num_salle=i_salle;
             }
-            else if(!salle_disponible(x,y-1,etage->etage) && !salle_disponible(x,y+1,etage->etage) && !salle_disponible(x-1,y,etage->etage) && !salle_disponible(x+1,y,etage->etage)){
-                etage->etage[prev_x][prev_y].statut=EXIT;
-                exit_attribue=1;
-                new_salle_trouve=0;
-                t_pos pos_salle;
-                i_new=1;
-
-                while(!new_salle_trouve){
-                    t_pos new_pos=trouverSalle(i_new, etage);
-                    x=new_pos.x;
-                    y=new_pos.y;
-                    
-                    if(nb_lieu_libre(x,y,etage->etage)>1){
-                        new_salle_trouve=1;
-                    }
-                    else{
-                        i_new++;
-                    }
-                }
-
-                choix_direction_salle = rand()%4;
-                if(choix_direction_salle==0 && salle_disponible(x+1,y,etage->etage)==1){
-                    etage->etage[++x][y].num_salle=i_salle;
-                }
-                else if(choix_direction_salle==1 && salle_disponible(x-1,y,etage->etage)==1){
-                    etage->etage[--x][y].num_salle=i_salle;
-                }
-                else if(choix_direction_salle==2 && salle_disponible(x,y+1,etage->etage)==1){
-                    etage->etage[x][++y].num_salle=i_salle;
-                }
-                else if(choix_direction_salle==3 && salle_disponible(x,y-1,etage->etage)==1){
-                    etage->etage[x][--y].num_salle=i_salle;
-                }
-
-            }
         }while(x == prev_x && y == prev_y);
 
         if(i_salle<=etage->nb_salle && etage->etage[x][y].statut!=START){
@@ -371,6 +396,7 @@ int genererEtage(t_etage * etage){
         if(i_salle==etage->nb_salle && exit_attribue==0){
             etage->etage[x][y].statut=EXIT;
         }
+        i_salle++;
     }
 
     for(i=0; i<DIM_ETAGE; i++){
@@ -393,12 +419,20 @@ int genererEtage(t_etage * etage){
 int genererNiv(t_niv * niveau){
     srand(time( NULL ));
     niveau->etages[0].nb_salle = rand()%4+8;
-    genererEtage(&niveau->etages[0]);
-
-    afficher_etage(&niveau->etages[0]);
+    do{
+        genererEtage(&niveau->etages[0]);
+    }while(!etageConforme(&niveau->etages[0]));
+    do{
+        genererEtage(&niveau->etages[1]);
+    }while(!etageConforme(&niveau->etages[1]));
+    do{
+        genererEtage(&niveau->etages[2]);
+    }while(!etageConforme(&niveau->etages[2]));
+    //afficher_etage(&niveau->etages[0]);
 
     return OK;
 }
+
 /**
  * \fn int detruireNiv(t_niv ** niveau)
  * \brief Fonction de destruction d'un niveau
@@ -414,7 +448,13 @@ int detruireNiv(t_niv ** niveau){
 
 /**
  * \fn int main()
- * \brief Fonction principale qui malloc un niveau et le détruit
+ * \brief Fonction principale qui génère un niveau et le détruit.
  * 
 */
-
+/*
+int main(){
+    t_niv * niveau = malloc(sizeof(t_niv));;
+    genererNiv(niveau);
+    detruireNiv(&niveau);
+}
+*/
