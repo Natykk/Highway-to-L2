@@ -60,5 +60,5 @@ objet_t tab_objet[NB_OBJET] = {
 
 void afficher_objet(objet_inv_t *);
 int acces_obj(char*);
-objet_t * creer_objet(objet_t*, char*);
+objet_t * creer_objet(objet_t* , char*);
 void detruire_objet(objet *);

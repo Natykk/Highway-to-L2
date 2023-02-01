@@ -45,4 +45,6 @@ int acces_obj(char* chaine) {
 }
 
 
-objet_t * creer_objet(objet_inv_t*);
+objet_t * creer_objet(objet_inv_t* inventaire, char * chaine){
+
+}
