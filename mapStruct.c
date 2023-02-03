@@ -37,7 +37,7 @@ void affichier_num_salle(t_etage * etage){
  *  \param salle la salle à afficher
  * \brief Fonction d'affichage d'une salle
  */
-
+/*
 void afficher_salle(t_salle salle){
     int i, j;
     for(i=0; i<DIM_SALLE; i++){
@@ -52,7 +52,7 @@ void afficher_salle(t_salle salle){
         printf("\n");
     }
 }
-
+*/
 
 /**
  * \fn void afficher_salle_etage(t_etage * etage)
@@ -293,7 +293,6 @@ int genererSalle(int x_salle, int y_salle, t_etage * etage){
         etage->etage[x_salle][y_salle].dim[x_obst][y_obst]=OBSTACLE;
         nbObstplace++;
     }
-    afficher_salle(etage->etage[x_salle][y_salle]);
 
     return OK;
 }
@@ -468,8 +467,10 @@ int detruireNiv(t_niv ** niveau){
  * 
 */
 
+/*
 int main(){
     t_niv * niveau = malloc(sizeof(t_niv));;
     genererNiv(niveau);
     detruireNiv(&niveau);
 }
+*/
