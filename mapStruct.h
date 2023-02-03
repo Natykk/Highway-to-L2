@@ -12,6 +12,7 @@
  * @brief Définition des structures de données pour la map
  * 
 */
+typedef enum{AUCUN=-1,HAUT,DROITE,BAS,GAUCHE} t_dir;
 /**
  * \enum t_statut
  * \brief Définition des différents statuts d'une salle

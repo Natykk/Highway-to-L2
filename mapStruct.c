@@ -282,7 +282,7 @@ int genererSalle(int x_salle, int y_salle, t_etage * etage){
 
     }
 
-    int nbObstacle=rand()% 3 + 3;        //génère entre 3 et 5 obstacles
+    int nbObstacle=rand()% 9 + 3;        //génère entre 3 et 12 obstacles
     int nbObstplace=0;
     int x_obst, y_obst;
     while(nbObstplace<nbObstacle){
