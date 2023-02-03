@@ -87,6 +87,7 @@ entite_t* creer_monstre (entite_t * entite, char * nom) {
     entite->vitesse_depl = tab_mob[emplacement].vitesse_depl;
     entite->x = tab_mob[emplacement].x;
     entite->y = tab_mob[emplacement].y;
+    entite->place_inv = tab_mob[emplacement].place_inv;
     entite->inventaire = malloc(sizeof(objet_inv_t)*(entite->place_inv));
 
     return entite;
