@@ -37,7 +37,7 @@ void affichier_num_salle(t_etage * etage){
  *  \param salle la salle à afficher
  * \brief Fonction d'affichage d'une salle
  */
-/*
+
 void afficher_salle(t_salle salle){
     int i, j;
     for(i=0; i<DIM_SALLE; i++){
@@ -46,12 +46,13 @@ void afficher_salle(t_salle salle){
                 case VIDE : printf(" "); break;
                 case PORTE : printf("P"); break;
                 case MUR : printf("*"); break;
+                case OBSTACLE : printf("+"); break;
             }
         }
         printf("\n");
     }
 }
-*/
+
 
 /**
  * \fn void afficher_salle_etage(t_etage * etage)
@@ -278,7 +279,22 @@ int genererSalle(int x_salle, int y_salle, t_etage * etage){
             }
             
         }
+
     }
+
+    int nbObstacle=rand()% 3 + 3;        //génère entre 3 et 5 obstacles
+    int nbObstplace=0;
+    int x_obst, y_obst;
+    while(nbObstplace<nbObstacle){
+        do{
+            x_obst=rand()%(DIM_SALLE-4)+2;
+            y_obst=rand()%(DIM_SALLE-4)+2;
+        }while(etage->etage[x_salle][y_salle].dim[x_obst][y_obst]!=VIDE);
+        etage->etage[x_salle][y_salle].dim[x_obst][y_obst]=OBSTACLE;
+        nbObstplace++;
+    }
+    afficher_salle(etage->etage[x_salle][y_salle]);
+
     return OK;
 }
 
@@ -451,10 +467,9 @@ int detruireNiv(t_niv ** niveau){
  * \brief Fonction principale qui génère un niveau et le détruit.
  * 
 */
-/*
+
 int main(){
     t_niv * niveau = malloc(sizeof(t_niv));;
     genererNiv(niveau);
     detruireNiv(&niveau);
 }
-*/

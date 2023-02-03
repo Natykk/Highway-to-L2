@@ -1,7 +1,9 @@
 #define SALLE_UNUSED -1
-#define MUR 1
+
 #define VIDE 0
+#define MUR 1
 #define PORTE 2
+#define OBSTACLE 3
 #define DIM_ETAGE 5
 #define DIM_SALLE 20
 #define DIM_SALLE_BOSS 30
