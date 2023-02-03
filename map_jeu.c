@@ -275,7 +275,7 @@ int main() {
         }
     }
      Uint32 currentTime = SDL_GetTicks(); // Temps actuel
-    if (currentTime - lastTime >= 20) { // Mettre à jour toutes les 100 ms
+    if (currentTime - lastTime >= 300) { // Mettre à jour toutes les 100 ms
       frame = (frame + 1) % SPRITE_FRAMES; // Passer à la frame suivante
       lastTime = currentTime;
     }
@@ -301,12 +301,12 @@ int main() {
         }
         if (map.dim[x][y] == PERSO) { // Si c'est le perso
             //printf("x = %d, y = %d perso trouvé\n",x,y);
-            PersRect.x = frame * SPRITE_WIDTH; // Position de la frame dans l'image
-            PersRect.w = SPRITE_WIDTH; // Taille de la frame
+            PersRect.x = frame * 20; // Position de la frame dans l'image
+            PersRect.w = 20; // Taille de la frame
             PersRect.y = 0;
-            PersRect.h = SPRITE_HEIGHT;
-            dstRect.x = x * TILE_SIZE;
-            dstRect.y = y * TILE_SIZE;
+            PersRect.h = 24;
+            dstRect.x = x * 24;
+            dstRect.y = y * 24;
             if(move==HAUT)
                 SDL_RenderCopyEx(renderer, PersoNorth, &PersRect, &dstRect, 0, NULL, SDL_FLIP_NONE);
             if(move==BAS)
