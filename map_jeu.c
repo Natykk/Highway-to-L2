@@ -11,7 +11,7 @@ const int MAP_HEIGHT = 20;
 const int SPRITE_FRAMES = 4; // Nombre de frames de l'animation
 const int SPRITE_WIDTH =32; // Largeur d'une frame
 const int SPRITE_HEIGHT = 32; // Hauteur d'une frame
-
+int flip_map=0;
 /**
  * \fn transfer(t_salle salle,int map[DIM_SALLE][DIM_SALLE])
  *  \brief Transfert la salle dans la map
@@ -90,6 +90,7 @@ void changement(t_niv * niv, t_dir move, t_pos * posPerso, t_pos * posSalle, t_s
     transfert(niv->etages[0].etage[posSalle->x][posSalle->y], map);
     map->num_salle=niv->etages[0].etage[posSalle->x][posSalle->y].num_salle;
     map->dim[posPerso->x][posPerso->y] = PERSO;
+    flip_map=rand()%4;
     printf("Salle n°%d\n", map->num_salle);
     //printf("Salle %d-%d\n",posSalle->x, posSalle->y);
     //printf("PosPerso %d-%d\n",posPerso->x, posPerso->y);
@@ -176,14 +177,13 @@ SDL_Texture* charge_tex(SDL_Renderer *renderer,char *path,int bmp_flag){
 }
 
 
-
 int main() {
     t_niv * niv = malloc(sizeof(t_niv));
     genererNiv(niv);
     SDL_Rect PersRect;
     int frame;
     SDL_Init(SDL_INIT_VIDEO);
-    SDL_Window* window = SDL_CreateWindow("Map", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, TILE_SIZE * MAP_WIDTH, TILE_SIZE * MAP_HEIGHT, 0); // On crée la fenêtre
+    SDL_Window* window = SDL_CreateWindow("Map", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED,  TILE_SIZE * MAP_WIDTH, TILE_SIZE * MAP_HEIGHT, 0); // On crée la fenêtre
     SDL_Renderer* renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC); // On crée le renderer
 
     SDL_Texture* Mur = charge_tex(renderer,"brick.png",0);
@@ -275,73 +275,68 @@ int main() {
         }
     }
      Uint32 currentTime = SDL_GetTicks(); // Temps actuel
-    if (currentTime - lastTime >= 300) { // Mettre à jour toutes les 100 ms
+    if (currentTime - lastTime >= 300) { // Mettre à jour toutes les 300 ms
       frame = (frame + 1) % SPRITE_FRAMES; // Passer à la frame suivante
-      lastTime = currentTime;
+      lastTime = currentTime; // Mettre à jour le temps de la dernière mise à jour
     }
     
     SDL_RenderClear(renderer); // On efface l'écran
-    SDL_RenderCopyEx(renderer,Sol,NULL,NULL,0,NULL,SDL_FLIP_NONE);
+    SDL_RenderCopyEx(renderer,Sol,NULL,NULL,90*flip_map,NULL,SDL_FLIP_NONE); // On affiche le sol
     for (int x = 0; x < MAP_HEIGHT; x++) { 
       for (int y = 0; y < MAP_WIDTH; y++) { // On parcourt la map
         if (map.dim[x][y] == PORTE) { // Porte
-                dstRect.x = x* TILE_SIZE;
+                dstRect.x = x* TILE_SIZE; 
                 dstRect.y = y* TILE_SIZE;
             if(y==(DIM_SALLE-1) && x==(DIM_SALLE/2)-1){ // Si la porte est en bas
-                printf("Porte : %d %d  en bas \n",y,x);
                 SDL_RenderCopyEx(renderer,DoorTex,&srcRect, &dstRect,180,NULL,SDL_FLIP_NONE);
-            }if(y==(DIM_SALLE/2)-1 && x==0){
+            }if(y==(DIM_SALLE/2)-1 && x==0){ // Si la porte est à gauche
                 SDL_RenderCopyEx(renderer,DoorTex,&srcRect, &dstRect,270,NULL,SDL_FLIP_NONE);
-            }if(y==(DIM_SALLE/2)-1 && x==(DIM_SALLE-1)){
-                SDL_RenderCopyEx(renderer,DoorTex,&srcRect, &dstRect,90,NULL,SDL_FLIP_NONE);
-            }if(y==0 && x==(DIM_SALLE/2)-1){
-                printf("Porte : %d %d Normal\n",y,x);
-                SDL_RenderCopyEx(renderer,DoorTex,&srcRect, &dstRect,0,NULL,SDL_FLIP_NONE);
+            }if(y==(DIM_SALLE/2)-1 && x==(DIM_SALLE-1)){ // Si la porte est en haut
+                SDL_RenderCopyEx(renderer,DoorTex,&srcRect, &dstRect,90,NULL,SDL_FLIP_NONE); 
+            }if(y==0 && x==(DIM_SALLE/2)-1){ // Si la porte est à gauche
+                SDL_RenderCopyEx(renderer,DoorTex,&srcRect, &dstRect,0,NULL,SDL_FLIP_NONE); 
             }
         }
         if (map.dim[x][y] == PERSO) { // Si c'est le perso
             //printf("x = %d, y = %d perso trouvé\n",x,y);
-            PersRect.x = frame * 20; // Position de la frame dans l'image
-            PersRect.w = 20; // Taille de la frame
-            PersRect.y = 0;
-            PersRect.h = 24;
-            dstRect.x = x * 24;
-            dstRect.y = y * 24;
-            if(move==HAUT)
-                SDL_RenderCopyEx(renderer, PersoNorth, &PersRect, &dstRect, 0, NULL, SDL_FLIP_NONE);
+            PersRect.x = frame * 20; // Combien de Pixel on doit décaler pour afficher la bonne frame
+            PersRect.w = 20; // Largeur de la frame
+            PersRect.y = 0;  
+            PersRect.h = 24; // Hauteur de la frame
+            dstRect.x = x * TILE_SIZE; // Position de la frame
+            dstRect.y = y * TILE_SIZE; // Position de la frame
+            if(move==HAUT) // On affiche le perso dans la bonne direction
+                SDL_RenderCopyEx(renderer, PersoNorth, &PersRect, &dstRect, 0, NULL, SDL_FLIP_NONE); 
             if(move==BAS)
                 SDL_RenderCopyEx(renderer, PersoSouth, &PersRect, &dstRect, 0, NULL, SDL_FLIP_NONE);
             if(move==GAUCHE)
                 SDL_RenderCopyEx(renderer, PersoSide, &PersRect, &dstRect, 0, NULL, SDL_FLIP_HORIZONTAL);
             if(move==DROITE)
                 SDL_RenderCopyEx(renderer, PersoSide, &PersRect, &dstRect, 0, NULL, SDL_FLIP_NONE);
-            if(move==AUCUN)
-                SDL_RenderCopyEx(renderer, PersoTex, &PersRect, &dstRect, 0, NULL, SDL_FLIP_NONE);
         }
         if(map.dim[x][y] == MUR){ // Si c'est un mur
-            dstRect.x = x * TILE_SIZE;
+            dstRect.x = x * TILE_SIZE; // Position du mur
             dstRect.y = y * TILE_SIZE;
-            //printf("%d-%d mur |",x,y);
-            SDL_RenderCopy(renderer, Mur, &srcRect, &dstRect);
+            SDL_RenderCopy(renderer, Mur, &srcRect, &dstRect); // On affiche le mur
         }
         if(map.dim[x][y]==OBSTACLE){
-            dstRect.x = x * TILE_SIZE;
+            dstRect.x = x * TILE_SIZE; // Position de l'obstacle
             dstRect.y = y * TILE_SIZE;
-            SDL_RenderCopy(renderer,ObTex, &srcRect, &dstRect);
+            SDL_RenderCopy(renderer,ObTex, &srcRect, &dstRect); // On affiche l'obstacle
         }
       }
       //printf("\n");
     }
 
-    SDL_RenderPresent(renderer);
+    SDL_RenderPresent(renderer); // On affiche l'écran
     } // Fin boucle principale
 
-    detruireNiv(&niv);
-    SDL_DestroyTexture(Mur);
+    detruireNiv(&niv); // On libère la mémoire
+    SDL_DestroyTexture(Mur); // On détruit les textures 
     SDL_DestroyTexture(Sol);
     SDL_DestroyTexture(PersoTex);
-    SDL_DestroyRenderer(renderer);
-    SDL_DestroyWindow(window);
-    SDL_Quit();
+    SDL_DestroyRenderer(renderer); // On détruit le renderer
+    SDL_DestroyWindow(window); // On détruit la fenêtre
+    SDL_Quit(); // On quitte la SDL
 
 }
