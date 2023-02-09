@@ -4,9 +4,17 @@
 #define MUR 1
 #define PORTE 2
 #define OBSTACLE 3
+#define PILIER 4
+
 #define DIM_ETAGE 5
 #define DIM_SALLE 32
-#define DIM_SALLE_BOSS 30
+
+#define LARG_SALLE_BOSS 25
+#define LONG_SALLE_BOSS 50
+
+#define LARG_COULOIR 7
+#define LONG_COULOIR 15
+
 /**
  * @file mapStruct.h
  * @brief Définition des structures de données pour la map
@@ -44,6 +52,10 @@ typedef struct salle {
     int dim[DIM_SALLE][DIM_SALLE]; //!< Tableau de la salle
     t_statut statut; //!< Statut de la salle
 } t_salle;
+
+typedef struct salle_boss {
+    int dim[LARG_SALLE_BOSS][LONG_SALLE_BOSS]; //!< Tableau de la salle
+} t_salle_boss;
 
 /**
  * \struct etage
