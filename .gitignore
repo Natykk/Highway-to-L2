@@ -26,3 +26,4 @@ SDL2/*
 *.exe
 *_test.c
 test_*.c
+.DS_Store
