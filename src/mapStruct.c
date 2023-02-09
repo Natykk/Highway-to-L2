@@ -294,6 +294,8 @@ int genererSalle(int x_salle, int y_salle, t_etage * etage){
         nbObstplace++;
     }
 
+    
+
     return OK;
 }
 

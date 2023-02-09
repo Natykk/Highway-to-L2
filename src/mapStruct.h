@@ -5,7 +5,7 @@
 #define PORTE 2
 #define OBSTACLE 3
 #define DIM_ETAGE 5
-#define DIM_SALLE 20
+#define DIM_SALLE 32
 #define DIM_SALLE_BOSS 30
 /**
  * @file mapStruct.h

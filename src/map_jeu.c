@@ -1,13 +1,13 @@
-#include <stdio.h>
-#define SDL_MAIN_HANDLED
+
+
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_timer.h>
 #include <SDL2/SDL_image.h>
 #include "mapStruct.c"
 #define PERSO 5
 const int TILE_SIZE = 32;
-const int MAP_WIDTH = 20;
-const int MAP_HEIGHT = 20;
+const int MAP_WIDTH = 32;
+const int MAP_HEIGHT = 32;
 const int SPRITE_FRAMES = 4; // Nombre de frames de l'animation
 const int SPRITE_WIDTH =32; // Largeur d'une frame
 const int SPRITE_HEIGHT = 32; // Hauteur d'une frame
@@ -186,14 +186,14 @@ int main() {
     SDL_Window* window = SDL_CreateWindow("Map", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED,  TILE_SIZE * MAP_WIDTH, TILE_SIZE * MAP_HEIGHT, 0); // On crée la fenêtre
     SDL_Renderer* renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC); // On crée le renderer
 
-    SDL_Texture* Mur = charge_tex(renderer,"brick.png",0);
-    SDL_Texture* Sol = charge_tex(renderer,"sol.jpg",0);
-    SDL_Texture* DoorTex = charge_tex(renderer,"door.png",0);
-    SDL_Texture* PersoTex = charge_tex(renderer,"Idle-Sheet.png",0);
-    SDL_Texture* ObTex = charge_tex(renderer,"rock.png",0);
-    SDL_Texture* PersoNorth = charge_tex(renderer,"1_north.png",0);
-    SDL_Texture* PersoSouth = charge_tex(renderer,"1_south.png",0);
-    SDL_Texture* PersoSide = charge_tex(renderer,"1_side.png",0);
+    SDL_Texture* Mur = charge_tex(renderer,"../img/brick.png",0);
+    SDL_Texture* Sol = charge_tex(renderer,"../img/sol.jpg",0);
+    SDL_Texture* DoorTex = charge_tex(renderer,"../img/door.png",0);
+    SDL_Texture* PersoTex = charge_tex(renderer,"../img/Idle-Sheet.png",0);
+    SDL_Texture* ObTex = charge_tex(renderer,"../img/rock.png",0);
+    SDL_Texture* PersoNorth = charge_tex(renderer,"../img/1_north.png",0);
+    SDL_Texture* PersoSouth = charge_tex(renderer,"../img/1_south.png",0);
+    SDL_Texture* PersoSide = charge_tex(renderer,"../img/1_side.png",0);
     
     t_salle map; // Matrice de la salle
     t_pos posSalle; // Position de la 1er salle
@@ -327,7 +327,6 @@ int main() {
       }
       //printf("\n");
     }
-
     SDL_RenderPresent(renderer); // On affiche l'écran
     } // Fin boucle principale
 
