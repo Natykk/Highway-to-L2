@@ -64,13 +64,13 @@ t_competence guerrier[NB_CPT]={
 };
 
 t_competence archer[NB_CPT]={
-    {non_acquis,},
-    {non_acquis,},
-    {non_acquis,},
-    {non_acquis,},
-    {non_acquis,},
-    {non_acquis,},
-    {non_acquis,},
-    {non_acquis,}
+    {non_acquis, "Déplacement furtif", "L'archer est capable de se déplacer plus rapidement de manière discrète. Effet : Réduit légèrement le périmètre de détection. Augmente grandement la vitesse de déplacement", {NO_IMPROVE, NO_IMPROVE, NO_IMPROVE, BIG_IMPROVE, SMALL_IMPROVE}, NULL, 0, NULL, 0},
+    {non_acquis, "Arc d'Ebène", "L'arc de l'Archer s'améliore en l'Arc d'Ebène. Effet : Augmente les dégats et la vitesse d'attaque.", {NO_IMPROVE, MIDDLE_IMPROVE, MIDDLE_IMPROVE, NO_IMPROVE, NO_IMPROVE}, NULL, 0, NULL, 0},
+    {non_acquis, "Bottes d'Hermes", "Ces bottes accordent au jours une vitesse déplacement remarquable. Effet : Augmente énormement la vitesse de déplacement.", {NO_IMPROVE, NO_IMPROVE, NO_IMPROVE, ULTRA_IMPROVE, NO_IMPROVE}, NULL, 0, NULL, 0},
+    {non_acquis, "Flèche de Gungnir", "Flèches forgées à partir de la lance d'Odin : Gungnir. Effet : Augmente grandement la vitesse d'attaque", {NO_IMPROVE, NO_IMPROVE, BIG_IMPROVE, NO_IMPROVE, NO_IMPROVE}, NULL, 0, NULL, 0},
+    {non_acquis, "Manteau de la nuit", "Vêtement de l'archer permettant de réduire la distance de détection des mobs. Effet : Réduit le périmètre de détection", {NO_IMPROVE, NO_IMPROVE, NO_IMPROVE, NO_IMPROVE, MIDDLE_IMPROVE}, NULL, 0, NULL, 0},
+    {non_acquis, "Arc de Séraphin", "Arc légendaire donnée par la plus grande instance de la Hiérarchie Céleste. Effet : Augmente énormement les dégats, la vitesse d'attaque et la vitesse de déplacement.", {NO_IMPROVE, ULTRA_IMPROVE, ULTRA_IMPROVE, ULTRA_IMPROVE, NO_IMPROVE}, NULL, 0, NULL, 0},
+    {non_acquis, "Flèche vorace", "Flèches absorbant la vie de la cible. Effet : Augmente grandement les dégats.",{NO_IMPROVE, BIG_IMPROVE, NO_IMPROVE, NO_IMPROVE, NO_IMPROVE}, NULL, 0, NULL, 0},
+    {non_acquis, "Flèches perforantes", "Les flèches sont affutées pour atteindre plus facilement les ennemis et les transpercer. Effet : Augmente les dégats.", {NO_IMPROVE, MIDDLE_IMPROVE, NO_IMPROVE, NO_IMPROVE, NO_IMPROVE}, NULL, 0, NULL, 0}
 };
 
