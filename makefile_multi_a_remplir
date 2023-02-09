@@ -1,0 +1,12 @@
+#!/bin/bash
+
+$SYS = `uname -s`
+if ( $SYS -eq "Linux" ){
+    echo "Linux"
+}
+elif ( $SYS -eq "Darwin" ){
+    echo "MacOS"
+}
+else {
+    echo "Windows"
+}
