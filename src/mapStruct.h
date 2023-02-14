@@ -5,9 +5,9 @@
 #define PORTE 2
 #define OBSTACLE 3
 #define PILIER 4
-
+// Mob entre 10 et 21
 #define DIM_ETAGE 5
-#define DIM_SALLE 32
+#define DIM_SALLE 25
 
 #define LARG_SALLE_BOSS 25
 #define LONG_SALLE_BOSS 50
@@ -15,6 +15,7 @@
 #define LARG_COULOIR 7
 #define LONG_COULOIR 15
 
+#define MOB_MAX 10
 /**
  * @file mapStruct.h
  * @brief Définition des structures de données pour la map
@@ -51,6 +52,7 @@ typedef struct salle {
     int nb_porte; //!< Nombre de portes dans la salle
     int dim[DIM_SALLE][DIM_SALLE]; //!< Tableau de la salle
     t_statut statut; //!< Statut de la salle
+    entite_t mob[MOB_MAX]; //!< Tableau de mobs dans la salle
 } t_salle;
 
 typedef struct salle_boss {

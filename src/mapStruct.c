@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-
+#include "entite.c"
 #include "mapStruct.h"
 
 /**
@@ -37,22 +37,33 @@ void affichier_num_salle(t_etage * etage){
  *  \param salle la salle à afficher
  * \brief Fonction d'affichage d'une salle
  */
-/*
+
 void afficher_salle(t_salle salle){
-    int i, j;
+    int i, j,k=0;
     for(i=0; i<DIM_SALLE; i++){
         for(j=0; j<DIM_SALLE; j++){
             switch(salle.dim[i][j]){
                 case VIDE : printf(" "); break;
-                case PORTE : printf("P"); break;
+                case PORTE : printf("|"); break;
                 case MUR : printf("*"); break;
                 case OBSTACLE : printf("+"); break;
+                default: printf("%s",tab_mob[(salle.dim[i][j])-10].nom); break;
             }
         }
         printf("\n");
     }
+    
+    for(i=0; i<salle.nb_mobs; i++){
+         if(salle.dim[i][j]>=10 && salle.dim[i][j] <=22){
+                //printf("%d", (salle.dim[i][j])-10);
+                switch (salle.dim[i][j])
+                {
+                
+                }
+            }
+    }
 }
-*/
+
 
 /**
  * \fn void afficher_salle_etage(t_etage * etage)
@@ -295,6 +306,25 @@ int genererSalle(int x_salle, int y_salle, t_etage * etage){
     }
 
     
+    int nbMob=rand()%MOB_MAX+1;         //génère entre 1 et 11 mobs 
+    int num_mob;
+    etage->etage[x_salle][y_salle].nb_mobs=nbMob;
+    int nbMobplace=0;
+    int x_mob, y_mob;
+    while(nbMobplace<nbMob){
+        do{
+            num_mob=rand()%12;
+            creer_monstre(&etage->etage[x_salle][y_salle].mob[nbMobplace],tab_mob[num_mob].nom);
+            x_mob=rand()%(DIM_SALLE-4)+2;
+            y_mob=rand()%(DIM_SALLE-4)+2;
+            etage->etage[x_salle][y_salle].mob[nbMobplace].x=x_mob;
+            etage->etage[x_salle][y_salle].mob[nbMobplace].y=y_mob;
+        }while(etage->etage[x_salle][y_salle].dim[x_mob][y_mob]!=VIDE && etage->etage[x_salle][y_salle].dim[x_mob][y_mob]!=OBSTACLE);
+        //printf("%s %d\n",tab_mob[num_mob].nom,num_mob);
+        etage->etage[x_salle][y_salle].dim[x_mob][y_mob]=nbMobplace+10;
+        nbMobplace++;
+    }
+    //afficher_salle(etage->etage[x_salle][y_salle]);
 
     return OK;
 }
@@ -457,6 +487,7 @@ int genererNiv(t_niv * niveau){
  * \return 0 si la map a bien été détruite
 */
 int detruireNiv(t_niv ** niveau){
+    //detruire_entitees(&(*niveau)->etages[0].etage[0][0].mob[0]);
     free(*niveau);
     (*niveau)=NULL;
 
@@ -469,10 +500,3 @@ int detruireNiv(t_niv ** niveau){
  * 
 */
 
-/*
-int main(){
-    t_niv * niveau = malloc(sizeof(t_niv));;
-    genererNiv(niveau);
-    detruireNiv(&niveau);
-}
-*/
