@@ -40,11 +40,12 @@ t_salle_boss * genererSalleBoss(t_salle_boss * salleBoss){
             else if(i==LARG_SALLE_BOSS/2 && j==4){  
                 salleBoss->dim[i][j]=SPON;
             }
-            else if(i==LARG_SALLE_BOSS/2 && j==LONG_SALLE_BOSS-1){
-                salleBoss->dim[i][j]=PORTE;
-            }
             else{
                 salleBoss->dim[i][j]=VIDE;
+            }
+
+            if(i==LARG_SALLE_BOSS/2 && j==LONG_SALLE_BOSS-1){
+                salleBoss->dim[i][j]=PORTE;
             }
         }
     }
