@@ -1,4 +1,6 @@
 #include "entite.h"
+#include "objet.h"
+#include <string.h>
 
 /**
  * @file entite.c
@@ -8,6 +10,23 @@
  * @date 31/01/2023
  */
 
+/**
+ * @brief tableau qui stocke tout les mobs présents dans le jeu
+ */
+entite_t tab_mob[NB_MOBS] = {
+    {"Slime_Vert", 2, 1, 0.75, 0.40, 0, 0, NULL,1},
+    {"Loup", 10, 4, 1.0, 1.2, 0, 0, NULL, 2},
+    {"Brigant", 20, 6, 0.9, 1.1, 0, 0, NULL, 1},
+    {"Chaman", 12, 12, 0.8, 1, 0, 0, NULL, 2},
+    {"Slime_Gris", 10, 5, 0.75, 0.40, 0, 0, NULL, 1},
+    {"Nain", 30, 8, 0.75, 0.40, 0, 0, NULL, 2},
+    {"Nain_Rider", 20, 5, 1.5, 1.2, 0, 0, NULL, 3},
+    {"Orc", 80, 20, 0.10, 0.20, 0, 0, NULL, 2},
+    {"Slime_Rouge", 50, 25, 0.75, 0.40, 0, 0, NULL, 1},
+    {"Diablotin", 40, 40, 1.4, 1.0, 0, 0, NULL, 3},
+    {"Diable", 80, 80, 0.8, 1.2, 0, 0, NULL, 2},
+    {"Cerbere", 200, 100, 1.8, 0.7, 0, 0, NULL, 2}
+};
 
 /**
  * @fn afficher_entite
@@ -21,6 +40,25 @@ void afficher_entite(entite_t* entite) {
     printf("{%s, %d, %f, %f, %f, %d, %d} \n", entite->nom, entite->vie, entite->degats, entite->vitesse_att, entite->vitesse_depl, entite->x, entite->y);
 }
 
+/**
+ * @fn associer_entite
+ * @brief Fonction qui permet de faire '=' mais pour une entitée
+ * 
+ * @param source 
+ * @param destination 
+ */
+extern
+void associer_entite(entite_t *source, entite_t *destination) {
+    strcpy(source->nom,destination->nom);
+    source->vie = destination->vie;
+    source->degats = destination->degats;
+    source->vitesse_att = destination->vitesse_att;
+    source->vitesse_depl = destination->vitesse_depl;
+    source->x = destination->x;
+    source->y = destination->y;
+    source->place_inv = destination->place_inv;
+}
+
 
 /**
  * @fn acces_mob
@@ -31,13 +69,12 @@ void afficher_entite(entite_t* entite) {
  */
 extern
 int acces_mob(char* chaine) {
-    entite_t temp;
     for (int i = 0; i < NB_MOBS; i++){
-        temp = tab_mob[i];
-        if(!strcmp(temp.nom, chaine)) {
+        if(!strcmp(tab_mob[i].nom, chaine)) {
             return i;
         }
     }
+    return -1;
 }
 
 /**
@@ -48,7 +85,6 @@ int acces_mob(char* chaine) {
  */
 extern
 entite_t* creer_personnage (entite_t * entite){
-    int i;
     entite = malloc(sizeof(entite_t));
     entite->nom = malloc(sizeof(char)*30);
 
@@ -58,12 +94,13 @@ entite_t* creer_personnage (entite_t * entite){
     entite->vitesse_depl = 1.0;
     entite->x = 0;
     entite->y = 0;
-    entite->inventaire = malloc(sizeof(objet_inv_t)*(entite->place_inv));
     entite->place_inv = NB_OBJET;
-    for(i=0; i<place_inv; i++) (entite->inventaire)[i] = tab_objet[i];
+    entite->inventaire = malloc(sizeof(objet_inv_t));
+    entite->inventaire->nb = malloc(sizeof(int)*entite->place_inv);
+    entite->inventaire->objet = malloc(sizeof(objet_t)*entite->place_inv);
+
     return entite;
 }
-
 /**
  * @fn creer_monstre
  * @brief Fonction qui permet de creer un mob a partir de son nom.
@@ -88,10 +125,13 @@ entite_t* creer_monstre (entite_t * entite, char * nom) {
     entite->x = tab_mob[emplacement].x;
     entite->y = tab_mob[emplacement].y;
     entite->place_inv = tab_mob[emplacement].place_inv;
-    entite->inventaire = malloc(sizeof(objet_inv_t)*(entite->place_inv));
+    entite->inventaire = malloc(sizeof(objet_inv_t));
+    entite->inventaire->objet = malloc(sizeof(objet_t)*entite->place_inv);
+    entite->inventaire->nb = malloc(sizeof(int)*(entite->place_inv));
 
     return entite;
 }
+
 /**
  * @fn detruire_entitee
  * @brief Fonction pour libérer la memoire utilisé pour les entités
@@ -100,7 +140,6 @@ entite_t* creer_monstre (entite_t * entite, char * nom) {
  */
 extern
 void detruire_entitee(entite_t* entite){
-    int i;
     free(entite->nom);
     entite->nom = NULL;
     free(entite->inventaire);
