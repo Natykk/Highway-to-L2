@@ -1,5 +1,5 @@
-#include "entite.h"
-#include "objet.h"
+#include "../head/entite.h"
+#include "../head/objet.h"
 #include <string.h>
 
 /**
