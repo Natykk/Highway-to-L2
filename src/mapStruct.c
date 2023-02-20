@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include "entite.c"
-#include "mapStruct.h"
+#include "../head/mapStruct.h"
 
 /**
  * @file mapStruct.c
