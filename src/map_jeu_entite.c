@@ -3,7 +3,8 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_timer.h>
 #include <SDL2/SDL_image.h>
-#include "mapStruct.c"
+#include "../head/mapStruct.h"
+#include "../head/entite.h"
 #define PERSO 5
 const int TILE_SIZE = 32;
 const int MAP_WIDTH = 25;
@@ -20,14 +21,22 @@ int flip_map=0;
  *  
 */
 void transfert(t_salle salle, t_salle * map){
+    printf("Transfert de la salle %d\n",salle.num_salle);
     int i, j;
     map->nb_mobs = salle.nb_mobs;
     map->nb_porte = salle.nb_porte;
     map->num_salle = salle.num_salle;
     map->statut = salle.statut;
+    for(i=0; i<salle.nb_mobs; i++){
+        map->mob[i] = salle.mob[i];
+
+
+        //printf("Mob %s -> degats %f\n",map->mob[i]->nom,map->mob[i]->degats);
+    }
     for(i=0; i<DIM_SALLE; i++){
         for(j=0; j<DIM_SALLE; j++){
             map->dim[i][j] = salle.dim[i][j];
+            
         }
     }
 }
@@ -173,21 +182,25 @@ void enemy(t_salle * map,entite_t* posPers,SDL_Rect* rect){
     int x = posPers->x;
     int y = posPers->y;
     if(rect->w >0){ 
-        if(map->dim[x][y-1] >= 10 && map->dim[x][y-1]<=21){ // si il y a un ennemi sur la case du haut
-            printf("Vous avez perdu %d points de vie !\n",map->mob[(map->dim[x][y-1])-10].degats);
-            rect->w-=map->mob[(map->dim[x][y-1])-10].degats;
+        if(map->dim[x][y-1] >= 10 && map->dim[x][y-1]<=21){ // si il y a un ennemi sur la case du bas
+            //printf("Val de map.dim : %d  \n",(map->dim[x][y-1])-10);
+            printf("Vous avez perdu %d points de vie ! avec le mob %s\n",map->mob[(map->dim[x][y-1])-10]->degats,map->mob[(map->dim[x][y-1])-10]->nom);
+            rect->w-=(int)(map->mob[(map->dim[x][y-1])-10]->degats);
         }
-        else if(map->dim[x][y+1] >= 10 && map->dim[x][y+1]<=21){ // si il y a un ennemi sur la case du bas
-            printf("Vous avez perdu %d points de vie !\n",map->mob[(map->dim[x][y+1])-10].degats);
-            rect->w-=map->mob[(map->dim[x][y+1])-10].degats;
+        if(map->dim[x][y+1] >= 10 && map->dim[x][y+1]<=21){ // si il y a un ennemi sur la case du haut
+            //printf("HAUT Val de map.dim : %d\n ",(map->dim[x][y+1])-10);
+            printf("Vous avez perdu %d points de vie ! avec le mob %s\n",map->mob[(map->dim[x][y+1])-10]->degats,map->mob[(map->dim[x][y+1])-10]->nom);
+            rect->w-=(int)map->mob[(map->dim[x][y+1])-10]->degats;
         }
-        else if(map->dim[x-1][y] >= 10 && map->dim[x-1][y]<=21){ // si il y a un ennemi sur la case de gauche
-            printf("Vous avez perdu %d points de vie !\n",map->mob[(map->dim[x-1][y])-10].degats);
-            rect->w-=map->mob[(map->dim[x-1][y])-10].degats;
+        if(map->dim[x-1][y] >= 10 && map->dim[x-1][y]<=21){ // si il y a un ennemi sur la case de droite
+            //printf("DROITE Val de map.dim : %d \n",(map->dim[x-1][y])-10);
+            printf("Vous avez perdu %d points de vie ! avec le mob %s\n",map->mob[(map->dim[x-1][y])-10]->degats,map->mob[(map->dim[x-1][y])-10]->nom);
+            rect->w-=(int)map->mob[(map->dim[x-1][y])-10]->degats;
         }
-        else if(map->dim[x+1][y] >= 10 && map->dim[x+1][y]<=21){ // si il y a un ennemi sur la case de droite
-            printf("Vous avez perdu %d points de vie !\n",map->mob[(map->dim[x+1][y])-10].degats);
-            rect->w-=map->mob[(map->dim[x+1][y])-10].degats;
+        if(map->dim[x+1][y] >= 10 && map->dim[x+1][y]<=21){ // si il y a un ennemi sur la case de gauche
+            //printf("GAUCHE Val de map.dim : %d  \n",(map->dim[x+1][y])-10);
+            printf("Vous avez perdu %d points de vie ! avec le mob %s\n",map->mob[(map->dim[x+1][y])-10]->degats,map->mob[(map->dim[x+1][y])-10]->nom);
+            rect->w-=(int)(map->mob[(map->dim[x+1][y])-10]->degats);
         }else if(rect->w<250){ // si le perso n'est pas en combat
             rect->w+=2;
         }
@@ -286,8 +299,8 @@ int main() {
     SDL_Texture* PersoNorth = charge_tex(renderer,"../img/1_north.png",0);
     SDL_Texture* PersoSouth = charge_tex(renderer,"../img/1_south.png",0);
     SDL_Texture* PersoSide = charge_tex(renderer,"../img/1_side.png",0);
-    SDL_Texture* MobTex = charge_tex(renderer,"../img/GreenSlime/GmIdleTotal.png",0);
-    SDL_Texture* MobTex2 = charge_tex(renderer,"../img/wolf_black_full.png",0);
+    SDL_Texture* MobTex = charge_tex(renderer,"../img/GreenSlime/Grn_Idle1.png",0);
+    SDL_Texture* MobTex2 = charge_tex(renderer,"../img/BlueSlime/Blue_Idle1.png",0);
 
     t_salle map; // Matrice de la salle
     t_pos posSalle; // Position de la salle dans 
@@ -296,7 +309,10 @@ int main() {
     posSalle = trouverSalle(1, &niv->etages[0]);
     //trouve_salle(niv, posSalle,1);
     transfert(niv->etages[0].etage[posSalle.x][posSalle.y], &map);
+
     map.num_salle=niv->etages[0].etage[posSalle.x][posSalle.y].num_salle;
+    //niv->etages[0].etage[posSalle.x][posSalle.y].mob[0].x = 1;
+
 
     map.dim[perso->x][perso->y] = PERSO;
    // affichage de la matrice de la salle
@@ -434,21 +450,21 @@ int main() {
             }
         }
         if(map.dim[x][y]>=10 && map.dim[x][y]<22){
-            
+           /*
             MobRect.x = frame * 16; // Combien de Pixel on doit décaler pour afficher la bonne frame
             MobRect.w = 16; // Largeur de la frame
             MobRect.y = 0;  
             MobRect.h = 16; // Hauteur de la frame
+            */
             dstRect.x = x * TILE_SIZE; // Position de la frame
             dstRect.y = y * TILE_SIZE; // Position de la frame
+           
             if(map.dim[x][y]==10){
-                SDL_RenderCopyEx(renderer, MobTex, &MobRect, &dstRect, 0, NULL, SDL_FLIP_NONE);
-                map.mob[map.dim[x][y]-10].degats=5;
-                printf("Vie du mob : %d",map.mob[map.dim[x][y]-10].vie);
+                SDL_RenderCopyEx(renderer, MobTex, NULL, &dstRect, 0, NULL, SDL_FLIP_NONE);
+                //printf("Vie du mob : %d",map.mob[map.dim[x][y]-10].vie);
             }
             else{
-                SDL_RenderCopyEx(renderer, MobTex2, &MobRect, &dstRect, 0, NULL, SDL_FLIP_NONE);
-                map.mob[map.dim[x][y]-10].degats=3; 
+                SDL_RenderCopyEx(renderer, MobTex2, NULL, &dstRect, 0, NULL, SDL_FLIP_NONE);
                 //printf("Vie du mob : %d",map.mob[map.dim[x][y]-10].vie);
             }
         }

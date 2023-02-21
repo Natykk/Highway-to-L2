@@ -37,7 +37,7 @@ entite_t tab_mob[NB_MOBS] = {
 extern
 void afficher_entite(entite_t* entite) {
     printf("Affichage de l'entité : \n");
-    printf("{%s, %d, %f, %f, %f, %d, %d} \n", entite->nom, entite->vie, entite->degats, entite->vitesse_att, entite->vitesse_depl, entite->x, entite->y);
+    printf("{%s, %d, %d, %f, %f, %d, %d} \n", entite->nom, entite->vie, entite->degats, entite->vitesse_att, entite->vitesse_depl, entite->x, entite->y);
 }
 
 /**
@@ -120,6 +120,7 @@ entite_t* creer_monstre (entite_t * entite, char * nom) {
     strcpy(entite->nom,tab_mob[emplacement].nom);
     entite->vie = tab_mob[emplacement].vie;
     entite->degats = tab_mob[emplacement].degats;
+    //printf("degats : %f \n", entite->degats);
     entite->vitesse_att = tab_mob[emplacement].vitesse_att;
     entite->vitesse_depl = tab_mob[emplacement].vitesse_depl;
     entite->x = tab_mob[emplacement].x;
@@ -140,10 +141,21 @@ entite_t* creer_monstre (entite_t * entite, char * nom) {
  */
 extern
 void detruire_entitee(entite_t* entite){
+    // Destruction du nom de l'entite
     free(entite->nom);
     entite->nom = NULL;
+
+    // Destruction de l'inventaire
+    free(entite->inventaire->objet);
+    entite->inventaire->objet = NULL;
+
+    free(entite->inventaire->nb);
+    entite->inventaire->nb = NULL;
+
     free(entite->inventaire);
     entite->inventaire = NULL;
+
+    // Destruction de l'entitee
     free(entite);
     entite=NULL;
 }

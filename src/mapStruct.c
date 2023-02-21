@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-#include "entite.c"
+#include "../head/entite.h"
 #include "../head/mapStruct.h"
 
 /**
@@ -10,7 +10,6 @@
  * @version 1.0
  * @date 28/01/2023
  */
-
 
 /**
  * \fn void affichier_num_salle(t_etage * etage)
@@ -39,7 +38,7 @@ void affichier_num_salle(t_etage * etage){
  */
 
 void afficher_salle(t_salle salle){
-    int i, j,k=0;
+    int i, j;
     for(i=0; i<DIM_SALLE; i++){
         for(j=0; j<DIM_SALLE; j++){
             switch(salle.dim[i][j]){
@@ -47,7 +46,7 @@ void afficher_salle(t_salle salle){
                 case PORTE : printf("|"); break;
                 case MUR : printf("*"); break;
                 case OBSTACLE : printf("+"); break;
-                default: printf("%s",tab_mob[(salle.dim[i][j])-10].nom); break;
+                //default: printf("%s->%f ",salle.mob[(salle.dim[i][j])-10].nom,salle.mob[(salle.dim[i][j])-10].degats); break;
             }
         }
         printf("\n");
@@ -312,15 +311,18 @@ int genererSalle(int x_salle, int y_salle, t_etage * etage){
     int nbMobplace=0;
     int x_mob, y_mob;
     while(nbMobplace<nbMob){
+            //etage->etage[x_salle][y_salle].mob[nbMobplace]=malloc(sizeof(entite_t));
+            num_mob=rand()%NB_MOBS; // Prend un mob au hasard dans le tableau de mob
+           etage->etage[x_salle][y_salle].mob[nbMobplace]=creer_monstre(etage->etage[x_salle][y_salle].mob[nbMobplace],tab_mob[num_mob].nom); // Créer le mob       
+
         do{
-            num_mob=rand()%12;
-            creer_monstre(&etage->etage[x_salle][y_salle].mob[nbMobplace],tab_mob[num_mob].nom);
-            x_mob=rand()%(DIM_SALLE-4)+2;
+            x_mob=rand()%(DIM_SALLE-4)+2; // Genere une position au hasard dans la salle
             y_mob=rand()%(DIM_SALLE-4)+2;
-            etage->etage[x_salle][y_salle].mob[nbMobplace].x=x_mob;
-            etage->etage[x_salle][y_salle].mob[nbMobplace].y=y_mob;
-        }while(etage->etage[x_salle][y_salle].dim[x_mob][y_mob]!=VIDE && etage->etage[x_salle][y_salle].dim[x_mob][y_mob]!=OBSTACLE);
-        //printf("%s %d\n",tab_mob[num_mob].nom,num_mob);
+            
+            etage->etage[x_salle][y_salle].mob[nbMobplace]->x=x_mob; // Place le mob dans la salle
+            etage->etage[x_salle][y_salle].mob[nbMobplace]->y=y_mob;
+        }while(etage->etage[x_salle][y_salle].dim[x_mob][y_mob]!=VIDE);
+        //afficher_entite(etage->etage[x_salle][y_salle].mob[nbMobplace]);
         etage->etage[x_salle][y_salle].dim[x_mob][y_mob]=nbMobplace+10;
         nbMobplace++;
     }

@@ -30,7 +30,7 @@
 typedef struct entite_s {
     char* nom;
     int vie;    
-    float degats;
+    int degats;
     float vitesse_att;
     float vitesse_depl;
     int x;

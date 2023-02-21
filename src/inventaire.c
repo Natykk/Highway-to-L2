@@ -168,27 +168,4 @@ entite_t* init_inventaire_monstre(entite_t * monstre) {
  * et des structures de données liées aux objets.
  * @return int 
  */
-int main(){
-    entite_t *personnage;
-    entite_t *mob;
-    personnage = creer_personnage(personnage);
-    mob = creer_monstre(mob, "Diable");
 
-    init_inventaire_personnage(personnage);
-    init_inventaire_monstre(mob);
-
-    mob->inventaire->nb[0] = 1;
-    mob->inventaire->nb[1] = 1;
-
-    printf("Affichage de l'inventaire du mob avant le loot : \n");
-    afficher_inventaire(mob);
-
-    printf("Affichage de l'inventaire du personnage avant le loot : \n");
-    afficher_inventaire(personnage);
-
-    looter(mob, personnage);
-
-    printf("Affichage de l'inventaire du personnage apres le loot : \n");
-    afficher_inventaire(personnage);
-
-}

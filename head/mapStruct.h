@@ -1,5 +1,5 @@
 #define SALLE_UNUSED -1
-
+#include "entite.h"
 #define VIDE 0
 #define MUR 1
 #define PORTE 2
@@ -52,7 +52,7 @@ typedef struct salle {
     int nb_porte; //!< Nombre de portes dans la salle
     int dim[DIM_SALLE][DIM_SALLE]; //!< Tableau de la salle
     t_statut statut; //!< Statut de la salle
-    entite_t mob[MOB_MAX]; //!< Tableau de mobs dans la salle
+    entite_t* mob[100]; //!< Tableau de mobs dans la salle
 } t_salle;
 
 typedef struct salle_boss {
@@ -81,3 +81,28 @@ typedef struct niveau {
 /* Erreurs */
 #define OK 0 //!< Pas d'erreur
 #define ERR_CREA_MAP 100 //!< Erreur de création de la map
+
+/* Fonctions */
+void afficher_salle(t_salle salle);
+
+int salle_disponible(int x, int y, t_salle etage[DIM_ETAGE][DIM_ETAGE]);
+
+t_pos trouverSalle(int num_salle, t_etage * etage);
+
+int nb_lieu_libre(int x, int y, t_salle etage[DIM_ETAGE][DIM_ETAGE]);
+
+int nbVoisin(int x, int y, t_etage * etage);
+
+int genererSalle(int x_salle, int y_salle, t_etage * etage);
+
+int etageConforme(t_etage * etage);
+
+int genererEtage(t_etage * etage);
+
+int genererNiv(t_niv * niveau);
+
+int detruireNiv(t_niv ** niveau);
+
+
+
+

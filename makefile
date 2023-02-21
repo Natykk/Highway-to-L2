@@ -1,58 +1,56 @@
-# Variables pour les dossiers
-SRCDIR = src
-OBJDIR = obj
-BINDIR = bin
-DOCDIR = doc
-HEADDIR = head
-SDLLIB = SDL2/lib
-SDLINC = SDL2/include
-SDLFLAGS_WIN = -lmingw32 -lSDL2main -lSDL2 -lSDL2_image -lSDL2_ttf -lSDL2_mixer -mwindows
-SDLFLAGS_LINUX = -lSDL2 -lSDL2_image -lSDL2_ttf -lSDL2_mixer
-SDLALL = -L $(SDLLIB) -I $(SDLINC)
-#gcc -L SDL2/lib -I SDL2/include src/map_jeu_entite.c -o bin/main -lmingw32 -lSDL2main -lSDL2  -lSDL2_image -mwindows -g
-# Variables Utiles pour la compilation
-COMPIL = gcc
-OBJ = $(OBJDIR)/entite.o $(OBJDIR)/inventaire.o $(OBJDIR)/objet.o 
-CFLAGS = -Wall -g
-EXEC = prog
 
-#Création des dossiers
-$(SRCDIR):
-	mkdir -p $(SRCDIR)
-$(OBJDIR):
-	mkdir -p $(OBJDIR)
-$(BINDIR):
-	mkdir -p $(BINDIR)
-$(DOCDIR):
-	mkdir -p $(DOCDIR)
-$(HEADDIR):
-	mkdir -p $(HEADDIR)
-
-# Compilation
-$(OBJDIR)/objet.o: $(SRCDIR)/objet.c $(HEADDIR)/objet.h
-	$(COMPIL) $(CFLAGS) -c  $< -o $@
-
-$(OBJDIR)/entite.o: $(SRCDIR)/entite.c $(HEADDIR)/entite.h
-	$(COMPIL) $(CFLAGS) -c  $< -o $@
-
-$(OBJDIR)/inventaire.o: $(SRCDIR)/inventaire.c
-	$(COMPIL) $(CFLAGS) -c  $< -o $@
-
-$(BINDIR)/$(EXEC): $(OBJ)
-	$(COMPIL) $(CFLAGS) $^ -o $@
-
-#map : $(SRCDIR)/map_jeu_entite.c
-#	gcc $(SDLALL) $< -o $(BINDIR)/$(EXEC) $(SDLFLAGS_WIN)
+OBJS	=  obj/map_jeu_entite.o obj/entite.o  obj/mapStruct.o 
+SOURCE	= src/map_jeu_entite.c src/entite.c src/inventaire.c src/mapStruct.c src/menu.c src/objet.c
+HEADER	= head/entite.h head/mapStruct.h head/objet.h head/objet_inv.h
+OUT	= bin/main.exe
+CC	 = gcc
+FLAGS	 = -g3 -c -Wall
+SDLFLAGS= -lSDL2 -lSDL2_image -lSDL2_ttf -lSDL2_mixer -lSDL2main
+WINDOWS = -lmingw32
+SDLROUTE = -L SDL2/lib -I SDL2/include
 
 
-# Execution du Makefile
-all: $(SRCDIR) $(BINDIR) $(DOCDIR) $(HEADDIR) $(BINDIR)/$(EXEC)
+all: $(OBJS)
+	$(CC) -g $(OBJS) -o $(OUT) $(LFLAGS)
 
-# Commandes Utilitaires
+
+obj/entite.o: src/entite.c
+	$(CC) $(FLAGS) $< 
+obj/inventaire.o: src/inventaire.c
+	$(CC) $(FLAGS) $<
+
+obj/mapStruct.o: src/mapStruct.c
+	$(CC) $(FLAGS)  $< 
+
+obj/objet.o: src/objet.c
+	$(CC) $(FLAGS) $< 
+
+obj/map_jeu_entite.o: src/map_jeu_entite.c 
+	$(CC) -c $(SDLROUTE) $(SDLFLAGS)  $< 
+
+
+
+bin/main.exe : obj/mapStruct.o obj/entite.o obj/map_jeu_entite.o
+	gcc -L SDL2/lib -I SDL2/include mapStruct.o entite.o map_jeu_entite.o  -lSDL2main -lSDL2 $(WINDOWS) -lSDL2_image -g -o $(OUT)
+
+
 clean:
-	-rm -rf $(OBJDIR)/*
+	rm -f $(OBJS) $(OUT)
 
-mrproper:
-	-rm -rf $(BINDIR)/*
-	-rm -rf $(DOCDIR)/*
-	-rm -rf $(OBJDIR)/*
+run: $(OUT)
+	./$(OUT)
+
+
+gdb : $(OUT)
+	gdb $(OUT)
+
+
+valgrind: $(OUT)
+	valgrind $(OUT)
+
+
+valgrind_leakcheck: $(OUT)
+	valgrind --leak-check=full $(OUT)
+
+valgrind_extreme: $(OUT)
+	valgrind --leak-check=full --show-leak-kinds=all --leak-resolution=high --track-origins=yes --vgdb=yes $(OUT)
