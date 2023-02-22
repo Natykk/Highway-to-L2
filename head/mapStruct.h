@@ -82,7 +82,12 @@ typedef struct niveau {
 #define OK 0 //!< Pas d'erreur
 #define ERR_CREA_MAP 100 //!< Erreur de création de la map
 
-/* Fonctions */
+
+// Structure de données pour les boutons
+
+
+/* Fonctions  */
+
 void afficher_salle(t_salle salle);
 
 int salle_disponible(int x, int y, t_salle etage[DIM_ETAGE][DIM_ETAGE]);

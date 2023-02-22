@@ -3,16 +3,23 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_timer.h>
 #include <SDL2/SDL_image.h>
+#include <SDL2/SDL_mixer.h>
+#include <SDL2/SDL_ttf.h>
 #include "../head/mapStruct.h"
 #include "../head/entite.h"
+#include "../head/menu.h"
+#define  TILE_SIZE  32
+#define  MAP_WIDTH   25
+#define  MAP_HEIGHT  25
 #define PERSO 5
-const int TILE_SIZE = 32;
-const int MAP_WIDTH = 25;
-const int MAP_HEIGHT = 25;
 const int SPRITE_FRAMES = 4; // Nombre de frames de l'animation
 const int SPRITE_WIDTH =32; // Largeur d'une frame
 const int SPRITE_HEIGHT = 32; // Hauteur d'une frame
 int flip_map=0;
+
+
+
+
 /**
  * \fn transfer(t_salle salle,int map[DIM_SALLE][DIM_SALLE])
  *  \brief Transfert la salle dans la map
@@ -123,101 +130,85 @@ void mouvement(t_salle * map, t_dir move, entite_t* posPers, t_pos * posSalle, t
     int x = posPers->x;
     int y = posPers->y;
     if(move == HAUT){
-        if(map->dim[x][y-1] == PORTE){ // Si la case du haut est une porte
+        if(map->dim[x][y-1] == PORTE && posPers->persoOuMob==0){ // Si la case du haut est une porte
             changement(niv, move, posPers, posSalle, map); 
         }
         if(map->dim[x][y-1] == VIDE){ // Si la case du haut n'est pas un mur
             posPers->x = x; // On met à jour la position du perso
             posPers->y = y-1;
-            map->dim[posPers->x][posPers->y] = PERSO;  //map[(y-1)*MAP_WIDTH+x] = 5; // On met le perso sur la case du haut
+            if(posPers->persoOuMob){
+                int ValMob = map->dim[x][y];
+                map->dim[posPers->x][posPers->y] = ValMob; 
+            }else{
+                map->dim[posPers->x][posPers->y] = PERSO;
+            }
+            //map[(y-1)*MAP_WIDTH+x] = 5; // On met le perso sur la case du haut
             map->dim[x][y] = VIDE;   //map[y*MAP_WIDTH+x] = 0; // On met la case du perso à vide
             //printf("Bouge vers le haut\n");
         }
     }
     else if(move == BAS){
-        if(map->dim[x][y+1] == PORTE){
+        if(map->dim[x][y+1] == PORTE && posPers->persoOuMob==0){
             changement(niv, move, posPers, posSalle, map);
         }
         else if(map->dim[x][y+1] == VIDE){
             posPers->x = x;
             posPers->y = y+1;
-            map->dim[posPers->x][posPers->y] = PERSO;
+            if(posPers->persoOuMob){
+                int ValMob = map->dim[x][y];
+                map->dim[posPers->x][posPers->y] = ValMob; 
+            }else{
+                map->dim[posPers->x][posPers->y] = PERSO;
+            }
             map->dim[x][y] = VIDE;
             //printf("Bouge vers le bas\n");
         }
     }
     else if(move == GAUCHE){
-        if(map->dim[x-1][y] == PORTE){
+        if(map->dim[x-1][y] == PORTE && posPers->persoOuMob==0){
             changement(niv, move, posPers, posSalle, map);
         }
         else if(map->dim[x-1][y] == VIDE){
             posPers->x = x-1;
             posPers->y = y;
-            map->dim[posPers->x][posPers->y] = PERSO;
+            if(posPers->persoOuMob){
+                int ValMob = map->dim[x][y];
+                map->dim[posPers->x][posPers->y] = ValMob; 
+            }else{
+                map->dim[posPers->x][posPers->y] = PERSO;
+            }
             map->dim[x][y] = VIDE;
             //printf("Bouge vers la gauche\n");
         }
     }
     else if(move == DROITE){
-        if(map->dim[x+1][y] == PORTE){
+        if(map->dim[x+1][y] == PORTE && posPers->persoOuMob==0){
            changement(niv, move, posPers, posSalle, map);
         }
         else if(map->dim[x+1][y] == VIDE){
             posPers->x = x+1;
             posPers->y = y;
-            map->dim[posPers->x][posPers->y] = PERSO;
+            if(posPers->persoOuMob){
+                int ValMob = map->dim[x][y];
+                map->dim[posPers->x][posPers->y] = ValMob; 
+            }else{
+                map->dim[posPers->x][posPers->y] = PERSO;
+            }
             map->dim[x][y] = VIDE;
             //printf("Bouge vers la droite\n");
         }
     }
 }
 /*
-* \fn void enemy(t_salle * map, t_pos * posPers,SDL_Rect* rect)
-* @brief Gère les dégats des ennemis
-* @param map La salle
-* @param posPers La position du perso
-* @param rect La barre de vie
+* \fn int perso_attack(t_salle * map,int attaque,int move, entite_t* posPers)
+* \brief Fonction qui permet d'attaquer un mob
+* \param map La salle
+* \param attaque Si le perso attaque
+* \param move La direction du mouvement
+* \param posPers La position du perso
+* \return 1 si le mob est mort, 0 sinon
 */
-void enemy(t_salle * map,entite_t* posPers,SDL_Rect* rect){
-    int x = posPers->x;
-    int y = posPers->y;
-    if(rect->w >0){ 
-        if(map->dim[x][y-1] >= 10 && map->dim[x][y-1]<=21){ // si il y a un ennemi sur la case du bas
-            //printf("Val de map.dim : %d  \n",(map->dim[x][y-1])-10);
-            printf("Vous avez perdu %d points de vie ! avec le mob %s\n",map->mob[(map->dim[x][y-1])-10]->degats,map->mob[(map->dim[x][y-1])-10]->nom);
-            rect->w-=(int)(map->mob[(map->dim[x][y-1])-10]->degats);
-        }
-        if(map->dim[x][y+1] >= 10 && map->dim[x][y+1]<=21){ // si il y a un ennemi sur la case du haut
-            //printf("HAUT Val de map.dim : %d\n ",(map->dim[x][y+1])-10);
-            printf("Vous avez perdu %d points de vie ! avec le mob %s\n",map->mob[(map->dim[x][y+1])-10]->degats,map->mob[(map->dim[x][y+1])-10]->nom);
-            rect->w-=(int)map->mob[(map->dim[x][y+1])-10]->degats;
-        }
-        if(map->dim[x-1][y] >= 10 && map->dim[x-1][y]<=21){ // si il y a un ennemi sur la case de droite
-            //printf("DROITE Val de map.dim : %d \n",(map->dim[x-1][y])-10);
-            printf("Vous avez perdu %d points de vie ! avec le mob %s\n",map->mob[(map->dim[x-1][y])-10]->degats,map->mob[(map->dim[x-1][y])-10]->nom);
-            rect->w-=(int)map->mob[(map->dim[x-1][y])-10]->degats;
-        }
-        if(map->dim[x+1][y] >= 10 && map->dim[x+1][y]<=21){ // si il y a un ennemi sur la case de gauche
-            //printf("GAUCHE Val de map.dim : %d  \n",(map->dim[x+1][y])-10);
-            printf("Vous avez perdu %d points de vie ! avec le mob %s\n",map->mob[(map->dim[x+1][y])-10]->degats,map->mob[(map->dim[x+1][y])-10]->nom);
-            rect->w-=(int)(map->mob[(map->dim[x+1][y])-10]->degats);
-        }else if(rect->w<250){ // si le perso n'est pas en combat
-            rect->w+=2;
-        }
-    }
-    else{
-        printf("Vous êtes mort !\n");
-    }
-}
-/*
-* \fn void interact(int attaque,int move,t_salle * map, t_pos * posPers)
-* @brief Gère les interactions avec les ennemis
-* @param attaque Si le perso attaque
-* @param move La direction du mouvement
-* @param map La salle
-* @param posPers La position du perso
-*/
-void interact(int attaque,int move,t_salle * map, entite_t* posPers){
+int perso_attack( t_salle * map,int attaque,int move, entite_t* posPers){
     int x = posPers->x;
     int y = posPers->y;
     if(attaque){
@@ -226,34 +217,120 @@ void interact(int attaque,int move,t_salle * map, entite_t* posPers){
         {
         case HAUT:
             if(map->dim[x][y-1] >= 10 && map->dim[x][y-1]<=21){ // si il y a un ennemi sur la case du haut
-                map->dim[x][y-1] = VIDE;
-                map->nb_mobs--;
+                map->mob[(map->dim[x][y-1])-10]->vie -= 10;
+                printf("Vous avez infligé 10 point de dégats au mob il lui reste %d !\n",map->mob[(map->dim[x][y-1])-10]->vie);
+                if(map->mob[(map->dim[x][y-1])-10]->vie<=0){
+                    map->dim[x][y-1] = VIDE;
+                    map->nb_mobs--;
+                }
             }
             break;
         case BAS:
             if(map->dim[x][y+1] >= 10 && map->dim[x][y+1]<=21){ // si il y a un ennemi sur la case du bas
-                map->dim[x][y+1] = VIDE;
-                map->nb_mobs--;
+                map->mob[(map->dim[x][y+1])-10]->vie -= 10;
+                printf("Vous avez infligé 10 point de dégats au mob il lui reste %d !\n",map->mob[(map->dim[x][y+1])-10]->vie);
+                if(map->mob[(map->dim[x][y+1])-10]->vie<=0){
+                    map->dim[x][y+1] = VIDE;
+                    map->nb_mobs--;
+                }
             }
 
             break;
         case GAUCHE:
             if(map->dim[x-1][y] >= 10 && map->dim[x-1][y]<=21){ // si il y a un ennemi sur la case de gauche
-                map->dim[x-1][y] = VIDE;
-                map->nb_mobs--;
+                map->mob[(map->dim[x-1][y])-10]->vie -= 10;
+                printf("Vous avez infligé 10 point de dégats au mob il lui reste %d !\n",map->mob[(map->dim[x-1][y])-10]->vie);
+                if(map->mob[(map->dim[x-1][y])-10]->vie<=0){
+                    map->dim[x-1][y] = VIDE;
+                    map->nb_mobs--;
+                }
             }
             break;
         case DROITE:
             if(map->dim[x+1][y] >= 10 && map->dim[x+1][y]<=21){ // si il y a un ennemi sur la case de droite
-                map->dim[x+1][y] = VIDE;
-                map->nb_mobs--;
+                map->mob[(map->dim[x+1][y])-10]->vie -= 10;
+                printf("Vous avez infligé 10 point de dégats au mob il lui reste %d !\n",map->mob[(map->dim[x+1][y])-10]->vie);
+                if(map->mob[(map->dim[x+1][y])-10]->vie<=0){
+                    map->dim[x+1][y] = VIDE;
+                    map->nb_mobs--;
+                }
             }
             break;
         default:
             break;
         }
+        return 1;
+    }else{
+        return 0;
     }
 }
+
+/*
+* \fn int enemy_attack(t_salle * map, entite_t* posPers, SDL_Rect * rect)
+* \brief Fonction qui permet de faire attaquer les mobs
+* \param map la map
+* \param posPers la position du joueur
+* \param rect les points de vie du joueur
+* \return 1 si le joueur a perdu des points de vie, 0 sinon
+*/
+int enemy_attack(t_salle * map, entite_t* posPers, SDL_Rect * rect){
+    int x = posPers->x;
+    int y = posPers->y;
+    if(rect->w > 0){ 
+        if(map->dim[x][y-1] >= 10 && map->dim[x][y-1]<=21){ // si il y a un ennemi sur la case du bas
+            //printf("Vous avez perdu %d points de vie ! avec le mob %s\n",map->mob[(map->dim[x][y-1])-10]->degats,map->mob[(map->dim[x][y-1])-10]->nom);
+            //rect->w-=(int)(map->mob[(map->dim[x][y-1])-10]->degats);
+            return 1;
+        }
+        if(map->dim[x][y+1] >= 10 && map->dim[x][y+1]<=21){ // si il y a un ennemi sur la case du haut
+            //printf("Vous avez perdu %d points de vie ! avec le mob %s\n",map->mob[(map->dim[x][y+1])-10]->degats,map->mob[(map->dim[x][y+1])-10]->nom);
+            //rect->w-=(int)map->mob[(map->dim[x][y+1])-10]->degats;
+            return 1;
+        }
+        if(map->dim[x-1][y] >= 10 && map->dim[x-1][y]<=21){ // si il y a un ennemi sur la case de droite
+            //printf("Vous avez perdu %d points de vie ! avec le mob %s\n",map->mob[(map->dim[x-1][y])-10]->degats,map->mob[(map->dim[x-1][y])-10]->nom);
+            //rect->w-=(int)map->mob[(map->dim[x-1][y])-10]->degats;
+            return 1;
+        }
+        if(map->dim[x+1][y] >= 10 && map->dim[x+1][y]<=21){ // si il y a un ennemi sur la case de gauche
+            //printf("Vous avez perdu %d points de vie ! avec le mob %s\n",map->mob[(map->dim[x+1][y])-10]->degats,map->mob[(map->dim[x+1][y])-10]->nom);
+            //rect->w-=(int)(map->mob[(map->dim[x+1][y])-10]->degats);
+            return 1;
+        }if(rect->w<250){ // si le perso n'est pas en combat
+            rect->w+=2;
+        }   
+    }
+    return 0;
+}
+
+/*
+* \fn void interact(int attaque,int move,t_salle * map, t_pos * posPers,SDL_Rect * rect)
+* @brief Gère les interactions avec les ennemis
+* @param attaque Si le perso attaque
+* @param move La direction du mouvement
+* @param map La salle
+* @param posPers La position du perso
+* @param rect La barre de vie
+*/
+void interact(int attaque,int move,t_salle * map, entite_t* posPers,SDL_Rect * rect,Uint32* lastTime,t_pos * posSalle,t_niv * niv){
+    int x = posPers->x;
+    int y = posPers->y;
+    int mob;
+    Uint32 currentTime = SDL_GetTicks();
+    if ( enemy_attack(map,posPers,rect) == 0 && attaque==0){
+        if(currentTime - (*lastTime) >= 200){
+        printf("Mouvement du mob\n");
+        *lastTime = currentTime; 
+        if(map->nb_mobs>0){
+            mob = rand()%map->nb_mobs;
+            int dir = rand()%4;
+            mouvement(map,dir,map->mob[mob],posSalle,niv);
+        }
+        }
+    }if(rect->w<=0){
+        printf("Vous êtes mort !\n");
+    }
+}   
 /*
 * \fn charge_tex(SDL_Renderer *renderer,char *path,int bmp_flag)
 * @brief Charge une texture
@@ -273,8 +350,23 @@ SDL_Texture* charge_tex(SDL_Renderer *renderer,char *path,int bmp_flag){
         texture = SDL_CreateTextureFromSurface(renderer,surface);
         SDL_FreeSurface(surface);
     }
-    
     return texture;
+}
+/*
+* \fn void info_map()
+* @brief affiche ou ce trouve le joueur actuellement
+* @param map la map
+*/
+void info_map(t_salle * map,t_niv * niv,TTF_Font *police,SDL_Color couleurNoire,SDL_Window* window){
+    int numSalle = map->num_salle;
+    SDL_Surface *screenSurface = SDL_GetWindowSurface(window);
+    SDL_Surface *surface = NULL;
+    SDL_Rect * rect = NULL;
+    surface = TTF_RenderText_Blended(police,(numSalle+'0'), couleurNoire);
+    rect->x = (MAP_WIDTH*TILE_SIZE);
+    rect->y = 400;
+    SDL_BlitSurface(surface, NULL,screenSurface, rect);
+    //niv->etages[0].etage[posSalle.x][posSalle.y].num_salle;
 }
 
 
@@ -283,6 +375,10 @@ int main() {
     genererNiv(niv);
     entite_t * perso = malloc(sizeof(entite_t));
     creer_personnage(perso);
+    TTF_Init();
+    TTF_Font *police = NULL;
+    SDL_Color couleurNoire = {0, 0, 0};
+    police = TTF_OpenFont("../font/necrosans.ttf", 30);
     SDL_Rect PersRect;
     SDL_Rect MobRect;
     int frame;
@@ -329,13 +425,10 @@ int main() {
    
     t_dir move = BAS; // Variable de déplacement
     Uint32 lastTime = SDL_GetTicks(); // Temps de la dernière mise à jour de l'animation
+    Uint32 MajMove = SDL_GetTicks();
     int continuer=1; // Variable de fin de boucle
     while (continuer) { // Boucle principale
     
-
-
-
-
     SDL_Event event;
     if (SDL_PollEvent(&event)) { // On récupère les évènements
         switch (event.type){
@@ -348,59 +441,40 @@ int main() {
                         case SDL_SCANCODE_UP:
                             move=HAUT;
                             mouvement(&map, move, perso, &posSalle, niv);
-                            
                             break;
-
                         case SDL_SCANCODE_A:
                         case SDL_SCANCODE_LEFT:
                             move=GAUCHE;
                             mouvement(&map, move, perso, &posSalle, niv);
                             break;
-
                         case SDL_SCANCODE_S:
                         case SDL_SCANCODE_DOWN:
                             move=BAS;
                             mouvement(&map, move, perso, &posSalle, niv);
                             break;
-
                         case SDL_SCANCODE_D:
                         case SDL_SCANCODE_RIGHT:
                             move=DROITE;
                             mouvement(&map, move, perso, &posSalle, niv);
                             break;
-
                         case SDL_SCANCODE_ESCAPE:
                             continuer = 0;
                             break;
                         case SDL_SCANCODE_SPACE:
                             attaque=1;
-                            interact(attaque,move,&map,perso);
+                            perso_attack(&map,attaque,move,perso);
+                            //interact(attaque,move,&map,perso);
+                            break;
                         case SDL_SCANCODE_LSHIFT:
-                            mouvement(&map, move, perso, &posSalle, niv);
-                            mouvement(&map, move, perso, &posSalle, niv);
-                            mouvement(&map, move, perso, &posSalle, niv);
+                            SDL_RenderClear(renderer);
+                            menu(renderer,window);
+                            SDL_RenderClear(renderer);
                             break;
                         }
                     break;
 
             case SDL_KEYUP: 
                 switch (event.key.keysym.scancode){
-                    case SDL_SCANCODE_W:
-                    case SDL_SCANCODE_UP:
-                        //move=AUCUN;
-                        break;
-                    case SDL_SCANCODE_A:
-                    case SDL_SCANCODE_LEFT:
-                        //move=AUCUN;
-                        break;
-                    case SDL_SCANCODE_S:
-                    case SDL_SCANCODE_DOWN:
-                        //move=AUCUN;
-                        break;
-                    case SDL_SCANCODE_D:
-                    case SDL_SCANCODE_RIGHT:
-                        //move=AUCUN;
-                        break;
                     case SDL_SCANCODE_SPACE:
                         attaque=0;
                         break;
@@ -428,12 +502,9 @@ int main() {
 
     SDL_RenderDrawRect(renderer, &rect); // on decide de dessiner un rectangle avec les coordonnées de rect
     SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255); // On defini la couleur du rectangle
+    // Un texte signale dans quel étage on est et quel salle on est
+    //info_map(&map,niv,police,couleurNoire,window);
 
-    //SDL_RenderDrawRect(renderer, &rect); // on decide de dessiner un rectangle avec les coordonnées de rect
-    //SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255); // On defini la couleur du rectangle
-    //SDL_RenderFillRect(renderer, &rect); // On affiche le rectangle
-
-    
     for (int x = 0; x < MAP_HEIGHT; x++) { 
       for (int y = 0; y < MAP_WIDTH; y++) { // On parcourt la map
         if (map.dim[x][y] == PORTE) { // Porte
@@ -503,7 +574,7 @@ int main() {
       //printf("\n");
     }
     SDL_RenderPresent(renderer); // On affiche l'écran
-    enemy(&map,perso,&rect);
+    interact(attaque,move,&map,perso,&rect,&MajMove,&posSalle,niv);
     } // Fin boucle principale
 
     detruireNiv(&niv); // On libère la mémoire

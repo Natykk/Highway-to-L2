@@ -37,6 +37,7 @@ typedef struct entite_s {
     int y;
     objet_inv_t * inventaire;
     int place_inv;
+    int persoOuMob;
 }entite_t;
 
 

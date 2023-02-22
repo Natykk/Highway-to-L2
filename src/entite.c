@@ -98,7 +98,7 @@ entite_t* creer_personnage (entite_t * entite){
     entite->inventaire = malloc(sizeof(objet_inv_t));
     entite->inventaire->nb = malloc(sizeof(int)*entite->place_inv);
     entite->inventaire->objet = malloc(sizeof(objet_t)*entite->place_inv);
-
+    entite->persoOuMob = 0;
     return entite;
 }
 /**

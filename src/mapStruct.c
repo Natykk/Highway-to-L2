@@ -323,6 +323,7 @@ int genererSalle(int x_salle, int y_salle, t_etage * etage){
             etage->etage[x_salle][y_salle].mob[nbMobplace]->y=y_mob;
         }while(etage->etage[x_salle][y_salle].dim[x_mob][y_mob]!=VIDE);
         //afficher_entite(etage->etage[x_salle][y_salle].mob[nbMobplace]);
+        etage->etage[x_salle][y_salle].mob[nbMobplace]->persoOuMob=1;
         etage->etage[x_salle][y_salle].dim[x_mob][y_mob]=nbMobplace+10;
         nbMobplace++;
     }
