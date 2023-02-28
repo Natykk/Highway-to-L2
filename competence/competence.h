@@ -15,9 +15,9 @@ typedef enum {non_acquis, acquis} t_acquis;
 
 typedef struct buff{
     int buff_vie;
-    float buff_degat;
-    float buff_vit_att;
-    float buff_vit_depl;
+    int buff_degat;
+    int buff_vit_att;
+    int buff_vit_depl;
     int perim_detect;
 } t_buff;
 
