@@ -54,39 +54,39 @@ t_competence assassin[NB_CPT]={
 
 t_competence mage[NB_CPT]={
     //étage1:
-    {non_acquis, "Bâton de l'apprentit", "Le mage possède à présent un bâton de magie. Effet : Augmente les dégats, Augmente légèrement la vitesse d'attaque.", {NO_IMPROVE, MIDDLE_IMPROVE, SMALL_IMPROVE, NO_IMPROVE, NO_IMPROVE}, NULL, 0, NULL, 0},
+    {non_acquis, "Bâton de l'apprentit", "Le mage possède à présent un bâton de magie. Effet : Augmente les dégats, Augmente légèrement la vitesse d'attaque.", {NO_IMPROVE, MIDDLE_IMPROVE, SMALL_IMPROVE, NO_IMPROVE, NO_IMPROVE}, NULL, 0, NULL, 2},
     //étage2:
-    {non_acquis, "Baguette de Sureau", "Le mage troque son baton pour une baguette magique, plus maniable. Effet : Améliore énormément la vitesse d'attaque", {NO_IMPROVE, NO_IMPROVE, ULTRA_IMPROVE, NO_IMPROVE, NO_IMPROVE}, NULL, 0, NULL, 0},
-    {non_acquis, "Bâton de l'Archimage", "Le mage est équipé de l'illustre bâton de l'Archimage. Effet : Augmente énormément les dégats.", {NO_IMPROVE, ULTRA_IMPROVE, NO_IMPROVE, NO_IMPROVE, NO_IMPROVE}, NULL, 0, NULL, 0},
+    {non_acquis, "Baguette de Sureau", "Le mage troque son baton pour une baguette magique, plus maniable. Effet : Améliore énormément la vitesse d'attaque", {NO_IMPROVE, NO_IMPROVE, ULTRA_IMPROVE, NO_IMPROVE, NO_IMPROVE}, NULL, 1, NULL, 1},
+    {non_acquis, "Bâton de l'Archimage", "Le mage est équipé de l'illustre bâton de l'Archimage. Effet : Augmente énormément les dégats.", {NO_IMPROVE, ULTRA_IMPROVE, NO_IMPROVE, NO_IMPROVE, NO_IMPROVE}, NULL, 1, NULL, 1},
     //étage3:
-    {non_acquis, "Bénédiction de l'Archange","Le personnage reçoit la bénédiction de l'Archange Gabriel. Effet : Augmente les points vie.",{MIDDLE_IMPROVE, NO_IMPROVE, NO_IMPROVE, NO_IMPROVE, NO_IMPROVE}, NULL, 0, NULL, 0},
+    {non_acquis, "Bénédiction de l'Archange","Le personnage reçoit la bénédiction de l'Archange Gabriel. Effet : Augmente les points vie.",{MIDDLE_IMPROVE, NO_IMPROVE, NO_IMPROVE, NO_IMPROVE, NO_IMPROVE}, NULL, 2, NULL, 5},
     //étage4:
-    {non_acquis, "Magie Ardente","Le mage transforme sa magie de base en une magie de feu. Effet : Augmente grandement les dégats.",{NO_IMPROVE, BIG_IMPROVE, NO_IMPROVE, NO_IMPROVE, NO_IMPROVE}, NULL, 0, NULL, 0},
-    {non_acquis, "Magie Aquatique","Le mage transforme sa magie de base en une magie de l'eau. Effet : Augmente grandement les dégats.",{NO_IMPROVE, BIG_IMPROVE, NO_IMPROVE, NO_IMPROVE, NO_IMPROVE}, NULL, 0, NULL, 0},
-    {non_acquis, "Magie Terrestre","Le mage transforme sa magie de base en une magie de terre. Effet : Augmente grandement les dégats.",{NO_IMPROVE, BIG_IMPROVE, NO_IMPROVE, NO_IMPROVE, NO_IMPROVE}, NULL, 0, NULL, 0},
-    {non_acquis, "Magie noire","Le mage transforme sa magie de base en une magie lugubre. Effet : Augmente grandement les dégats.",{NO_IMPROVE, BIG_IMPROVE, NO_IMPROVE, NO_IMPROVE, NO_IMPROVE}, NULL, 0, NULL, 0},
-    {non_acquis, "Magie céleste","Le mage transforme sa magie de base en une magie céleste. Effet : Augmente grandement les dégats.",{NO_IMPROVE, BIG_IMPROVE, NO_IMPROVE, NO_IMPROVE, NO_IMPROVE}, NULL, 0, NULL, 0},
+    {non_acquis, "Magie Ardente","Le mage transforme sa magie de base en une magie de feu. Effet : Augmente grandement les dégats.",{NO_IMPROVE, BIG_IMPROVE, NO_IMPROVE, NO_IMPROVE, NO_IMPROVE}, NULL, 1, NULL, 1},
+    {non_acquis, "Magie Aquatique","Le mage transforme sa magie de base en une magie de l'eau. Effet : Augmente grandement les dégats.",{NO_IMPROVE, BIG_IMPROVE, NO_IMPROVE, NO_IMPROVE, NO_IMPROVE}, NULL, 1, NULL, 1},
+    {non_acquis, "Magie Terrestre","Le mage transforme sa magie de base en une magie de terre. Effet : Augmente grandement les dégats.",{NO_IMPROVE, BIG_IMPROVE, NO_IMPROVE, NO_IMPROVE, NO_IMPROVE}, NULL, 1, NULL, 1},
+    {non_acquis, "Magie noire","Le mage transforme sa magie de base en une magie lugubre. Effet : Augmente grandement les dégats.",{NO_IMPROVE, BIG_IMPROVE, NO_IMPROVE, NO_IMPROVE, NO_IMPROVE}, NULL, 1, NULL, 1},
+    {non_acquis, "Magie céleste","Le mage transforme sa magie de base en une magie céleste. Effet : Augmente grandement les dégats.",{NO_IMPROVE, BIG_IMPROVE, NO_IMPROVE, NO_IMPROVE, NO_IMPROVE}, NULL, 1, NULL, 1},
     //étage5 : Compétence ultime
-    {non_acquis, "Artéfact du Merlin", "Cette compétence permet au personnage d'obtenir un artéfact magique augmentant toutes les stats. Effet : Améliore toutes les statistiques", {MIDDLE_IMPROVE, MIDDLE_IMPROVE, MIDDLE_IMPROVE, MIDDLE_IMPROVE, MIDDLE_IMPROVE}, NULL, 0, NULL, 0}
+    {non_acquis, "Artéfact du Merlin", "Cette compétence permet au personnage d'obtenir un artéfact magique augmentant toutes les stats. Effet : Améliore toutes les statistiques", {MIDDLE_IMPROVE, MIDDLE_IMPROVE, MIDDLE_IMPROVE, MIDDLE_IMPROVE, MIDDLE_IMPROVE}, NULL, 5, NULL, 0}
 };
 
 
 t_competence guerrier[NB_CPT]={
     //étage1:
-    {non_acquis, "Renforcement du Guerrier", "Cette compétence durcit le corps du Guerrier le redant impénétrable. Effet : Augmente grandement les points de vie.", {BIG_IMPROVE, NO_IMPROVE, NO_IMPROVE, NO_IMPROVE, NO_IMPROVE}, NULL, 0, NULL, 0},
+    {non_acquis, "Renforcement du Guerrier", "Cette compétence durcit le corps du Guerrier le redant impénétrable. Effet : Augmente grandement les points de vie.", {BIG_IMPROVE, NO_IMPROVE, NO_IMPROVE, NO_IMPROVE, NO_IMPROVE}, NULL, 0, NULL, 4},
     //étage2:
-    {non_acquis, "Katana","Le guerrier échange son épée de base contre un Katana. Effet : Augmente légèrement les dégats et grandement la vitesse d'attaque.", {NO_IMPROVE, SMALL_IMPROVE, BIG_IMPROVE, NO_IMPROVE, NO_IMPROVE}, NULL, 0, NULL, 0},
-    {non_acquis, "Glaive et Bouclier","Le guerrier échange son épée de base contre un glaive et une petit bouclier. Effet : Augmente les points de vie et les dégats.", {MIDDLE_IMPROVE, MIDDLE_IMPROVE, NO_IMPROVE, NO_IMPROVE, NO_IMPROVE}, NULL, 0, NULL, 0},
-    {non_acquis, "Epée à 2 mains","Le guerrier échange son épée de base contre une epée à 2 main. Effet : Augmente énormément les dégats.", {NO_IMPROVE, ULTRA_IMPROVE, NO_IMPROVE, NO_IMPROVE, NO_IMPROVE}, NULL, 0, NULL, 0},
-    {non_acquis, "Hache","Le guerrier échange son épée de base contre une Hache. Effet : Augmente légèrement la vitesse d'attaque et grandement les dégats.", {NO_IMPROVE, BIG_IMPROVE, SMALL_IMPROVE, NO_IMPROVE, NO_IMPROVE}, NULL, 0, NULL, 0},
+    {non_acquis, "Katana","Le guerrier échange son épée de base contre un Katana. Effet : Augmente légèrement les dégats et grandement la vitesse d'attaque.", {NO_IMPROVE, SMALL_IMPROVE, BIG_IMPROVE, NO_IMPROVE, NO_IMPROVE}, NULL, 1, NULL, 1},
+    {non_acquis, "Glaive et Bouclier","Le guerrier échange son épée de base contre un glaive et une petit bouclier. Effet : Augmente les points de vie et les dégats.", {MIDDLE_IMPROVE, MIDDLE_IMPROVE, NO_IMPROVE, NO_IMPROVE, NO_IMPROVE}, NULL, 1, NULL, 1},
+    {non_acquis, "Epée à 2 mains","Le guerrier échange son épée de base contre une epée à 2 main. Effet : Augmente énormément les dégats.", {NO_IMPROVE, ULTRA_IMPROVE, NO_IMPROVE, NO_IMPROVE, NO_IMPROVE}, NULL, 1, NULL, 1},
+    {non_acquis, "Hache","Le guerrier échange son épée de base contre une Hache. Effet : Augmente légèrement la vitesse d'attaque et grandement les dégats.", {NO_IMPROVE, BIG_IMPROVE, SMALL_IMPROVE, NO_IMPROVE, NO_IMPROVE}, NULL, 1, NULL, 1},
     //étage3:
-    {non_acquis, "Bénédiction de Neptune","Le dieu marin Neptune accorde sa bénédiction au Guerrier pour sa bravoure. Effet : Augmente les points de vies et légèrement la vitesse de déplacement", {MIDDLE_IMPROVE, NO_IMPROVE, NO_IMPROVE, SMALL_IMPROVE, NO_IMPROVE}, NULL, 0, NULL, 0},
-    {non_acquis, "Armure d'Hadès","Après avoir vaincu le dieu des Enfers, le Guerrier a conservé son armure. Effet : Augmente grandement les points de vies", {BIG_IMPROVE, NO_IMPROVE, NO_IMPROVE, NO_IMPROVE, NO_IMPROVE}, NULL, 0, NULL, 0},
+    {non_acquis, "Bénédiction de Neptune","Le dieu marin Neptune accorde sa bénédiction au Guerrier pour sa bravoure. Effet : Augmente les points de vies et légèrement la vitesse de déplacement", {MIDDLE_IMPROVE, NO_IMPROVE, NO_IMPROVE, SMALL_IMPROVE, NO_IMPROVE}, NULL, 2, NULL, 2},
+    {non_acquis, "Armure d'Hadès","Après avoir vaincu le dieu des Enfers, le Guerrier a conservé son armure. Effet : Augmente grandement les points de vies", {BIG_IMPROVE, NO_IMPROVE, NO_IMPROVE, NO_IMPROVE, NO_IMPROVE}, NULL, 2, NULL, 2},
     //étage4:
-    {non_acquis, "Bottes des géants", "Le guerrier s'équipe a présent de bottes donné en cadeau par des Géants au guerrier. Effet : Augmente grandement la vitesse de déplacement et Augmente légèrement les points de vie.", {SMALL_IMPROVE, NO_IMPROVE, NO_IMPROVE, BIG_IMPROVE, NO_IMPROVE}, NULL, 0, NULL, 0},
-    {non_acquis, "Bottes de sept lieues", "Le guerrier s'équipe a présent de bottes donné en cadeau par les Postillons au guerrier. Effet : Augmente grandement la vitesse de déplacement et Réduit légèrement le périmètre de détection des mobs.", {MIDDLE_IMPROVE, NO_IMPROVE, NO_IMPROVE, BIG_IMPROVE, SMALL_IMPROVE}, NULL, 0, NULL, 0},
+    {non_acquis, "Bottes des géants", "Le guerrier s'équipe a présent de bottes donné en cadeau par des Géants au guerrier. Effet : Augmente grandement la vitesse de déplacement et Augmente légèrement les points de vie.", {SMALL_IMPROVE, NO_IMPROVE, NO_IMPROVE, BIG_IMPROVE, NO_IMPROVE}, NULL, 2, NULL, 1},
+    {non_acquis, "Bottes de sept lieues", "Le guerrier s'équipe a présent de bottes donné en cadeau par les Postillons au guerrier. Effet : Augmente grandement la vitesse de déplacement et Réduit légèrement le périmètre de détection des mobs.", {MIDDLE_IMPROVE, NO_IMPROVE, NO_IMPROVE, BIG_IMPROVE, SMALL_IMPROVE}, NULL, 2, NULL, 1},
     //étage5: Compétence ultime
-    {non_acquis, "Rage du Berzerk", "Le guerrier debloque entièrement sa puissance pour détruire ses adversaire. Effet : Augmente énormémment la vitesse d'attaque, Augmente les dégats et la vitesse de déplacement.", {NO_IMPROVE, MIDDLE_IMPROVE, BIG_IMPROVE, MIDDLE_IMPROVE, NO_IMPROVE}, NULL, 0, NULL, 0}
+    {non_acquis, "Rage du Berzerk", "Le guerrier debloque entièrement sa puissance pour détruire ses adversaire. Effet : Augmente énormémment la vitesse d'attaque, Augmente les dégats et la vitesse de déplacement.", {NO_IMPROVE, MIDDLE_IMPROVE, BIG_IMPROVE, MIDDLE_IMPROVE, NO_IMPROVE}, NULL, 2, NULL, 0}
 };
 
 t_competence archer[NB_CPT]={
