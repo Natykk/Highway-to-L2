@@ -467,7 +467,7 @@ int main() {
                             break;
                         case SDL_SCANCODE_LSHIFT:
                             SDL_RenderClear(renderer);
-                            menu(renderer,window);
+                            //menu(renderer,window);
                             SDL_RenderClear(renderer);
                             break;
                         }
