@@ -91,18 +91,18 @@ t_competence guerrier[NB_CPT]={
 
 t_competence archer[NB_CPT]={
     //étage1:
-    {non_acquis, "Déplacement furtif", "L'archer est capable de se déplacer plus rapidement de manière discrète. Effet : Réduit légèrement le périmètre de détection. Augmente grandement la vitesse de déplacement", {NO_IMPROVE, NO_IMPROVE, NO_IMPROVE, BIG_IMPROVE, SMALL_IMPROVE}, NULL, 0, NULL, 0},
+    {non_acquis, "Déplacement furtif", "L'archer est capable de se déplacer plus rapidement de manière discrète. Effet : Réduit légèrement le périmètre de détection. Augmente grandement la vitesse de déplacement", {NO_IMPROVE, NO_IMPROVE, NO_IMPROVE, BIG_IMPROVE, SMALL_IMPROVE}, NULL, 0, NULL, 3},
     //étage2:
-    {non_acquis, "Arc d'Ether", "L'arc de l'Archer s'améliore en l'Arc d'Ether, léger et facile à manier. Effet : Augmente la vitesse de déplacement et la vitesse d'attaque.", {NO_IMPROVE, NO_IMPROVE, MIDDLE_IMPROVE, MIDDLE_IMPROVE, NO_IMPROVE}, NULL, 0, NULL, 0},
-    {non_acquis, "Arc Séraphin", "Arc légendaire donnée par la plus grande instance de la Hiérarchie Céleste. Effet : Augmente légèrement les points de vie et grandement les dégats.", {SMALL_IMPROVE, BIG_IMPROVE, NO_IMPROVE, NO_IMPROVE, NO_IMPROVE}, NULL, 0, NULL, 0},
-    {non_acquis, "Arc Sépulcral", "Arc sinistre obtenu dans le tombeau du pharaon Ramsès II. Effet : Augmente énormement les dégats.", {NO_IMPROVE, ULTRA_IMPROVE, NO_IMPROVE, NO_IMPROVE, NO_IMPROVE}, NULL, 0, NULL, 0},
+    {non_acquis, "Arc Séraphin", "Arc légendaire donnée par la plus grande instance de la Hiérarchie Céleste. Effet : Augmente légèrement les points de vie et grandement les dégats.", {SMALL_IMPROVE, BIG_IMPROVE, NO_IMPROVE, NO_IMPROVE, NO_IMPROVE}, NULL, 1, NULL, 1},
+    {non_acquis, "Arc d'Ether", "L'arc de l'Archer s'améliore en l'Arc d'Ether, léger et facile à manier. Effet : Augmente la vitesse de déplacement et la vitesse d'attaque.", {NO_IMPROVE, NO_IMPROVE, MIDDLE_IMPROVE, MIDDLE_IMPROVE, NO_IMPROVE}, NULL, 1, NULL, 2},
+    {non_acquis, "Arc Sépulcral", "Arc sinistre obtenu dans le tombeau du pharaon Ramsès II. Effet : Augmente énormement les dégats.", {NO_IMPROVE, ULTRA_IMPROVE, NO_IMPROVE, NO_IMPROVE, NO_IMPROVE}, NULL, 1, NULL, 1},
     //étage3:
-    {non_acquis, "Sandales d'Hermes", "Ces sandales accordent au jours une vitesse déplacement remarquable. Effet : Augmente grandement la vitesse de déplacement.", {NO_IMPROVE, NO_IMPROVE, NO_IMPROVE, BIG_IMPROVE, NO_IMPROVE}, NULL, 0, NULL, 0},
-    {non_acquis, "Manteau de la nuit", "Vêtement de l'archer permettant de réduire la distance de détection des mobs. Effet : Réduit grandement le périmètre de détection des mobs", {NO_IMPROVE, NO_IMPROVE, NO_IMPROVE, NO_IMPROVE, BIG_IMPROVE}, NULL, 0, NULL, 0},
+    {non_acquis, "Manteau de la nuit", "Vêtement de l'archer permettant de réduire la distance de détection des mobs. Effet : Réduit grandement le périmètre de détection des mobs", {NO_IMPROVE, NO_IMPROVE, NO_IMPROVE, NO_IMPROVE, BIG_IMPROVE}, NULL, 2, NULL, 2},
+    {non_acquis, "Sandales d'Hermes", "Ces sandales accordent au jours une vitesse déplacement remarquable. Effet : Augmente grandement la vitesse de déplacement.", {NO_IMPROVE, NO_IMPROVE, NO_IMPROVE, BIG_IMPROVE, NO_IMPROVE}, NULL, 2, NULL, 2},
     //étage4:
-    {non_acquis, "Flèche de Gungnir", "Flèches forgées à partir de la lance d'Odin : Gungnir. Effet : Augmente grandement la vitesse d'attaque", {NO_IMPROVE, NO_IMPROVE, BIG_IMPROVE, NO_IMPROVE, NO_IMPROVE}, NULL, 0, NULL, 0},
-    {non_acquis, "Flèche vorace", "Flèches absorbant la vie de la cible. Effet : Augmente les dégats et légèrement les points de vie.",{SMALL_IMPROVE, MIDDLE_IMPROVE, NO_IMPROVE, NO_IMPROVE, NO_IMPROVE}, NULL, 0, NULL, 0},
-    {non_acquis, "Flèches perforantes", "Les flèches sont affutées pour atteindre plus facilement les ennemis et les transpercer. Effet : Augmente les dégats et légèrement la vitesse de déplacement.", {NO_IMPROVE, MIDDLE_IMPROVE, NO_IMPROVE, SMALL_IMPROVE, NO_IMPROVE}, NULL, 0, NULL, 0},
+    {non_acquis, "Flèches perforantes", "Les flèches sont affutées pour atteindre plus facilement les ennemis et les transpercer. Effet : Augmente les dégats et légèrement la vitesse de déplacement.", {NO_IMPROVE, MIDDLE_IMPROVE, NO_IMPROVE, SMALL_IMPROVE, NO_IMPROVE}, NULL, 1, NULL, 1},
+    {non_acquis, "Flèche de Gungnir", "Flèches forgées à partir de la lance d'Odin : Gungnir. Effet : Augmente grandement la vitesse d'attaque", {NO_IMPROVE, NO_IMPROVE, BIG_IMPROVE, NO_IMPROVE, NO_IMPROVE}, NULL, 2, NULL, 1},
+    {non_acquis, "Flèche vorace", "Flèches absorbant la vie de la cible. Effet : Augmente les dégats et légèrement les points de vie.",{SMALL_IMPROVE, MIDDLE_IMPROVE, NO_IMPROVE, NO_IMPROVE, NO_IMPROVE}, NULL, 1, NULL, 1},
     //étage5: Compétence ultime
-    {non_acquis, "Salve Ultime", "L'archer débloque son plein potentiel pour rendre ses flèches plus meurtrières. Effet : Augmente énormement la vitesse d'attaque et de déplacement.", {NO_IMPROVE, NO_IMPROVE, ULTRA_IMPROVE, ULTRA_IMPROVE, NO_IMPROVE}, NULL, 0, NULL, 0},
+    {non_acquis, "Salve Ultime", "L'archer débloque son plein potentiel pour rendre ses flèches plus meurtrières. Effet : Augmente énormement la vitesse d'attaque et de déplacement.", {NO_IMPROVE, NO_IMPROVE, ULTRA_IMPROVE, ULTRA_IMPROVE, NO_IMPROVE}, NULL, 3, NULL, 0},
 };

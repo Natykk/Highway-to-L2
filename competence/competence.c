@@ -110,16 +110,16 @@ int init_arbre(t_competence arbre[NB_CPT]){
                 }
                 printf("compétence %s[%d] : précédent  %s\n",arbre[i].nom, i, arbre[i].precedentes[j].nom);
                 if(!strcmp(arbre[i].nom,"Bottes de sept lieues") && branche_parcourus!=0){
-                    k++;
-                    avancer=1;
-                }
-                else if(!strcmp(arbre[i].nom,"Bottes des géants") && branche_parcourus!=0){
                     k--;
                     reculer=1;
                 }
+                else if(!strcmp(arbre[i].nom,"Bottes des géants") && branche_parcourus!=0){
+                    k++;
+                    avancer=1;
+                }
             }
-            if(reculer) k--; reculer=0;
-            if(avancer) k++; avancer=0;
+            if(reculer) k++; reculer=0;
+            if(avancer) k--; avancer=0;
         }
         else{
             printf("compétence %s[%d] : pas de précédent\n",arbre[i].nom, i);
@@ -135,5 +135,5 @@ int main(){
     printf("\n\n");
     init_arbre(guerrier);
     printf("\n\n");
-    //init_arbre(archer);
+    init_arbre(archer);
 }
