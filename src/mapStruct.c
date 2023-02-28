@@ -303,8 +303,8 @@ int genererSalle(int x_salle, int y_salle, t_etage * etage){
         etage->etage[x_salle][y_salle].dim[x_obst][y_obst]=OBSTACLE;
         nbObstplace++;
     }
-
-    
+    etage->etage[x_salle][y_salle].nb_mobs=0;
+    /*
     int nbMob=rand()%MOB_MAX+1;         //génère entre 1 et 11 mobs 
     int num_mob;
     etage->etage[x_salle][y_salle].nb_mobs=nbMob;
@@ -326,7 +326,9 @@ int genererSalle(int x_salle, int y_salle, t_etage * etage){
         etage->etage[x_salle][y_salle].mob[nbMobplace]->persoOuMob=1;
         etage->etage[x_salle][y_salle].dim[x_mob][y_mob]=nbMobplace+10;
         nbMobplace++;
+        
     }
+    */
     //afficher_salle(etage->etage[x_salle][y_salle]);
 
     return OK;

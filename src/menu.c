@@ -51,6 +51,7 @@ int menu(SDL_Renderer *renderer,SDL_Window *window) {
     return 1;
   }
   
+  
    // Initialisation des boutons
   button1.x = 50;
   button1.y = 100;
@@ -85,6 +86,7 @@ int menu(SDL_Renderer *renderer,SDL_Window *window) {
     while (SDL_PollEvent(&e) != 0) {
       // Si l'utilisateur a cliqué sur la croix pour fermer la fenêtre, on quitte la boucle principale
       if (e.type == SDL_QUIT || (e.key.keysym.sym == SDLK_ESCAPE)) {
+        Mix_HaltMusic();
         running = 0;
       }
     // Si l'utilisateur a cliqué sur le bouton 1
@@ -92,7 +94,7 @@ int menu(SDL_Renderer *renderer,SDL_Window *window) {
     int x, y;
     SDL_GetMouseState(&x, &y);
     if (x >= button1.x && x <= button1.x + button1.w && y >= button1.y && y <= button1.y + button1.h) {
-        SDL_FreeAudioStream(musique);
+        Mix_HaltMusic();
         SDL_FreeSurface(background);
         SDL_FreeSurface(button1.surface);
         SDL_FreeSurface(button2.surface);
@@ -105,7 +107,7 @@ int menu(SDL_Renderer *renderer,SDL_Window *window) {
     int x, y;
     SDL_GetMouseState(&x, &y);
     if (x >= button2.x && x <= button2.x + button2.w && y >= button2.y && y <= button2.y + button2.h) { 
-        SDL_FreeAudioStream(musique);
+        Mix_HaltMusic();
         SDL_FreeSurface(background);
         SDL_FreeSurface(button1.surface);
         SDL_FreeSurface(button2.surface);
