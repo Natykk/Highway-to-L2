@@ -1,12 +1,15 @@
+#include <stdio.h>
+#include <stdlib.h>
+
 #define NB_CPT 10
 #define T_NOM 30
-#define T_DESC 200
+#define T_DESC 300
 
 #define NO_IMPROVE 1
-#define SMALL_IMPROVE 1.25      //améliore légèrement ...
-#define MIDDLE_IMPROVE 1.5      //ameliore ...
-#define BIG_IMPROVE 1.75        //améliore grandement ...
-#define ULTRA_IMPROVE 2         //améliore énormémément ...
+#define SMALL_IMPROVE 2         //améliore légèrement ...
+#define MIDDLE_IMPROVE 3        //ameliore ...
+#define BIG_IMPROVE 4           //améliore grandement ...
+#define ULTRA_IMPROVE 5         //améliore énormémément ...
 
 typedef enum {non_acquis, acquis} t_acquis;
 
@@ -23,29 +26,31 @@ typedef struct competence{
     char nom[T_NOM];
     char desc[T_DESC];
     t_buff buff_stat;
-    struct competence **precedentes;
+    struct competence *precedentes;
     int nb_prec;
-    struct competence **suivantes;
+    struct competence *suivantes;
     int nb_suiv;
 } t_competence;
 
+
 t_competence assassin[NB_CPT]={
     //étage1:
-    {non_acquis, "Frappe rapide", "Cette compétence se concentre sur la rapidité d'attaque pour neutraliser rapidement la cible. Effet : Augmente la vitesse d'attaque.", {NO_IMPROVE, NO_IMPROVE, MIDDLE_IMPROVE, NO_IMPROVE, NO_IMPROVE}, NULL, 0, NULL, 0},
+    {non_acquis, "Frappe rapide", "Cette compétence se concentre sur la rapidité d'attaque pour neutraliser rapidement la cible. Effet : Augmente la vitesse d'attaque.", {NO_IMPROVE, NO_IMPROVE, MIDDLE_IMPROVE, NO_IMPROVE, NO_IMPROVE}, NULL, 0, NULL, 2},
     //étage2:
-    {non_acquis, "Cotte de maille", "Armure protégeant des petits dégats. Effet : Augmente les points de vie et légèrement la vitesse d'attaque.",  {MIDDLE_IMPROVE, NO_IMPROVE, SMALL_IMPROVE, NO_IMPROVE, NO_IMPROVE}, NULL, 0, NULL, 0},
-    {non_acquis, "Cape d'invisibilité","L'assassin possède à présent une cape lui permettant d'améliorer sa discrétion. Effet : Réduit grandement le périmètre de détection des mobs."{NO_IMPROVE, NO_IMPROVE, NO_IMPROVE, NO_IMPROVE, BIG_IMPROVE}, NULL, 0, NULL, 0},
+    {non_acquis, "Cotte de maille", "Armure protégeant des petits dégats. Effet : Augmente les points de vie et légèrement la vitesse d'attaque.",  {MIDDLE_IMPROVE, NO_IMPROVE, SMALL_IMPROVE, NO_IMPROVE, NO_IMPROVE}, NULL, 1, NULL, 2},
+    {non_acquis, "Cape d'invisibilité","L'assassin possède à présent une cape lui permettant d'améliorer sa discrétion. Effet : Réduit grandement le périmètre de détection des mobs.",{NO_IMPROVE, NO_IMPROVE, NO_IMPROVE, NO_IMPROVE, BIG_IMPROVE}, NULL, 1, NULL, 2},
     //étage3:
-    {non_acquis, "Coup perçant","L'assassin concentre son énergie dans la pointe de son arme pour assainer des dégats et aspirer de la vie à sa cible. Effet : Augmente les dégats, grandement la vitesse d'attaque et les points de vie.", {MIDDLE_IMPROVE, MIDDLE_IMPROVE, BIG_IMPROVE, NO_IMPROVE, NO_IMPROVE}, NULL, 0, NULL, 0},
-    {non_acquis, "Entaille profonde","Cette compétence permet à l'assassin d'asséner des coup plus profond infligeant de gros dégats. Effet : Augmente grandement les dégats et la vitesse d'attaque.", {NO_IMPROVE, BIG_IMPROVE, BIG_IMPROVE, NO_IMPROVE, NO_IMPROVE}, NULL, 0, NULL, 0},
-    {non_acquis, "Silence mortel", "Cette compétence améliore la capacité de l'assassin à se cacher ou à se dissimuler pour passer inaperçu. Effet : Réduit grandement le périmètre de détection des mobs, Augmente la vitesse de déplacement et légèrement la vitesse d'attaque .", {NO_IMPROVE,NO_IMPROVE,SMALL_IMPROVE,MIDDLE_IMPROVE,BIG_IMPROVE}, NULL, 0, NULL, 0},
-    {non_acquis, "Marche de l'ombre", "Cette compétence permet à l'assassin de se déplacer plus discrètement. Effet : Réduit grandement le périmètre de détection des mobs, Augmente la vitesse d'attaque et légèrement la vitesse de déplacement", {NO_IMPROVE,NO_IMPROVE,MIDDLE_IMPROVE,SMALL_IMPROVE,BIG_IMPROVE}, NULL, 0, NULL, 0},
+    {non_acquis, "Coup perçant","L'assassin concentre son énergie dans la pointe de son arme pour assainer des dégats et aspirer de la vie à sa cible. Effet : Augmente les dégats, grandement la vitesse d'attaque et les points de vie.", {MIDDLE_IMPROVE, MIDDLE_IMPROVE, BIG_IMPROVE, NO_IMPROVE, NO_IMPROVE}, NULL, 1, NULL, 1},
+    {non_acquis, "Entaille profonde","Cette compétence permet à l'assassin d'asséner des coup plus profond infligeant de gros dégats. Effet : Augmente grandement les dégats et la vitesse d'attaque.", {NO_IMPROVE, BIG_IMPROVE, BIG_IMPROVE, NO_IMPROVE, NO_IMPROVE}, NULL, 1, NULL, 1},
+    {non_acquis, "Silence mortel", "Cette compétence améliore la capacité de l'assassin à se cacher ou à se dissimuler pour passer inaperçu. Effet : Réduit grandement le périmètre de détection des mobs, Augmente la vitesse de déplacement et légèrement la vitesse d'attaque.", {NO_IMPROVE,NO_IMPROVE,SMALL_IMPROVE,MIDDLE_IMPROVE,BIG_IMPROVE}, NULL, 1, NULL, 1},
+    {non_acquis, "Marche de l'ombre", "Cette compétence permet à l'assassin de se déplacer plus discrètement. Effet : Réduit grandement le périmètre de détection des mobs, Augmente la vitesse d'attaque et légèrement la vitesse de déplacement", {NO_IMPROVE,NO_IMPROVE,MIDDLE_IMPROVE,SMALL_IMPROVE,BIG_IMPROVE}, NULL, 1, NULL, 1},
     //étage4:
-    {non_acquis, "Bottes de célérité","Cette compétence garantit à l'assassin une vitesse de déplacement supérieure. Effet : Augmente grandement la vitesse d'attaque et grandement la vitesse de déplacement", {NO_IMPROVE, NO_IMPROVE, BIG_IMPROVE, BIG_IMPROVE, NO_IMPROVE}, NULL, 0, NULL, 0},
-    {non_acquis, "Bottes de furtivité","L'assassin se chausse de bottes masquant le bruit de ses pas. Effet : Réduit énormement le périmètre de détection des mobs et Augmente la vitesse de déplacement."{NO_IMPROVE, NO_IMPROVE, NO_IMPROVE, MIDDLE_IMPROVE, ULTRA_IMPROVE}, NULL, 0, NULL, 0},
+    {non_acquis, "Bottes de célérité","Cette compétence garantit à l'assassin une vitesse de déplacement supérieure. Effet : Augmente grandement la vitesse d'attaque et grandement la vitesse de déplacement.", {NO_IMPROVE, NO_IMPROVE, BIG_IMPROVE, BIG_IMPROVE, NO_IMPROVE}, NULL, 2, NULL, 1},
+    {non_acquis, "Bottes de furtivité","L'assassin se chausse de bottes masquant le bruit de ses pas. Effet : Réduit énormement le périmètre de détection des mobs et Augmente la vitesse de déplacement.",{NO_IMPROVE, NO_IMPROVE, NO_IMPROVE, MIDDLE_IMPROVE, ULTRA_IMPROVE}, NULL, 2, NULL, 1},
     //étage5: Compétence ultime
-    {non_acquis, "Chatiment fatal","L'assassin concentre toute son énergie dans son arme pour rendre chaque coup fatal. Effet : Augmente enormément les dégats, Augmente la furtivité et la vitesse d'attaque."{NO_IMPROVE, ULTRA_IMPROVE, MIDDLE_IMPROVE, NO_IMPROVE, MIDDLE_IMPROVE}, NULL, 0, NULL, 0},
+    {non_acquis, "Chatiment fatal","L'assassin concentre toute son énergie dans son arme pour rendre chaque coup fatal. Effet : Augmente enormément les dégats, Augmente la furtivité et la vitesse d'attaque.",{NO_IMPROVE, ULTRA_IMPROVE, MIDDLE_IMPROVE, NO_IMPROVE, MIDDLE_IMPROVE}, NULL, 2, NULL, 0},
 };
+
 
 t_competence mage[NB_CPT]={
     //étage1:
@@ -101,4 +106,3 @@ t_competence archer[NB_CPT]={
     //étage5: Compétence ultime
     {non_acquis, "Salve Ultime", "L'archer débloque son plein potentiel pour rendre ses flèches plus meurtrières. Effet : Augmente énormement la vitesse d'attaque et de déplacement.", {NO_IMPROVE, NO_IMPROVE, ULTRA_IMPROVE, ULTRA_IMPROVE, NO_IMPROVE}, NULL, 0, NULL, 0},
 };
-
