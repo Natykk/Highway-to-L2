@@ -1,5 +1,5 @@
 
-OBJS	=  obj/map_jeu_entite.o obj/entite.o  obj/mapStruct.o 
+OBJS	=  obj/map_jeu_entite.o obj/entite.o  obj/mapStruct.o obj/menu.o
 SOURCE	= src/map_jeu_entite.c src/entite.c src/inventaire.c src/mapStruct.c src/menu.c src/objet.c
 HEADER	= head/entite.h head/mapStruct.h head/objet.h head/objet_inv.h
 OUT	= bin/main
@@ -27,7 +27,10 @@ obj/objet.o: src/objet.c
 	$(CC) $(FLAGS) $< -o $@
 
 obj/map_jeu_entite.o: src/map_jeu_entite.c 
-	$(CC) -c $(SDLROUTE) $(SDLFLAGS)  $< -o $@
+	$(CC) $(FLAGS) $(SDLROUTE) $(SDLFLAGS)  $< -o $@
+
+obj/menu.o: src/menu.c
+	$(CC) $(FLAGS) $(SDLROUTE) $(SDLFLAGS) $< -o $@
 
 
 
