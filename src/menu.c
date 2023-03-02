@@ -51,7 +51,6 @@ int menu(SDL_Renderer *renderer,SDL_Window *window) {
     return 1;
   }
   
-  
    // Initialisation des boutons
   button1.x = 50;
   button1.y = 100;

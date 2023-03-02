@@ -1,5 +1,6 @@
 #define SALLE_UNUSED -1
 #include "entite.h"
+#include "objet.h"
 #define VIDE 0
 #define MUR 1
 #define PORTE 2
@@ -21,7 +22,7 @@
  * @brief Définition des structures de données pour la map
  * 
 */
-typedef enum{AUCUN=-1,HAUT,DROITE,BAS,GAUCHE} t_dir;
+
 /**
  * \enum t_statut
  * \brief Définition des différents statuts d'une salle

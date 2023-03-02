@@ -17,6 +17,17 @@
  */
 
 /**
+ * \enum t_dir
+ * \brief Définition des directions
+ *
+ * 
+*/
+typedef enum{AUCUN=-1, //!< Aucune direction
+                HAUT, //!< Haut
+                DROITE, //!< Droite
+                BAS, //!< Bas
+                GAUCHE} t_dir; //!< Gauche
+/**
  * @struct entite_t
  * @brief Structure qui genere les entitées 
  * Caracteristiques : 
@@ -38,6 +49,7 @@ typedef struct entite_s {
     objet_inv_t * inventaire;
     int place_inv;
     int persoOuMob;
+    t_dir dir;
 }entite_t;
 
 
@@ -52,5 +64,8 @@ int acces_mob(char*);
 entite_t * creer_personnage(entite_t *);
 entite_t * creer_monstre(entite_t *, char *);
 void detruire_entitee(entite_t *);
-
+void looter(entite_t *, entite_t * );
+entite_t* init_inventaire_monstre(entite_t * );
+entite_t* init_inventaire_personnage(entite_t * );
+void afficher_inventaire(entite_t *);
 #endif 

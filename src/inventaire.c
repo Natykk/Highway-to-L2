@@ -3,7 +3,6 @@
 #include <string.h>
 #include "../head/entite.h"
 
-
 /**
  * @file inventaire.c
  * @brief Fichier d'en-tete pour les primitives liées aux entites
@@ -34,13 +33,14 @@ void looter(entite_t * entite_source, entite_t * entite_destination){
     */
     int i;
     int rang;
- 
+    printf("LOOTAGE DU MOB %s\n",entite_source->nom);
     // Pour chaque objet que possede la source
     for(i = 0; i < entite_source->place_inv; i++) {
         rang = acces_obj(entite_source->inventaire->objet[i].nom);
-        printf("%d", entite_destination->inventaire->nb[i]);
-        printf("%d", entite_source->inventaire->nb[i]);
+        
+        //printf("mob : %d\n", entite_source->inventaire->nb[i]);
         entite_destination->inventaire->nb[rang] += entite_source->inventaire->nb[i];
+        //printf("perso : %s\n", entite_destination->inventaire->objet[rang].nom);
         /*
         // On regarde si l'objet est bien dans l'inventaire 
         for(j = 0; j < entite_destination->place_inv; j++) {
@@ -50,6 +50,7 @@ void looter(entite_t * entite_source, entite_t * entite_destination){
         }
         */
     }
+    //afficher_inventaire(entite_destination);
 }
 
 /**
@@ -60,6 +61,7 @@ void looter(entite_t * entite_source, entite_t * entite_destination){
  */
 entite_t* init_inventaire_personnage(entite_t * personnage) {
     int i;
+    printf("INIT PERSO\n");
     for(i = 0; i < personnage->place_inv; i++) {
         personnage->inventaire->objet[i] = tab_objet[i];
         personnage->inventaire->nb[i] = 0;
@@ -75,8 +77,9 @@ entite_t* init_inventaire_personnage(entite_t * personnage) {
  * @param monstre 
  */
 entite_t* init_inventaire_monstre(entite_t * monstre) {
+    printf("Init du mob %s \n",monstre->nom);
     int rang_mob = acces_mob(monstre->nom);
-    printf("%d \n", rang_mob);
+    printf("%s \n", monstre->nom);
     switch(rang_mob) {
         case 0: // Slime Vert --> Green Goo
             monstre->inventaire->objet[0] = tab_objet[1];
