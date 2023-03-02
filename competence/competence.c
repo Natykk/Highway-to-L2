@@ -29,7 +29,7 @@ int remplissage_nomImgCpt(t_competence arbre[NB_CPT]){
             arbre[i].name_img[k]='\0';
             arbre[i].name_img = realloc(arbre[i].name_img, sizeof(char)*(strlen(arbre[i].name_img)+1));
         }
-        strcat(arbre[i].name_img,"_l");
+        strcat(arbre[i].name_img,"_l.png");
     }
     return 1;
 }
