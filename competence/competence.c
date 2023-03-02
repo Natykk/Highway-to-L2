@@ -3,6 +3,36 @@
 #include <string.h>
 
 #include "competence.h"
+//Met le nom de la compétence en question à "débloqué"
+int changer_nomImgCpt(t_competence competence){
+    int i;
+    for(i=0; i<strlen(competence.name_img); i++);
+    i--;
+    competence.name_img[i]='u';
+
+    return 1;
+}
+
+//Met le nom des compétences à "bloqué" (l=lock);
+int remplissage_nomImgCpt(t_competence arbre[NB_CPT]){  
+    int i, j, k;
+
+    for(i=0; i<NB_CPT; i++){
+        k=0;
+        if(arbre[i].name_img==NULL){
+            arbre[i].name_img=malloc(sizeof(char)*T_NOM);
+            for(j=0; j<strlen(arbre[i].nom); j++){
+                if((arbre[i].nom[j]>='A' && arbre[i].nom[j]<='Z') || (arbre[i].nom[j]>'0' &&arbre[i].nom[j]<='9')){
+                    arbre[i].name_img[k++] = arbre[i].nom[j];
+                }
+            }
+            arbre[i].name_img[k]='\0';
+            arbre[i].name_img = realloc(arbre[i].name_img, sizeof(char)*(strlen(arbre[i].name_img)+1));
+        }
+        strcat(arbre[i].name_img,"_l");
+    }
+    return 1;
+}
 
 
 int init_arbre(t_competence arbre[NB_CPT]){
@@ -11,8 +41,14 @@ int init_arbre(t_competence arbre[NB_CPT]){
     int reculer=0;
     int avancer=0;
 
+    /* Remplissage nom fichier sprite compétence */
+    if(!remplissage_nomImgCpt(arbre)) return 0;
+
     //Remplissage des tableaux de compétences suivantes pour chaque compétence
     for(i=0, k=i+1; i<NB_CPT; i++){
+        if(i==0){
+            changer_nomImgCpt(arbre[i]);
+        }
         if(arbre[i].nb_suiv>0){
             arbre[i].suivantes=malloc(sizeof(t_competence)*arbre[i].nb_suiv);
             for(j=0; j<arbre[i].nb_suiv; j++){
@@ -74,14 +110,15 @@ int init_arbre(t_competence arbre[NB_CPT]){
             arbre[i].precedentes=NULL;
         }
     }
-    return 0;
+
+    return 1;
 }
 
 void aff_classe(t_competence arbre[NB_CPT]){
     int i, j;
     for(i=0; i<NB_CPT; i++){
         printf("\n");
-        printf("%s : %s\n", arbre[i].nom, arbre[i].desc);
+        printf("%s : %s (%lu)\nDesc : %s\n", arbre[i].nom, arbre[i].name_img, strlen(arbre[i].name_img), arbre[i].desc);
         printf("Nombre comp preced : %d = {", arbre[i].nb_prec);
         for(j=0; j<arbre[i].nb_prec; j++){
             printf(" %s ", arbre[i].precedentes[j].nom);
@@ -101,6 +138,9 @@ void aff_classe(t_competence arbre[NB_CPT]){
 int detruire_arbre(t_competence arbre[NB_CPT]){
     int i;
     for(i=0; i<NB_CPT; i++){
+        free(arbre[i].name_img);
+        arbre[i].name_img=NULL;
+
         if(arbre[i].nb_prec>0){
             free(arbre[i].precedentes);
             arbre[i].precedentes=NULL;
