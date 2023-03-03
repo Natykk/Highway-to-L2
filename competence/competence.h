@@ -84,7 +84,7 @@ t_competence guerrier[NB_CPT]={
     {non_acquis, "Armure d'Hadès","Après avoir vaincu le dieu des Enfers, le Guerrier a conservé son armure. Effet : Augmente grandement les points de vies", {BIG_IMPROVE, NO_IMPROVE, NO_IMPROVE, NO_IMPROVE, NO_IMPROVE}, NULL, 2, NULL, 2, NULL},
     //étage4:
     {non_acquis, "Bottes des Géants", "Le guerrier s'équipe a présent de bottes donné en cadeau par des Géants au guerrier. Effet : Augmente grandement la vitesse de déplacement et Augmente légèrement les points de vie.", {SMALL_IMPROVE, NO_IMPROVE, NO_IMPROVE, BIG_IMPROVE, NO_IMPROVE}, NULL, 2, NULL, 1, NULL},
-    {non_acquis, "Bottes de Sept Lieues", "Le guerrier s'équipe a présent de bottes donné en cadeau par les Postillons au guerrier. Effet : Augmente grandement la vitesse de déplacement et Réduit légèrement le périmètre de détection des mobs.", {MIDDLE_IMPROVE, NO_IMPROVE, NO_IMPROVE, BIG_IMPROVE, SMALL_IMPROVE}, NULL, 2, NULL, 1, NULL},
+    {non_acquis, "Bottes de Sept Lieues", "Le guerrier s'équipe a présent de bottes donné en cadeau par les Postillons au guerrier. Effet : Augmente grandement la vitesse de déplacement et Réduit légèrement le périmètre de détection des mobs.", {NO_IMPROVE, NO_IMPROVE, NO_IMPROVE, BIG_IMPROVE, SMALL_IMPROVE}, NULL, 2, NULL, 1, NULL},
     //étage5: Compétence ultime
     {non_acquis, "Rage du Berzerk", "Le guerrier debloque entièrement sa puissance pour détruire ses adversaire. Effet : Augmente énormémment la vitesse d'attaque, Augmente les dégats et la vitesse de déplacement.", {NO_IMPROVE, MIDDLE_IMPROVE, BIG_IMPROVE, MIDDLE_IMPROVE, NO_IMPROVE}, NULL, 2, NULL, 0, NULL}
 };
