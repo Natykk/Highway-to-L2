@@ -13,7 +13,7 @@
 
 void afficher_inventaire(entite_t * entite) {
     for(int i = 0; i < entite->place_inv; i++) {
-        printf("{%s,%d} \n", entite->inventaire->objet[i].nom, entite->inventaire->nb[i]);
+        //printf("{%s,%d} \n", entite->inventaire->objet[i].nom, entite->inventaire->nb[i]);
     }
 }
 
@@ -33,7 +33,7 @@ void looter(entite_t * entite_source, entite_t * entite_destination){
     */
     int i;
     int rang;
-    printf("LOOTAGE DU MOB %s\n",entite_source->nom);
+    //printf("LOOTAGE DU MOB %s\n",entite_source->nom);
     // Pour chaque objet que possede la source
     for(i = 0; i < entite_source->place_inv; i++) {
         rang = acces_obj(entite_source->inventaire->objet[i].nom);
@@ -61,7 +61,7 @@ void looter(entite_t * entite_source, entite_t * entite_destination){
  */
 entite_t* init_inventaire_personnage(entite_t * personnage) {
     int i;
-    printf("INIT PERSO\n");
+    //printf("INIT PERSO\n");
     for(i = 0; i < personnage->place_inv; i++) {
         personnage->inventaire->objet[i] = tab_objet[i];
         personnage->inventaire->nb[i] = 0;
@@ -77,7 +77,7 @@ entite_t* init_inventaire_personnage(entite_t * personnage) {
  * @param monstre 
  */
 entite_t* init_inventaire_monstre(entite_t * monstre) {
-    printf("Init du mob %s \n",monstre->nom);
+    //printf("Init du mob %s \n",monstre->nom);
     int rang_mob = acces_mob(monstre->nom);
     printf("%s \n", monstre->nom);
     switch(rang_mob) {

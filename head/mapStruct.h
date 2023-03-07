@@ -1,6 +1,7 @@
 #define SALLE_UNUSED -1
 #include "entite.h"
 #include "objet.h"
+
 #define VIDE 0
 #define MUR 1
 #define PORTE 2
@@ -17,6 +18,8 @@
 #define LONG_COULOIR 15
 
 #define MOB_MAX 10
+
+
 /**
  * @file mapStruct.h
  * @brief Définition des structures de données pour la map

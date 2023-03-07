@@ -1,3 +1,4 @@
+#include <stdbool.h>
 #include <stdio.h>
 #define SDL_MAIN_HANDLED
 #include <SDL2/SDL.h>
@@ -6,9 +7,12 @@
 #include <SDL2/SDL_image.h>
 #include <SDL2/SDL_mixer.h>
 #include <SDL2/SDL_ttf.h>
-#include "../head/mapStruct.h"
 #include "../head/entite.h"
+#include "../head/mapStruct.h"
 #include "../head/menu.h"
+#include "../head/chemin.h"
+int coords[10][2];
+
 #define  TILE_SIZE  32
 #define  MAP_WIDTH   25
 #define  MAP_HEIGHT  25
@@ -18,7 +22,7 @@ const int SPRITE_WIDTH =32; // Largeur d'une frame
 const int SPRITE_HEIGHT = 32; // Hauteur d'une frame
 int flip_map=0;
 int etage_act=0;
-
+int agro=0;
 /*
 *  \fn float distance(entite_t* entite1, entite_t* entite2)
 *  \brief Calcule la distance entre deux entites
@@ -38,7 +42,7 @@ float distance(entite_t* entite1, entite_t* entite2) {
  *  
 */
 void transfert(t_salle salle, t_salle * map){
-    printf("Transfert de la salle %d\n",salle.num_salle);
+    //printf("Transfert de la salle %d\n",salle.num_salle);
     int i, j;
     map->nb_mobs = salle.nb_mobs;
     map->nb_porte = salle.nb_porte;
@@ -76,7 +80,7 @@ void changement_etage(t_niv* niv,entite_t* posPerso,t_salle* map, t_pos* posSall
     map->num_salle=niv->etages[etage_act].etage[posSalle->x][posSalle->y].num_salle;
     map->dim[posPerso->x][posPerso->y] = PERSO;
     flip_map=rand()%4;
-    printf("Nouvelle etage !\n");
+    //printf("Nouvelle etage !\n");
 }
 
 /**
@@ -111,18 +115,59 @@ void changement(t_niv * niv,entite_t* posPerso, t_pos * posSalle, t_salle * map)
         posPerso->y=(DIM_SALLE/2)-1;
     }
     if(niv->etages[0].etage[posSalle->x][posSalle->y].statut==EXIT){
-        printf("C\'est la fin !\n");
+        //printf("C\'est la fin !\n");
     }
     transfert(niv->etages[0].etage[posSalle->x][posSalle->y], map);
     map->num_salle=niv->etages[0].etage[posSalle->x][posSalle->y].num_salle;
     map->dim[posPerso->x][posPerso->y] = PERSO;
     flip_map=rand()%4;
-    printf("Salle n°%d\n", map->num_salle);
+    //printf("Salle n°%d\n", map->num_salle);
     }
 }
-void chemin_vers_perso(entite_t* perso,entite_t* mob,t_salle* map){
-    float dist = distance(perso,mob);
-    printf("Distance Entre perso et %s : %f\n",mob->nom,dist);
+void chemin_vers_perso(entite_t* perso, entite_t* mob, int map[DIM_SALLE][DIM_SALLE]) {
+    int mat[9][9];
+    int i, j;
+
+    int POSPERSX;
+    int POSPERSY;
+    // initialisation de la matrice mat 
+    for(i=0; i<9; i++){
+        for(j=0; j<9; j++){
+            // met la valeurs tout autour de la matrice à 1
+            if(i==0 || i==8 || j==0 || j==8){
+                mat[i][j] = 1;
+            }
+            //prend en compte les murs de la salle
+            else if(map[i-1][j-1] == MUR){
+                mat[i][j] = 1;
+            }
+            //prend en compte les portes de la salle
+            else if(map[i-1][j-1] == PORTE){
+                mat[i][j] = 1;
+            }
+            else{
+                mat[i][j] = 0;
+            }
+        }
+    }
+    // Met à jour la position du mob par rapport à la matrice mat
+    POSPERSX = perso->x - (mob->x -4);
+    POSPERSY = perso->y - (mob->y -4);
+    // Met à jour la position du personnage par rapport à la matrice mat
+    mat[POSPERSX][POSPERSY] =0;
+
+    // Met à jour la position du mob par rapport à la matrice mat
+    mat[4][4] = 0;
+
+    chercher_chemin(4,4,POSPERSX,POSPERSY,mat,coords);
+    // conversion des coordonnées X et Y de la matrice mat  en coordonnées de la matrice map
+    for (i = 0; i < 9; i++) {
+        if(coords[i][0] == 0 || coords[i][1] == 0){
+            break;
+        }
+        coords[i][0] += (mob->x - 4);
+        coords[i][1] += (mob->y - 4);
+    }
 }
 /**
  * \fn void mouvement(t_salle * map,entite_t* posPers, t_pos * posSalle, t_niv * niv)
@@ -323,27 +368,57 @@ int enemy_attack(t_salle * map, entite_t* posPers, SDL_Rect * rect){
 void interact(int attaque,t_salle * map, entite_t* posPers,SDL_Rect * rect,Uint32* lastTime,t_pos * posSalle,t_niv * niv){
     int x = posPers->x;
     int y = posPers->y;
-    int mob;
+    int Idmob=0;
+    int i,j;
+    int cheminX;
+    int cheminY;
     float dist;
     Uint32 currentTime = SDL_GetTicks();
-    if ( enemy_attack(map,posPers,rect) == 0 && attaque==0){
-        if(currentTime - (*lastTime) >= 200){
-        //printf("Mouvement du mob\n");
+    if ( enemy_attack(map,posPers,rect) == 0 && attaque==0){ // si le mob n'attaque pas et que le joueur n'attaque pas
+        if(currentTime - (*lastTime) >= 500){ // si 1 seconde s'est écoulée
+        //Idmob = rand()%map->nb_mobs;
         *lastTime = currentTime; 
         if(map->nb_mobs>0){
-            mob = rand()%map->nb_mobs;
-            int sens = rand()%4;
-            map->mob[mob]->dir = sens;
-            dist = distance(posPers,map->mob[mob]);
-            if(dist <= 4){
-                
+            if(distance(posPers,map->mob[Idmob]) <= 4){
+                for(i=0; i<20; i++){
+                        coords[i][0] = 0;
+                        coords[i][1] = 0;
+                }
+                chemin_vers_perso(posPers,map->mob[Idmob],map->dim);
+                // tant que n'est pas autour du perso
+                i=0;
+                    // on affiche les coordonnées du mob et du perso
+                    // on calcule le chemin
+                    cheminX = map->mob[Idmob]->x - coords[i][0]; 
+                    cheminY = map->mob[Idmob]->y - coords[i][1];
+                    // si le mob est a 1 case de distance du perso on ne bouge pas
+                    // on regarde la différence entre les valeurs de coords et de la position du mob et on change vers la direction la plus appropriée
+                    // on change la direction du mob
+                    if(cheminX > 0){ // si le mob est a droite du perso
+                        map->mob[Idmob]->dir = 3;
+                    }
+                    if(cheminX < 0){ // si le mob est a gauche du perso
+                        map->mob[Idmob]->dir = 1;
+                    }
+                    if(cheminY > 0){ // si le mob est en bas du perso
+                        map->mob[Idmob]->dir = 0;
+                    }
+                    if(cheminY < 0){ // si le mob est en haut du perso
+                        map->mob[Idmob]->dir = 2;
+                    }
+                    // on fait bouger le mob
+
+                    mouvement(map,map->mob[Idmob],posSalle,niv);
+    
+
             }else{
-                mouvement(map,map->mob[mob],posSalle,niv);
+                map->mob[Idmob]->dir = rand()%4;
+                mouvement(map,map->mob[Idmob],posSalle,niv);
             }
         }
         }
     }if(rect->w<=0){
-        printf("Vous êtes mort !\n");
+        //printf("Vous êtes mort !\n");
     }
 }   
 /*
@@ -371,6 +446,11 @@ SDL_Texture* charge_tex(SDL_Renderer *renderer,char *path,int bmp_flag){
 
 
 int main() {
+    int i;
+    for(i=0; i<20; i++){
+                    coords[i][0] = 0;
+                    coords[i][1] = 0;
+    }
     t_niv * niv = malloc(sizeof(t_niv));
     genererNiv(niv);
     entite_t * perso ;

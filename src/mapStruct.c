@@ -305,7 +305,7 @@ int genererSalle(int x_salle, int y_salle, t_etage * etage){
     }
 
     
-    int nbMob=1;         //génère entre 1 et 11 mobs 
+    int nbMob=1; //rand()%10+1;        //génère entre 1 et 11 mobs 
     int num_mob;
     etage->etage[x_salle][y_salle].nb_mobs=nbMob;
     int nbMobplace=0;
