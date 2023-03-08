@@ -79,7 +79,7 @@ entite_t* init_inventaire_personnage(entite_t * personnage) {
 entite_t* init_inventaire_monstre(entite_t * monstre) {
     //printf("Init du mob %s \n",monstre->nom);
     int rang_mob = acces_mob(monstre->nom);
-    printf("%s \n", monstre->nom);
+    //printf("%s \n", monstre->nom);
     switch(rang_mob) {
         case 0: // Slime Vert --> Green Goo
             monstre->inventaire->objet[0] = tab_objet[1];

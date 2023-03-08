@@ -12,7 +12,7 @@
 #define DIM_SALLE 25
 
 #define LARG_SALLE_BOSS 25
-#define LONG_SALLE_BOSS 50
+#define LONG_SALLE_BOSS 35
 
 #define LARG_COULOIR 7
 #define LONG_COULOIR 15
@@ -54,9 +54,9 @@ typedef struct salle {
     int nb_mobs; //!< Nombre de mobs dans la salle
     int num_salle; //!< Numéro de la salle
     int nb_porte; //!< Nombre de portes dans la salle
-    int dim[DIM_SALLE][DIM_SALLE]; //!< Tableau de la salle
+    int dim[LARG_SALLE_BOSS][LONG_SALLE_BOSS]; //!< Tableau de la salle
     t_statut statut; //!< Statut de la salle
-    entite_t* mob[100]; //!< Tableau de mobs dans la salle
+    entite_t* mob[20]; //!< Tableau de mobs dans la salle
 } t_salle;
 
 typedef struct salle_boss {
@@ -71,6 +71,8 @@ typedef struct salle_boss {
 typedef struct etage {
     int nb_salle; //!< Nombre de salles dans l'étage
     t_salle etage[DIM_ETAGE][DIM_ETAGE];//!< Tableau de salles
+    t_salle* Boss;
+    int boss; //!< Salle du boss déverouillée ou pas (1 ou 0)
 } t_etage;
 
 /**

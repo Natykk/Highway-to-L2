@@ -46,6 +46,7 @@ void afficher_salle(t_salle salle){
                 case PORTE : printf("|"); break;
                 case MUR : printf("*"); break;
                 case OBSTACLE : printf("+"); break;
+                default: printf("%d",salle.dim[i][j]); break;
                 //default: printf("%s->%f ",salle.mob[(salle.dim[i][j])-10].nom,salle.mob[(salle.dim[i][j])-10].degats); break;
             }
         }
@@ -457,7 +458,8 @@ int genererEtage(t_etage * etage){
             }
         }
     }
-    
+
+    etage->boss=0;
     return OK;
 }
 
