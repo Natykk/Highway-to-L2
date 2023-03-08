@@ -9,132 +9,139 @@
 #define  TILE_SIZE  32
 #define  MAP_WIDTH   25
 #define  MAP_HEIGHT  25
-// Structure pour représenter un bouton
 
-// Initialisation de la fenêtre et de la surface de l'écran
+int menu(SDL_Renderer* renderer,SDL_Window* window) {
+    //SDL_Init(SDL_INIT_VIDEO);
+    //SDL_Window* window = SDL_CreateWindow("Arbre de C", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 800, 600, SDL_WINDOW_SHOWN);
+    //SDL_Renderer* renderer = SDL_CreateRenderer(window, -1, 0);
+
+    // Dessin des éléments graphiques de l'arbre
+    SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
+    SDL_RenderClear(renderer);
+    // affichage d'une image de fond
+    SDL_Surface* image = IMG_Load("../img/background_comp.jpg");
+    SDL_Texture* texture2 = SDL_CreateTextureFromSurface(renderer, image);
+    SDL_RenderCopy(renderer, texture2, NULL, NULL);
+    SDL_FreeSurface(image);
+
+    SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+    SDL_RenderDrawLine(renderer, 400, 50, 400, 150);
+    SDL_RenderDrawLine(renderer, 250, 250, 400, 150);
+
+    SDL_RenderDrawLine(renderer, 250, 250, 150, 350);
+    SDL_RenderDrawLine(renderer, 250, 250, 350, 350);
+
+    SDL_RenderDrawLine(renderer, 150, 350, 250, 450);
+    SDL_RenderDrawLine(renderer, 350, 350, 250, 450);
+
+    SDL_RenderDrawLine(renderer, 250, 450, 400, 550);
 
 
-// Initialisation des boutons
+    SDL_RenderDrawLine(renderer, 400, 150, 550, 250);
+    SDL_RenderDrawLine(renderer, 550, 250, 450, 350);
+    SDL_RenderDrawLine(renderer, 550, 250, 650, 350);
 
+    SDL_RenderDrawLine(renderer, 450, 350, 550, 450);
+    SDL_RenderDrawLine(renderer, 650, 350, 550, 450);
 
-// Initialisation de l'image de fond
+    SDL_RenderDrawLine(renderer, 550, 450, 400, 550);
+    
+    // Ajout des rectangles au bout des lignes pour les compétences
+    SDL_Rect rect1 = { 400, 50, 50, 50 };
+    SDL_Rect rect2 = { 250, 250, 50, 50 };
+    SDL_Rect rect3 = { 150, 350, 50, 50 };
+    SDL_Rect rect4 = { 350, 350, 50, 50 };
+    SDL_Rect rect5 = { 250, 450, 50, 50 };
+    SDL_Rect rect6 = { 400, 150, 50, 50 };
+    SDL_Rect rect7 = { 550, 250, 50, 50 };
+    SDL_Rect rect8 = { 450, 350, 50, 50 };
+    SDL_Rect rect9 = { 650, 350, 50, 50 };
+    SDL_Rect rect10 = { 550, 450, 50, 50 };
 
+    // Ajout de la couleur des rectangles gris
+    SDL_SetRenderDrawColor(renderer, 128, 128, 128, 255);
+    SDL_RenderFillRect(renderer, &rect1);
+    SDL_RenderFillRect(renderer, &rect2);
+    SDL_RenderFillRect(renderer, &rect3);
+    SDL_RenderFillRect(renderer, &rect4);
+    SDL_RenderFillRect(renderer, &rect5);
+    SDL_RenderFillRect(renderer, &rect6);
+    SDL_RenderFillRect(renderer, &rect7);
+    SDL_RenderFillRect(renderer, &rect8);
+    SDL_RenderFillRect(renderer, &rect9);
+    SDL_RenderFillRect(renderer, &rect10);
 
-int menu(SDL_Renderer *renderer,SDL_Window *window) {
-  SDL_RenderClear(renderer);
-  SDL_Surface *screenSurface = NULL; 
-  SDL_Surface *background = NULL;
-  SDL_Surface *background2 = NULL;
-  Button button1, button2,button3,button4;
-
-
-    Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 1024);
-    Mix_Music *musique; //Création du pointeur de type Mix_Music
-    musique = Mix_LoadMUS("../music/musique.mp3"); //Chargement de la musique
-    Mix_PlayMusic(musique, -1); //Jouer infiniment la musique
-    // ajout du texte TTF 
+    // Ajout des textes
     TTF_Init();
+    TTF_Font* font = TTF_OpenFont("../font/necrosans.ttf", 18);
+    // SDL couleur noir 
+    
+    SDL_Color color_txt = { 0, 0, 0 };
+    SDL_Color color = { 0, 0, 0, 255 };
+    SDL_Surface* surface = TTF_RenderText_Solid(font, "C 1", color_txt);
+    SDL_Texture* texture = SDL_CreateTextureFromSurface(renderer, surface);
+    SDL_RenderCopy(renderer, texture, NULL, &rect1);
 
-    TTF_Font *police = NULL;
-    SDL_Color couleurNoire = {0, 0, 0};
-    police = TTF_OpenFont("../font/necrosans.ttf", 65);
+    surface = TTF_RenderText_Solid(font, "C2", color_txt);
+    texture = SDL_CreateTextureFromSurface(renderer, surface);
+    SDL_RenderCopy(renderer, texture, NULL, &rect2);
 
+    surface = TTF_RenderText_Solid(font, "C 3", color_txt);
+    texture = SDL_CreateTextureFromSurface(renderer, surface);
+    SDL_RenderCopy(renderer, texture, NULL, &rect3);
 
-  // Obtention de la surface de l'écran
-  screenSurface = SDL_GetWindowSurface(window);
-  
-  // Chargement de l'image de fond
-  background = IMG_Load("../img/background_comp.jpg");
-  background2 = IMG_Load("../img/background_comp.jpg");
-  if (background == NULL) {
-    printf("Unable to load image %s! SDL Error: %s\n", "background.bmp", SDL_GetError());
-    return 1;
-  }
-  
-   // Initialisation des boutons
-  button1.x = 50;
-  button1.y = 100;
-  button1.w = 100*3;
-  button1.h = 50*3;
-  button1.surface = TTF_RenderText_Blended(police, "Comp1", couleurNoire);
-  
-  button2.x = button1.x + 300; 
-  button2.y = button1.y;
-  button2.w = 100*3;
-  button2.h = 50*3;
-  button2.surface = TTF_RenderText_Blended(police, "Comp2", couleurNoire);
+    surface = TTF_RenderText_Solid(font, "C 4", color_txt);
+    texture = SDL_CreateTextureFromSurface(renderer, surface);
+    SDL_RenderCopy(renderer, texture, NULL, &rect4);
 
-  button3.x = button2.x + 300; 
-  button3.y = button2.y;
-  button3.w = 100*3;
-  button3.h = 50*3;
-  button3.surface = TTF_RenderText_Blended(police, "Comp3", couleurNoire);
-  
-  button4.x = button3.x + 300; 
-  button4.y = button2.y;
-  button4.w = 100*3;
-  button4.h = 50*3;
-  button4.surface = TTF_RenderText_Blended(police, "Comp4", couleurNoire);
+    surface = TTF_RenderText_Solid(font, "C 5", color_txt);
+    texture = SDL_CreateTextureFromSurface(renderer, surface);
+    SDL_RenderCopy(renderer, texture, NULL, &rect5);
 
+    surface = TTF_RenderText_Solid(font, "C 6", color_txt);
+    texture = SDL_CreateTextureFromSurface(renderer, surface);
+    SDL_RenderCopy(renderer, texture, NULL, &rect6);
 
-  // Boucle principale du menu
-  int running = 1; 
-  SDL_Event e; 
-  while (running) {
-    // Traitement des événements
-    while (SDL_PollEvent(&e) != 0) {
-      // Si l'utilisateur a cliqué sur la croix pour fermer la fenêtre, on quitte la boucle principale
-      if (e.type == SDL_QUIT || (e.key.keysym.sym == SDLK_ESCAPE)) {
-        Mix_HaltMusic();
-        running = 0;
-      }
-    // Si l'utilisateur a cliqué sur le bouton 1
-  if (e.type == SDL_MOUSEBUTTONUP) {
-    int x, y;
-    SDL_GetMouseState(&x, &y);
-    if (x >= button1.x && x <= button1.x + button1.w && y >= button1.y && y <= button1.y + button1.h) {
-        Mix_HaltMusic();
-        SDL_FreeSurface(background);
-        SDL_FreeSurface(button1.surface);
-        SDL_FreeSurface(button2.surface);
-        return 0;
+    surface = TTF_RenderText_Solid(font, "C 7", color_txt);
+    texture = SDL_CreateTextureFromSurface(renderer, surface);
+    SDL_RenderCopy(renderer, texture, NULL, &rect7);
+
+    surface = TTF_RenderText_Solid(font, "C 8", color_txt);
+    texture = SDL_CreateTextureFromSurface(renderer, surface);
+    SDL_RenderCopy(renderer, texture, NULL, &rect8);
+
+    surface = TTF_RenderText_Solid(font, "C 9", color_txt);
+    texture = SDL_CreateTextureFromSurface(renderer, surface);
+    SDL_RenderCopy(renderer, texture, NULL, &rect9);
+
+    surface = TTF_RenderText_Solid(font, "C 10", color_txt);
+    // affiche le texte sur le rectangle
+    texture = SDL_CreateTextureFromSurface(renderer, surface);
+    SDL_RenderCopy(renderer, texture, NULL, &rect10);
+
+    
+    
+
+    SDL_RenderPresent(renderer);
+      int running = 1;
+  while (running) { // Boucle principale
+  SDL_Event event;
+  if (SDL_PollEvent(&event)) { // On récupère les évènements
+        switch (event.type){
+            case SDL_QUIT:
+                running = 0;
+                break;
+            case SDL_KEYDOWN:
+                    switch (event.key.keysym.scancode){ // On récupère le code de la touche
+                        case SDL_SCANCODE_LSHIFT:
+                            running = 0;
+                            break;
+                    }
+                break;
+        }
     }
   }
-  
-  // Si l'utilisateur a cliqué sur le bouton 2
-  if (e.type == SDL_MOUSEBUTTONUP) {
-    int x, y;
-    SDL_GetMouseState(&x, &y);
-    if (x >= button2.x && x <= button2.x + button2.w && y >= button2.y && y <= button2.y + button2.h) { 
-        Mix_HaltMusic();
-        SDL_FreeSurface(background);
-        SDL_FreeSurface(button1.surface);
-        SDL_FreeSurface(button2.surface);
-      return 1;
-    }
-  }
-}
-SDL_Rect backgroundRect;
-backgroundRect.x=1024;
-backgroundRect.y=0;
-SDL_BlitSurface(background2,NULL,screenSurface,&backgroundRect);
-SDL_BlitSurface(background, NULL, screenSurface, NULL);
-
-// Collage des boutons sur la surface de l'écran
-SDL_Rect buttonRect1 = { button1.x, button1.y, button1.w, button1.h };
-SDL_BlitSurface(button1.surface, NULL, screenSurface, &buttonRect1);
-
-SDL_Rect buttonRect2 = { button2.x, button2.y, button2.w, button2.h };
-SDL_BlitSurface(button2.surface, NULL, screenSurface, &buttonRect2);
-
-SDL_Rect buttonRect3 = { button3.x, button3.y, button3.w, button3.h };
-SDL_BlitSurface(button3.surface, NULL, screenSurface, &buttonRect3);
-
-SDL_Rect buttonRect4 = { button4.x, button4.y, button4.w, button4.h };
-SDL_BlitSurface(button4.surface, NULL, screenSurface, &buttonRect4);
-
-// Mise à jour de la fenêtre
-SDL_UpdateWindowSurface(window);
-}
-
+    
+    SDL_RenderClear(renderer);  
+    return 0;
 }

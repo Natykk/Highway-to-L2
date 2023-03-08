@@ -1,4 +1,4 @@
-
+#include "../head/entite.h"
 
 typedef struct {
   int x, y;
@@ -9,4 +9,5 @@ typedef struct {
 /* Fonctions */
 
 int menu(SDL_Renderer *renderer, SDL_Window *window);
+int inv(SDL_Renderer *renderer, SDL_Window *window,entite_t *pers);
 

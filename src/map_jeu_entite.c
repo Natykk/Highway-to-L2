@@ -8,7 +8,6 @@
 #include <SDL2/SDL_mixer.h>
 #include <SDL2/SDL_ttf.h>
 #include "../head/mapBoss.h"
-#include "../head/entite.h"
 #include "../head/menu.h"
 #include "../head/chemin.h"
 int flip_map=0;
@@ -74,7 +73,6 @@ void transfert(t_salle* salle, t_salle * map,int boss){
         for(i=0; i<DIM_SALLE; i++){
             for(j=0; j<LONG_SALLE_BOSS; j++){
                 map->dim[i][j] = salle->dim[i][j];
-                
             }
         }
     }else{
@@ -660,8 +658,12 @@ int main() {
                             break;
                         case SDL_SCANCODE_LSHIFT:
                             SDL_RenderClear(renderer);
-                            //menu(renderer,window);
+                            menu(renderer,window);
                             SDL_RenderClear(renderer);
+                            break;
+                        case SDL_SCANCODE_TAB:
+                            SDL_RenderClear(renderer);
+                            inv(renderer,window,perso);
                             break;
                         }
                     break;
