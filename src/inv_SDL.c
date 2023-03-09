@@ -10,6 +10,14 @@
 #define  MAP_WIDTH   25
 #define  MAP_HEIGHT  25
 
+
+/**
+    *\brief Affiche l'inventaire d'une entité donnée en utilisant SDL_Renderer.Cette fonction affiche l'inventaire de l'entité donnée en créant une grille rectangulaire d'articles et de leurs quantités.
+    *\param renderer Pointeur vers un objet SDL_Renderer utilisé pour afficher l'inventaire à l'écran.
+    *\param window Pointeur vers un objet SDL_Window représentant la fenêtre dans laquelle l'inventaire est affiché.
+    *\param pers Pointeur vers un objet entite_t représentant l'entité dont l'inventaire est affiché.
+    *\return 0 si la fonction s'exécute avec succès.
+**/
 int inv(SDL_Renderer* renderer,SDL_Window* window,entite_t* pers) {
    SDL_Init(SDL_INIT_EVERYTHING);
 

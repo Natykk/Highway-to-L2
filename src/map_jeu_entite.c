@@ -541,10 +541,6 @@ void rendu(int map[][LONG_SALLE_BOSS],int tailleI,int tailleJ,SDL_Renderer *rend
 
 int main() {
     int i;
-    for(i=0; i<20; i++){
-                    coords[i][0] = 0;
-                    coords[i][1] = 0;
-    }
     t_niv * niv = malloc(sizeof(t_niv));
     genererNiv(niv);
     entite_t * perso ;
