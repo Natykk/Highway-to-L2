@@ -11,7 +11,7 @@
 #define  MAP_HEIGHT  25
 int const TailleRect = 50;
 
-void guerrier(SDL_Renderer* renderer,SDL_Window* window){
+void assasin(SDL_Renderer* renderer,SDL_Window* window){
     
     SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
     SDL_RenderDrawLine(renderer, 400, 50, 400, 150); // ligne verticale gauche
@@ -142,7 +142,7 @@ int menu(SDL_Renderer* renderer,SDL_Window* window) {
     SDL_RenderCopy(renderer, texture2, NULL, NULL);
     SDL_FreeSurface(image);
     
-    guerrier(renderer,window);
+    assasin(renderer,window);
     SDL_RenderPresent(renderer);
       int running = 1;
   while (running) { // Boucle principale

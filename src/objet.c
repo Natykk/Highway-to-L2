@@ -44,10 +44,10 @@ objet_t tab_objet[NB_OBJET] = {
     {"Massue", "Ne pose pas ca sur n'importe quelle tete"},
     {"Red Goo", "Delecte toi c'est appreciable"},
     {"Cornes de Diablotin", "C'est deux longs objets, souvent associés en paire, sont maintenu sur le haut du crane d'un petit diablotin. Vous remarquerez sans doutes des similarités avec celle d'une chevre."},
-    {"Queue de Diablotin", "Un diablotin est, dans la mythologie, le folklore et plusieurs traditions, une créature démoniaque de petite taille. Ils sont décrits comme de petites êtres espiègles agités et de taille réduite plutôt que de sérieuses menaces, et occupent une position inférieure dans la hiérarchie de la démonologie. Les assistants du Diable sont parfois nommés des « diablotins »."},
-    {"Lance", "Compliqué a ranger dans un sac"},
+    {"Queue de Diablotin", "Morceau Fourchue, pointue et rougeoyant"},
+    {"Lance", "Complique a ranger dans un sac"},
     {"Coeur de Diable", "Mais pourquoi... Mais c'est immonde..."},
-    {"Tetes", "Ah nan là c'est trop pour moi"},
+    {"Tetes", "Ah nan la c'est trop pour moi"},
     {"Croquettes", "Vraiment ?!"}
 };
 
