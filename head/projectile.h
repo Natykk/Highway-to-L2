@@ -7,16 +7,14 @@ typedef enum{AUCUN=-1, //!< Aucune direction
                 BAS, //!< Bas
                 GAUCHE} t_dir; //!< Gauche
 
-typedef enum type_proj_s{FLECHE, RAYON}type_proj_t;
+typedef enum proj_s{FLECHE, BOULE}proj_t;
 
 typedef struct projectile_s{
     float vitesse_depl;
-    int x;
-    int y;
     int porte;
-    int degat;
+    t_dir dir;
 }projectile_t;
 
-projectile_t * creer_projectiles(type_proj_t type);
-void detruire_projectiles(projectile_t proj);
-
+projectile_t * creer_projectiles(proj_t type, int degats, t_dir dir);
+void detruire_projectiles(projectile_t ** proj);
+void attaque_proj(proj_t typeproj, float degats, float vitesse_att, int x, int y);
