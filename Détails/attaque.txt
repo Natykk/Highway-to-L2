@@ -1,0 +1,15 @@
+IDEE PRINCIPALE:
+    Une fonction attaque:
+        ~ attaque (~~~~~, ~ (*att)(~~~~));
+        att peut etre soit:
+            -attaque_cac (pour les personnages attaquant au corps a corps(guerrier/assassin))
+            -attaque_proj (pour les personnages attaquant a distance (archer,mage))
+    Une fonction attaque_cac:
+    Une fonction attaque_proj:
+        void attaque_proj(~~~~~):
+        les parametres:
+            -
+
+POUR LES PROJECTILES:
+
+    Fonction:
