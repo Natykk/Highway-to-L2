@@ -18,3 +18,7 @@ IDEE PRINCIPALE:
 POUR LES PROJECTILES:
 
     Fonction:
+        -creation
+        -destruction
+        -calcul du mouvement
+        
