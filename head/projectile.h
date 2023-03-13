@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 
 typedef enum{AUCUN=-1, //!< Aucune direction
                 HAUT, //!< Haut
@@ -17,4 +18,4 @@ typedef struct projectile_s{
 
 projectile_t * creer_projectiles(proj_t type, int degats, t_dir dir);
 void detruire_projectiles(projectile_t ** proj);
-void attaque_proj(proj_t typeproj, float degats, float vitesse_att, int x, int y);
+void attaque_proj(proj_t typeproj, float degats, float vitesse_att, int x, int y, t_dir dir);
