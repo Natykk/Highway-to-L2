@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
+
 typedef enum{AUCUN=-1, //!< Aucune direction
                 HAUT, //!< Haut
                 DROITE, //!< Droite

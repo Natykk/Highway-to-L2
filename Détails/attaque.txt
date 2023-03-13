@@ -8,7 +8,12 @@ IDEE PRINCIPALE:
     Une fonction attaque_proj:
         void attaque_proj(~~~~~):
         les parametres:
-            -
+            -le type du projectile (proj_t) enum
+            -les degats que la classe inflige (float)
+            -la vitesse_att de la classe (float)
+            -les coordonnées en x (int)
+            -les coordonnées en y (int)
+            -la direction dans laquelle est le personnage au moment du tir (t_dir)
 
 POUR LES PROJECTILES:
 
