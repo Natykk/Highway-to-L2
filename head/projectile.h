@@ -19,4 +19,3 @@ typedef struct projectile_s{
 
 projectile_t * creer_projectiles(proj_t type, int degats, t_dir dir);
 void detruire_projectiles(projectile_t ** proj);
-void attaque_proj(proj_t typeproj, float degats, float vitesse_att, int x, int y, t_dir dir);
