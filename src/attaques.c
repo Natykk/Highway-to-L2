@@ -21,7 +21,7 @@ void maj_proj(t_salle * map){
     }
 }
 
-void attaque_proj(proj_t typeproj, float degats, float vitesse_att, int x, int y, t_dir dir){
+void attaque_proj(proj_t typeproj, int degats, float vitesse_att, int x, int y, t_dir dir){
     /*On créée le projectile*/
     projectile_t * proj = creer_projectiles(typeproj, degats, dir);
     /*Le projectile part des coordonnées et dans la direction du joueur*/
@@ -34,6 +34,13 @@ void attaque_proj(proj_t typeproj, float degats, float vitesse_att, int x, int y
     ajout_droit(proj);
 }
 
-bool degats(float degats, int id_mob);
+bool degats(int degats, int id_mob, t_salle * map){
+    (map->mob[id_mob - 10]->vie) -= degats;
+    if((map->mob[id_mob - 10]->vie) <= 0)
+        return true;
+    return false;
+}
 
-void attaque_cac(proj_t typeproj,float degats, float vitesse_att, int x, int y, t_dir dir);
+void attaque_cac(proj_t typeproj, int degats, float vitesse_att, int x, int y, t_dir dir){
+    
+}

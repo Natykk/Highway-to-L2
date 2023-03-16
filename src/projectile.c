@@ -34,7 +34,7 @@ void detruire_projectiles(projectile_t ** proj){
     (*proj) = NULL;
 }
 
-bool calcul_position(projectile_t * proj){
+void calcul_position(projectile_t * proj){
     /*On calcule les nouvelles coordonnées*/
     switch(proj->dir){
         case HAUT:

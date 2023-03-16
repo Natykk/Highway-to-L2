@@ -26,6 +26,6 @@ typedef struct projectile_s{
     t_dir dir = AUCUN;
 }projectile_t;
 
-projectile_t * creer_projectiles(projectile,proj_t type);
+projectile_t * creer_projectiles(proj_t type);
 void detruire_projectiles(projectile_t ** proj);
-bool calcul_position(projectile_t * proj);
+void calcul_position(projectile_t * proj);
