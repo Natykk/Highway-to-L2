@@ -1,4 +1,4 @@
-void init_liste(void);
+void init_liste_proj(void);
 int liste_vide(void);
 int hors_liste(void);
 void en_tete(void);

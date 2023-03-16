@@ -5,7 +5,7 @@ typedef struct element {projectile_t * proj; struct element * pred; struct eleme
 t_element * drapeau;
 t_element * ec;
 
-void init_liste(void){
+void init_liste_proj(void){
 //Cree la liste constitue du seul drapeau
     drapeau = malloc(sizeof(t_element));
     drapeau->pred = drapeau;
