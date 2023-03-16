@@ -3,11 +3,10 @@
 #include <../head/attaques.h>
 
 void maj_proj(){
-    int i;
-    for(i=0; i<nb_proj; i++){
-        if(proj[i] == NULL){
-
-        }
+    en_tete();
+    while(ec != drapeau){
+        /*Traitement element courant*/
+        suivant();
     }
 }
 
