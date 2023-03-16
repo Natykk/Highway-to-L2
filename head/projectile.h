@@ -19,6 +19,7 @@ typedef struct stat_proj_s{
 typedef struct projectile_s{
     float vitesse_depl;
     int porte;
+    float degats;
     bool touche = false;
     int x = 0;
     int y = 0;

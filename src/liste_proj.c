@@ -59,6 +59,7 @@ void oter_elt(void){
         ec->pred->succ = ec->succ;
         ec->succ->pred = ec->pred;
         ec=ec->pred;
+        old->proj = NULL;
         free(old);
     }
 
