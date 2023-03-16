@@ -551,6 +551,18 @@ int init_arbre(t_arbre ** arbre, t_competence *competences, t_classe typeClasse)
     return 0;
 }
 
+/*
+int competence_debloquer(t_arbre * arbre){
+    if(arbre->competence[0].competence_acquise != non_acquis){
+        
+    }
+    else{
+        t_competence *cpt_courant = &(arbre->competence[0]);
+        while(cpt_courant)
+    }
+}
+*/
+
 int main(){
     t_arbre *mage = NULL;
     t_arbre *guerrier = NULL;
