@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "arbre.h"
+#include "../head/arbre.h"
 
 int init_obj_necessaires(t_competence* competence, t_classe typeClasse, int indice){
     competence->obj_necessaires = malloc(sizeof(objet_inv_t));

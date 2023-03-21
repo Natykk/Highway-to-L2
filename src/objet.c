@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <string.h>
-#include "objet.h"
+#include "../head/objet.h"
 
 /**
  * @file objet.c
