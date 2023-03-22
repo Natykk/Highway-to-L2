@@ -1,0 +1,242 @@
+\hypertarget{mapStruct_8c}{}\doxysection{Référence du fichier /mnt/c/\+Users/natik/\+Projet\+L2/src/map\+Struct.c}
+\label{mapStruct_8c}\index{/mnt/c/Users/natik/ProjetL2/src/mapStruct.c@{/mnt/c/Users/natik/ProjetL2/src/mapStruct.c}}
+
+
+Fichier contenant les fonctions de gestion de la map.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$time.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}entite.\+c\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../head/map\+Struct.\+h\char`\"{}}\newline
+Graphe des dépendances par inclusion de map\+Struct.\+c\+:
+% FIG 0
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{mapStruct_8c_a2f1febbd79366c9aff9a97a441f4bc41}{afficher\+\_\+salle}} (t\+\_\+salle salle)
+\begin{DoxyCompactList}\small\item\em Fonction d\textquotesingle{}affichage d\textquotesingle{}une salle. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{mapStruct_8c_adaeb5e85b347484e969eb8fb98c125e3}{salle\+\_\+disponible}} (int x, int y, t\+\_\+salle etage\mbox{[}DIM\+\_\+\+ETAGE\mbox{]}\mbox{[}DIM\+\_\+\+ETAGE\mbox{]})
+\begin{DoxyCompactList}\small\item\em Fonction de vérification de la disponibilité d\textquotesingle{}une salle. \end{DoxyCompactList}\item 
+t\+\_\+pos \mbox{\hyperlink{mapStruct_8c_a80faee18802b8fc331b5e0afeee6d905}{trouver\+Salle}} (int num\+\_\+salle, t\+\_\+etage $\ast$etage)
+\begin{DoxyCompactList}\small\item\em Fonction de recherche d\textquotesingle{}une salle dans un étage. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{mapStruct_8c_a16b20add9ce5b441983d0a9e3ba7d4f3}{nb\+\_\+lieu\+\_\+libre}} (int x, int y, t\+\_\+salle etage\mbox{[}DIM\+\_\+\+ETAGE\mbox{]}\mbox{[}DIM\+\_\+\+ETAGE\mbox{]})
+\begin{DoxyCompactList}\small\item\em Fonction de vérification du nombre d\textquotesingle{}endroit libre autour d\textquotesingle{}une salle. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{mapStruct_8c_aaab20996fabaa4053eeb03e8f3cca8a3}{nb\+Voisin}} (int x, int y, t\+\_\+etage $\ast$etage)
+\begin{DoxyCompactList}\small\item\em Fonction de vérification du nombre de salle autour d\textquotesingle{}une salle. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{mapStruct_8c_aad4331729658e1ef94d5d116066ed93b}{generer\+Salle}} (int x\+\_\+salle, int y\+\_\+salle, t\+\_\+etage $\ast$etage)
+\begin{DoxyCompactList}\small\item\em La fonction sert à générer une salle aléatoirement dans un étage en spécifiant les coordonnées x et y. Elle modifie les données de l\textquotesingle{}étage en ajoutant une nouvelle salle aux coordonnées spécifiées, avec un nombre de murs, de portes et d\textquotesingle{}espaces vides aléatoires. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{mapStruct_8c_a9a5bf290348ed8be152d12b485cb158b}{etage\+Conforme}} (t\+\_\+etage $\ast$etage)
+\begin{DoxyCompactList}\small\item\em Fonction vérifiant si l\textquotesingle{}étage possède autant de salles que etage-\/$>$nb\+\_\+salle et verifie la numerotation des chaque pièce. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{mapStruct_8c_a91c63ca06caf5f57dade8fc286355a6c}{generer\+Etage}} (t\+\_\+etage $\ast$etage)
+\begin{DoxyCompactList}\small\item\em La fonction commence par initialiser un tableau pour représenter l\textquotesingle{}étage et mettre toutes les pièces de l\textquotesingle{}étage dans un état inutilisé. Ensuite, elle choisit aléatoirement une pièce de départ et, à l\textquotesingle{}aide d\textquotesingle{}une boucle while, elle ajoute des pièces à l\textquotesingle{}étage une par une. La boucle while continue jusqu\textquotesingle{}à ce que toutes les pièces aient été ajoutées. La fonction utilise un générateur de nombres aléatoires pour déterminer l\textquotesingle{}emplacement de chaque nouvelle pièce, et vérifie s\textquotesingle{}il existe des pièces inutilisées adjacentes à la pièce actuelle. Si c\textquotesingle{}est le cas, elle ajoute la nouvelle pièce à l\textquotesingle{}étage et met à jour la pièce actuelle en fonction de la nouvelle pièce. S\textquotesingle{}il n\textquotesingle{}y a pas de pièces inutilisées adjacentes à la pièce actuelle, il marque la pièce actuelle comme étant la pièce de sortie, trouve une nouvelle pièce de départ et continue à ajouter des pièces à partir de cette nouvelle pièce de départ. ~\newline
+ \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{mapStruct_8c_a0f14fa313aa17d3aa8440e257dd343e1}{generer\+Niv}} (t\+\_\+niv $\ast$niveau)
+\begin{DoxyCompactList}\small\item\em Fonction de création d\textquotesingle{}un niveau. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{mapStruct_8c_a8013f79c433af3f20b98df2fecbdb765}{detruire\+Niv}} (t\+\_\+niv $\ast$$\ast$niveau)
+\begin{DoxyCompactList}\small\item\em Fonction de destruction d\textquotesingle{}un niveau. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Fichier contenant les fonctions de gestion de la map. 
+
+\begin{DoxyVersion}{Version}
+1.\+0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+28/01/2023 
+\end{DoxyDate}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{mapStruct_8c_a2f1febbd79366c9aff9a97a441f4bc41}\label{mapStruct_8c_a2f1febbd79366c9aff9a97a441f4bc41}} 
+\index{mapStruct.c@{mapStruct.c}!afficher\_salle@{afficher\_salle}}
+\index{afficher\_salle@{afficher\_salle}!mapStruct.c@{mapStruct.c}}
+\doxysubsubsection{\texorpdfstring{afficher\_salle()}{afficher\_salle()}}
+{\footnotesize\ttfamily void afficher\+\_\+salle (\begin{DoxyParamCaption}\item[{t\+\_\+salle}]{salle }\end{DoxyParamCaption})}
+
+
+
+Fonction d\textquotesingle{}affichage d\textquotesingle{}une salle. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em salle} & la salle à afficher \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{mapStruct_8c_a8013f79c433af3f20b98df2fecbdb765}\label{mapStruct_8c_a8013f79c433af3f20b98df2fecbdb765}} 
+\index{mapStruct.c@{mapStruct.c}!detruireNiv@{detruireNiv}}
+\index{detruireNiv@{detruireNiv}!mapStruct.c@{mapStruct.c}}
+\doxysubsubsection{\texorpdfstring{detruireNiv()}{detruireNiv()}}
+{\footnotesize\ttfamily int detruire\+Niv (\begin{DoxyParamCaption}\item[{t\+\_\+niv $\ast$$\ast$}]{niveau }\end{DoxyParamCaption})}
+
+
+
+Fonction de destruction d\textquotesingle{}un niveau. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em niveau} & pointeur sur le niveau à détruire \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0 si la map a bien été détruite 
+\end{DoxyReturn}
+\mbox{\Hypertarget{mapStruct_8c_a9a5bf290348ed8be152d12b485cb158b}\label{mapStruct_8c_a9a5bf290348ed8be152d12b485cb158b}} 
+\index{mapStruct.c@{mapStruct.c}!etageConforme@{etageConforme}}
+\index{etageConforme@{etageConforme}!mapStruct.c@{mapStruct.c}}
+\doxysubsubsection{\texorpdfstring{etageConforme()}{etageConforme()}}
+{\footnotesize\ttfamily int etage\+Conforme (\begin{DoxyParamCaption}\item[{t\+\_\+etage $\ast$}]{etage }\end{DoxyParamCaption})}
+
+
+
+Fonction vérifiant si l\textquotesingle{}étage possède autant de salles que etage-\/$>$nb\+\_\+salle et verifie la numerotation des chaque pièce. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em etage} & pointeur sur l\textquotesingle{}étage à vérifier \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0 si l\textquotesingle{}étage n\textquotesingle{}est pas complet ou si il manque des salles (ex \+: 3-\/4-\/6-\/7), sinon si tout va bien retourne 1 
+\end{DoxyReturn}
+\mbox{\Hypertarget{mapStruct_8c_a91c63ca06caf5f57dade8fc286355a6c}\label{mapStruct_8c_a91c63ca06caf5f57dade8fc286355a6c}} 
+\index{mapStruct.c@{mapStruct.c}!genererEtage@{genererEtage}}
+\index{genererEtage@{genererEtage}!mapStruct.c@{mapStruct.c}}
+\doxysubsubsection{\texorpdfstring{genererEtage()}{genererEtage()}}
+{\footnotesize\ttfamily int generer\+Etage (\begin{DoxyParamCaption}\item[{t\+\_\+etage $\ast$}]{etage }\end{DoxyParamCaption})}
+
+
+
+La fonction commence par initialiser un tableau pour représenter l\textquotesingle{}étage et mettre toutes les pièces de l\textquotesingle{}étage dans un état inutilisé. Ensuite, elle choisit aléatoirement une pièce de départ et, à l\textquotesingle{}aide d\textquotesingle{}une boucle while, elle ajoute des pièces à l\textquotesingle{}étage une par une. La boucle while continue jusqu\textquotesingle{}à ce que toutes les pièces aient été ajoutées. La fonction utilise un générateur de nombres aléatoires pour déterminer l\textquotesingle{}emplacement de chaque nouvelle pièce, et vérifie s\textquotesingle{}il existe des pièces inutilisées adjacentes à la pièce actuelle. Si c\textquotesingle{}est le cas, elle ajoute la nouvelle pièce à l\textquotesingle{}étage et met à jour la pièce actuelle en fonction de la nouvelle pièce. S\textquotesingle{}il n\textquotesingle{}y a pas de pièces inutilisées adjacentes à la pièce actuelle, il marque la pièce actuelle comme étant la pièce de sortie, trouve une nouvelle pièce de départ et continue à ajouter des pièces à partir de cette nouvelle pièce de départ. ~\newline
+ 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em etage} & pointeur sur l\textquotesingle{}étage à créer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0 si la map a bien été créée sinon renvoie 100 
+\end{DoxyReturn}
+\mbox{\Hypertarget{mapStruct_8c_a0f14fa313aa17d3aa8440e257dd343e1}\label{mapStruct_8c_a0f14fa313aa17d3aa8440e257dd343e1}} 
+\index{mapStruct.c@{mapStruct.c}!genererNiv@{genererNiv}}
+\index{genererNiv@{genererNiv}!mapStruct.c@{mapStruct.c}}
+\doxysubsubsection{\texorpdfstring{genererNiv()}{genererNiv()}}
+{\footnotesize\ttfamily int generer\+Niv (\begin{DoxyParamCaption}\item[{t\+\_\+niv $\ast$}]{niveau }\end{DoxyParamCaption})}
+
+
+
+Fonction de création d\textquotesingle{}un niveau. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em niveau} & pointeur sur le niveau à créer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0 si la map a bien été créée sinon renvoie 100 
+\end{DoxyReturn}
+\mbox{\Hypertarget{mapStruct_8c_aad4331729658e1ef94d5d116066ed93b}\label{mapStruct_8c_aad4331729658e1ef94d5d116066ed93b}} 
+\index{mapStruct.c@{mapStruct.c}!genererSalle@{genererSalle}}
+\index{genererSalle@{genererSalle}!mapStruct.c@{mapStruct.c}}
+\doxysubsubsection{\texorpdfstring{genererSalle()}{genererSalle()}}
+{\footnotesize\ttfamily int generer\+Salle (\begin{DoxyParamCaption}\item[{int}]{x\+\_\+salle,  }\item[{int}]{y\+\_\+salle,  }\item[{t\+\_\+etage $\ast$}]{etage }\end{DoxyParamCaption})}
+
+
+
+La fonction sert à générer une salle aléatoirement dans un étage en spécifiant les coordonnées x et y. Elle modifie les données de l\textquotesingle{}étage en ajoutant une nouvelle salle aux coordonnées spécifiées, avec un nombre de murs, de portes et d\textquotesingle{}espaces vides aléatoires. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em x\+\_\+salle} & coordonnée x de la salle \\
+\hline
+{\em y\+\_\+salle} & coordonnée y de la salle \\
+\hline
+{\em etage} & l\textquotesingle{}étage dans lequel sont générer les salles \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+1 si la génération s\textquotesingle{}est bien passée, 0 sinon 
+\end{DoxyReturn}
+\mbox{\Hypertarget{mapStruct_8c_a16b20add9ce5b441983d0a9e3ba7d4f3}\label{mapStruct_8c_a16b20add9ce5b441983d0a9e3ba7d4f3}} 
+\index{mapStruct.c@{mapStruct.c}!nb\_lieu\_libre@{nb\_lieu\_libre}}
+\index{nb\_lieu\_libre@{nb\_lieu\_libre}!mapStruct.c@{mapStruct.c}}
+\doxysubsubsection{\texorpdfstring{nb\_lieu\_libre()}{nb\_lieu\_libre()}}
+{\footnotesize\ttfamily int nb\+\_\+lieu\+\_\+libre (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{t\+\_\+salle}]{etage\mbox{[}\+DIM\+\_\+\+ETAGE\mbox{]}\mbox{[}\+DIM\+\_\+\+ETAGE\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Fonction de vérification du nombre d\textquotesingle{}endroit libre autour d\textquotesingle{}une salle. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em x} & coordonnée x de la salle \\
+\hline
+{\em y} & coordonnée y de la salle \\
+\hline
+{\em etage} & l\textquotesingle{}étage à vérifier \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{mapStruct_8c_aaab20996fabaa4053eeb03e8f3cca8a3}\label{mapStruct_8c_aaab20996fabaa4053eeb03e8f3cca8a3}} 
+\index{mapStruct.c@{mapStruct.c}!nbVoisin@{nbVoisin}}
+\index{nbVoisin@{nbVoisin}!mapStruct.c@{mapStruct.c}}
+\doxysubsubsection{\texorpdfstring{nbVoisin()}{nbVoisin()}}
+{\footnotesize\ttfamily int nb\+Voisin (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{t\+\_\+etage $\ast$}]{etage }\end{DoxyParamCaption})}
+
+
+
+Fonction de vérification du nombre de salle autour d\textquotesingle{}une salle. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em x} & coordonnée x de la salle \\
+\hline
+{\em y} & coordonnée y de la salle \\
+\hline
+{\em etage} & l\textquotesingle{}étage à vérifier \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+le nombre de salle autour de la salle 
+\end{DoxyReturn}
+\mbox{\Hypertarget{mapStruct_8c_adaeb5e85b347484e969eb8fb98c125e3}\label{mapStruct_8c_adaeb5e85b347484e969eb8fb98c125e3}} 
+\index{mapStruct.c@{mapStruct.c}!salle\_disponible@{salle\_disponible}}
+\index{salle\_disponible@{salle\_disponible}!mapStruct.c@{mapStruct.c}}
+\doxysubsubsection{\texorpdfstring{salle\_disponible()}{salle\_disponible()}}
+{\footnotesize\ttfamily int salle\+\_\+disponible (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{t\+\_\+salle}]{etage\mbox{[}\+DIM\+\_\+\+ETAGE\mbox{]}\mbox{[}\+DIM\+\_\+\+ETAGE\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Fonction de vérification de la disponibilité d\textquotesingle{}une salle. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em x} & coordonnée x de la salle \\
+\hline
+{\em y} & coordonnée y de la salle \\
+\hline
+{\em etage} & l\textquotesingle{}étage à vérifier \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{mapStruct_8c_a80faee18802b8fc331b5e0afeee6d905}\label{mapStruct_8c_a80faee18802b8fc331b5e0afeee6d905}} 
+\index{mapStruct.c@{mapStruct.c}!trouverSalle@{trouverSalle}}
+\index{trouverSalle@{trouverSalle}!mapStruct.c@{mapStruct.c}}
+\doxysubsubsection{\texorpdfstring{trouverSalle()}{trouverSalle()}}
+{\footnotesize\ttfamily t\+\_\+pos trouver\+Salle (\begin{DoxyParamCaption}\item[{int}]{num\+\_\+salle,  }\item[{t\+\_\+etage $\ast$}]{etage }\end{DoxyParamCaption})}
+
+
+
+Fonction de recherche d\textquotesingle{}une salle dans un étage. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em num\+\_\+salle} & le numéro de la salle à trouver \\
+\hline
+{\em etage} & l\textquotesingle{}étage dans lequel chercher \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+la position de la salle dans l\textquotesingle{}étage 
+\end{DoxyReturn}
