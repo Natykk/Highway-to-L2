@@ -1,0 +1,39 @@
+2 catégories d'attaques:
+    -Distance:
+        #differé:
+            °calcule de la prochaine position à chaque frame
+            °destruction:
+                -si on touche
+                -si portée épuisée
+    -Corps à corps(cac):
+        #instantanné:
+            -mob se trouve à proximité & dans la direction du joueur.
+
+
+
+
+IDEE PRINCIPALE:
+    Une fonction attaque:
+        ~ attaque (~~~~~, ~ (*att)(~~~~));
+        att peut etre soit:
+            -attaque_cac (pour les personnages attaquant au corps a corps(guerrier/assassin))
+            -attaque_proj (pour les personnages attaquant a distance (archer,mage))
+    Une fonction attaque_cac:
+
+    Une fonction attaque_proj:
+        void attaque_proj(~~~~~):
+        les parametres:
+            -le type du projectile (proj_t) enum
+            -les degats que la classe inflige (float)
+            -la vitesse_att de la classe (float)
+            -les coordonnées en x (int)
+            -les coordonnées en y (int)
+            -la direction dans laquelle est le personnage au moment du tir (t_dir)
+
+POUR LES PROJECTILES:
+
+    Fonction:
+        -creation
+        -destruction
+        -calcul du mouvement
+        
