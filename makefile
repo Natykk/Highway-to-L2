@@ -1,55 +1,35 @@
+CC = gcc
 
-OBJS	=  obj/map_jeu_entite.o obj/entite.o  obj/mapStruct.o obj/menu.o obj/inventaire.o obj/objet.o obj/chemin.o obj/mapBoss.o
-SOURCE	= src/map_jeu_entite.c src/entite.c src/inventaire.c src/mapStruct.c src/menu.c src/objet.c src/chemin.c src/mapBoss.c
-HEADER	= head/entite.h head/mapStruct.h head/objet.h head/objet_inv.h head/mapBoss.h
-OUT	= bin/main
-CC	 = gcc
-FLAGS	 = -g3 -c -Wall -lm
-SDLFLAGS= -lSDL2 -lSDL2_image -lSDL2_ttf -lSDL2_mixer -lSDL2main 
+CFLAGS = -g3
+
+SDLROUTE = -ISDL2/include -LSDL2/lib
+
 WINDOWS = -lmingw32
-SDLROUTE = -L$(HOME)/SDL2/lib -I $(HOME)/SDL2/include
 
+LIBS = -lm -lSDL2main -lSDL2 -lSDL2_image -lSDL2_ttf -lSDL2_mixer 
 
-all: $(OBJS)
-	gcc $(SDLROUTE) $(OBJS) $(SDLFLAGS) -lm -g -o $(OUT)
+SRCS = src/entite.c src/mapStruct.c src/menu.c src/objet.c src/chemin.c src/mapBoss.c src/arbre.c src/inv_SDL.c src/menu_cpt.c src/map_jeu_entite.c src/inventaire.c
 
+HEADERS = head/entite.h head/mapStruct.h head/menu.h head/objet.h head/chemin.h head/mapBoss.h head/arbre.h head/inv_SDL.h head/menu_cpt.h head/map_jeu_entite.h head/inventaire.h
 
-obj/entite.o: src/entite.c
-	$(CC) $(FLAGS) $< -o $@
+OBJS = $(SRCS:src/%.c=obj/%.o)
 
-obj/inventaire.o: src/inventaire.c
-	$(CC) $(FLAGS) $< -o $@
+OUT = bin/main.exe
 
-obj/mapBoss.o: src/mapBoss.c
-	$(CC) $(FLAGS) $< -o $@
+obj/%.o: src/%.c
+	$(CC) $(CFLAGS) $(SDLROUTE) -c $< -o $@
 
-obj/mapStruct.o: src/mapStruct.c
-	$(CC) $(FLAGS) $< -o $@
+$(OUT): $(OBJS)
+	$(CC) $(CFLAGS) $(SDLROUTE) $(OBJS) $(LIBS) $(WINDOWS) -o $(OUT)
 
-obj/objet.o: src/objet.c
-	$(CC) $(FLAGS) $< -o $@
-
-obj/chemin.o: src/chemin.c
-	$(CC) $(FLAGS) $< -o $@
-
-obj/map_jeu_entite.o: src/map_jeu_entite.c 
-	$(CC) $(FLAGS) $(SDLROUTE) $(SDLFLAGS)  $< -o $@
-
-obj/menu.o: src/menu.c
-	$(CC) $(FLAGS) $(SDLROUTE) $(SDLFLAGS) $< -o $@
-
-
-
-bin/main : obj/mapStruct.o obj/entite.o obj/map_jeu_entite.o
-	gcc $(SDLROUTE) $(OBJS) $(SDLFLAGS) -g -o $(OUT) -lm
-
+all: $(OUT)
 
 clean:
-	rm -f $(OBJS) $(OUT)
+	del obj\*.o
+	del bin\*.exe
 
 run: $(OUT)
-	./$(OUT)
-
+	.\$(OUT)
 
 gdb : $(OUT)
 	gdb $(OUT)

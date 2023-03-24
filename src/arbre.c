@@ -611,25 +611,3 @@ int competence_debloquer(entite_t * personnage, t_competence * competence){
     return 0;
 }
 
-
-int main(){
-    t_arbre *mage = NULL;
-    t_arbre *guerrier = NULL;
-    t_arbre *assassin = NULL;
-    t_arbre *archer = NULL;
-
-    init_arbre(&archer, cpt_archer, ARCHER);
-    init_arbre(&mage, cpt_mage, MAGE);
-    init_arbre(&assassin, cpt_assassin, ASSASSIN);
-    init_arbre(&guerrier, cpt_guerrier, GUERRIER);
-
-    aff_classe(assassin);
-    aff_classe(mage);
-    aff_classe(guerrier);
-    aff_classe(archer);
-
-    detruire_arbre(&assassin);
-    detruire_arbre(&mage);
-    detruire_arbre(&guerrier);
-    detruire_arbre(&archer);
-}

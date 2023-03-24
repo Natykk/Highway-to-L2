@@ -24,6 +24,7 @@ void afficher_inventaire(entite_t * entite) {
  * @param inventaire 
  * @param nom_obj 
  */
+extern
 void looter(entite_t * entite_source, entite_t * entite_destination){
     /*
     Check inventaire source objet par objet
@@ -59,6 +60,7 @@ void looter(entite_t * entite_source, entite_t * entite_destination){
  * 
  * @param personnage 
  */
+extern
 entite_t* init_inventaire_personnage(entite_t * personnage) {
     int i;
     //printf("INIT PERSO\n");
@@ -76,6 +78,7 @@ entite_t* init_inventaire_personnage(entite_t * personnage) {
  * 
  * @param monstre 
  */
+extern
 entite_t* init_inventaire_monstre(entite_t * monstre) {
     //printf("Init du mob %s \n",monstre->nom);
     int rang_mob = acces_mob(monstre->nom);
