@@ -22,12 +22,12 @@ void maj_proj(t_salle * map, entite_t * posPers){
     }
 }
 
-void attaque_proj(proj_t typeproj, int degats, int x, int y, t_dir dir){
+void attaque_proj(proj_t typeproj, int degats, entite_t * posPers, t_dir dir){
     /*On créée le projectile*/
     projectile_t * proj = creer_projectiles(typeproj, degats, dir);
     /*Le projectile part des coordonnées et dans la direction du joueur*/
-    proj->x = x;
-    proj->y = y;
+    proj->x = posPers->x;
+    proj->y = posPers->y;
     proj->dir = dir;
     proj->degats = degats;
     /*Nouveau projectile courant*/
@@ -42,8 +42,9 @@ bool degats(int degats, int id_mob, t_salle * map){
     return false;
 }
 
-void attaque_cac(proj_t typeproj, int degats, int x, int y, t_dir dir){
-    int xe = x, ye = y;
+void attaque_cac(proj_t typeproj, int degats, entite_t * posPers, t_dir dir){
+    int xe = posPers->x;
+    int ye = posPers->y;
     switch(dir){
         case HAUT: ye--; break;
         case DROITE: xe++; break;
