@@ -3,6 +3,8 @@
 #include <string.h>
 
 #include "../head/arbre.h"
+#include "../head/entite.h"
+
 
 int init_obj_necessaires(t_competence* competence, t_classe typeClasse, int indice){
     competence->obj_necessaires = malloc(sizeof(objet_inv_t));
@@ -551,17 +553,64 @@ int init_arbre(t_arbre ** arbre, t_competence *competences, t_classe typeClasse)
     return 0;
 }
 
-/*
-int competence_debloquer(t_arbre * arbre){
-    if(arbre->competence[0].competence_acquise != non_acquis){
-        
+int one_preced_cpt_debloq(t_competence * competence){
+    int i=0;
+    if(competence->nb_prec == 0){
+        return 1;
     }
-    else{
-        t_competence *cpt_courant = &(arbre->competence[0]);
-        while(cpt_courant)
+    while(i<competence->nb_prec){
+        if(competence->precedentes[i].competence_acquise == acquis){
+            return 1;
+        }
+        i++;
+    }
+    return 0;
+   
+}
+
+int peut_deploquer_cpt(entite_t * personnage, t_competence * competence){
+    int i, j;
+    if(one_preced_cpt_debloq(competence) && competence->competence_acquise == non_acquis){
+        for(i=0; i<competence->taille_tab_obj_nec; i++){
+            for(j=0; j<personnage->place_inv; j++){
+                if(!strcmp(competence->obj_necessaires->objet[i].nom, personnage->inventaire->objet[j].nom) && competence->obj_necessaires->nb[i] > personnage->inventaire->nb[j]){
+                    return 0;
+                }
+            }
+        }
+        return 1;
+    }
+    else if(competence->competence_acquise != non_acquis){ //la compétence est déja acquise.
+        return 0;
+    }
+    else{   //Aucune des compétences précédentes n'est acquise.
+        return -1;
     }
 }
-*/
+
+int competence_debloquer(entite_t * personnage, t_competence * competence){
+    if(peut_deploquer_cpt(personnage, competence) == 1){
+        printf("Compétence déblocable !\n");
+        competence->competence_acquise = acquis;
+        personnage->degats *= competence->buff_stat.buff_degat;
+        personnage->vie *= competence->buff_stat.buff_vie;
+        personnage->vitesse_att *= competence->buff_stat.buff_vit_att;
+        personnage->vitesse_depl *= competence->buff_stat.buff_vit_depl;
+        //personnage->perim_detect -= competence->buff_stat.perim_detect-1;
+        return 1;
+    }
+    else if(!peut_deploquer_cpt(personnage, competence)){
+        printf("Compétence non déblocable : déjà acquise !\n");
+    }
+    else if(peut_deploquer_cpt(personnage, competence) == -1){
+        printf("Compétence non déblocable : Aucune compétence précédente n'est acquise !\n");
+    }
+    else{
+        printf("Compétence non déblocable : raison inconnue !\n");
+    }
+    return 0;
+}
+
 
 int main(){
     t_arbre *mage = NULL;
