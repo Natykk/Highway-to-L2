@@ -45,10 +45,10 @@ bool degats(int degats, int id_mob, t_salle * map){
 void attaque_cac(proj_t typeproj, int degats, int x, int y, t_dir dir){
     int xe = x, ye = y;
     switch(dir){
-        case HAUT: ye--;break;
-        case DROITE: xe++;break;
-        case BAS: ye++;break;
-        case GAUCHE: xe--;break;
+        case HAUT: ye--; break;
+        case DROITE: xe++; break;
+        case BAS: ye++; break;
+        case GAUCHE: xe--; break;
         default: printf("Erreur\n");return; 
     }
 
