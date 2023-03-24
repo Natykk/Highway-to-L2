@@ -1,9 +1,5 @@
 #include <stdlib.h>
 #include <../head/liste_proj.h>
-typedef struct element {projectile_t * proj; struct element * pred; struct element * succ;}t_element;
-
-t_element * drapeau;
-t_element * ec;
 
 void init_liste_proj(void){
 //Cree la liste constitue du seul drapeau

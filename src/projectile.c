@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <../head/projectiles.h>
+#include <../head/projectile.h>
 
 
 
@@ -19,11 +19,11 @@ projectile_t * creer_projectiles(proj_t type){
     switch(type){
         case FLECHE:
             nouv->vitesse_depl = tab_stat_proj[FLECHE].vitesse_depl;
-            nouv->porte = tab_stat_proj[FLECHE].porte;
+            nouv->portee = tab_stat_proj[FLECHE].porte;
             break;
         case BOULE:
             nouv->vitesse_depl = tab_stat_proj[BOULE].vitesse_depl;
-            nouv->porte = tab_stat_proj[BOULE].porte;
+            nouv->portee = tab_stat_proj[BOULE].porte;
             break;
     }
     return nouv;
@@ -38,17 +38,17 @@ void calcul_position(projectile_t * proj){
     /*On calcule les nouvelles coordonnées*/
     switch(proj->dir){
         case HAUT:
-            proj->y -= vitesse_depl;
+            proj->y -= proj->vitesse_depl;
             break;
         case DROITE:
-            proj->x += vitesse_depl;
+            proj->x += proj->vitesse_depl;
             break;
         case BAS:
-            proj->y += vitesse_depl;
+            proj->y += proj->vitesse_depl;
             break;
         case GAUCHE:
-            proj->x -= vitesse_depl;
+            proj->x -= proj->vitesse_depl;
             break;
     }
-    portee -= vitesse_depl;
+    proj->portee -= proj->vitesse_depl;
 }

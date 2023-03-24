@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
-
 typedef enum{AUCUN=-1, //!< Aucune direction
                 HAUT, //!< Haut
                 DROITE, //!< Droite
@@ -18,12 +17,12 @@ typedef struct stat_proj_s{
 
 typedef struct projectile_s{
     float vitesse_depl;
-    int porte;
+    int portee;
     float degats;
-    bool touche = false;
-    int x = 0;
-    int y = 0;
-    t_dir dir = AUCUN;
+    bool touche;
+    int x;
+    int y;
+    t_dir dir;
 }projectile_t;
 
 projectile_t * creer_projectiles(proj_t type);

@@ -10,11 +10,11 @@ void maj_proj(entite_t * posPers, t_salle * map){
         tmp = ec->proj;
         int id_tile;
         if((id_tile = map->dim[tmp->x][tmp->y]) >= 10 || id_tile == VIDE){
-            touche = true;
+            ec->proj->touche = true;
             if(degats(ec->proj->degats, id_tile, map))
                 looter(map->mob[id_tile - 10], posPers);
         }
-        if(!(tmp->porte) || tmp->touche){
+        if(!(tmp->portee) || tmp->touche){
             detruire_projectiles(&tmp);
             oter_elt();
         }
@@ -24,11 +24,11 @@ void maj_proj(entite_t * posPers, t_salle * map){
 
 void attaque_proj(proj_t typeproj, entite_t * posPers, t_salle * map){
     /*On créée le projectile*/
-    projectile_t * proj = creer_projectiles(typeproj, degats, dir);
+    projectile_t * proj = creer_projectiles(typeproj);
     /*Le projectile part des coordonnées et dans la direction du joueur*/
     proj->x = posPers->x;
     proj->y = posPers->y;
-    proj->dir = dir;
+    proj->dir = posPers->dir;
     proj->degats = posPers->degats;
     /*Nouveau projectile courant*/
     en_tete();
@@ -45,6 +45,8 @@ bool degats(int degats, int id_mob, t_salle * map){
 void attaque_cac(proj_t typeproj, entite_t * posPers, t_salle * map){
     int xe = posPers->x;
     int ye = posPers->y;
+    int id_tile;
+
     switch(posPers->dir){
         case HAUT: ye--; break;
         case DROITE: xe++; break;
@@ -53,7 +55,7 @@ void attaque_cac(proj_t typeproj, entite_t * posPers, t_salle * map){
         default: fprintf(stderr,"Erreur direction de personnage invalide\n");return; 
     }
 
-    if((id_tile = map->dim[tmp->xe][tmp->ye]) >= 10){
+    if((id_tile = map->dim[xe][ye]) >= 10){
         if(degats(posPers->degats, id_tile, map))
                     looter(map->mob[id_tile - 10], posPers);
     }
