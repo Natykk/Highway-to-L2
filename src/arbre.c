@@ -496,8 +496,6 @@ int detruire_arbre(t_arbre ** arbre){
             printf("Erreur de free : objet_necessaires déjà désalloué ou non alloué.\n");
             return 0;
         }
-        
-        printf("Objets necessaires détruits !\n");
 
         if((*arbre)->competence[i].name_img != NULL){
             free((*arbre)->competence[i].name_img);
@@ -618,15 +616,15 @@ int main(){
     t_arbre *assassin = NULL;
     t_arbre *archer = NULL;
 
+    entite_t * personnage;
+    creer_personnage(personnage);
+
     init_arbre(&archer, cpt_archer, ARCHER);
     init_arbre(&mage, cpt_mage, MAGE);
     init_arbre(&assassin, cpt_assassin, ASSASSIN);
     init_arbre(&guerrier, cpt_guerrier, GUERRIER);
 
-    aff_classe(assassin);
-    aff_classe(mage);
-    aff_classe(guerrier);
-    aff_classe(archer);
+    competence_debloquer(personnage, );
 
     detruire_arbre(&assassin);
     detruire_arbre(&mage);

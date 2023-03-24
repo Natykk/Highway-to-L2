@@ -118,4 +118,4 @@ t_competence cpt_archer[NB_CPT]={
 int changer_nomImgCpt(t_competence * competence);
 int remplissage_nomImgCpt(t_competence * competence);
 int init_competences(t_competence *competences, t_classe typeClasse);
-int detruire_competences(t_competence *competences);
+int detruire_arbre(t_arbre ** arbre);
