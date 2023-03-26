@@ -4,6 +4,7 @@
 
 #include "../head/arbre.h"
 
+
 void aff_classe(t_arbre * arbre){
     int i;
     switch(arbre->classe){
@@ -140,7 +141,7 @@ int competence_debloquer(entite_t * personnage, t_competence * competence){
         personnage->vie *= competence->buff.buff_vie;
         personnage->vitesse_att *= competence->buff.buff_vit_att;
         personnage->vitesse_depl *= competence->buff.buff_vit_depl;
-        personnage->bonus_perim_detect += competence->buff.perim_detect-1;
+        personnage->perim_detect += competence->buff.perim_detect-1;
         for(i=0; i<competence->taille_tab_obj_nec; i++){
             ind_obj = acces_obj(competence->obj_necessaires->objet[i].nom);
             personnage->inventaire->nb[ind_obj] -= competence->obj_necessaires->nb[i];

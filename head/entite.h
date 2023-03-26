@@ -4,7 +4,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+
 #include "objet.h"
+#include "competence.h"
+#include "arbre.h"
 
 #define NB_MOBS 12
 
@@ -40,12 +43,14 @@ typedef enum{AUCUN=-1, //!< Aucune direction
  */
 typedef struct entite_s {
     char* nom;
-    int vie;    
-    int degats;
+    float vie;    
+    float degats;
     float vitesse_att;
     float vitesse_depl;
+    int perim_detect;
     int x;
     int y;
+    t_arbre * arbre_cpt;
     objet_inv_t * inventaire;
     int place_inv;
     int persoOuMob;

@@ -4,6 +4,318 @@
 
 #include "../head/competence.h"
 
+int init_obj_necessaires(t_competence* competence, t_classe typeClasse, int indice){
+    competence->obj_necessaires = malloc(sizeof(objet_inv_t));
+    competence->obj_necessaires->nb = malloc(sizeof(int) * competence->taille_tab_obj_nec);
+    competence->obj_necessaires->objet = malloc(sizeof(objet_t) * competence->taille_tab_obj_nec);
+    switch(typeClasse){
+        case ASSASSIN:
+            switch(indice){
+                case 0: 
+                    competence->obj_necessaires->nb[0] = 7; 
+                    competence->obj_necessaires->objet[0] = tab_objet[3];     //griffe
+                    break;
+                case 1:
+                    competence->obj_necessaires->nb[0] = 6; 
+                    competence->obj_necessaires->objet[0] = tab_objet[2];     //Fourrure
+                    competence->obj_necessaires->nb[1] = 5; 
+                    competence->obj_necessaires->objet[1] = tab_objet[0];     //Or
+                    break;
+                case 2:
+                    competence->obj_necessaires->nb[0] = 4; 
+                    competence->obj_necessaires->objet[0] = tab_objet[1];     //Green Goo
+                    competence->obj_necessaires->nb[1] = 7; 
+                    competence->obj_necessaires->objet[1] = tab_objet[2];     //Fourrure
+                    break;
+                case 3:
+                    competence->obj_necessaires->nb[0] = 4; 
+                    competence->obj_necessaires->objet[0] = tab_objet[6];     //Pioche
+                    competence->obj_necessaires->nb[1] = 9; 
+                    competence->obj_necessaires->objet[1] = tab_objet[7];     //Lance-pierre
+                    competence->obj_necessaires->nb[2] = 5; 
+                    competence->obj_necessaires->objet[2] = tab_objet[3];     //Griffe
+                    break;
+                case 4:
+                    competence->obj_necessaires->nb[0] = 4; 
+                    competence->obj_necessaires->objet[0] = tab_objet[6];     //Pioche
+                    competence->obj_necessaires->nb[1] = 9; 
+                    competence->obj_necessaires->objet[1] = tab_objet[9];     //Massue
+                    competence->obj_necessaires->nb[2] = 5; 
+                    competence->obj_necessaires->objet[2] = tab_objet[3];     //Griffe
+                    break;
+                case 5:
+                    competence->obj_necessaires->nb[0] = 8; 
+                    competence->obj_necessaires->objet[0] = tab_objet[5];     //Grey Goo
+                    competence->obj_necessaires->nb[1] = 7; 
+                    competence->obj_necessaires->objet[1] = tab_objet[1];     //Green Goo
+                    competence->obj_necessaires->nb[2] = 3; 
+                    competence->obj_necessaires->objet[2] = tab_objet[3];     //Fourrure
+                    break;
+                case 6:
+                    competence->obj_necessaires->nb[0] = 8; 
+                    competence->obj_necessaires->objet[0] = tab_objet[5];     //Grey Goo
+                    competence->obj_necessaires->nb[1] = 7; 
+                    competence->obj_necessaires->objet[1] = tab_objet[4];     //Grimoire
+                    competence->obj_necessaires->nb[2] = 3; 
+                    competence->obj_necessaires->objet[2] = tab_objet[3];     //Fourrure
+                    break;
+                case 7:
+                    competence->obj_necessaires->nb[0] = 17;                  
+                    competence->obj_necessaires->objet[0] = tab_objet[0];     //Or
+                    competence->obj_necessaires->nb[1] = 10; 
+                    competence->obj_necessaires->objet[1] = tab_objet[8];     //Cailloux
+                    competence->obj_necessaires->nb[2] = 5; 
+                    competence->obj_necessaires->objet[2] = tab_objet[1];     //Grey Goo
+                    break;
+                case 8:
+                    competence->obj_necessaires->nb[0] = 18; 
+                    competence->obj_necessaires->objet[0] = tab_objet[0];     //Or
+                    competence->obj_necessaires->nb[1] = 10; 
+                    competence->obj_necessaires->objet[1] = tab_objet[7];     //Lance-pierre
+                    competence->obj_necessaires->nb[2] = 4; 
+                    competence->obj_necessaires->objet[2] = tab_objet[1];     //Grey Goo
+                    break;
+                case 9:
+                    competence->obj_necessaires->nb[0] = 10; 
+                    competence->obj_necessaires->objet[0] = tab_objet[14];     //Coeur de diable
+                    competence->obj_necessaires->nb[1] = 13; 
+                    competence->obj_necessaires->objet[1] = tab_objet[11];     //Corne de diablotin
+                    competence->obj_necessaires->nb[2] = 12; 
+                    competence->obj_necessaires->objet[2] = tab_objet[13];     //Lance
+                    break;
+                default : break;
+            }
+            break;
+        case MAGE:
+            switch(indice){
+                case 0: 
+                    competence->obj_necessaires->nb[0] = 8; 
+                    competence->obj_necessaires->objet[0] = tab_objet[4];     //Grimoire
+                    break;
+                case 1:
+                    competence->obj_necessaires->nb[0] = 13; 
+                    competence->obj_necessaires->objet[0] = tab_objet[4];     //Grimoire
+                    competence->obj_necessaires->nb[1] = 7; 
+                    competence->obj_necessaires->objet[1] = tab_objet[0];     //Or
+                    break;
+                case 2:
+                    competence->obj_necessaires->nb[0] = 13; 
+                    competence->obj_necessaires->objet[0] = tab_objet[3];     //Griffe
+                    competence->obj_necessaires->nb[1] = 7; 
+                    competence->obj_necessaires->objet[1] = tab_objet[0];     //Or
+                    break;
+                case 3:
+                    competence->obj_necessaires->nb[0] = 9; 
+                    competence->obj_necessaires->objet[0] = tab_objet[1];     //Green Goo
+                    competence->obj_necessaires->nb[1] = 9; 
+                    competence->obj_necessaires->objet[1] = tab_objet[5];     //Grey Goo
+                    competence->obj_necessaires->nb[2] = 6; 
+                    competence->obj_necessaires->objet[2] = tab_objet[0];     //Or
+                    break;
+                case 4:
+                    competence->obj_necessaires->nb[0] = 4; 
+                    competence->obj_necessaires->objet[0] = tab_objet[7];     //Lance-pierre
+                    competence->obj_necessaires->nb[1] = 9; 
+                    competence->obj_necessaires->objet[1] = tab_objet[4];     //Grimoire
+                    competence->obj_necessaires->nb[2] = 5; 
+                    competence->obj_necessaires->objet[2] = tab_objet[9];     //Massue
+                    break;
+                case 5:
+                    competence->obj_necessaires->nb[0] = 14; 
+                    competence->obj_necessaires->objet[0] = tab_objet[5];     //Grey Goo
+                    competence->obj_necessaires->nb[1] = 7; 
+                    competence->obj_necessaires->objet[1] = tab_objet[4];     //Grimoire
+                    competence->obj_necessaires->nb[2] = 6; 
+                    competence->obj_necessaires->objet[2] = tab_objet[3];     //Green Goo
+                    break;
+                case 6:
+                    competence->obj_necessaires->nb[0] = 6; 
+                    competence->obj_necessaires->objet[0] = tab_objet[8];     //Cailloux
+                    competence->obj_necessaires->nb[1] = 8; 
+                    competence->obj_necessaires->objet[1] = tab_objet[4];     //Grimoire
+                    competence->obj_necessaires->nb[2] = 7; 
+                    competence->obj_necessaires->objet[2] = tab_objet[9];     //Lance-pierre
+                    break;
+                case 7:
+                    competence->obj_necessaires->nb[0] = 18;                  
+                    competence->obj_necessaires->objet[0] = tab_objet[0];     //Or
+                    competence->obj_necessaires->nb[1] = 8; 
+                    competence->obj_necessaires->objet[1] = tab_objet[12];    //Queue de Diablotin
+                    competence->obj_necessaires->nb[2] = 7; 
+                    competence->obj_necessaires->objet[2] = tab_objet[1];     //Grey Goo
+                    break;
+                case 8:
+                    competence->obj_necessaires->nb[0] = 18; 
+                    competence->obj_necessaires->objet[0] = tab_objet[0];     //Or
+                    competence->obj_necessaires->nb[1] = 8; 
+                    competence->obj_necessaires->objet[1] = tab_objet[15];    //Tête
+                    competence->obj_necessaires->nb[2] = 7; 
+                    competence->obj_necessaires->objet[2] = tab_objet[1];     //Grey Goo
+                    break;
+                case 9:
+                    competence->obj_necessaires->nb[0] = 30; 
+                    competence->obj_necessaires->objet[0] = tab_objet[0];     //Or
+                    competence->obj_necessaires->nb[1] = 13; 
+                    competence->obj_necessaires->objet[1] = tab_objet[10];     //Red Goo
+                    competence->obj_necessaires->nb[2] = 12; 
+                    competence->obj_necessaires->objet[2] = tab_objet[15];     //Tête
+                    break;
+                default : break;
+            }
+            break;
+        case GUERRIER:
+            switch(indice){
+                case 0: 
+                    competence->obj_necessaires->nb[0] = 7; 
+                    competence->obj_necessaires->objet[0] = tab_objet[2];     //Fourrure
+                    break;
+                case 1:
+                    competence->obj_necessaires->nb[0] = 13; 
+                    competence->obj_necessaires->objet[0] = tab_objet[3];     //Griffe
+                    competence->obj_necessaires->nb[1] = 7; 
+                    competence->obj_necessaires->objet[1] = tab_objet[4];     //Green Goo
+                    break;
+                case 2:
+                    competence->obj_necessaires->nb[0] = 13; 
+                    competence->obj_necessaires->objet[0] = tab_objet[3];     //Griffe
+                    competence->obj_necessaires->nb[1] = 7; 
+                    competence->obj_necessaires->objet[1] = tab_objet[2];     //Fourrure
+                    break;
+                case 3:
+                    competence->obj_necessaires->nb[0] = 13; 
+                    competence->obj_necessaires->objet[0] = tab_objet[3];     //Griffe
+                    competence->obj_necessaires->nb[1] = 7; 
+                    competence->obj_necessaires->objet[1] = tab_objet[9];     //Massue
+                    break;
+                case 4:
+                    competence->obj_necessaires->nb[0] = 13; 
+                    competence->obj_necessaires->objet[0] = tab_objet[3];     //Griffe
+                    competence->obj_necessaires->nb[1] = 7; 
+                    competence->obj_necessaires->objet[1] = tab_objet[0];     //Or
+                    break;
+                case 5:
+                    competence->obj_necessaires->nb[0] = 8; 
+                    competence->obj_necessaires->objet[0] = tab_objet[4];     //Grimoire
+                    competence->obj_necessaires->nb[1] = 7; 
+                    competence->obj_necessaires->objet[1] = tab_objet[0];     //Or
+                    competence->obj_necessaires->nb[2] = 3; 
+                    competence->obj_necessaires->objet[2] = tab_objet[5];     //Grey Goo
+                    break;
+                case 6:
+                    competence->obj_necessaires->nb[0] = 8; 
+                    competence->obj_necessaires->objet[0] = tab_objet[8];     //Cailloux
+                    competence->obj_necessaires->nb[1] = 7; 
+                    competence->obj_necessaires->objet[1] = tab_objet[9];     //Massue
+                    competence->obj_necessaires->nb[2] = 3; 
+                    competence->obj_necessaires->objet[2] = tab_objet[2];     //Fourrure
+                    break;
+                case 7:
+                    competence->obj_necessaires->nb[0] = 17;                  
+                    competence->obj_necessaires->objet[0] = tab_objet[8];     //Cailloux
+                    competence->obj_necessaires->nb[1] = 10; 
+                    competence->obj_necessaires->objet[1] = tab_objet[6];     //Pioche
+                    competence->obj_necessaires->nb[2] = 5; 
+                    competence->obj_necessaires->objet[2] = tab_objet[2];     //Fourrure
+                    break;
+                case 8:
+                    competence->obj_necessaires->nb[0] = 17; 
+                    competence->obj_necessaires->objet[0] = tab_objet[0];     //Or
+                    competence->obj_necessaires->nb[1] = 10; 
+                    competence->obj_necessaires->objet[1] = tab_objet[7];     //Lance-pierre
+                    competence->obj_necessaires->nb[2] = 5; 
+                    competence->obj_necessaires->objet[2] = tab_objet[2];     //Fourrure
+                    break;
+                case 9:
+                    competence->obj_necessaires->nb[0] = 20; 
+                    competence->obj_necessaires->objet[0] = tab_objet[16];     //Croquettes
+                    competence->obj_necessaires->nb[1] = 13; 
+                    competence->obj_necessaires->objet[1] = tab_objet[13];     //Lance
+                    competence->obj_necessaires->nb[2] = 12; 
+                    competence->obj_necessaires->objet[2] = tab_objet[10];     //Red Goo
+                    break;
+                default : break;
+            }
+            break;
+        case ARCHER:
+            switch(indice){
+                case 0: 
+                    competence->obj_necessaires->nb[0] = 7; 
+                    competence->obj_necessaires->objet[0] = tab_objet[1];     //Green Goo
+                    break;
+                case 1:
+                    competence->obj_necessaires->nb[0] = 8; 
+                    competence->obj_necessaires->objet[0] = tab_objet[7];     //Lance-pierre
+                    competence->obj_necessaires->nb[1] = 5; 
+                    competence->obj_necessaires->objet[1] = tab_objet[0];     //Or
+                    break;
+                case 2:
+                    competence->obj_necessaires->nb[0] = 6; 
+                    competence->obj_necessaires->objet[0] = tab_objet[3];     //Griffe
+                    competence->obj_necessaires->nb[1] = 7; 
+                    competence->obj_necessaires->objet[1] = tab_objet[7];     //Lance-pierre
+                    break;
+                case 3:
+                    competence->obj_necessaires->nb[0] = 4; 
+                    competence->obj_necessaires->objet[0] = tab_objet[4];     //Grimoire
+                    competence->obj_necessaires->nb[1] = 9; 
+                    competence->obj_necessaires->objet[1] = tab_objet[7];     //Lance-pierre
+                    break;
+                case 4:
+                    competence->obj_necessaires->nb[0] = 6; 
+                    competence->obj_necessaires->objet[0] = tab_objet[5];     //Grey Goo
+                    competence->obj_necessaires->nb[1] = 9; 
+                    competence->obj_necessaires->objet[1] = tab_objet[2];     //Fourrure
+                    competence->obj_necessaires->nb[2] = 7; 
+                    competence->obj_necessaires->objet[2] = tab_objet[0];     //Or
+                    break;
+                case 5:
+                    competence->obj_necessaires->nb[0] = 7; 
+                    competence->obj_necessaires->objet[0] = tab_objet[5];     //Or
+                    competence->obj_necessaires->nb[1] = 5; 
+                    competence->obj_necessaires->objet[1] = tab_objet[1];     //Fourrure
+                    competence->obj_necessaires->nb[2] = 10; 
+                    competence->obj_necessaires->objet[2] = tab_objet[8];     //Cailloux
+                    break;
+                case 6:
+                    competence->obj_necessaires->nb[0] = 19; 
+                    competence->obj_necessaires->objet[0] = tab_objet[6];     //Pioche
+                    competence->obj_necessaires->nb[1] = 9; 
+                    competence->obj_necessaires->objet[1] = tab_objet[8];     //Cailloux
+                    competence->obj_necessaires->nb[2] = 9; 
+                    competence->obj_necessaires->objet[2] = tab_objet[7];     //Lance-pierre
+                    break;
+                case 7:
+                    competence->obj_necessaires->nb[0] = 17;                  
+                    competence->obj_necessaires->objet[0] = tab_objet[13];    //Lance
+                    competence->obj_necessaires->nb[1] = 10; 
+                    competence->obj_necessaires->objet[1] = tab_objet[8];     //Massue
+                    competence->obj_necessaires->nb[2] = 9; 
+                    competence->obj_necessaires->objet[2] = tab_objet[0];     //Or
+                    break;
+                case 8:
+                    competence->obj_necessaires->nb[0] = 18; 
+                    competence->obj_necessaires->objet[0] = tab_objet[5];     //Grey Goo
+                    competence->obj_necessaires->nb[1] = 10; 
+                    competence->obj_necessaires->objet[1] = tab_objet[6];     //Pioche
+                    competence->obj_necessaires->nb[2] = 8; 
+                    competence->obj_necessaires->objet[2] = tab_objet[8];     //Cailloux
+                    break;
+                case 9:
+                    competence->obj_necessaires->nb[0] = 15; 
+                    competence->obj_necessaires->objet[0] = tab_objet[10];     //Red Goo
+                    competence->obj_necessaires->nb[1] = 13; 
+                    competence->obj_necessaires->objet[1] = tab_objet[12];     //Queue de diablotin
+                    competence->obj_necessaires->nb[2] = 12; 
+                    competence->obj_necessaires->objet[2] = tab_objet[11];     //Corne de diablotin
+                    break;
+                default : break;
+            }
+            break;
+        default: break;
+    }
+    return 1;
+}
+
 //Met le nom de la compétence en question à "débloqué"
 int changer_nomImgCpt(t_competence * competence){
     int i;
@@ -134,7 +446,7 @@ void aff_competence(t_competence competence){
     }
     printf("}\n");
 
-    printf("Buff :\n\t- Vie*%.2f\n\t- Att*%.2f\n\t- Vit_att*%.2f\n\t- Vit_depl*%.2f\n\t- diam-%d\n", competence.buff.buff_vie, competence.buff.buff_degat, competence.buff.buff_vit_att, competence.buff.buff_vit_depl, competence.buff.perim_detect);
+    printf("Buff :\n\t- Vie*%.2f\n\t- Att*%.2f\n\t- Vit_att*%.2f\n\t- Vit_depl*%.2f\n\t- bonus_perim_detect+%d\n", competence.buff.buff_vie, competence.buff.buff_degat, competence.buff.buff_vit_att, competence.buff.buff_vit_depl, competence.buff.perim_detect);
 
     printf("\n * Nécéssite :\n");
     for(int j=0; j<competence.taille_tab_obj_nec; j++){

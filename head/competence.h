@@ -4,9 +4,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "entite.h"
-#include "inventaire.h"
-#include "objet_inv.h"
 #include "objet.h"
 
 #define T_NOM 30
@@ -43,6 +40,8 @@ typedef struct competence{
     objet_inv_t *obj_necessaires;
     int taille_tab_obj_nec;
 } t_competence;
+
+#include "entite.h"
 
 t_competence cpt_assassin[NB_CPT];
 t_competence cpt_guerrier[NB_CPT];
