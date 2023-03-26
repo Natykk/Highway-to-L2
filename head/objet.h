@@ -1,5 +1,5 @@
-#ifndef __OBJET_INV__
-#define __OBJET_INV__
+#ifndef __OBJET__
+#define __OBJET__
 
 #include "objet_inv.h"
 

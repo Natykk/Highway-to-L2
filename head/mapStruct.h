@@ -1,3 +1,6 @@
+#ifndef __MAPSTRUCT__
+#define __MAPSTRUCT__
+
 #define SALLE_UNUSED -1
 #include "entite.h"
 #include "objet.h"
@@ -121,4 +124,4 @@ int detruireNiv(t_niv ** niveau);
 
 
 
-
+#endif

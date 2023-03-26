@@ -1,4 +1,5 @@
-
+#ifndef __CHEMIN__
+#define __CHEMIN__
 /*
 typedef struct Node {
     int x;
@@ -25,5 +26,4 @@ void retirer(int *x);
 int filevide();
 void afficher_file();
 
-
-
+#endif

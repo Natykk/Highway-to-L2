@@ -1,5 +1,5 @@
-#ifndef __OBJET_H__
-#define __OBJET_H__
+#ifndef __ENTITE__
+#define __ENTITE__
 
 #include <stdio.h>
 #include <stdlib.h>

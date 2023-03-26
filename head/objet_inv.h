@@ -1,4 +1,5 @@
-
+#ifndef __OBJET_INV__
+#define __OBJET_INV__
 /**
  * @struct objet_t
  * @brief Structure Objet 
@@ -23,3 +24,5 @@ typedef struct objet_inv_s{
     objet_t *objet;
     int *nb;
 }objet_inv_t;
+
+#endif
