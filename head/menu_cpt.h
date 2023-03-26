@@ -8,9 +8,9 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "../head/arbre.h"
-#include "../head/entite.h"
-#include "../head/itoa.h"
+#include "arbre.h"
+#include "entite.h"
+#include "itoa.h"
 
 #define SDL_MAIN_HANDLED
 #define TILE_SIZE 32
