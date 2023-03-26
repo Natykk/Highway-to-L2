@@ -50,7 +50,7 @@ typedef struct entite_s {
     int perim_detect;
     int x;
     int y;
-    t_arbre * arbre_cpt;
+    t_arbre * arbre;
     objet_inv_t * inventaire;
     int place_inv;
     int persoOuMob;
