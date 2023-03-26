@@ -2,7 +2,10 @@
 #include <stdlib.h>
 #include <string.h>
 
+
 #include "../head/arbre.h"
+#include "../head/entite.h"
+#include "../head/inventaire.h"
 
 
 void aff_classe(t_arbre * arbre){
@@ -90,7 +93,7 @@ int init_arbre(t_arbre ** arbre, t_competence *competences, t_classe typeClasse)
         (*arbre)->competence[i] = &competences[i];
     }
     printf("initialisation des compétences\n");
-    init_competences(*(*arbre)->competence, (*arbre)->classe);
+    init_competences((*arbre)->competence, (*arbre)->classe);
 
     return 0;
 }

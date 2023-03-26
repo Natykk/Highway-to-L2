@@ -6,8 +6,8 @@
 #include <string.h>
 
 #include "objet.h"
-#include "competence.h"
 #include "arbre.h"
+
 
 #define NB_MOBS 12
 
@@ -50,7 +50,7 @@ typedef struct entite_s {
     int perim_detect;
     int x;
     int y;
-    t_arbre * arbre_cpt;
+    t_arbre * arbre;
     objet_inv_t * inventaire;
     int place_inv;
     int persoOuMob;
@@ -69,8 +69,5 @@ int acces_mob(char*);
 entite_t * creer_personnage(entite_t *);
 entite_t * creer_monstre(entite_t *, char *);
 void detruire_entitee(entite_t *);
-void looter(entite_t *, entite_t * );
-entite_t* init_inventaire_monstre(entite_t * );
-entite_t* init_inventaire_personnage(entite_t * );
-void afficher_inventaire(entite_t *);
-#endif 
+
+#endif

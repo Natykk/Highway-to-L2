@@ -4,6 +4,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+typedef enum {non_acquis, acquis} t_acquis;
+typedef enum {ASSASSIN=0, GUERRIER, MAGE, ARCHER} t_classe;
+
 #include "objet.h"
 
 #define T_NOM 30
@@ -15,9 +18,6 @@
 #define MIDDLE_IMPROVE 3        //ameliore ...
 #define BIG_IMPROVE 4           //améliore grandement ...
 #define ULTRA_IMPROVE 5         //améliore énormémément ...
-
-typedef enum {non_acquis, acquis} t_acquis;
-typedef enum {ASSASSIN=0, GUERRIER, MAGE, ARCHER} t_classe;
 
 typedef struct buff_s{
     float buff_vie;
@@ -41,8 +41,6 @@ typedef struct competence{
     int taille_tab_obj_nec;
 } t_competence;
 
-#include "entite.h"
-
 t_competence cpt_assassin[NB_CPT];
 t_competence cpt_guerrier[NB_CPT];
 t_competence cpt_archer[NB_CPT];
@@ -51,8 +49,8 @@ t_competence cpt_mage[NB_CPT];
 /* Fonctions de competence.c */
 int init_obj_necessaires(t_competence* competence, t_classe typeClasse, int indice);
 int changer_nomImgCpt(t_competence * competence);
-int remplissage_nomImgCpt(t_competence *competences);
-int init_competences(t_competence *competences, t_classe typeClasse);
+int remplissage_nomImgCpt(t_competence **competences);
+int init_competences(t_competence **competences, t_classe typeClasse);
 void aff_competence(t_competence competence);
 
 #endif
