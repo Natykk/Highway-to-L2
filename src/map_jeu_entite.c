@@ -10,6 +10,7 @@
 #include "../head/mapBoss.h"
 #include "../head/menu.h"
 #include "../head/chemin.h"
+#include "../head/inventaire.h"
 int flip_map=0;
 int coords[10][2];
 

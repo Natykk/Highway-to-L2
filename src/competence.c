@@ -3,7 +3,6 @@
 #include <string.h>
 
 #include "../head/competence.h"
-#include "../head/entite.h"
 
 t_competence cpt_assassin[NB_CPT]={
     //étage1:

@@ -20,6 +20,7 @@
 #define WINDOW_HEIGHT 600
 #define TAILLE_CASE 50
 #define TAILLE_CHAINE_COMPETENCE 80
+#define TAILLE_CHAINE_NOM 80
 #define TAILLE_CASE_ITEM_RES 280
 
 void construire_chaine(char *result, int nb_obj, int nb_obj_requis, char *nom_obj);

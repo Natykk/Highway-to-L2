@@ -4,7 +4,6 @@
 
 
 #include "../head/arbre.h"
-#include "../head/entite.h"
 #include "../head/inventaire.h"
 
 
@@ -87,7 +86,6 @@ int init_arbre(t_arbre ** arbre, t_competence *competences, t_classe typeClasse)
     (*arbre) = malloc(sizeof(t_arbre));
     (*arbre)->classe = typeClasse;
     (*arbre)->competence = malloc(sizeof(t_competence*)*NB_CPT);
-
     printf("initialisation des pointeurs sur compétences\n");
     for(int i=0; i<NB_CPT; i++){
         (*arbre)->competence[i] = &competences[i];
@@ -169,13 +167,13 @@ int competence_debloquer(entite_t * personnage, t_competence * competence){
 
 int main(){
     t_arbre * mage;
-    init_arbre(&mage, cpt_mage, MAGE);
+    
     entite_t * personnage;
     personnage = creer_personnage(personnage);
     personnage = init_inventaire_personnage(personnage);
-    int rang;
+    init_arbre(&personnage->arbre, cpt_mage, MAGE);
     afficher_entite(personnage);
-
+    int rang;
     rang=acces_obj("Grimoire");
     if(rang>-1){
         personnage->inventaire->nb[rang] = 30;
@@ -187,17 +185,17 @@ int main(){
         personnage->inventaire->nb[rang] = 10;
         printf("ressource ajoutée!\n");
     }
+
     afficher_inventaire(personnage);
+    printf("Après affichage inv\n");
+    competence_debloquer(personnage, personnage->arbre->competence[0]);
+    competence_debloquer(personnage, personnage->arbre->competence[1]);
 
-    competence_debloquer(personnage, mage->competence[0]);
-    competence_debloquer(personnage, mage->competence[1]);
-
-    aff_classe(mage);
+    aff_classe(personnage->arbre);
 
     afficher_entite(personnage);
 
     afficher_inventaire(personnage);
-
-    detruire_arbre(&mage);
+    detruire_arbre(&personnage->arbre);
     detruire_entitee(personnage);
 }

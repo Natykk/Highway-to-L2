@@ -1,4 +1,5 @@
 #include "../head/menu_cpt.h"
+#include "../head/inventaire.h"
 
 /**
  * @file menu_cpt.c
@@ -211,61 +212,61 @@ void afficher_arbre_assassin(SDL_Window *window, SDL_Renderer *renderer, entite_
                         if (in_rect(x, y, &rect1))
                         {
                             SDL_RenderClear(renderer);
-                            afficher_competence_SDL(window, renderer, "IMG/competences/assassin/FR_l.pn", entite, entite->arbre->competence[0]);
+                            afficher_competence_SDL(window, renderer, "IMG/competences/assassin/FR_l.pn", entite, *entite->arbre->competence[0]);
                             running = 0;
                         }
                         else if (in_rect(x, y, &rect2))
                         {
                             SDL_RenderClear(renderer);
-                            afficher_competence_SDL(window, renderer, "IMG/competences/assassin/CM_l.pn", entite, entite->arbre->competence[1]);
+                            afficher_competence_SDL(window, renderer, "IMG/competences/assassin/CM_l.pn", entite, *entite->arbre->competence[1]);
                             running = 0;
                         }
                         else if (in_rect(x, y, &rect3))
                         {
                             SDL_RenderClear(renderer);
-                            afficher_competence_SDL(window, renderer, "IMG/competences/assassin/CI_l.pn", entite, entite->arbre->competence[2]);
+                            afficher_competence_SDL(window, renderer, "IMG/competences/assassin/CI_l.pn", entite, *entite->arbre->competence[2]);
                             running = 0;
                         }
                         else if (in_rect(x, y, &rect4))
                         {
                             SDL_RenderClear(renderer);
-                            afficher_competence_SDL(window, renderer, "IMG/competences/assassin/CP_l.pn", entite, entite->arbre->competence[3]);
+                            afficher_competence_SDL(window, renderer, "IMG/competences/assassin/CP_l.pn", entite, *entite->arbre->competence[3]);
                             running = 0;
                         }
                         else if (in_rect(x, y, &rect5))
                         {
                             SDL_RenderClear(renderer);
-                            afficher_competence_SDL(window, renderer, "IMG/competences/assassin/EP_l.pn", entite, entite->arbre->competence[4]);
+                            afficher_competence_SDL(window, renderer, "IMG/competences/assassin/EP_l.pn", entite, *entite->arbre->competence[4]);
                             running = 0;
                         }
                         else if (in_rect(x, y, &rect6))
                         {
                             SDL_RenderClear(renderer);
-                            afficher_competence_SDL(window, renderer, "IMG/competences/assassin/SM_l.pn", entite, entite->arbre->competence[5]);
+                            afficher_competence_SDL(window, renderer, "IMG/competences/assassin/SM_l.pn", entite, *entite->arbre->competence[5]);
                             running = 0;
                         }
                         else if (in_rect(x, y, &rect7))
                         {
                             SDL_RenderClear(renderer);
-                            afficher_competence_SDL(window, renderer, "IMG/competences/assassin/MO_l.pn", entite, entite->arbre->competence[6]);
+                            afficher_competence_SDL(window, renderer, "IMG/competences/assassin/MO_l.pn", entite, *entite->arbre->competence[6]);
                             running = 0;
                         }
                         else if (in_rect(x, y, &rect8))
                         {
                             SDL_RenderClear(renderer);
-                            afficher_competence_SDL(window, renderer, "IMG/competences/assassin/BC_l.pn", entite, entite->arbre->competence[7]);
+                            afficher_competence_SDL(window, renderer, "IMG/competences/assassin/BC_l.pn", entite, *entite->arbre->competence[7]);
                             running = 0;
                         }
                         else if (in_rect(x, y, &rect9))
                         {
                             SDL_RenderClear(renderer);
-                            afficher_competence_SDL(window, renderer, "IMG/competences/assassin/BF_l.pn", entite, entite->arbre->competence[8]);
+                            afficher_competence_SDL(window, renderer, "IMG/competences/assassin/BF_l.pn", entite, *entite->arbre->competence[8]);
                             running = 0;
                         }
                         else if (in_rect(x, y, &rect10))
                         {
                             SDL_RenderClear(renderer);
-                            afficher_competence_SDL(window, renderer, "IMG/competences/assassin/CF_l.pn", entite, entite->arbre->competence[9]);
+                            afficher_competence_SDL(window, renderer, "IMG/competences/assassin/CF_l.pn", entite, *entite->arbre->competence[9]);
                             running = 0;
                         }
                     }
@@ -392,61 +393,61 @@ void afficher_arbre_guerrier(SDL_Window *window, SDL_Renderer *renderer, entite_
                         if (in_rect(x, y, &rect1))
                         {
                             SDL_RenderClear(renderer);
-                            running1 = afficher_competence_SDL(window, renderer, "IMG/competences/guerrier/RG_l.pn", entite, entite->arbre->competence[0]);
+                            running1 = afficher_competence_SDL(window, renderer, "IMG/competences/guerrier/RG_l.pn", entite, *entite->arbre->competence[0]);
                             running = 0;
                         }
                         else if (in_rect(x, y, &rect2))
                         {
                             SDL_RenderClear(renderer);
-                            running1 = afficher_competence_SDL(window, renderer, "IMG/competences/guerrier/K_l.png", entite, entite->arbre->competence[1]);
+                            running1 = afficher_competence_SDL(window, renderer, "IMG/competences/guerrier/K_l.png", entite, *entite->arbre->competence[1]);
                             running = 0;
                         }
                         else if (in_rect(x, y, &rect3))
                         {
                             SDL_RenderClear(renderer);
-                            running1 = afficher_competence_SDL(window, renderer, "IMG/competences/guerrier/GB_l.pn", entite, entite->arbre->competence[2]);
+                            running1 = afficher_competence_SDL(window, renderer, "IMG/competences/guerrier/GB_l.pn", entite, *entite->arbre->competence[2]);
                             running = 0;
                         }
                         else if (in_rect(x, y, &rect4))
                         {
                             SDL_RenderClear(renderer);
-                            running1 = afficher_competence_SDL(window, renderer, "IMG/competences/guerrier/E2M_l.p", entite, entite->arbre->competence[3]);
+                            running1 = afficher_competence_SDL(window, renderer, "IMG/competences/guerrier/E2M_l.p", entite, *entite->arbre->competence[3]);
                             running = 0;
                         }
                         else if (in_rect(x, y, &rect5))
                         {
                             SDL_RenderClear(renderer);
-                            running1 = afficher_competence_SDL(window, renderer, "IMG/competences/guerrier/H_l.png", entite, entite->arbre->competence[4]);
+                            running1 = afficher_competence_SDL(window, renderer, "IMG/competences/guerrier/H_l.png", entite, *entite->arbre->competence[4]);
                             running = 0;
                         }
                         else if (in_rect(x, y, &rect6))
                         {
                             SDL_RenderClear(renderer);
-                            running1 = afficher_competence_SDL(window, renderer, "IMG/competences/guerrier/BN_l.pn", entite, entite->arbre->competence[5]);
+                            running1 = afficher_competence_SDL(window, renderer, "IMG/competences/guerrier/BN_l.pn", entite, *entite->arbre->competence[5]);
                             running = 0;
                         }
                         else if (in_rect(x, y, &rect7))
                         {
                             SDL_RenderClear(renderer);
-                            running1 = afficher_competence_SDL(window, renderer, "IMG/competences/guerrier/AH_l.pn", entite, entite->arbre->competence[6]);
+                            running1 = afficher_competence_SDL(window, renderer, "IMG/competences/guerrier/AH_l.pn", entite, *entite->arbre->competence[6]);
                             running = 0;
                         }
                         else if (in_rect(x, y, &rect8))
                         {
                             SDL_RenderClear(renderer);
-                            running1 = afficher_competence_SDL(window, renderer, "IMG/competences/guerrier/BG_l.pn", entite, entite->arbre->competence[7]);
+                            running1 = afficher_competence_SDL(window, renderer, "IMG/competences/guerrier/BG_l.pn", entite, *entite->arbre->competence[7]);
                             running = 0;
                         }
                         else if (in_rect(x, y, &rect9))
                         {
                             SDL_RenderClear(renderer);
-                            running1 = afficher_competence_SDL(window, renderer, "IMG/competences/guerrier/BSL_l.p", entite, entite->arbre->competence[8]);
+                            running1 = afficher_competence_SDL(window, renderer, "IMG/competences/guerrier/BSL_l.p", entite, *entite->arbre->competence[8]);
                             running = 0;
                         }
                         else if (in_rect(x, y, &rect10))
                         {
                             SDL_RenderClear(renderer);
-                            running1 = afficher_competence_SDL(window, renderer, "IMG/competences/guerrier/RB_l.pn", entite, entite->arbre->competence[9]);
+                            running1 = afficher_competence_SDL(window, renderer, "IMG/competences/guerrier/RB_l.pn", entite, *entite->arbre->competence[9]);
                             running = 0;
                         }
                     }
@@ -574,61 +575,61 @@ void afficher_arbre_mage(SDL_Window *window, SDL_Renderer *renderer, entite_t *e
                         if (in_rect(x, y, &rect1))
                         {
                             SDL_RenderClear(renderer);
-                            running1 = afficher_competence_SDL(window, renderer, "IMG/competences/mage/BMS_l.png", entite, entite->arbre->competence[0]);
+                            running1 = afficher_competence_SDL(window, renderer, "IMG/competences/mage/BMS_l.png", entite, *entite->arbre->competence[0]);
                             running = 0;
                         }
                         else if (in_rect(x, y, &rect2))
                         {
                             SDL_RenderClear(renderer);
-                            running1 = afficher_competence_SDL(window, renderer, "IMG/competences/mage/GG_l.png", entite, entite->arbre->competence[1]);
+                            running1 = afficher_competence_SDL(window, renderer, "IMG/competences/mage/GG_l.png", entite, *entite->arbre->competence[1]);
                             running = 0;
                         }
                         else if (in_rect(x, y, &rect3))
                         {
                             SDL_RenderClear(renderer);
-                            running1 = afficher_competence_SDL(window, renderer, "IMG/competences/mage/BA_l.png", entite, entite->arbre->competence[2]);
+                            running1 = afficher_competence_SDL(window, renderer, "IMG/competences/mage/BA_l.png", entite, *entite->arbre->competence[2]);
                             running = 0;
                         }
                         else if (in_rect(x, y, &rect4))
                         {
                             SDL_RenderClear(renderer);
-                            running1 = afficher_competence_SDL(window, renderer, "IMG/competences/mage/BC_l.png", entite, entite->arbre->competence[3]);
+                            running1 = afficher_competence_SDL(window, renderer, "IMG/competences/mage/BC_l.png", entite, *entite->arbre->competence[3]);
                             running = 0;
                         }
                         else if (in_rect(x, y, &rect5))
                         {
                             SDL_RenderClear(renderer);
-                            running1 = afficher_competence_SDL(window, renderer, "IMG/competences/mage/ME_l.png", entite, entite->arbre->competence[4]);
+                            running1 = afficher_competence_SDL(window, renderer, "IMG/competences/mage/ME_l.png", entite, *entite->arbre->competence[4]);
                             running = 0;
                         }
                         else if (in_rect(x, y, &rect6))
                         {
                             SDL_RenderClear(renderer);
-                            running1 = afficher_competence_SDL(window, renderer, "IMG/competences/mage/MT_l.png", entite, entite->arbre->competence[5]);
+                            running1 = afficher_competence_SDL(window, renderer, "IMG/competences/mage/MT_l.png", entite, *entite->arbre->competence[5]);
                             running = 0;
                         }
                         else if (in_rect(x, y, &rect7))
                         {
                             SDL_RenderClear(renderer);
-                            running1 = afficher_competence_SDL(window, renderer, "IMG/competences/mage/MF_l.png", entite, entite->arbre->competence[6]);
+                            running1 = afficher_competence_SDL(window, renderer, "IMG/competences/mage/MF_l.png", entite, *entite->arbre->competence[6]);
                             running = 0;
                         }
                         else if (in_rect(x, y, &rect8))
                         {
                             SDL_RenderClear(renderer);
-                            running1 = afficher_competence_SDL(window, renderer, "IMG/competences/mage/MN_l.png", entite, entite->arbre->competence[7]);
+                            running1 = afficher_competence_SDL(window, renderer, "IMG/competences/mage/MN_l.png", entite, *entite->arbre->competence[7]);
                             running = 0;
                         }
                         else if (in_rect(x, y, &rect9))
                         {
                             SDL_RenderClear(renderer);
-                            running1 = afficher_competence_SDL(window, renderer, "IMG/competences/mage/MC_l.png", entite, entite->arbre->competence[8]);
+                            running1 = afficher_competence_SDL(window, renderer, "IMG/competences/mage/MC_l.png", entite, *entite->arbre->competence[8]);
                             running = 0;
                         }
                         else if (in_rect(x, y, &rect10))
                         {
                             SDL_RenderClear(renderer);
-                            running1 = afficher_competence_SDL(window, renderer, "IMG/competences/mage/AM_l.png", entite, entite->arbre->competence[9]);
+                            running1 = afficher_competence_SDL(window, renderer, "IMG/competences/mage/AM_l.png", entite, *entite->arbre->competence[9]);
                             running = 0;
                         }
                     }
@@ -756,61 +757,61 @@ void afficher_arbre_archer(SDL_Window *window, SDL_Renderer *renderer, entite_t 
                         if (in_rect(x, y, &rect1))
                         {
                             SDL_RenderClear(renderer);
-                            running1 = afficher_competence_SDL(window, renderer, "IMG/competences/archer/DF_l.png", entite, entite->arbre->competence[0]);
+                            running1 = afficher_competence_SDL(window, renderer, "IMG/competences/archer/DF_l.png", entite, *entite->arbre->competence[0]);
                             running = 0;
                         }
                         else if (in_rect(x, y, &rect2))
                         {
                             SDL_RenderClear(renderer);
-                            running1 = afficher_competence_SDL(window, renderer, "IMG/competences/archer/AS_l.png", entite, entite->arbre->competence[1]);
+                            running1 = afficher_competence_SDL(window, renderer, "IMG/competences/archer/AS_l.png", entite, *entite->arbre->competence[1]);
                             running = 0;
                         }
                         else if (in_rect(x, y, &rect3))
                         {
                             SDL_RenderClear(renderer);
-                            running1 = afficher_competence_SDL(window, renderer, "IMG/competences/archer/AE_l.png", entite, entite->arbre->competence[2]);
+                            running1 = afficher_competence_SDL(window, renderer, "IMG/competences/archer/AE_l.png", entite, *entite->arbre->competence[2]);
                             running = 0;
                         }
                         else if (in_rect(x, y, &rect4))
                         {
                             SDL_RenderClear(renderer);
-                            running1 = afficher_competence_SDL(window, renderer, "IMG/competences/archer/AV_l.png", entite, entite->arbre->competence[3]);
+                            running1 = afficher_competence_SDL(window, renderer, "IMG/competences/archer/AV_l.png", entite, *entite->arbre->competence[3]);
                             running = 0;
                         }
                         else if (in_rect(x, y, &rect5))
                         {
                             SDL_RenderClear(renderer);
-                            running1 = afficher_competence_SDL(window, renderer, "IMG/competences/archer/MN_l.png", entite, entite->arbre->competence[4]);
+                            running1 = afficher_competence_SDL(window, renderer, "IMG/competences/archer/MN_l.png", entite, *entite->arbre->competence[4]);
                             running = 0;
                         }
                         else if (in_rect(x, y, &rect6))
                         {
                             SDL_RenderClear(renderer);
-                            running1 = afficher_competence_SDL(window, renderer, "IMG/competences/archer/BH_l.png", entite, entite->arbre->competence[5]);
+                            running1 = afficher_competence_SDL(window, renderer, "IMG/competences/archer/BH_l.png", entite, *entite->arbre->competence[5]);
                             running = 0;
                         }
                         else if (in_rect(x, y, &rect7))
                         {
                             SDL_RenderClear(renderer);
-                            running1 = afficher_competence_SDL(window, renderer, "IMG/competences/archer/FP_l.png", entite, entite->arbre->competence[6]);
+                            running1 = afficher_competence_SDL(window, renderer, "IMG/competences/archer/FP_l.png", entite, *entite->arbre->competence[6]);
                             running = 0;
                         }
                         else if (in_rect(x, y, &rect8))
                         {
                             SDL_RenderClear(renderer);
-                            running1 = afficher_competence_SDL(window, renderer, "IMG/competences/archer/FG_l.png", entite, entite->arbre->competence[7]);
+                            running1 = afficher_competence_SDL(window, renderer, "IMG/competences/archer/FG_l.png", entite, *entite->arbre->competence[7]);
                             running = 0;
                         }
                         else if (in_rect(x, y, &rect9))
                         {
                             SDL_RenderClear(renderer);
-                            running1 = afficher_competence_SDL(window, renderer, "IMG/competences/archer/FV_l.png", entite, entite->arbre->competence[8]);
+                            running1 = afficher_competence_SDL(window, renderer, "IMG/competences/archer/FV_l.png", entite, *entite->arbre->competence[8]);
                             running = 0;
                         }
                         else if (in_rect(x, y, &rect10))
                         {
                             SDL_RenderClear(renderer);
-                            running1 = afficher_competence_SDL(window, renderer, "IMG/competences/archer/SU_l.png", entite, entite->arbre->competence[9]);
+                            running1 = afficher_competence_SDL(window, renderer, "IMG/competences/archer/SU_l.png", entite, *entite->arbre->competence[9]);
                             running = 0;
                         }
                     }

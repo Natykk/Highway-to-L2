@@ -8,6 +8,8 @@ typedef struct arbre{
     t_competence **competence;
 } t_arbre;
 
+#include "entite.h"
+
 int init_arbre(t_arbre ** arbre, t_competence *competences, t_classe typeClasse);
 void aff_classe(t_arbre * arbre);
 int detruire_arbre(t_arbre ** arbre);

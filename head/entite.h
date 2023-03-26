@@ -6,8 +6,7 @@
 #include <string.h>
 
 #include "objet.h"
-#include "arbre.h"
-
+typedef struct arbre t_arbre;
 
 #define NB_MOBS 12
 

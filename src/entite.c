@@ -1,5 +1,6 @@
-#include "../head/arbre.h"
+
 #include "../head/entite.h"
+#include "../head/arbre.h"
 #include <string.h>
 
 /**
