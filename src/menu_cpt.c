@@ -1087,7 +1087,7 @@ int afficher_competence_SDL(SDL_Window *window,
     }
 }
 
-
+/**/
 int main() {
 
 
