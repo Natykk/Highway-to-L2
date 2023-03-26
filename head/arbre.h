@@ -2,6 +2,7 @@
 #define __ARBRE__
 
 #include "competence.h"
+#include "entite.h"
 
 typedef struct arbre{
     t_classe classe;

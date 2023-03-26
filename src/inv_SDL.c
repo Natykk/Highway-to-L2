@@ -1,11 +1,12 @@
 #include <stdio.h>
 #include <stdbool.h>
 #define SDL_MAIN_HANDLED
-#include <SDL2/SDL.h>
-#include <SDL2/SDL_ttf.h>
-#include <SDL2/SDL_image.h>
-#include <SDL2/SDL_mixer.h>
-#include "../head/menu.h"
+#include </home/remy/SDL2/include/SDL2/SDL.h>
+#include </home/remy/SDL2/include/SDL2/SDL_ttf.h>
+#include </home/remy/SDL2/include/SDL2/SDL_image.h>
+#include </home/remy/SDL2/include/SDL2/SDL_mixer.h>
+#include "../head/entite.h"
+
 #define  TILE_SIZE  32
 #define  MAP_WIDTH   25
 #define  MAP_HEIGHT  25

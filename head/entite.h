@@ -1,15 +1,11 @@
 #ifndef __ENTITE__
 #define __ENTITE__
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+#define NB_MOBS 12
 
 #include "objet.h"
-#include "arbre.h"
 
-
-#define NB_MOBS 12
+typedef struct arbre t_arbre;
 
 /**
  * @file entite.h

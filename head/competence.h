@@ -41,10 +41,10 @@ typedef struct competence{
     int taille_tab_obj_nec;
 } t_competence;
 
-t_competence cpt_assassin[NB_CPT];
-t_competence cpt_guerrier[NB_CPT];
-t_competence cpt_archer[NB_CPT];
-t_competence cpt_mage[NB_CPT];
+extern t_competence cpt_assassin[];
+extern t_competence cpt_guerrier[];
+extern t_competence cpt_archer[];
+extern t_competence cpt_mage[];
 
 /* Fonctions de competence.c */
 int init_obj_necessaires(t_competence* competence, t_classe typeClasse, int indice);

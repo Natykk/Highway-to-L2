@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "../head/inventaire.h"
+#include "../head/objet.h"
 
 /**
  * @file inventaire.c

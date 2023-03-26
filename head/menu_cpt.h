@@ -1,16 +1,9 @@
-#include <stdio.h>
-#include <stdbool.h>
-#include <SDL2/SDL.h>
-#include <SDL2/SDL_ttf.h>
-#include <SDL2/SDL_image.h>
-#include <SDL2/SDL_mixer.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+#ifndef __MENU_CPT__
+#define __MENU_CPT__
+
+#include </home/remy/SDL2/include/SDL2/SDL.h>
 
 #include "arbre.h"
-#include "entite.h"
-#include "itoa.h"
 
 #define SDL_MAIN_HANDLED
 #define TILE_SIZE 32
@@ -31,4 +24,6 @@ void afficher_arbre_guerrier(SDL_Window *window, SDL_Renderer *renderer, entite_
 void afficher_arbre_mage(SDL_Window *window, SDL_Renderer *renderer, entite_t *entite);
 void afficher_arbre_archer(SDL_Window *window, SDL_Renderer *renderer, entite_t *entite);
 void afficher_menu(SDL_Window *window, SDL_Renderer *renderer, entite_t *entite);
-int afficher_competence_SDL(SDL_Window *window, SDL_Renderer *renderer, char *path_comp, entite_t *entite, t_competence competence);
+int afficher_competence_SDL(SDL_Window *window, SDL_Renderer *renderer, char *path_comp, entite_t *entite, t_competence *competence);
+
+#endif

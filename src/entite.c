@@ -1,6 +1,7 @@
-#include "../head/arbre.h"
-#include "../head/entite.h"
+#include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
+#include "../head/arbre.h"
 
 /**
  * @file entite.c
@@ -95,12 +96,13 @@ entite_t* creer_personnage (entite_t * entite){
     entite->perim_detect = 0;
     entite->x = 0;
     entite->y = 0;
-    entite->arbre = NULL;
     entite->place_inv = NB_OBJET;
     entite->inventaire = malloc(sizeof(objet_inv_t));
     entite->inventaire->nb = malloc(sizeof(int)*entite->place_inv);
     entite->inventaire->objet = malloc(sizeof(objet_t)*entite->place_inv);
     entite->persoOuMob = 0;
+    init_arbre(&entite->arbre, cpt_mage, MAGE);
+
     return entite;
 }
 /**

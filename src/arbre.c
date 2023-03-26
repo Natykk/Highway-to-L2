@@ -167,6 +167,7 @@ int competence_debloquer(entite_t * personnage, t_competence * competence){
     return 0;
 }
 
+/*
 int main(){
     t_arbre * mage;
     init_arbre(&mage, cpt_mage, MAGE);
@@ -201,3 +202,4 @@ int main(){
     detruire_arbre(&mage);
     detruire_entitee(personnage);
 }
+*/
