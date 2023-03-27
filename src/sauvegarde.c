@@ -10,7 +10,6 @@ int one_next_cpt_unlock(t_competence * competence){
     int i;
     for(i=0; i<competence->nb_suiv; i++){
         if(competence->suivantes[i]->competence_acquise == acquis){
-            printf("%d - ", i);
             return i;
         }
     }
@@ -55,6 +54,9 @@ int sauvegarde(entite_t * personnage, int num_etage){
         }
         cpt_aquise(f_sauv, personnage->arbre);
         fprintf(f_sauv, "%d\n", num_etage);
+        for(int i=0; i<NB_OBJET; i++){
+            fprintf(f_sauv, "%d\n", personnage->inventaire->nb[i]);
+        }
 
         fclose(f_sauv);
     }
@@ -64,7 +66,71 @@ int sauvegarde(entite_t * personnage, int num_etage){
     return 1;
 }
 
+int appliquer(entite_t * personnage, t_competence *  competence){
+    personnage->degats *= competence->buff.buff_degat;
+    personnage->vie *= competence->buff.buff_vie;
+    personnage->vitesse_att *= competence->buff.buff_vit_att;
+    personnage->vitesse_depl *= competence->buff.buff_vit_depl;
+    personnage->perim_detect += competence->buff.perim_detect-1;
+    return 1;
+}
 
+
+int chargement(entite_t ** personnage){
+    FILE * f_sauv = fopen("../sauv/sauvegarde.txt", "r");
+    if(f_sauv){
+        *personnage = creer_personnage(*personnage);
+        *personnage = init_inventaire_personnage(*personnage);
+        fscanf(f_sauv, "%s", (*personnage)->nom);
+        int classe;
+        fscanf(f_sauv, "%d", &classe);
+        switch(classe){
+            case ARCHER : init_arbre(&(*personnage)->arbre, cpt_archer, classe); break;
+            case ASSASSIN : init_arbre(&(*personnage)->arbre, cpt_assassin, classe); break;
+            case GUERRIER : init_arbre(&(*personnage)->arbre, cpt_guerrier, classe); break;
+            case MAGE : init_arbre(&(*personnage)->arbre, cpt_mage, classe); break;
+            default : break;
+        }
+        char c;
+        char *nom_cpt = malloc(sizeof(char)*50);
+        fscanf(f_sauv, "%c", &c);
+        fgets(nom_cpt, 50, f_sauv);
+        nom_cpt[strlen(nom_cpt)-1]='\0';
+        printf("%s\n", nom_cpt);
+        t_competence * racine = (*personnage)->arbre->competence[0];
+        while(strcmp(nom_cpt, "NULL") && strcmp(nom_cpt, "END_OF_CPT")){
+            if(!strcmp(nom_cpt, racine->nom)){
+                racine->competence_acquise = acquis;
+                appliquer(*personnage, racine);
+                fgets(nom_cpt, 50, f_sauv);
+                nom_cpt[strlen(nom_cpt)-1]='\0';
+                printf("%s\n", nom_cpt);
+                for(int i=0; i<racine->nb_suiv; i++){
+                    if(!strcmp(racine->suivantes[i]->nom, nom_cpt)){
+                        racine = racine->suivantes[i];
+                    }
+                }
+            }
+        }
+        free(nom_cpt);
+        nom_cpt=NULL;
+
+        int num_etage;
+        fscanf(f_sauv, "%d", &num_etage);
+
+        for(int i=0; i<NB_OBJET; i++){
+            fscanf(f_sauv, "%d", &(*personnage)->inventaire->nb[i]);
+        }
+
+        return num_etage;
+    }
+    else{
+        printf("Erreur : impossible d'ouvrir le fichier de sauvegarde\n");
+        return -1;
+    }
+}
+
+/*
 int main(){
     entite_t * personnage;
     personnage = creer_personnage(personnage);
@@ -123,9 +189,11 @@ int main(){
     competence_debloquer(personnage, personnage->arbre->competence[5]);
     competence_debloquer(personnage, personnage->arbre->competence[9]);
     sauvegarde(personnage, 2);
-
-
+    chargement(&personnage);
+    afficher_entite(personnage);
+    aff_classe(personnage->arbre);
     afficher_inventaire(personnage);
-    detruire_arbre(&personnage->arbre);
+    //detruire_arbre(&personnage->arbre);
     detruire_entitee(personnage);
 }
+*/
