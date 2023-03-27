@@ -162,12 +162,12 @@ int competence_debloquer(entite_t * personnage, t_competence * competence){
     }
     else if(peut_deploquer_cpt(personnage, competence) == -2){
         printf("Compétence non déblocable : nombre de ressources nécessaire insuffisant !\n");
-        return -2
+        return -2;
     }
     else{
         printf("Compétence non déblocable : raison inconnue !\n");
     }
-    return 0;
+    return -3;
 }
 /*
 int main(){
