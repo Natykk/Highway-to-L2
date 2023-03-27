@@ -110,9 +110,23 @@ int one_preced_cpt_debloq(t_competence * competence){
    
 }
 
-int peut_deploquer_cpt(entite_t * personnage, t_competence * competence){
+int cpt_in_arbre_joueur(entite_t * personnage, t_competence * competence){
+    if(personnage->arbre != NULL){
+        for(int i=0; i<NB_CPT; i++){
+            if(personnage->arbre->competence[i] == competence){
+                return 1;
+            }
+        }
+    }
+    return 0;
+}
+
+int peut_deploquer_cpt(entite_t * personnage, t_competence * competence, t_arbre * arbre_cpt){
     int i, ind_obj;
-    if(competence->competence_acquise == non_acquis && one_preced_cpt_debloq(competence)){
+    if(personnage->arbre == NULL){
+        personnage->arbre = arbre_cpt;
+    }
+    if(competence->competence_acquise == non_acquis && one_preced_cpt_debloq(competence) && cpt_in_arbre_joueur(personnage, competence)){
         for(i=0; i<competence->taille_tab_obj_nec; i++){
             ind_obj = acces_obj(competence->obj_necessaires->objet[i].nom);
             printf("Nb %s inventaire : %d\n", personnage->inventaire->objet[ind_obj].nom, personnage->inventaire->nb[ind_obj]);
@@ -123,6 +137,9 @@ int peut_deploquer_cpt(entite_t * personnage, t_competence * competence){
         }
         return 1;   //compétence déblocable
     }
+    else if(!cpt_in_arbre_joueur(personnage, competence)){
+        return -3;
+    }
     else if(competence->competence_acquise != non_acquis){ //la compétence est déja acquise.
         return 0;
     }
@@ -130,14 +147,13 @@ int peut_deploquer_cpt(entite_t * personnage, t_competence * competence){
         return -1;
     }
     else{
-        return -3;
+        return -4;
     }
 }
 
-int competence_debloquer(entite_t * personnage, t_competence * competence){
+int competence_debloquer(entite_t * personnage, t_competence * competence, t_arbre * arbre_cpt){
     int ind_obj, i;
-
-    if(peut_deploquer_cpt(personnage, competence) == 1){
+    if(peut_deploquer_cpt(personnage, competence, arbre_cpt) == 1){
         printf("Compétence déblocable !\n");
         changer_nomImgCpt(competence);
         personnage->degats *= competence->buff.buff_degat;
@@ -152,31 +168,45 @@ int competence_debloquer(entite_t * personnage, t_competence * competence){
         competence->competence_acquise = acquis;
         return 1;
     }
-    else if(!peut_deploquer_cpt(personnage, competence)){
+    else if(!peut_deploquer_cpt(personnage, competence, arbre_cpt)){
         printf("Compétence non déblocable : déjà acquise !\n");
         return 0;
     }
-    else if(peut_deploquer_cpt(personnage, competence) == -1){
+    else if(peut_deploquer_cpt(personnage, competence, arbre_cpt) == -1){
         printf("Compétence non déblocable : Aucune compétence précédente n'est acquise !\n");
         return -1;
     }
-    else if(peut_deploquer_cpt(personnage, competence) == -2){
+    else if(peut_deploquer_cpt(personnage, competence, arbre_cpt) == -2){
         printf("Compétence non déblocable : nombre de ressources nécessaire insuffisant !\n");
         return -2;
+    }
+    else if(peut_deploquer_cpt(personnage, competence, arbre_cpt) == -3){
+        printf("Compétence non déblocable : une compétence de départ d'un autre arbre de compétence a déjà été débloqué !\n");
+        return -3;
     }
     else{
         printf("Compétence non déblocable : raison inconnue !\n");
     }
-    return -3;
+    return -4;
 }
-/*
+
+
 int main(){
     t_arbre * mage;
-    
+    t_arbre * guerrier;
+    t_arbre * archer;
+    t_arbre * assassin;
+
+    init_arbre(&mage, cpt_mage, MAGE);
+    init_arbre(&archer, cpt_archer, ARCHER);
+    init_arbre(&assassin, cpt_assassin, ASSASSIN);
+    init_arbre(&guerrier, cpt_guerrier, GUERRIER);
+
     entite_t * personnage;
     personnage = creer_personnage(personnage);
     personnage = init_inventaire_personnage(personnage);
-    init_arbre(&personnage->arbre, cpt_mage, MAGE);
+    //personnage->arbre = mage;
+
     afficher_entite(personnage);
     int rang;
     rang=acces_obj("Grimoire");
@@ -193,8 +223,10 @@ int main(){
 
     afficher_inventaire(personnage);
     printf("Après affichage inv\n");
-    competence_debloquer(personnage, personnage->arbre->competence[0]);
-    competence_debloquer(personnage, personnage->arbre->competence[1]);
+    competence_debloquer(personnage, mage->competence[0], mage);
+    competence_debloquer(personnage, assassin->competence[1], assassin);
+    competence_debloquer(personnage, mage->competence[1], mage);
+    
 
     aff_classe(personnage->arbre);
 
@@ -204,4 +236,3 @@ int main(){
     detruire_arbre(&personnage->arbre);
     detruire_entitee(personnage);
 }
-*/

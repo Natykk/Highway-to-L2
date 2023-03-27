@@ -45,12 +45,17 @@ void afficher_entite(entite_t* entite) {
     }
     printf("Nom : %s [%d-%d]\n", entite->nom, entite->x, entite->y);
     printf("Classe : ");
-    switch(entite->arbre->classe){
-        case ARCHER : printf("ARCHER\n"); break;
-        case ASSASSIN : printf("ASSASSIN\n"); break;
-        case MAGE : printf("MAGE\n"); break;
-        case GUERRIER : printf("GUERRIER\n"); break;
-        default : printf("Aucune classe\n"); break;
+    if(entite->arbre != NULL){
+        switch(entite->arbre->classe){
+            case ARCHER : printf("ARCHER\n"); break;
+            case ASSASSIN : printf("ASSASSIN\n"); break;
+            case MAGE : printf("MAGE\n"); break;
+            case GUERRIER : printf("GUERRIER\n"); break;
+            default : break;
+        }
+    }
+    else{
+        printf("Aucune classe\n");
     }
     printf(" - Vie : %.2f\n", entite->vie);
     printf(" - Dégats : %.2f\n", entite->degats);

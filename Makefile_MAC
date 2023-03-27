@@ -1,4 +1,4 @@
-TARGETS  = main
+TARGETS  = arbre
 
 SDLROUTE = -I$(HOME)/SDL2/include -L$(HOME)/SDL2/lib
 
