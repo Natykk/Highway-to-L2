@@ -132,12 +132,13 @@ int chargement(entite_t ** personnage){
 }
 
 int main(){
+    t_arbre * mage;
+    init_arbre(&mage, cpt_mage, MAGE);
     entite_t * personnage;
     personnage = creer_personnage(personnage);
     //personnage->nom = "médor";
     personnage = init_inventaire_personnage(personnage);
-    init_arbre(&personnage->arbre, cpt_mage, MAGE);
-    afficher_entite(personnage);
+    //afficher_entite(personnage);
     
     int rang;
     rang=acces_obj("Grimoire");
@@ -183,19 +184,19 @@ int main(){
     }
 
     afficher_inventaire(personnage);
-    competence_debloquer(personnage, personnage->arbre->competence[0], personnage->arbre);
-    competence_debloquer(personnage, personnage->arbre->competence[1], personnage->arbre);
-    competence_debloquer(personnage, personnage->arbre->competence[3], personnage->arbre);
-    competence_debloquer(personnage, personnage->arbre->competence[5], personnage->arbre);
-    competence_debloquer(personnage, personnage->arbre->competence[9], personnage->arbre);
+    competence_debloquer(personnage, mage->competence[0], mage);
+    competence_debloquer(personnage, mage->competence[1], mage);
+    competence_debloquer(personnage, mage->competence[3], mage);
+    competence_debloquer(personnage, mage->competence[5], mage);
+    competence_debloquer(personnage, mage->competence[9], mage);
     sauvegarde(personnage, 2);
     detruire_arbre(&personnage->arbre);
     detruire_entitee(personnage);
 
     chargement(&personnage);
     afficher_entite(personnage);
-    aff_classe(personnage->arbre);
-    afficher_inventaire(personnage);
+    //aff_classe(personnage->arbre);
+    //afficher_inventaire(personnage);
     detruire_arbre(&personnage->arbre);
     detruire_entitee(personnage);
 }

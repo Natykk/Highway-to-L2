@@ -121,8 +121,13 @@ int cpt_in_arbre_joueur(entite_t * personnage, t_competence * competence){
 
 int peut_deploquer_cpt(entite_t * personnage, t_competence * competence, t_arbre * arbre_cpt){
     int i, ind_obj;
-    if(personnage->arbre == NULL){
-        personnage->arbre = arbre_cpt;
+    if(arbre_cpt->competence[0] == competence){
+        if(personnage->arbre == NULL){
+            personnage->arbre = arbre_cpt;
+        }
+        else{
+            return -3;
+        }
     }
     if(competence->competence_acquise == non_acquis && one_preced_cpt_debloq(competence) && cpt_in_arbre_joueur(personnage, competence)){
         for(i=0; i<competence->taille_tab_obj_nec; i++){
@@ -136,7 +141,7 @@ int peut_deploquer_cpt(entite_t * personnage, t_competence * competence, t_arbre
         return 1;   //compétence déblocable
     }
     else if(!cpt_in_arbre_joueur(personnage, competence)){
-        return -3;
+        return -3;  //compétence d'un autre arbre
     }
     else if(competence->competence_acquise != non_acquis){ //la compétence est déja acquise.
         return 0;
