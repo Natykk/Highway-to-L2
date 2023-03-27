@@ -105,7 +105,6 @@ int one_preced_cpt_debloq(t_competence * competence){
         if(competence->precedentes[i]->competence_acquise == acquis){
             return 1;
         }
-        i++;
     }
     return 0;
    
@@ -127,8 +126,11 @@ int peut_deploquer_cpt(entite_t * personnage, t_competence * competence){
     else if(competence->competence_acquise != non_acquis){ //la compétence est déja acquise.
         return 0;
     }
-    else{   //Aucune des compétences précédentes n'est acquise.
+    else if(!one_preced_cpt_debloq(competence)){   //Aucune des compétences précédentes n'est acquise.
         return -1;
+    }
+    else{
+        return -3;
     }
 }
 
@@ -164,7 +166,7 @@ int competence_debloquer(entite_t * personnage, t_competence * competence){
     }
     return 0;
 }
-
+/*
 int main(){
     t_arbre * mage;
     
@@ -199,3 +201,4 @@ int main(){
     detruire_arbre(&personnage->arbre);
     detruire_entitee(personnage);
 }
+*/

@@ -1,0 +1,9 @@
+médor
+2
+Bâton de Magie Supérieure
+Grand Grimoire
+Bénédiction de l'Archange
+Magie de l'Eau
+Artéfact du Merlin
+END_OF_CPT
+2

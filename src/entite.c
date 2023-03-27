@@ -146,8 +146,11 @@ entite_t* creer_monstre (entite_t * entite, char * nom) {
 extern
 void detruire_entitee(entite_t* entite){
     // Destruction du nom de l'entite
-    free(entite->nom);
-    entite->nom = NULL;
+    if(entite->nom != NULL){
+        free(entite->nom);
+        entite->nom = NULL;
+    }
+    
 
     // Destruction de l'inventaire
     free(entite->inventaire->objet);
