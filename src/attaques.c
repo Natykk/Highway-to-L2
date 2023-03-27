@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <../head/attaques.h>
+#include <./head/attaques.h>
 
 void maj_proj(entite_t * posPers, t_salle * map){
     en_tete();

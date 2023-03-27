@@ -1,14 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include <./head/entite.h>
 
-typedef enum{AUCUN=-1, //!< Aucune direction
-                HAUT, //!< Haut
-                DROITE, //!< Droite
-                BAS, //!< Bas
-                GAUCHE} t_dir; //!< Gauche
-
-typedef enum proj_s{FLECHE, BOULE, AUCUN}proj_t;
+typedef enum proj_s{FLECHE, BOULE, UNK}proj_t;
 
 typedef struct stat_proj_s{
     float vitesse_depl;

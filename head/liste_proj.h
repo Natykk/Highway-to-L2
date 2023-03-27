@@ -1,4 +1,4 @@
-#include <../head/projectile.h>
+#include <./head/projectile.h>
 typedef struct element {projectile_t * proj;
                         struct element * pred;
                         struct element * succ;

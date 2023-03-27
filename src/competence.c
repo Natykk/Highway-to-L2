@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "competence.h"
+#include <./head/competence.h>
 
 //Met le nom de la compétence en question à "débloqué"
 int changer_nomImgCpt(t_competence * competence){
