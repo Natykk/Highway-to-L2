@@ -154,12 +154,15 @@ int competence_debloquer(entite_t * personnage, t_competence * competence){
     }
     else if(!peut_deploquer_cpt(personnage, competence)){
         printf("Compétence non déblocable : déjà acquise !\n");
+        return 0;
     }
     else if(peut_deploquer_cpt(personnage, competence) == -1){
         printf("Compétence non déblocable : Aucune compétence précédente n'est acquise !\n");
+        return -1;
     }
     else if(peut_deploquer_cpt(personnage, competence) == -2){
         printf("Compétence non déblocable : nombre de ressources nécessaire insuffisant !\n");
+        return -2
     }
     else{
         printf("Compétence non déblocable : raison inconnue !\n");
