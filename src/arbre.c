@@ -86,11 +86,9 @@ int init_arbre(t_arbre ** arbre, t_competence *competences, t_classe typeClasse)
     (*arbre) = malloc(sizeof(t_arbre));
     (*arbre)->classe = typeClasse;
     (*arbre)->competence = malloc(sizeof(t_competence*)*NB_CPT);
-    printf("initialisation des pointeurs sur compétences\n");
     for(int i=0; i<NB_CPT; i++){
         (*arbre)->competence[i] = &competences[i];
     }
-    printf("initialisation des compétences\n");
     init_competences((*arbre)->competence, (*arbre)->classe);
 
     return 0;
@@ -190,7 +188,7 @@ int competence_debloquer(entite_t * personnage, t_competence * competence, t_arb
     return -4;
 }
 
-
+/*
 int main(){
     t_arbre * mage;
     t_arbre * guerrier;
@@ -236,3 +234,4 @@ int main(){
     detruire_arbre(&personnage->arbre);
     detruire_entitee(personnage);
 }
+*/

@@ -34,11 +34,14 @@ int cpt_aquise(FILE * sauv, t_arbre * arbre){
 int sauvegarde(entite_t * personnage, int num_etage){
     if(personnage != NULL){
         FILE * f_sauv = fopen("../sauv/sauvegarde.txt", "w");
-        if(personnage->nom != NULL){
+        if(personnage->nom != NULL && strcmp(personnage->nom, "")){
             fprintf(f_sauv, "%s\n", personnage->nom);
         }
+        else{
+            fprintf(f_sauv, "None\n");
+        }
         if(personnage->arbre == NULL){
-            fprintf(f_sauv, "\n");
+            fprintf(f_sauv, "None\n");
         }
         else if(personnage->arbre->classe == ASSASSIN){
             fprintf(f_sauv, "0\n");
@@ -96,7 +99,6 @@ int chargement(entite_t ** personnage){
         fscanf(f_sauv, "%c", &c);
         fgets(nom_cpt, 50, f_sauv);
         nom_cpt[strlen(nom_cpt)-1]='\0';
-        printf("%s\n", nom_cpt);
         t_competence * racine = (*personnage)->arbre->competence[0];
         while(strcmp(nom_cpt, "NULL") && strcmp(nom_cpt, "END_OF_CPT")){
             if(!strcmp(nom_cpt, racine->nom)){
@@ -104,7 +106,6 @@ int chargement(entite_t ** personnage){
                 appliquer(*personnage, racine);
                 fgets(nom_cpt, 50, f_sauv);
                 nom_cpt[strlen(nom_cpt)-1]='\0';
-                printf("%s\n", nom_cpt);
                 for(int i=0; i<racine->nb_suiv; i++){
                     if(!strcmp(racine->suivantes[i]->nom, nom_cpt)){
                         racine = racine->suivantes[i];
@@ -130,11 +131,10 @@ int chargement(entite_t ** personnage){
     }
 }
 
-/*
 int main(){
     entite_t * personnage;
     personnage = creer_personnage(personnage);
-    personnage->nom = "médor";
+    //personnage->nom = "médor";
     personnage = init_inventaire_personnage(personnage);
     init_arbre(&personnage->arbre, cpt_mage, MAGE);
     afficher_entite(personnage);
@@ -183,17 +183,19 @@ int main(){
     }
 
     afficher_inventaire(personnage);
-    competence_debloquer(personnage, personnage->arbre->competence[0]);
-    competence_debloquer(personnage, personnage->arbre->competence[1]);
-    competence_debloquer(personnage, personnage->arbre->competence[3]);
-    competence_debloquer(personnage, personnage->arbre->competence[5]);
-    competence_debloquer(personnage, personnage->arbre->competence[9]);
+    competence_debloquer(personnage, personnage->arbre->competence[0], personnage->arbre);
+    competence_debloquer(personnage, personnage->arbre->competence[1], personnage->arbre);
+    competence_debloquer(personnage, personnage->arbre->competence[3], personnage->arbre);
+    competence_debloquer(personnage, personnage->arbre->competence[5], personnage->arbre);
+    competence_debloquer(personnage, personnage->arbre->competence[9], personnage->arbre);
     sauvegarde(personnage, 2);
+    detruire_arbre(&personnage->arbre);
+    detruire_entitee(personnage);
+
     chargement(&personnage);
     afficher_entite(personnage);
     aff_classe(personnage->arbre);
     afficher_inventaire(personnage);
-    //detruire_arbre(&personnage->arbre);
+    detruire_arbre(&personnage->arbre);
     detruire_entitee(personnage);
 }
-*/
