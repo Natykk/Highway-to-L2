@@ -9,7 +9,7 @@ typedef enum {ASSASSIN=0, GUERRIER, MAGE, ARCHER} t_classe;
 
 #include "objet.h"
 
-#define T_NOM 30
+#define T_NOM 100
 #define T_DESC 300
 #define NB_CPT 10 
 
@@ -49,8 +49,12 @@ t_competence cpt_mage[NB_CPT];
 /* Fonctions de competence.c */
 int init_obj_necessaires(t_competence* competence, t_classe typeClasse, int indice);
 int changer_nomImgCpt(t_competence * competence);
-int remplissage_nomImgCpt(t_competence **competences);
 int init_competences(t_competence **competences, t_classe typeClasse);
 void aff_competence(t_competence competence);
+
+#include "arbre.h"
+
+int remplissage_nomImgCpt(t_competence **competences, t_classe typeClasse);
+
 
 #endif

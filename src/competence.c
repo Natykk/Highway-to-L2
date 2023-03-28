@@ -405,12 +405,20 @@ int changer_nomImgCpt(t_competence * competence){
 }
 
 //Met le nom des compétences à "bloqué" (l=lock);
-int remplissage_nomImgCpt(t_competence **competences){  
+int remplissage_nomImgCpt(t_competence **competences, t_classe typeClasse){  
+    printf("Attribution du nom\n");
     int i, j, k;
     for(i=0; i<NB_CPT; i++){
         if(competences[i]->name_img==NULL){
             competences[i]->name_img=malloc(sizeof(char)*T_NOM);
-            for(j=0, k=0; j<strlen(competences[i]->nom); j++){
+            switch(typeClasse){
+                case ARCHER: strcpy(competences[i]->name_img, "../IMG/competences/archer/"); break;
+                case ASSASSIN: strcpy(competences[i]->name_img, "../IMG/competences/assassin/"); break;
+                case GUERRIER: strcpy(competences[i]->name_img, "../IMG/competences/guerrier/"); break;
+                case MAGE: strcpy(competences[i]->name_img, "../IMG/competences/mage/"); break;
+                default : break;
+            }
+            for(j=0, k=strlen(competences[i]->name_img); j<strlen(competences[i]->nom); j++){
                 if((competences[i]->nom[j]>='A' && competences[i]->nom[j]<='Z') || (competences[i]->nom[j]>'0' && competences[i]->nom[j]<='9')){
                     competences[i]->name_img[k++] = competences[i]->nom[j];
                 }
@@ -430,7 +438,7 @@ int init_competences(t_competence ** competences, t_classe typeClasse){
     int avancer=0;
 
     /* Remplissage nom fichier sprite compétence */
-    if(!remplissage_nomImgCpt(competences)) return 0;
+    if(!remplissage_nomImgCpt(competences, typeClasse)) return 0;
 
     //Remplissage des tableaux de compétences suivantes pour chaque compétence
     for(i=0, k=i+1; i<NB_CPT; i++){

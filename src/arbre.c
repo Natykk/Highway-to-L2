@@ -193,7 +193,7 @@ int competence_debloquer(entite_t * personnage, t_competence * competence, t_arb
     return -4;
 }
 
-/*
+
 int main(){
     t_arbre * mage;
     t_arbre * guerrier;
@@ -205,38 +205,6 @@ int main(){
     init_arbre(&assassin, cpt_assassin, ASSASSIN);
     init_arbre(&guerrier, cpt_guerrier, GUERRIER);
 
-    entite_t * personnage;
-    personnage = creer_personnage(personnage);
-    personnage = init_inventaire_personnage(personnage);
-    //personnage->arbre = mage;
+    aff_classe(mage);
 
-    afficher_entite(personnage);
-    int rang;
-    rang=acces_obj("Grimoire");
-    if(rang>-1){
-        personnage->inventaire->nb[rang] = 30;
-        printf("ressource ajoutée!\n");
-    }
-
-    rang=acces_obj("Or");
-    if(rang>-1){
-        personnage->inventaire->nb[rang] = 10;
-        printf("ressource ajoutée!\n");
-    }
-
-    afficher_inventaire(personnage);
-    printf("Après affichage inv\n");
-    competence_debloquer(personnage, mage->competence[0], mage);
-    competence_debloquer(personnage, assassin->competence[1], assassin);
-    competence_debloquer(personnage, mage->competence[1], mage);
-    
-
-    aff_classe(personnage->arbre);
-
-    afficher_entite(personnage);
-
-    afficher_inventaire(personnage);
-    detruire_arbre(&personnage->arbre);
-    detruire_entitee(personnage);
 }
-*/
