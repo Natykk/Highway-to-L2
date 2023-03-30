@@ -4,8 +4,9 @@
 #define NB_MOBS 12
 
 #include "objet.h"
-
 typedef struct arbre t_arbre;
+
+#define NB_MOBS 12
 
 /**
  * @file entite.h

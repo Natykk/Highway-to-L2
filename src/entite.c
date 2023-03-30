@@ -1,7 +1,7 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+
+#include "../head/entite.h"
 #include "../head/arbre.h"
+#include <string.h>
 
 /**
  * @file entite.c
@@ -38,7 +38,34 @@ entite_t tab_mob[NB_MOBS] = {
 extern
 void afficher_entite(entite_t* entite) {
     printf("Affichage de l'entité : \n");
-    printf("{%s, %f, %f, %f, %f, %d, %d} \n", entite->nom, entite->vie, entite->degats, entite->vitesse_att, entite->vitesse_depl, entite->x, entite->y);
+    switch (entite->persoOuMob){
+        case 0: printf("[PERSO] "); break;
+        case 1: printf("[MOB] "); break;
+        default: printf("[] "); break;
+    }
+    printf("Nom : %s [%d-%d]\n", entite->nom, entite->x, entite->y);
+    printf("Classe : ");
+    if(entite->arbre != NULL){
+        switch(entite->arbre->classe){
+            case ARCHER : printf("ARCHER\n"); break;
+            case ASSASSIN : printf("ASSASSIN\n"); break;
+            case MAGE : printf("MAGE\n"); break;
+            case GUERRIER : printf("GUERRIER\n"); break;
+            default : break;
+        }
+    }
+    else{
+        printf("Aucune classe\n");
+    }
+    printf(" - Vie : %.2f\n", entite->vie);
+    printf(" - Dégats : %.2f\n", entite->degats);
+    printf(" - Vitesse d'attaque : %.2f\n", entite->vitesse_att);
+    printf(" - Vitesse de déplacement : %.2f\n", entite->vitesse_depl);
+    switch (entite->persoOuMob){
+        case 0: printf(" - Bonus de diminution du périmètre de detction des mobs : %d\n", entite->perim_detect); break;
+        case 1: printf(" - Périmètre de détection : %d\n", entite->perim_detect); break;
+        default: break;
+    }
 }
 
 /**
@@ -101,7 +128,7 @@ entite_t* creer_personnage (entite_t * entite){
     entite->inventaire->nb = malloc(sizeof(int)*entite->place_inv);
     entite->inventaire->objet = malloc(sizeof(objet_t)*entite->place_inv);
     entite->persoOuMob = 0;
-    init_arbre(&entite->arbre, cpt_mage, MAGE);
+    entite->arbre = NULL;
 
     return entite;
 }
@@ -147,8 +174,11 @@ entite_t* creer_monstre (entite_t * entite, char * nom) {
 extern
 void detruire_entitee(entite_t* entite){
     // Destruction du nom de l'entite
-    free(entite->nom);
-    entite->nom = NULL;
+    if(entite->nom != NULL){
+        free(entite->nom);
+        entite->nom = NULL;
+    }
+    
 
     // Destruction de l'inventaire
     free(entite->inventaire->objet);

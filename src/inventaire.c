@@ -14,7 +14,7 @@
 
 void afficher_inventaire(entite_t * entite) {
     for(int i = 0; i < entite->place_inv; i++) {
-        //printf("{%s,%d} \n", entite->inventaire->objet[i].nom, entite->inventaire->nb[i]);
+        printf("{%s,%d} \n", entite->inventaire->objet[i].nom, entite->inventaire->nb[i]);
     }
 }
 

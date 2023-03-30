@@ -3,6 +3,7 @@
 #include <time.h>
 #include "../head/entite.h"
 #include "../head/mapStruct.h"
+#include "../head/inventaire.h"
 
 /**
  * @file mapStruct.c
