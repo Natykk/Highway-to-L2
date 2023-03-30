@@ -7,6 +7,7 @@
 typedef struct arbre{
     t_classe classe;
     t_competence **competence;
+    t_acquis etages[5];
 } t_arbre;
 
 #include "entite.h"

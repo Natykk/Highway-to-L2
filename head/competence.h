@@ -39,6 +39,7 @@ typedef struct competence{
     char *name_img;      //image unique qui prendra le nom de l'image de la compétence (debloquée ou non).
     objet_inv_t *obj_necessaires;
     int taille_tab_obj_nec;
+    int etage;
 } t_competence;
 
 extern t_competence cpt_assassin[];
