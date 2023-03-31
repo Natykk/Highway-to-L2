@@ -1,7 +1,5 @@
 TARGETS  = arbre
 
-SDLROUTE = -I$(HOME)/SDL2/include -L$(HOME)/SDL2/lib
-
 LIBS = -lm -lSDL2main -lSDL2 -lSDL2_image -lSDL2_ttf -lSDL2_mixer 
 
 CC       = gcc -g3 
