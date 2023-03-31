@@ -4,9 +4,9 @@
 #include <stdbool.h>
 #include <string.h>
 
-#include </home/remy/SDL2/include/SDL2/SDL_ttf.h>
-#include </home/remy/SDL2/include/SDL2/SDL_mixer.h>
-#include </home/remy/SDL2/include/SDL2/SDL_image.h>
+#include <SDL2/SDL_ttf.h>
+#include <SDL2/SDL_mixer.h>
+#include <SDL2/SDL_image.h>
 
 #include "../head/menu_cpt.h"
 #include "../head/itoa.h"
@@ -1274,8 +1274,12 @@ int afficher_competence_SDL(SDL_Window *window,
     /* -------------------------------------------------------------------------- */
     /*                 Rectangles d'affichage des boutons de sortie                */
     /* -------------------------------------------------------------------------- */
-
+    
     SDL_Rect rect_deb = {WINDOW_WIDTH * 6 / 8, WINDOW_HEIGHT * 12 / 16, 120, TAILLE_CASE};
+    if(competence->competence_acquise == acquis){
+        rect_deb.x = WINDOW_WIDTH * 4 / 8;
+        rect_deb.y = WINDOW_HEIGHT * 12 / 16;
+    }
     SDL_Rect rect_ret = {WINDOW_WIDTH * 4 / 8, WINDOW_HEIGHT * 12 / 16, 120, TAILLE_CASE};
 
     /* -------------------------------------------------------------------------- */
@@ -1295,7 +1299,7 @@ int afficher_competence_SDL(SDL_Window *window,
     int k=0;
     for (int i = 0; i < 5; i++)
     {
-        SDL_Rect rect_buff = {WINDOW_WIDTH * 1 / 16, WINDOW_HEIGHT * (10 + (k) * 2) / 20, 200, TAILLE_CASE - 10};
+        SDL_Rect rect_buff = {WINDOW_WIDTH * 1 / 16, WINDOW_HEIGHT * (10 + k * 2) / 20, 200, TAILLE_CASE - 10};
         int check = construire_chaine_buff(chaine, i, tab[i]);
         if (check == 1)
         {
@@ -1332,11 +1336,13 @@ int afficher_competence_SDL(SDL_Window *window,
         SDL_DestroyTexture(texture);
     }
 
-    surface = TTF_RenderText_Solid(font, "Debloquer", color);
-    texture = SDL_CreateTextureFromSurface(renderer, surface);
-    SDL_RenderCopy(renderer, texture, NULL, &rect_deb);
-    SDL_FreeSurface(surface);
-    SDL_DestroyTexture(texture);
+    if(competence->competence_acquise == non_acquis){
+        surface = TTF_RenderText_Solid(font, "Debloquer", color);
+        texture = SDL_CreateTextureFromSurface(renderer, surface);
+        SDL_RenderCopy(renderer, texture, NULL, &rect_deb);
+        SDL_FreeSurface(surface);
+        SDL_DestroyTexture(texture);
+    }
 
     surface = TTF_RenderText_Solid(font, "Retour", color);
     texture = SDL_CreateTextureFromSurface(renderer, surface);
@@ -1387,9 +1393,10 @@ int afficher_competence_SDL(SDL_Window *window,
             }
         }
     }
+    return 1;
 }
 
-/*
+
 int main()
 {
 
@@ -1414,9 +1421,8 @@ int main()
 
     afficher_menu(window, renderer, personnage);
 
-    detruire_entitee(personnage);
+    detruire_entitee(&personnage);
 
     TTF_Quit();
     return 0;
 }
-*/
