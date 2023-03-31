@@ -45,6 +45,10 @@ int main() {
     if(slime_vert != NULL) nb_entite_init++;
     if(satan != NULL) nb_entite_init++;
 
+    printf("%d \n", personnage->persoOuMob);
+    printf("%d \n", slime_vert->persoOuMob);
+    printf("%d \n", satan->persoOuMob);
+
     /* ---------------- Affichage du nombre d'entités initialisés --------------- */
     printf("\n Nombre d'entites crées : %d \n\n", nb_entite_init);
 
@@ -54,30 +58,33 @@ int main() {
 
     printf("\n------------- Affichage du Personnage : -------------\n\n");
 
+    /* ------------------------- Affichage du personnage ------------------------ */
     afficher_entite(personnage);
 
     printf("\n-----------------------------------------------------\n");
 
     printf("\n---------------- Affichage du Mob : ----------------\n\n");
 
+    /* ---------------------------- Affichage du mob ---------------------------- */
     afficher_entite(slime_vert);
 
     printf("\n-----------------------------------------------------\n");
 
     printf("\n---------------- Affichage du Boss : ----------------\n\n");
 
+    /* ---------------------------- Affichage du boss --------------------------- */
     afficher_entite(satan);
 
     printf("\n-----------------------------------------------------\n");
 
-    printf("----------------------------------------------------- \n");
+    printf("\n----------------------------------------------------- \n");
     printf("*         Test de destruction des entitees :        * \n");
     printf("----------------------------------------------------- \n");
 
     /* -------------------- Destruction des differentes entites -------------------- */
-    detruire_entitee(&personnage);
-    detruire_entitee(&slime_vert);
-    detruire_entitee(&satan);
+    detruire_personnage(&personnage);
+    detruire_mob(&slime_vert);
+    detruire_boss(&satan);
 
     /* ----------- On regarde si les entites ont bien été détruites ----------- */
     if(personnage == NULL) nb_entite_init--;
@@ -86,13 +93,5 @@ int main() {
 
     /* ---------------- Affichage du nombre d'entités detruites --------------- */
     printf("\n Nombre d'entites restantes : %d \n\n", nb_entite_init);
-
-
-
-
-
-
-
-
 
 }

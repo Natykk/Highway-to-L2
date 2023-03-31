@@ -3,10 +3,10 @@
 #define SDL_MAIN_HANDLED
 #include <SDL2/SDL.h>
 #include <math.h>
-#include <SDL2/SDL_timer.h>
-#include <SDL2/SDL_image.h>
-#include <SDL2/SDL_mixer.h>
-#include <SDL2/SDL_ttf.h>
+#include </home/remy/SDL2/include/SDL2/SDL_timer.h>
+#include </home/remy/SDL2/include/SDL2/SDL_image.h>
+#include </home/remy/SDL2/include/SDL2/SDL_mixer.h>
+#include </home/remy/SDL2/include/SDL2/SDL_ttf.h>
 #include "../head/mapBoss.h"
 #include "../head/chemin.h"
 #include "../head/inventaire.h"

@@ -1,6 +1,6 @@
 #include <stdio.h>
-#include <SDL2/SDL.h>
-#include <SDL2/SDL_ttf.h>
+#include </home/remy/SDL2/include/SDL2/SDL.h>
+#include </home/remy/SDL2/include/SDL2/SDL_ttf.h>
 
 #include "../head/name.h"
 
@@ -79,7 +79,9 @@ int name()
     return 0;
 }
 
+/*
 int main(){
     name();
 }
+*/
 

@@ -51,7 +51,7 @@ typedef struct entite_s {
     t_arbre * arbre;
     objet_inv_t * inventaire;
     int place_inv;
-    int persoOuMob; // O pour personnage, 1 pour mob
+    int persoOuMob; // O pour personnage, 1 pour mob, 2 pour boss
     t_dir dir;
 }entite_t;
 
@@ -65,14 +65,17 @@ entite_t tab_mob[NB_MOBS];
 extern 
 entite_t tab_boss[NB_BOSS];
 
-void afficher_entite(entite_t *);
-int acces_mob(char*);
-int acces_boss(char*); 
+extern void afficher_entite(entite_t *);
+extern int acces_mob(char*);
+extern int acces_boss(char*); 
 
-entite_t * creer_personnage(entite_t *);
-entite_t * creer_monstre(entite_t *, char *);
-entite_t * creer_boss(entite_t*, char *);
+extern entite_t * creer_personnage(entite_t *);
+extern entite_t * creer_monstre(entite_t *, char *);
+extern entite_t * creer_boss(entite_t*, char *);
 
-void detruire_entitee(entite_t **);
+extern void detruire_entitee(entite_t **);
+extern void detruire_personnage(entite_t **);
+extern void detruire_mob(entite_t **);
+extern void detruire_boss(entite_t**);
 
 #endif
