@@ -3,10 +3,10 @@
 #define SDL_MAIN_HANDLED
 #include <SDL2/SDL.h>
 #include <math.h>
-#include </home/remy/SDL2/include/SDL2/SDL_timer.h>
-#include </home/remy/SDL2/include/SDL2/SDL_image.h>
-#include </home/remy/SDL2/include/SDL2/SDL_mixer.h>
-#include </home/remy/SDL2/include/SDL2/SDL_ttf.h>
+#include <SDL2/SDL_timer.h>
+#include <SDL2/SDL_image.h>
+#include <SDL2/SDL_mixer.h>
+#include <SDL2/SDL_ttf.h>
 #include "../head/mapBoss.h"
 #include "../head/chemin.h"
 #include "../head/inventaire.h"
@@ -113,7 +113,7 @@ void changement(t_niv * niv,entite_t* posPerso, t_pos * posSalle, t_salle * map)
         // si les au moins la deuxieme salle 
         if(niv->etages[NumEtage].etage[posSalle->x][posSalle->y].statut!=START){
             printf("Sauvegarde de la salle %d\n",niv->etages[NumEtage].etage[posSalle->x][posSalle->y].num_salle);
-            sauvegarde(&niv->etages[NumEtage].etage[posSalle->x][posSalle->y], map);
+            sauvegarde_salle(&niv->etages[NumEtage].etage[posSalle->x][posSalle->y], map);
         }
     if(posPerso->dir==HAUT){
         posSalle->y--;

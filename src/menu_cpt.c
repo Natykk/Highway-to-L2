@@ -4,9 +4,9 @@
 #include <stdbool.h>
 #include <string.h>
 
-#include </home/remy/SDL2/include/SDL2/SDL_ttf.h>
-#include </home/remy/SDL2/include/SDL2/SDL_mixer.h>
-#include </home/remy/SDL2/include/SDL2/SDL_image.h>
+#include <SDL2/SDL_ttf.h>
+#include <SDL2/SDL_mixer.h>
+#include <SDL2/SDL_image.h>
 
 #include "../head/menu_cpt.h"
 #include "../head/itoa.h"
@@ -96,7 +96,7 @@ int construire_chaine_buff(char *result, int i, int buff)
             break;
 
         case 4:
-            itoa(buff, nombre, 10);
+            itoa(buff-1, nombre, 10);
             strcat(chaine_perim, nombre);
             strcpy(result, chaine_perim);
             break;
@@ -1292,19 +1292,19 @@ int afficher_competence_SDL(SDL_Window *window,
             (int)competence->buff.buff_vit_depl,
             (int)competence->buff.perim_detect
         };
-
+    int k=0;
     for (int i = 0; i < 5; i++)
     {
-        SDL_Rect rect_buff = {WINDOW_WIDTH * 1 / 16, WINDOW_HEIGHT * (6 + i * 2) / 16, 200, TAILLE_CASE - 10};
+        SDL_Rect rect_buff = {WINDOW_WIDTH * 1 / 16, WINDOW_HEIGHT * (10 + (k) * 2) / 20, 200, TAILLE_CASE - 10};
         int check = construire_chaine_buff(chaine, i, tab[i]);
         if (check == 1)
         {
-
             surface = TTF_RenderText_Solid(font, chaine, color);
             texture = SDL_CreateTextureFromSurface(renderer, surface);
             SDL_RenderCopy(renderer, texture, NULL, &rect_buff);
             SDL_FreeSurface(surface);
             SDL_DestroyTexture(texture);
+            k++;
         }
     }
 
