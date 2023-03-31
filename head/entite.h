@@ -2,6 +2,7 @@
 #define __ENTITE__
 
 #define NB_MOBS 12
+#define NB_BOSS 3
 
 #include "objet.h"
 typedef struct arbre t_arbre;
@@ -50,7 +51,7 @@ typedef struct entite_s {
     t_arbre * arbre;
     objet_inv_t * inventaire;
     int place_inv;
-    int persoOuMob;
+    int persoOuMob; // O pour personnage, 1 pour mob
     t_dir dir;
 }entite_t;
 
@@ -61,10 +62,17 @@ typedef struct entite_s {
 extern 
 entite_t tab_mob[NB_MOBS];
 
+extern 
+entite_t tab_boss[NB_BOSS];
+
 void afficher_entite(entite_t *);
 int acces_mob(char*);
+int acces_boss(char*); 
+
 entite_t * creer_personnage(entite_t *);
 entite_t * creer_monstre(entite_t *, char *);
-void detruire_entitee(entite_t *);
+entite_t * creer_boss(entite_t*, char *);
+
+void detruire_entitee(entite_t **);
 
 #endif

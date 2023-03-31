@@ -1389,32 +1389,34 @@ int afficher_competence_SDL(SDL_Window *window,
     }
 }
 
-    int main()
+/*
+int main()
+{
+
+    SDL_Init(SDL_INIT_VIDEO);
+    SDL_Window *window = SDL_CreateWindow("Arbre de C", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, WINDOW_WIDTH, WINDOW_HEIGHT, SDL_WINDOW_SHOWN);
+    SDL_Renderer *renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_SOFTWARE);
+
+    afficher_background(window, renderer);
+
+    int running = 1;
+    int x, y;
+
+    SDL_Event event;
+
+    entite_t *personnage = creer_personnage(personnage);
+    personnage = init_inventaire_personnage(personnage);
+
+    for (int i = 0; i < NB_OBJET; i++)
     {
-
-        SDL_Init(SDL_INIT_VIDEO);
-        SDL_Window *window = SDL_CreateWindow("Arbre de C", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, WINDOW_WIDTH, WINDOW_HEIGHT, SDL_WINDOW_SHOWN);
-        SDL_Renderer *renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_SOFTWARE);
-
-        afficher_background(window, renderer);
-
-        int running = 1;
-        int x, y;
-
-        SDL_Event event;
-
-        entite_t *personnage = creer_personnage(personnage);
-        personnage = init_inventaire_personnage(personnage);
-
-        for (int i = 0; i < NB_OBJET; i++)
-        {
-            personnage->inventaire->nb[i] = 100;
-        }
-
-        afficher_menu(window, renderer, personnage);
-
-        detruire_entitee(personnage);
-
-        TTF_Quit();
-        return 0;
+        personnage->inventaire->nb[i] = 100;
     }
+
+    afficher_menu(window, renderer, personnage);
+
+    detruire_entitee(personnage);
+
+    TTF_Quit();
+    return 0;
+}
+*/
