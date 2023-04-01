@@ -96,7 +96,7 @@ int construire_chaine_buff(char *result, int i, int buff)
             break;
 
         case 4:
-            itoa(buff-1, nombre, 10);
+            itoa(buff, nombre, 10);
             strcat(chaine_perim, nombre);
             strcpy(result, chaine_perim);
             break;
@@ -230,7 +230,6 @@ void afficher_background(SDL_Window *window, SDL_Renderer *renderer)
     SDL_RenderCopy(renderer, texture_background, NULL, NULL);
     SDL_FreeSurface(image);
     SDL_DestroyTexture(texture_background);
-    SDL_RenderPresent(renderer);
 }
 
 /**
@@ -240,7 +239,7 @@ void afficher_background(SDL_Window *window, SDL_Renderer *renderer)
  * @param window
  * @param renderer
  */
-int afficher_arbre_assassin(SDL_Window *window, SDL_Renderer *renderer, entite_t *entite, t_arbre* assassin)
+int afficher_arbre_assassin(SDL_Window *window, SDL_Renderer *renderer, entite_t *entite, t_arbre* assassin,TTF_Font* font)
 {
 
     int running = 1;
@@ -254,7 +253,7 @@ int afficher_arbre_assassin(SDL_Window *window, SDL_Renderer *renderer, entite_t
 
     SDL_Color color = {255, 255, 255, 255};
 
-    TTF_Font *font = TTF_OpenFont("../font/necrosans.ttf", 24);
+    
 
 
     while (running1)
@@ -310,8 +309,8 @@ int afficher_arbre_assassin(SDL_Window *window, SDL_Renderer *renderer, entite_t
         SDL_RenderCopy(renderer, texture, NULL, &rect_ret);
         SDL_FreeSurface(surface);
         SDL_DestroyTexture(texture);
-        
-        SDL_RenderPresent(renderer);
+        SDL_Delay(20);
+
 
         /* -------------------------------------------------------------------------- */
         /*                          Affichage des competences                         */
@@ -331,7 +330,7 @@ int afficher_arbre_assassin(SDL_Window *window, SDL_Renderer *renderer, entite_t
         afficher_comp(assassin->competence[8]->name_img, renderer, rect9);
 
         afficher_comp(assassin->competence[9]->name_img, renderer, rect10);
-
+        SDL_Delay(20);
         SDL_RenderPresent(renderer);
 
         running = 1;
@@ -370,61 +369,61 @@ int afficher_arbre_assassin(SDL_Window *window, SDL_Renderer *renderer, entite_t
                         else if (in_rect(x, y, &rect1))
                         {
                             SDL_RenderClear(renderer);
-                            afficher_competence_SDL(window, renderer, assassin->competence[0]->name_img, entite, &cpt_assassin[0], assassin);
+                            afficher_competence_SDL(window, renderer, assassin->competence[0]->name_img, entite, &cpt_assassin[0], assassin,font);
                             running = 0;
                         }
                         else if (in_rect(x, y, &rect2))
                         {
                             SDL_RenderClear(renderer);
-                            afficher_competence_SDL(window, renderer, assassin->competence[1]->name_img, entite, &cpt_assassin[1], assassin);
+                            afficher_competence_SDL(window, renderer, assassin->competence[1]->name_img, entite, &cpt_assassin[1], assassin,font);
                             running = 0;
                         }
                         else if (in_rect(x, y, &rect3))
                         {
                             SDL_RenderClear(renderer);
-                            afficher_competence_SDL(window, renderer, assassin->competence[2]->name_img, entite, &cpt_assassin[2], assassin);
+                            afficher_competence_SDL(window, renderer, assassin->competence[2]->name_img, entite, &cpt_assassin[2], assassin,font);
                             running = 0;
                         }
                         else if (in_rect(x, y, &rect4))
                         {
                             SDL_RenderClear(renderer);
-                            afficher_competence_SDL(window, renderer, assassin->competence[3]->name_img, entite, &cpt_assassin[3], assassin);
+                            afficher_competence_SDL(window, renderer, assassin->competence[3]->name_img, entite, &cpt_assassin[3], assassin,font);
                             running = 0;
                         }
                         else if (in_rect(x, y, &rect5))
                         {
                             SDL_RenderClear(renderer);
-                            afficher_competence_SDL(window, renderer, assassin->competence[4]->name_img, entite, &cpt_assassin[4], assassin);
+                            afficher_competence_SDL(window, renderer, assassin->competence[4]->name_img, entite, &cpt_assassin[4], assassin,font);
                             running = 0;
                         }
                         else if (in_rect(x, y, &rect6))
                         {
                             SDL_RenderClear(renderer);
-                            afficher_competence_SDL(window, renderer, assassin->competence[5]->name_img, entite, &cpt_assassin[5], assassin);
+                            afficher_competence_SDL(window, renderer, assassin->competence[5]->name_img, entite, &cpt_assassin[5], assassin,font);
                             running = 0;
                         }
                         else if (in_rect(x, y, &rect7))
                         {
                             SDL_RenderClear(renderer);
-                            afficher_competence_SDL(window, renderer, assassin->competence[6]->name_img, entite, &cpt_assassin[6], assassin);
+                            afficher_competence_SDL(window, renderer, assassin->competence[6]->name_img, entite, &cpt_assassin[6], assassin,font);
                             running = 0;
                         }
                         else if (in_rect(x, y, &rect8))
                         {
                             SDL_RenderClear(renderer);
-                            afficher_competence_SDL(window, renderer, assassin->competence[7]->name_img, entite, &cpt_assassin[7], assassin);
+                            afficher_competence_SDL(window, renderer, assassin->competence[7]->name_img, entite, &cpt_assassin[7], assassin,font);
                             running = 0;
                         }
                         else if (in_rect(x, y, &rect9))
                         {
                             SDL_RenderClear(renderer);
-                            afficher_competence_SDL(window, renderer, assassin->competence[8]->name_img, entite, &cpt_assassin[8], assassin);
+                            afficher_competence_SDL(window, renderer, assassin->competence[8]->name_img, entite, &cpt_assassin[8], assassin,font);
                             running = 0;
                         }
                         else if (in_rect(x, y, &rect10))
                         {
                             SDL_RenderClear(renderer);
-                            afficher_competence_SDL(window, renderer, assassin->competence[9]->name_img, entite, &cpt_assassin[9], assassin);
+                            afficher_competence_SDL(window, renderer, assassin->competence[9]->name_img, entite, &cpt_assassin[9], assassin,font);
                             running = 0;
                         }
                     }
@@ -441,7 +440,7 @@ int afficher_arbre_assassin(SDL_Window *window, SDL_Renderer *renderer, entite_t
  * @param window
  * @param renderer
  */
-int afficher_arbre_guerrier(SDL_Window *window, SDL_Renderer *renderer, entite_t *entite, t_arbre* guerrier)
+int afficher_arbre_guerrier(SDL_Window *window, SDL_Renderer *renderer, entite_t *entite, t_arbre* guerrier,TTF_Font* font)
 {
 
     int running = 1;
@@ -456,7 +455,6 @@ int afficher_arbre_guerrier(SDL_Window *window, SDL_Renderer *renderer, entite_t
 
     SDL_Color color = {255, 255, 255, 255};
 
-    TTF_Font *font = TTF_OpenFont("../font/necrosans.ttf", 24);
 
 
     while (running1)
@@ -514,8 +512,8 @@ int afficher_arbre_guerrier(SDL_Window *window, SDL_Renderer *renderer, entite_t
         SDL_RenderCopy(renderer, texture, NULL, &rect_ret);
         SDL_FreeSurface(surface);
         SDL_DestroyTexture(texture);
+        SDL_Delay(20);
         
-        SDL_RenderPresent(renderer);
 
         /* -------------------------------------------------------------------------- */
         /*                          Affichage des competences                         */
@@ -535,7 +533,7 @@ int afficher_arbre_guerrier(SDL_Window *window, SDL_Renderer *renderer, entite_t
         afficher_comp(guerrier->competence[8]->name_img, renderer, rect9);
 
         afficher_comp(guerrier->competence[9]->name_img, renderer, rect10);
-
+        SDL_Delay(20);
         SDL_RenderPresent(renderer);
 
         running = 1;
@@ -574,61 +572,61 @@ int afficher_arbre_guerrier(SDL_Window *window, SDL_Renderer *renderer, entite_t
                         else if (in_rect(x, y, &rect1))
                         {
                             SDL_RenderClear(renderer);
-                            running1 = afficher_competence_SDL(window, renderer, guerrier->competence[0]->name_img, entite, &cpt_guerrier[0], guerrier);
+                            running1 = afficher_competence_SDL(window, renderer, guerrier->competence[0]->name_img, entite, &cpt_guerrier[0], guerrier,font);
                             running = 0;
                         }
                         else if (in_rect(x, y, &rect2))
                         {
                             SDL_RenderClear(renderer);
-                            running1 = afficher_competence_SDL(window, renderer, guerrier->competence[1]->name_img, entite, &cpt_guerrier[1], guerrier);
+                            running1 = afficher_competence_SDL(window, renderer, guerrier->competence[1]->name_img, entite, &cpt_guerrier[1], guerrier,font);
                             running = 0;
                         }
                         else if (in_rect(x, y, &rect3))
                         {
                             SDL_RenderClear(renderer);
-                            running1 = afficher_competence_SDL(window, renderer, guerrier->competence[2]->name_img, entite, &cpt_guerrier[2], guerrier);
+                            running1 = afficher_competence_SDL(window, renderer, guerrier->competence[2]->name_img, entite, &cpt_guerrier[2], guerrier,font);
                             running = 0;
                         }
                         else if (in_rect(x, y, &rect4))
                         {
                             SDL_RenderClear(renderer);
-                            running1 = afficher_competence_SDL(window, renderer, guerrier->competence[3]->name_img, entite, &cpt_guerrier[3], guerrier);
+                            running1 = afficher_competence_SDL(window, renderer, guerrier->competence[3]->name_img, entite, &cpt_guerrier[3], guerrier,font);
                             running = 0;
                         }
                         else if (in_rect(x, y, &rect5))
                         {
                             SDL_RenderClear(renderer);
-                            running1 = afficher_competence_SDL(window, renderer, guerrier->competence[4]->name_img, entite, &cpt_guerrier[4], guerrier);
+                            running1 = afficher_competence_SDL(window, renderer, guerrier->competence[4]->name_img, entite, &cpt_guerrier[4], guerrier,font);
                             running = 0;
                         }
                         else if (in_rect(x, y, &rect6))
                         {
                             SDL_RenderClear(renderer);
-                            running1 = afficher_competence_SDL(window, renderer, guerrier->competence[5]->name_img, entite, &cpt_guerrier[5], guerrier);
+                            running1 = afficher_competence_SDL(window, renderer, guerrier->competence[5]->name_img, entite, &cpt_guerrier[5], guerrier,font);
                             running = 0;
                         }
                         else if (in_rect(x, y, &rect7))
                         {
                             SDL_RenderClear(renderer);
-                            running1 = afficher_competence_SDL(window, renderer, guerrier->competence[6]->name_img, entite, &cpt_guerrier[6], guerrier);
+                            running1 = afficher_competence_SDL(window, renderer, guerrier->competence[6]->name_img, entite, &cpt_guerrier[6], guerrier,font);
                             running = 0;
                         }
                         else if (in_rect(x, y, &rect8))
                         {
                             SDL_RenderClear(renderer);
-                            running1 = afficher_competence_SDL(window, renderer, guerrier->competence[7]->name_img, entite, &cpt_guerrier[7], guerrier);
+                            running1 = afficher_competence_SDL(window, renderer, guerrier->competence[7]->name_img, entite, &cpt_guerrier[7], guerrier,font);
                             running = 0;
                         }
                         else if (in_rect(x, y, &rect9))
                         {
                             SDL_RenderClear(renderer);
-                            running1 = afficher_competence_SDL(window, renderer, guerrier->competence[8]->name_img, entite, &cpt_guerrier[8], guerrier);
+                            running1 = afficher_competence_SDL(window, renderer, guerrier->competence[8]->name_img, entite, &cpt_guerrier[8], guerrier,font);
                             running = 0;
                         }
                         else if (in_rect(x, y, &rect10))
                         {
                             SDL_RenderClear(renderer);
-                            running1 = afficher_competence_SDL(window, renderer, guerrier->competence[9]->name_img, entite, &cpt_guerrier[9], guerrier);
+                            running1 = afficher_competence_SDL(window, renderer, guerrier->competence[9]->name_img, entite, &cpt_guerrier[9], guerrier,font);
                             running = 0;
                         }
                     }
@@ -645,7 +643,7 @@ int afficher_arbre_guerrier(SDL_Window *window, SDL_Renderer *renderer, entite_t
  * @param window
  * @param renderer
  */
-int afficher_arbre_mage(SDL_Window *window, SDL_Renderer *renderer, entite_t *entite, t_arbre* mage)
+int afficher_arbre_mage(SDL_Window *window, SDL_Renderer *renderer, entite_t *entite, t_arbre* mage,TTF_Font* font)
 {
 
     int running = 1;
@@ -659,13 +657,12 @@ int afficher_arbre_mage(SDL_Window *window, SDL_Renderer *renderer, entite_t *en
 
     SDL_Color color = {255, 255, 255, 255};
 
-    TTF_Font *font = TTF_OpenFont("../font/necrosans.ttf", 24);
-
 
     while (running1)
     {
+        SDL_Delay(20);
         afficher_background(window, renderer);
-
+        
         SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
 
         /* -------------------------------------------------------------------------- */
@@ -716,9 +713,9 @@ int afficher_arbre_mage(SDL_Window *window, SDL_Renderer *renderer, entite_t *en
         SDL_RenderCopy(renderer, texture, NULL, &rect_ret);
         SDL_FreeSurface(surface);
         SDL_DestroyTexture(texture);
+        SDL_Delay(20);
+ 
         
-        SDL_RenderPresent(renderer);
-
         /* -------------------------------------------------------------------------- */
         /*                          Affichage des competences                         */
         /* -------------------------------------------------------------------------- */
@@ -737,9 +734,9 @@ int afficher_arbre_mage(SDL_Window *window, SDL_Renderer *renderer, entite_t *en
         afficher_comp(mage->competence[8]->name_img, renderer, rect9);
 
         afficher_comp(mage->competence[9]->name_img, renderer, rect10);
-
+        SDL_Delay(20);
         SDL_RenderPresent(renderer);
-
+        
         running = 1;
 
         while (running)
@@ -775,62 +772,73 @@ int afficher_arbre_mage(SDL_Window *window, SDL_Renderer *renderer, entite_t *en
                         }
                         else if (in_rect(x, y, &rect1))
                         {
+                            SDL_Delay(20);
                             SDL_RenderClear(renderer);
-                            running1 = afficher_competence_SDL(window, renderer, mage->competence[0]->name_img, entite, &cpt_mage[0], mage);
+                            
+                            running1 = afficher_competence_SDL(window, renderer, mage->competence[0]->name_img, entite, &cpt_mage[0], mage,font);
                             running = 0;
                         }
                         else if (in_rect(x, y, &rect2))
-                        {
+                        {   SDL_Delay(20);
                             SDL_RenderClear(renderer);
-                            running1 = afficher_competence_SDL(window, renderer, mage->competence[1]->name_img, entite, &cpt_mage[1], mage);
+                            
+                            running1 = afficher_competence_SDL(window, renderer, mage->competence[1]->name_img, entite, &cpt_mage[1], mage,font);
                             running = 0;
                         }
                         else if (in_rect(x, y, &rect3))
-                        {
+                        {   SDL_Delay(20);
                             SDL_RenderClear(renderer);
-                            running1 = afficher_competence_SDL(window, renderer, mage->competence[2]->name_img, entite, &cpt_mage[2], mage);
+                            
+                            running1 = afficher_competence_SDL(window, renderer, mage->competence[2]->name_img, entite, &cpt_mage[2], mage,font);
                             running = 0;
                         }
                         else if (in_rect(x, y, &rect4))
-                        {
+                        {   SDL_Delay(20);
                             SDL_RenderClear(renderer);
-                            running1 = afficher_competence_SDL(window, renderer, mage->competence[3]->name_img, entite, &cpt_mage[3], mage);
+                            
+                            running1 = afficher_competence_SDL(window, renderer, mage->competence[3]->name_img, entite, &cpt_mage[3], mage,font);
                             running = 0;
                         }
                         else if (in_rect(x, y, &rect5))
-                        {
+                        {   SDL_Delay(20);
                             SDL_RenderClear(renderer);
-                            running1 = afficher_competence_SDL(window, renderer, mage->competence[4]->name_img, entite, &cpt_mage[4], mage);
+                            
+                            running1 = afficher_competence_SDL(window, renderer, mage->competence[4]->name_img, entite, &cpt_mage[4], mage,font);
                             running = 0;
                         }
                         else if (in_rect(x, y, &rect6))
-                        {
+                        {   SDL_Delay(20);
                             SDL_RenderClear(renderer);
-                            running1 = afficher_competence_SDL(window, renderer, mage->competence[5]->name_img, entite, &cpt_mage[5], mage);
+                            
+                            running1 = afficher_competence_SDL(window, renderer, mage->competence[5]->name_img, entite, &cpt_mage[5], mage,font);
                             running = 0;
                         }
                         else if (in_rect(x, y, &rect7))
-                        {
+                        {   SDL_Delay(20);
                             SDL_RenderClear(renderer);
-                            running1 = afficher_competence_SDL(window, renderer, mage->competence[6]->name_img, entite, &cpt_mage[6], mage);
+                            
+                            running1 = afficher_competence_SDL(window, renderer, mage->competence[6]->name_img, entite, &cpt_mage[6], mage,font);
                             running = 0;
                         }
                         else if (in_rect(x, y, &rect8))
-                        {
+                        {   SDL_Delay(20);
                             SDL_RenderClear(renderer);
-                            running1 = afficher_competence_SDL(window, renderer, mage->competence[7]->name_img, entite, &cpt_mage[7], mage);
+                            
+                            running1 = afficher_competence_SDL(window, renderer, mage->competence[7]->name_img, entite, &cpt_mage[7], mage,font);
                             running = 0;
                         }
                         else if (in_rect(x, y, &rect9))
-                        {
+                        {   SDL_Delay(20);
                             SDL_RenderClear(renderer);
-                            running1 = afficher_competence_SDL(window, renderer, mage->competence[8]->name_img, entite, &cpt_mage[8], mage);
+                            
+                            running1 = afficher_competence_SDL(window, renderer, mage->competence[8]->name_img, entite, &cpt_mage[8], mage,font);
                             running = 0;
                         }
                         else if (in_rect(x, y, &rect10))
-                        {
+                        {   SDL_Delay(20);
                             SDL_RenderClear(renderer);
-                            running1 = afficher_competence_SDL(window, renderer, mage->competence[9]->name_img, entite, &cpt_mage[9], mage);
+                            
+                            running1 = afficher_competence_SDL(window, renderer, mage->competence[9]->name_img, entite, &cpt_mage[9], mage,font);
                             running = 0;
                         }
                     }
@@ -839,8 +847,8 @@ int afficher_arbre_mage(SDL_Window *window, SDL_Renderer *renderer, entite_t *en
         }
     }
 
-    SDL_Quit();
-    TTF_Quit();
+    
+    
 }
 
 /**
@@ -850,7 +858,7 @@ int afficher_arbre_mage(SDL_Window *window, SDL_Renderer *renderer, entite_t *en
  * @param window
  * @param renderer
  */
-int afficher_arbre_archer(SDL_Window *window, SDL_Renderer *renderer, entite_t *entite, t_arbre *archer) 
+int afficher_arbre_archer(SDL_Window *window, SDL_Renderer *renderer, entite_t *entite, t_arbre *archer,TTF_Font* font) 
 {
 
     int running = 1;
@@ -865,10 +873,10 @@ int afficher_arbre_archer(SDL_Window *window, SDL_Renderer *renderer, entite_t *
 
     SDL_Color color = {255, 255, 255, 255};
 
-    TTF_Font *font = TTF_OpenFont("../font/necrosans.ttf", 24);
 
     while (running1)
     {
+        SDL_Delay(20);
         afficher_background(window, renderer);
 
         SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
@@ -921,8 +929,8 @@ int afficher_arbre_archer(SDL_Window *window, SDL_Renderer *renderer, entite_t *
         SDL_RenderCopy(renderer, texture, NULL, &rect_ret);
         SDL_FreeSurface(surface);
         SDL_DestroyTexture(texture);
-        
-        SDL_RenderPresent(renderer);
+        SDL_Delay(20);
+
 
         /* -------------------------------------------------------------------------- */
         /*                          Affichage des competences                         */
@@ -947,7 +955,7 @@ int afficher_arbre_archer(SDL_Window *window, SDL_Renderer *renderer, entite_t *
         afficher_comp(archer->competence[8]->name_img, renderer, rect9);
 
         afficher_comp(archer->competence[9]->name_img, renderer, rect10);
-
+        SDL_Delay(20);
         SDL_RenderPresent(renderer);
 
         running = 1;
@@ -986,61 +994,61 @@ int afficher_arbre_archer(SDL_Window *window, SDL_Renderer *renderer, entite_t *
                         else if (in_rect(x, y, &rect1))
                         {
                             SDL_RenderClear(renderer);
-                            running1 = afficher_competence_SDL(window, renderer, archer->competence[0]->name_img, entite, &cpt_archer[0], archer);
+                            running1 = afficher_competence_SDL(window, renderer, archer->competence[0]->name_img, entite, &cpt_archer[0], archer,font);
                             running = 0;
                         }
                         else if (in_rect(x, y, &rect2))
                         {
                             SDL_RenderClear(renderer);
-                            running1 = afficher_competence_SDL(window, renderer, archer->competence[1]->name_img, entite, &cpt_archer[1], archer);
+                            running1 = afficher_competence_SDL(window, renderer, archer->competence[1]->name_img, entite, &cpt_archer[1], archer,font);
                             running = 0;
                         }
                         else if (in_rect(x, y, &rect3))
                         {
                             SDL_RenderClear(renderer);
-                            running1 = afficher_competence_SDL(window, renderer, archer->competence[2]->name_img, entite, &cpt_archer[2], archer);
+                            running1 = afficher_competence_SDL(window, renderer, archer->competence[2]->name_img, entite, &cpt_archer[2], archer,font);
                             running = 0;
                         }
                         else if (in_rect(x, y, &rect4))
                         {
                             SDL_RenderClear(renderer);
-                            running1 = afficher_competence_SDL(window, renderer, archer->competence[3]->name_img, entite, &cpt_archer[3], archer);
+                            running1 = afficher_competence_SDL(window, renderer, archer->competence[3]->name_img, entite, &cpt_archer[3], archer,font);
                             running = 0;
                         }
                         else if (in_rect(x, y, &rect5))
                         {
                             SDL_RenderClear(renderer);
-                            running1 = afficher_competence_SDL(window, renderer, archer->competence[4]->name_img, entite, &cpt_archer[4], archer);
+                            running1 = afficher_competence_SDL(window, renderer, archer->competence[4]->name_img, entite, &cpt_archer[4], archer,font);
                             running = 0;
                         }
                         else if (in_rect(x, y, &rect6))
                         {
                             SDL_RenderClear(renderer);
-                            running1 = afficher_competence_SDL(window, renderer, archer->competence[5]->name_img, entite, &cpt_archer[5], archer);
+                            running1 = afficher_competence_SDL(window, renderer, archer->competence[5]->name_img, entite, &cpt_archer[5], archer,font);
                             running = 0;
                         }
                         else if (in_rect(x, y, &rect7))
                         {
                             SDL_RenderClear(renderer);
-                            running1 = afficher_competence_SDL(window, renderer, archer->competence[6]->name_img, entite, &cpt_archer[6], archer);
+                            running1 = afficher_competence_SDL(window, renderer, archer->competence[6]->name_img, entite, &cpt_archer[6], archer,font);
                             running = 0;
                         }
                         else if (in_rect(x, y, &rect8))
                         {
                             SDL_RenderClear(renderer);
-                            running1 = afficher_competence_SDL(window, renderer, archer->competence[7]->name_img, entite, &cpt_archer[7], archer);
+                            running1 = afficher_competence_SDL(window, renderer, archer->competence[7]->name_img, entite, &cpt_archer[7], archer,font);
                             running = 0;
                         }
                         else if (in_rect(x, y, &rect9))
                         {
                             SDL_RenderClear(renderer);
-                            running1 = afficher_competence_SDL(window, renderer, archer->competence[8]->name_img, entite, &cpt_archer[8], archer);
+                            running1 = afficher_competence_SDL(window, renderer, archer->competence[8]->name_img, entite, &cpt_archer[8], archer,font);
                             running = 0;
                         }
                         else if (in_rect(x, y, &rect10))
                         {
                             SDL_RenderClear(renderer);
-                            running1 = afficher_competence_SDL(window, renderer, archer->competence[9]->name_img, entite, &cpt_archer[9], archer);
+                            running1 = afficher_competence_SDL(window, renderer, archer->competence[9]->name_img, entite, &cpt_archer[9], archer,font);
                             running = 0;
                         }
                     }
@@ -1048,8 +1056,8 @@ int afficher_arbre_archer(SDL_Window *window, SDL_Renderer *renderer, entite_t *
             }
         }
     }
-    SDL_Quit();
-    TTF_Quit();
+    
+  
 }
 
 /**
@@ -1060,9 +1068,12 @@ int afficher_arbre_archer(SDL_Window *window, SDL_Renderer *renderer, entite_t *
  * @param renderer
  * @param entite
  */
-void afficher_menu(SDL_Window *window, SDL_Renderer *renderer, entite_t *entite)
+void afficher_menu(SDL_Window *window, SDL_Renderer *renderer, entite_t *entite,TTF_Font* font)
 {
-    TTF_Init();
+    SDL_Delay(10);
+    SDL_RenderClear(renderer);
+
+    afficher_background(window,renderer);
 
     int rect_width = 120;
     int rect_height = 50;
@@ -1093,7 +1104,6 @@ void afficher_menu(SDL_Window *window, SDL_Renderer *renderer, entite_t *entite)
 
     int x, y;
 
-    TTF_Font *font = TTF_OpenFont("../font/necrosans.ttf", 24);
     if (font == NULL)
     {
         printf("Erreur lors du chargement de la police \n");
@@ -1101,9 +1111,9 @@ void afficher_menu(SDL_Window *window, SDL_Renderer *renderer, entite_t *entite)
     
     while(running1) {
 
-        SDL_RenderClear(renderer);
+        //SDL_RenderClear(renderer);
 
-        afficher_background(window, renderer);
+        //afficher_background(window, renderer);
 
         SDL_Color color_red = {255, 0, 0, 255};
         surface = TTF_RenderText_Solid(font, "Guerrier", color_red);
@@ -1139,7 +1149,7 @@ void afficher_menu(SDL_Window *window, SDL_Renderer *renderer, entite_t *entite)
         SDL_RenderCopy(renderer, texture, NULL, &rect_quit);
         SDL_FreeSurface(surface);
         SDL_DestroyTexture(texture);
-
+        SDL_Delay(20);
         SDL_RenderPresent(renderer);
 
         running = 1;
@@ -1175,30 +1185,43 @@ void afficher_menu(SDL_Window *window, SDL_Renderer *renderer, entite_t *entite)
                         }
 
                         if (in_rect(x, y, &rect1))
-                        {
+                        {   
+                            
                             SDL_RenderClear(renderer);
-                            running1 = afficher_arbre_guerrier(window, renderer, entite, guerrier);
+                            
+                            running1 = afficher_arbre_guerrier(window, renderer, entite, guerrier,font);
+                            SDL_RenderClear(renderer);
+                            afficher_background(window,renderer);
                             running = 0;
                         }
 
                         if (in_rect(x, y, &rect2))
                         {
                             SDL_RenderClear(renderer);
-                            running1 = afficher_arbre_archer(window, renderer, entite, archer);
+                            
+                            running1 = afficher_arbre_archer(window, renderer, entite, archer,font);
+                            SDL_RenderClear(renderer);
+                            afficher_background(window,renderer);
                             running = 0;
                         }
 
                         if (in_rect(x, y, &rect3))
                         {
                             SDL_RenderClear(renderer);
-                            running1 = afficher_arbre_assassin(window, renderer, entite, assassin);
+                            
+                            running1 = afficher_arbre_assassin(window, renderer, entite, assassin,font);
+                            SDL_RenderClear(renderer);
+                            afficher_background(window,renderer);
                             running = 0;
                         }
 
                         if (in_rect(x, y, &rect4))
                         {
                             SDL_RenderClear(renderer);
-                            running1 = afficher_arbre_mage(window, renderer, entite, mage);
+                            
+                            running1 = afficher_arbre_mage(window, renderer, entite, mage,font);
+                            SDL_RenderClear(renderer);
+                            afficher_background(window,renderer);
                             running = 0;
                         }
                     }
@@ -1206,8 +1229,6 @@ void afficher_menu(SDL_Window *window, SDL_Renderer *renderer, entite_t *entite)
             }
         }
     }
-    SDL_Quit();
-    TTF_Quit();
 }
 
 /**
@@ -1229,9 +1250,8 @@ int afficher_competence_SDL(SDL_Window *window,
                             char *path_comp,
                             entite_t *entite,
                             t_competence *competence,
-                            t_arbre *arbre)
+                            t_arbre *arbre,TTF_Font* font)
 {
-    TTF_Init();
     int x, y;
 
     int running = 1;
@@ -1248,9 +1268,9 @@ int afficher_competence_SDL(SDL_Window *window,
     SDL_Texture *texture;
 
     SDL_Event event;
+    SDL_Delay(20);
     afficher_background(window, renderer);
 
-    TTF_Font *font = TTF_OpenFont("../font/necrosans.ttf", 24);
     if (font == NULL)
     {
         printf("Erreur lors du chargement de la police \n");
@@ -1274,12 +1294,8 @@ int afficher_competence_SDL(SDL_Window *window,
     /* -------------------------------------------------------------------------- */
     /*                 Rectangles d'affichage des boutons de sortie                */
     /* -------------------------------------------------------------------------- */
-    
+
     SDL_Rect rect_deb = {WINDOW_WIDTH * 6 / 8, WINDOW_HEIGHT * 12 / 16, 120, TAILLE_CASE};
-    if(competence->competence_acquise == acquis){
-        rect_deb.x = WINDOW_WIDTH * 4 / 8;
-        rect_deb.y = WINDOW_HEIGHT * 12 / 16;
-    }
     SDL_Rect rect_ret = {WINDOW_WIDTH * 4 / 8, WINDOW_HEIGHT * 12 / 16, 120, TAILLE_CASE};
 
     /* -------------------------------------------------------------------------- */
@@ -1296,19 +1312,20 @@ int afficher_competence_SDL(SDL_Window *window,
             (int)competence->buff.buff_vit_depl,
             (int)competence->buff.perim_detect
         };
-    int k=0;
+
     for (int i = 0; i < 5; i++)
     {
-        SDL_Rect rect_buff = {WINDOW_WIDTH * 1 / 16, WINDOW_HEIGHT * (10 + k * 2) / 20, 200, TAILLE_CASE - 10};
+        SDL_Rect rect_buff = {WINDOW_WIDTH * 1 / 16, WINDOW_HEIGHT * (6 + i * 2) / 16, 200, TAILLE_CASE - 10};
         int check = construire_chaine_buff(chaine, i, tab[i]);
         if (check == 1)
         {
+
             surface = TTF_RenderText_Solid(font, chaine, color);
             texture = SDL_CreateTextureFromSurface(renderer, surface);
+            SDL_Delay(20);
             SDL_RenderCopy(renderer, texture, NULL, &rect_buff);
             SDL_FreeSurface(surface);
             SDL_DestroyTexture(texture);
-            k++;
         }
     }
 
@@ -1336,13 +1353,11 @@ int afficher_competence_SDL(SDL_Window *window,
         SDL_DestroyTexture(texture);
     }
 
-    if(competence->competence_acquise == non_acquis){
-        surface = TTF_RenderText_Solid(font, "Debloquer", color);
-        texture = SDL_CreateTextureFromSurface(renderer, surface);
-        SDL_RenderCopy(renderer, texture, NULL, &rect_deb);
-        SDL_FreeSurface(surface);
-        SDL_DestroyTexture(texture);
-    }
+    surface = TTF_RenderText_Solid(font, "Debloquer", color);
+    texture = SDL_CreateTextureFromSurface(renderer, surface);
+    SDL_RenderCopy(renderer, texture, NULL, &rect_deb);
+    SDL_FreeSurface(surface);
+    SDL_DestroyTexture(texture);
 
     surface = TTF_RenderText_Solid(font, "Retour", color);
     texture = SDL_CreateTextureFromSurface(renderer, surface);
@@ -1355,7 +1370,7 @@ int afficher_competence_SDL(SDL_Window *window,
     SDL_RenderCopy(renderer, texture, NULL, &rect_obj_nom);
     SDL_FreeSurface(surface);
     SDL_DestroyTexture(texture);
-
+    SDL_Delay(20);
     SDL_RenderPresent(renderer);
 
     while (running)
@@ -1393,36 +1408,35 @@ int afficher_competence_SDL(SDL_Window *window,
             }
         }
     }
-    return 1;
 }
-
-
-int main()
-{
-
-    SDL_Init(SDL_INIT_VIDEO);
-    SDL_Window *window = SDL_CreateWindow("Arbre de C", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, WINDOW_WIDTH, WINDOW_HEIGHT, SDL_WINDOW_SHOWN);
-    SDL_Renderer *renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_SOFTWARE);
-
-    afficher_background(window, renderer);
-
-    int running = 1;
-    int x, y;
-
-    SDL_Event event;
-
-    entite_t *personnage = creer_personnage(personnage);
-    personnage = init_inventaire_personnage(personnage);
-
-    for (int i = 0; i < NB_OBJET; i++)
+/*
+    int main()
     {
-        personnage->inventaire->nb[i] = 100;
+
+        SDL_Init(SDL_INIT_VIDEO);
+        SDL_Window *window = SDL_CreateWindow("Arbre de C", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, WINDOW_WIDTH, WINDOW_HEIGHT, SDL_WINDOW_SHOWN);
+        SDL_Renderer *renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_SOFTWARE);
+
+        afficher_background(window, renderer);
+
+        int running = 1;
+        int x, y;
+
+        SDL_Event event;
+
+        entite_t *personnage = creer_personnage(personnage);
+        personnage = init_inventaire_personnage(personnage);
+
+        for (int i = 0; i < NB_OBJET; i++)
+        {
+            personnage->inventaire->nb[i] = 100;
+        }
+
+        afficher_menu(window, renderer, personnage);
+
+        detruire_entitee(personnage);
+
+        TTF_Quit();
+        return 0;
     }
-
-    afficher_menu(window, renderer, personnage);
-
-    detruire_entitee(&personnage);
-
-    TTF_Quit();
-    return 0;
-}
+    */

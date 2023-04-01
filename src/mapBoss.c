@@ -54,6 +54,8 @@ void detruireSalleBoss(t_salle ** salleBoss){
 
 t_salle * genererSalleMarchand(t_salle * salleMarchand){
     salleMarchand = malloc(sizeof(t_salle));
+    salleMarchand->nb_mobs=0;
+    
     for(int i=0; i<LARG_MARCHAND; i++){
             for(int j=0; j<LONG_MARCHAND; j++){
                 salleMarchand->dim[i][j]=0;
@@ -64,6 +66,8 @@ t_salle * genererSalleMarchand(t_salle * salleMarchand){
         for(j=0; j<LONG_MARCHAND; j++){
             if(j==0 || i==0 || i==LARG_MARCHAND-1 || j==LONG_MARCHAND-1){
                 salleMarchand->dim[i][j]=MUR;
+            }else if(i==LARG_MARCHAND/2 && j==LONG_MARCHAND/2){
+                salleMarchand->dim[i][j]=MARCHAND;
             }else{
                 salleMarchand->dim[i][j]=VIDE;
             }
@@ -71,6 +75,7 @@ t_salle * genererSalleMarchand(t_salle * salleMarchand){
             if(i==LARG_MARCHAND-1 && j==LONG_MARCHAND/2){
                 salleMarchand->dim[i][j]=PORTE;
             }
+            
         }
     }
     return salleMarchand;
