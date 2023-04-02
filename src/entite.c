@@ -1,5 +1,6 @@
+
 #include "../head/entite.h"
-#include "../head/objet.h"
+#include "../head/arbre.h"
 #include <string.h>
 
 /**
@@ -14,18 +15,18 @@
  * @brief tableau qui stocke tout les mobs présents dans le jeu
  */
 entite_t tab_mob[NB_MOBS] = {
-    {"Slime_Vert", 2, 1, 0.75, 0.40, 0, 0, NULL,1},
-    {"Loup", 10, 4, 1.0, 1.2, 0, 0, NULL, 2},
-    {"Brigant", 20, 6, 0.9, 1.1, 0, 0, NULL, 1},
-    {"Chaman", 12, 12, 0.8, 1, 0, 0, NULL, 2},
-    {"Slime_Gris", 10, 5, 0.75, 0.40, 0, 0, NULL, 1},
-    {"Nain", 30, 8, 0.75, 0.40, 0, 0, NULL, 2},
-    {"Nain_Rider", 20, 5, 1.5, 1.2, 0, 0, NULL, 3},
-    {"Orc", 80, 20, 0.10, 0.20, 0, 0, NULL, 2},
-    {"Slime_Rouge", 50, 25, 0.75, 0.40, 0, 0, NULL, 1},
-    {"Diablotin", 40, 40, 1.4, 1.0, 0, 0, NULL, 3},
-    {"Diable", 80, 80, 0.8, 1.2, 0, 0, NULL, 2},
-    {"Cerbere", 200, 100, 1.8, 0.7, 0, 0, NULL, 2}
+    {"Slime_Vert", 2, 1, 0.75, 0.40, 6, 0, 0, NULL, NULL, 1},
+    {"Loup", 10, 4, 1.0, 1.2, 8, 0, 0, NULL, NULL, 2},
+    {"Brigant", 20, 6, 0.9, 1.1, 7, 0, 0, NULL, NULL, 1},
+    {"Chaman", 12, 12, 0.8, 1, 9, 0, 0, NULL, NULL, 2},
+    {"Slime_Gris", 10, 5, 0.75, 0.40, 6, 0, 0, NULL, NULL, 1},
+    {"Nain", 30, 8, 0.75, 0.40, 5, 0, 0, NULL, NULL, 2},
+    {"Nain_Rider", 20, 5, 1.5, 1.2, 10, 0, 0, NULL, NULL, 3},
+    {"Orc", 80, 20, 0.10, 0.20, 8, 0, 0, NULL, NULL, 2},
+    {"Slime_Rouge", 50, 25, 0.75, 0.40, 6, 0, 0, NULL, NULL, 1},
+    {"Diablotin", 40, 40, 1.4, 1.0, 5, 0, 0, NULL, NULL, 3},
+    {"Diable", 80, 80, 0.8, 1.2, 10, 0, 0, NULL, NULL, 2},
+    {"Cerbere", 200, 100, 1.8, 0.7, 12, 0, 0, NULL, NULL, 2}
 };
 
 /**
@@ -37,7 +38,34 @@ entite_t tab_mob[NB_MOBS] = {
 extern
 void afficher_entite(entite_t* entite) {
     printf("Affichage de l'entité : \n");
-    printf("{%s, %d, %d, %f, %f, %d, %d} \n", entite->nom, entite->vie, entite->degats, entite->vitesse_att, entite->vitesse_depl, entite->x, entite->y);
+    switch (entite->persoOuMob){
+        case 0: printf("[PERSO] "); break;
+        case 1: printf("[MOB] "); break;
+        default: printf("[] "); break;
+    }
+    printf("Nom : %s [%d-%d]\n", entite->nom, entite->x, entite->y);
+    printf("Classe : ");
+    if(entite->arbre != NULL){
+        switch(entite->arbre->classe){
+            case ARCHER : printf("ARCHER\n"); break;
+            case ASSASSIN : printf("ASSASSIN\n"); break;
+            case MAGE : printf("MAGE\n"); break;
+            case GUERRIER : printf("GUERRIER\n"); break;
+            default : break;
+        }
+    }
+    else{
+        printf("Aucune classe\n");
+    }
+    printf(" - Vie : %.2f\n", entite->vie);
+    printf(" - Dégats : %.2f\n", entite->degats);
+    printf(" - Vitesse d'attaque : %.2f\n", entite->vitesse_att);
+    printf(" - Vitesse de déplacement : %.2f\n", entite->vitesse_depl);
+    switch (entite->persoOuMob){
+        case 0: printf(" - Bonus de diminution du périmètre de detction des mobs : %d\n", entite->perim_detect); break;
+        case 1: printf(" - Périmètre de détection : %d\n", entite->perim_detect); break;
+        default: break;
+    }
 }
 
 /**
@@ -92,8 +120,10 @@ entite_t* creer_personnage (entite_t * entite){
     entite->degats = 5.0;
     entite->vitesse_att = 1.0;
     entite->vitesse_depl = 1.0;
+    entite->perim_detect = 0;
     entite->x = 0;
     entite->y = 0;
+    entite->arbre = NULL;
     entite->place_inv = NB_OBJET;
     entite->inventaire = malloc(sizeof(objet_inv_t));
     entite->inventaire->nb = malloc(sizeof(int)*entite->place_inv);
@@ -123,6 +153,7 @@ entite_t* creer_monstre (entite_t * entite, char * nom) {
     //printf("degats : %f \n", entite->degats);
     entite->vitesse_att = tab_mob[emplacement].vitesse_att;
     entite->vitesse_depl = tab_mob[emplacement].vitesse_depl;
+    entite->perim_detect = tab_mob[emplacement].perim_detect;
     entite->x = tab_mob[emplacement].x;
     entite->y = tab_mob[emplacement].y;
     entite->place_inv = tab_mob[emplacement].place_inv;
@@ -142,8 +173,11 @@ entite_t* creer_monstre (entite_t * entite, char * nom) {
 extern
 void detruire_entitee(entite_t* entite){
     // Destruction du nom de l'entite
-    free(entite->nom);
-    entite->nom = NULL;
+    if(entite->nom != NULL){
+        free(entite->nom);
+        entite->nom = NULL;
+    }
+    
 
     // Destruction de l'inventaire
     free(entite->inventaire->objet);

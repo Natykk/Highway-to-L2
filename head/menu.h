@@ -1,3 +1,6 @@
+#ifndef __MENU__
+#define __MENU__
+
 #include "../head/entite.h"
 
 typedef struct {
@@ -11,3 +14,4 @@ typedef struct {
 int menu(SDL_Renderer *renderer, SDL_Window *window);
 int inv(SDL_Renderer *renderer, SDL_Window *window,entite_t *pers);
 
+#endif

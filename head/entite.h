@@ -1,10 +1,12 @@
-#ifndef __OBJET_H__
-#define __OBJET_H__
+#ifndef __ENTITE__
+#define __ENTITE__
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+
 #include "objet.h"
+typedef struct arbre t_arbre;
 
 #define NB_MOBS 12
 
@@ -40,12 +42,14 @@ typedef enum{AUCUN=-1, //!< Aucune direction
  */
 typedef struct entite_s {
     char* nom;
-    int vie;    
-    int degats;
+    float vie;    
+    float degats;
     float vitesse_att;
     float vitesse_depl;
+    int perim_detect;
     int x;
     int y;
+    t_arbre * arbre;
     objet_inv_t * inventaire;
     int place_inv;
     int persoOuMob;
@@ -64,8 +68,5 @@ int acces_mob(char*);
 entite_t * creer_personnage(entite_t *);
 entite_t * creer_monstre(entite_t *, char *);
 void detruire_entitee(entite_t *);
-void looter(entite_t *, entite_t * );
-entite_t* init_inventaire_monstre(entite_t * );
-entite_t* init_inventaire_personnage(entite_t * );
-void afficher_inventaire(entite_t *);
-#endif 
+
+#endif

@@ -1,3 +1,6 @@
+#ifndef __MAPSTRUCT__
+#define __MAPSTRUCT__
+
 #define SALLE_UNUSED -1
 #include "entite.h"
 #include "objet.h"
@@ -11,8 +14,11 @@
 #define DIM_ETAGE 5
 #define DIM_SALLE 25
 
-#define LARG_SALLE_BOSS 25
-#define LONG_SALLE_BOSS 35
+#define LARG_SALLE_BOSS 35
+#define LONG_SALLE_BOSS 25
+
+#define LONG_MARCHAND 8
+#define LARG_MARCHAND 12
 
 #define LARG_COULOIR 7
 #define LONG_COULOIR 15
@@ -72,7 +78,9 @@ typedef struct etage {
     int nb_salle; //!< Nombre de salles dans l'étage
     t_salle etage[DIM_ETAGE][DIM_ETAGE];//!< Tableau de salles
     t_salle* Boss;
+    t_salle* Marchand;
     int boss; //!< Salle du boss déverouillée ou pas (1 ou 0)
+    int marchand;
 } t_etage;
 
 /**
@@ -116,4 +124,4 @@ int detruireNiv(t_niv ** niveau);
 
 
 
-
+#endif

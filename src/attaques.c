@@ -3,22 +3,36 @@
 #include <./head/attaques.h>
 
 void maj_proj(entite_t * posPers, t_salle * map){
-    en_tete();
-    projectile_t * tmp;
-    while(!hors_liste()){
+    projectile_t * tmp = NULL;
+    int x_cour,y_cour;
+    en_tete_proj();
+    while(!hors_liste_proj()){
         /*Traitement element courant*/
         tmp = ec->proj;
         int id_tile;
-        if((id_tile = map->dim[tmp->x][tmp->y]) >= 10 || id_tile == VIDE){
-            ec->proj->touche = true;
-            if(degats(ec->proj->degats, id_tile, map))
-                looter(map->mob[id_tile - 10], posPers);
+        calcul_position(tmp); //On calcul la nouvelle position d'un projectile
+        x_cour = tmp->xp;
+        y_cour = tmp->yp;
+        while(x_cour != (tmp->x) && y_cour != (tmp->y) && valide(x_cour, y_cour)){
+            if((id_tile = map->dim[tmp->x][tmp->y]) >= 10){
+                tmp->touche = true;
+                if(degats(tmp->degats, id_tile, map))
+                    looter(map->mob[id_tile - 10], posPers);
+            }else if(id_tile != VIDE){
+                tmp->touche = true;
+            }
+            if(!(tmp->portee) || tmp->touche){
+                detruire_projectiles(&tmp);
+                oter_elt_proj();
+            }
+            switch(tmp->dir){
+                case HAUT: y_cour--; break;
+                case DROITE: x_cour++; break;
+                case BAS: y_cour++; break;
+                case GAUCHE: x_cour--; break;
+            }
         }
-        if(!(tmp->portee) || tmp->touche){
-            detruire_projectiles(&tmp);
-            oter_elt();
-        }
-        suivant();
+        suivant_proj();
     }
 }
 
@@ -31,8 +45,8 @@ void attaque_proj(proj_t typeproj, entite_t * posPers, t_salle * map){
     proj->dir = posPers->dir;
     proj->degats = posPers->degats;
     /*Nouveau projectile courant*/
-    en_tete();
-    ajout_droit(proj);
+    en_tete_proj();
+    ajout_droit_proj(proj);
 }
 
 bool degats(int degats, int id_mob, t_salle * map){

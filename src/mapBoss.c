@@ -24,6 +24,7 @@ void afficher_salle_boss(t_salle * salle){
 
 t_salle * genererSalleBoss(t_salle * salleBoss){
     salleBoss = malloc(sizeof(t_salle));
+    salleBoss->nb_mobs=0;
     for(int i=0; i<LARG_SALLE_BOSS; i++){
             for(int j=0; j<LONG_SALLE_BOSS; j++){
                 salleBoss->dim[i][j]=0;
@@ -38,16 +39,6 @@ t_salle * genererSalleBoss(t_salle * salleBoss){
             else if((i==LARG_SALLE_BOSS/3 || i==2*LARG_SALLE_BOSS/3) && (j==LONG_SALLE_BOSS/5 || j==2*LONG_SALLE_BOSS/5 || j==3*LONG_SALLE_BOSS/5 || j==4*LONG_SALLE_BOSS/5)){
                 salleBoss->dim[i][j]=MUR; // Ancienne valeur : PILIER
             }
-            else if(i==LARG_SALLE_BOSS/2 && j==LONG_SALLE_BOSS-5){
-                salleBoss->dim[i][j]=VIDE; // Ancienne valeur : BOSS
-            }
-            else if(i==LARG_SALLE_BOSS/2 && j==4){  
-                salleBoss->dim[i][j]=VIDE; // Ancienne valeur : SPAWN
-            }
-            else{
-                salleBoss->dim[i][j]=VIDE;
-            }
-
             if(i==LARG_SALLE_BOSS/2 && j==LONG_SALLE_BOSS-1){
                 salleBoss->dim[i][j]=PORTE;
             }
@@ -59,4 +50,28 @@ t_salle * genererSalleBoss(t_salle * salleBoss){
 void detruireSalleBoss(t_salle ** salleBoss){
     free(*salleBoss);
     *salleBoss=NULL;
+}
+
+t_salle * genererSalleMarchand(t_salle * salleMarchand){
+    salleMarchand = malloc(sizeof(t_salle));
+    for(int i=0; i<LARG_MARCHAND; i++){
+            for(int j=0; j<LONG_MARCHAND; j++){
+                salleMarchand->dim[i][j]=0;
+            }
+        }
+    int i, j;
+    for(i=0; i<LARG_MARCHAND; i++){
+        for(j=0; j<LONG_MARCHAND; j++){
+            if(j==0 || i==0 || i==LARG_MARCHAND-1 || j==LONG_MARCHAND-1){
+                salleMarchand->dim[i][j]=MUR;
+            }else{
+                salleMarchand->dim[i][j]=VIDE;
+            }
+            // met une porte sur le coté droit
+            if(i==LARG_MARCHAND-1 && j==LONG_MARCHAND/2){
+                salleMarchand->dim[i][j]=PORTE;
+            }
+        }
+    }
+    return salleMarchand;
 }
