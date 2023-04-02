@@ -7,8 +7,8 @@
 #define __NAME__
 
 #include "entite.h"
-#include "inventaire.h"
+#include "menu_cpt.h"
 
-int name();
+char * name();
 
 #endif

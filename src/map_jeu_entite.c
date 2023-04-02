@@ -727,7 +727,7 @@ void rendu(int map[][LONG_SALLE_BOSS], int tailleI, int tailleJ, SDL_Renderer *r
         // printf("\n");
     }
 }
-
+/*
 int main()
 {
     int i;
@@ -935,3 +935,4 @@ int main()
     SDL_DestroyWindow(window);     // On détruit la fenêtre
     SDL_Quit();                    // On quitte la SDL
 }
+*/

@@ -1,7 +1,9 @@
 #ifndef __MAPBOSS__
 #define __MAPBOSS__
 
-#include "../head/mapStruct.h"
+#include "mapStruct.h"
+
+#define MARCHAND 10
 
 /* Prototype des fonctions */
 t_salle * genererSalleBoss(t_salle * salleBoss);

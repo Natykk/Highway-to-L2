@@ -287,7 +287,7 @@ int afficher_arbre_assassin(SDL_Window *window, SDL_Renderer *renderer, entite_t
         /*        Ajout des rectangles au bout des lignes pour les compétences        */
         /* -------------------------------------------------------------------------- */
 
-        SDL_Rect rect1 = {WINDOW_WIDTH * 1 / 2 - TILE_SIZE / 2, WINDOW_HEIGHT * 1 / 6 - TILE_SIZE / 2, TAILLE_CASE, TAILLE_CASE};
+         
 
         SDL_Rect rect2 = {WINDOW_WIDTH * 1 / 4 - TILE_SIZE / 2, WINDOW_HEIGHT * 1 / 3 - TILE_SIZE / 2, TAILLE_CASE, TAILLE_CASE};
         SDL_Rect rect3 = {WINDOW_WIDTH * 3 / 4 - TILE_SIZE / 2, WINDOW_HEIGHT * 1 / 3 - TILE_SIZE / 2, TAILLE_CASE, TAILLE_CASE};
