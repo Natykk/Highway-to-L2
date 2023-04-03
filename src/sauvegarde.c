@@ -3,6 +3,8 @@
 #include <string.h>
 
 #include "../head/sauvegarde.h"
+#include "../head/arbre.h"
+#include "../head/inventaire.h"
 
 int one_next_cpt_unlock(t_competence *competence)
 {
@@ -41,6 +43,8 @@ int sauvegarde(entite_t *personnage, int num_etage)
     if (personnage != NULL)
     {
         FILE *f_sauv = fopen("../sauv/sauvegarde.txt", "w");
+
+        /* Nom du personnage */
         if (personnage->nom != NULL && strcmp(personnage->nom, ""))
         {
             fprintf(f_sauv, "%s\n", personnage->nom);
@@ -49,9 +53,11 @@ int sauvegarde(entite_t *personnage, int num_etage)
         {
             fprintf(f_sauv, "None\n");
         }
+
+        /* Classe du personnage */
         if (personnage->arbre == NULL)
         {
-            fprintf(f_sauv, "None\n");
+            fprintf(f_sauv, "-1\n");
         }
         else if (personnage->arbre->classe == ASSASSIN)
         {
@@ -69,8 +75,19 @@ int sauvegarde(entite_t *personnage, int num_etage)
         {
             fprintf(f_sauv, "3\n");
         }
-        if(personnage->arbre != NULL) cpt_aquise(f_sauv, personnage->arbre);
+
+        /* Compétences acquises */
+        if(personnage->arbre != NULL){
+            cpt_aquise(f_sauv, personnage->arbre);
+        }
+        else{
+            fprintf(f_sauv, "None\n");
+        }
+
+        /* Numéro de l'étage */
         fprintf(f_sauv, "%d\n", num_etage);
+
+        /* Inventaire du personnage */
         for (int i = 0; i < NB_OBJET; i++)
         {
             fprintf(f_sauv, "%d\n", personnage->inventaire->nb[i]);
@@ -100,57 +117,75 @@ int chargement(entite_t **personnage)
     FILE *f_sauv = fopen("../sauv/sauvegarde.txt", "r");
     if (f_sauv)
     {
-        *personnage = creer_personnage(*personnage);
-        *personnage = init_inventaire_personnage(*personnage);
+        /* Nom personnage */
+        printf("nom\n");
         fscanf(f_sauv, "%s", (*personnage)->nom);
+        printf("nom perso : %s\n", (*personnage)->nom);
+
+
+        /* Classe du personnage */
+        printf("classe\n");
         int classe;
         fscanf(f_sauv, "%d", &classe);
-        switch (classe)
-        {
-        case ARCHER:
-            init_arbre(&(*personnage)->arbre, cpt_archer, classe);
-            break;
-        case ASSASSIN:
-            init_arbre(&(*personnage)->arbre, cpt_assassin, classe);
-            break;
-        case GUERRIER:
-            init_arbre(&(*personnage)->arbre, cpt_guerrier, classe);
-            break;
-        case MAGE:
-            init_arbre(&(*personnage)->arbre, cpt_mage, classe);
-            break;
-        default:
-            break;
+        printf("Classe : %d\n",classe);
+        switch (classe){
+            case ARCHER:
+                init_arbre(&(*personnage)->arbre, cpt_archer, classe);
+                break;
+            case ASSASSIN:
+                init_arbre(&(*personnage)->arbre, cpt_assassin, classe);
+                break;
+            case GUERRIER:
+                init_arbre(&(*personnage)->arbre, cpt_guerrier, classe);
+                break;
+            case MAGE:
+                init_arbre(&(*personnage)->arbre, cpt_mage, classe);
+                break;
+            default: 
+                (*personnage)->arbre = NULL;
+                break;
         }
+
+        /* Nom des compétences */
+        printf("nom cpt\n");
         char c;
         char *nom_cpt = malloc(sizeof(char) * 50);
+
         fscanf(f_sauv, "%c", &c);
         fgets(nom_cpt, 50, f_sauv);
         nom_cpt[strlen(nom_cpt) - 1] = '\0';
-        t_competence *racine = (*personnage)->arbre->competence[0];
-        while (strcmp(nom_cpt, "NULL") && strcmp(nom_cpt, "END_OF_CPT"))
-        {
-            if (!strcmp(nom_cpt, racine->nom))
+        printf("nom  cpt : %s\n", nom_cpt);
+        if(strcmp(nom_cpt, "None") && classe != -1){
+            t_competence *racine = (*personnage)->arbre->competence[0];
+            while (strcmp(nom_cpt, "None") && strcmp(nom_cpt, "END_OF_CPT"))
             {
-                racine->competence_acquise = acquis;
-                appliquer(*personnage, racine);
-                fgets(nom_cpt, 50, f_sauv);
-                nom_cpt[strlen(nom_cpt) - 1] = '\0';
-                for (int i = 0; i < racine->nb_suiv; i++)
+                if (!strcmp(nom_cpt, racine->nom))
                 {
-                    if (!strcmp(racine->suivantes[i]->nom, nom_cpt))
+                    racine->competence_acquise = acquis;
+                    appliquer(*personnage, racine);
+                    fgets(nom_cpt, 50, f_sauv);
+                    nom_cpt[strlen(nom_cpt) - 1] = '\0';
+                    for (int i = 0; i < racine->nb_suiv; i++)
                     {
-                        racine = racine->suivantes[i];
+                        if (!strcmp(racine->suivantes[i]->nom, nom_cpt))
+                        {
+                            racine = racine->suivantes[i];
+                        }
                     }
                 }
             }
         }
+        else{
+            (*personnage)->arbre = NULL;
+        }
         free(nom_cpt);
         nom_cpt = NULL;
 
+        printf("num etage\n");
         int num_etage;
         fscanf(f_sauv, "%d", &num_etage);
-
+        
+         printf("inventaire\n");
         for (int i = 0; i < NB_OBJET; i++)
         {
             fscanf(f_sauv, "%d", &(*personnage)->inventaire->nb[i]);

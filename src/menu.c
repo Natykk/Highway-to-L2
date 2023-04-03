@@ -10,6 +10,8 @@
 // Structure pour représenter un bouton
 
 #include "../head/name.h"
+#include "../head/inventaire.h"
+#include "../head/sauvegarde.h"
 
 int fempty(char * fname){
   FILE * lect = fopen(fname, "r");
@@ -33,7 +35,7 @@ int fileExists(char * fname){
   }
 }
 
-char * menu_interact(SDL_Window * window, SDL_Renderer * renderer){
+int menu_interact(SDL_Window * window, SDL_Renderer * renderer, entite_t * personnage){
     SDL_Surface *image = IMG_Load("../IMG/background_name.png");
     SDL_Texture *texture_background = SDL_CreateTextureFromSurface(renderer, image);
     SDL_FreeSurface(image);
@@ -63,7 +65,7 @@ char * menu_interact(SDL_Window * window, SDL_Renderer * renderer){
     continuer.h = 75;
     
     if(!fempty("../sauv/sauvegarde.txt") && fileExists("../sauv/sauvegarde.txt")){
-      continuer.surface = IMG_Load("../IMG/continue.png");
+      continuer.surface = IMG_Load("../IMG/button/continue.png");
     }
     else{
       continuer.surface = IMG_Load("../IMG/button/continue_dark.png");
@@ -105,11 +107,18 @@ char * menu_interact(SDL_Window * window, SDL_Renderer * renderer){
                       SDL_DestroyTexture(texture_nouv_partie);
                       SDL_DestroyTexture(texture_img);
                       SDL_DestroyTexture(texture_background);
-                      player_name = name(window, renderer);
+                      personnage->nom = name(window, renderer, personnage);
                       run = 0;
                     } 
                     else if((x >= continuer.x && x <= continuer.x + continuer.w && y >= continuer.y && y <= continuer.y + continuer.h) && (!fempty("../sauv/sauvegarde.txt") && fileExists("../sauv/sauvegarde.txt"))){
-                      printf("Continuer\n");
+                      /*
+                      SDL_DestroyTexture(texture_continuer);
+                      SDL_DestroyTexture(texture_quitter);
+                      SDL_DestroyTexture(texture_nouv_partie);
+                      SDL_DestroyTexture(texture_img);
+                      SDL_DestroyTexture(texture_background);
+                      */
+                      chargement(&personnage);
                       run=0;
                     }
                     else if(x >= quitter.x && x <= quitter.x + quitter.w && y >= quitter.y && y <= quitter.y + quitter.h){
@@ -133,10 +142,10 @@ char * menu_interact(SDL_Window * window, SDL_Renderer * renderer){
     SDL_DestroyTexture(texture_nouv_partie);
     SDL_DestroyTexture(texture_img);
     SDL_DestroyTexture(texture_background);
-    return player_name;
+    return 1;
 }
 
-int menu(){
+int menu(entite_t * personnage){
   SDL_Init(SDL_INIT_EVERYTHING);
 
   /* Initialisation de la piste audio de fond */
@@ -147,8 +156,9 @@ int menu(){
 
   SDL_Window * window = SDL_CreateWindow("Highway to L2", 350, 150, WINDOW_WIDTH, WINDOW_HEIGHT, SDL_WINDOW_SHOWN | SDL_WINDOW_BORDERLESS);
   SDL_Renderer * renderer =  SDL_CreateRenderer(window, -1, SDL_RENDERER_PRESENTVSYNC);
+  
   /* Interactions du menu */
-  printf("%s\n", menu_interact(window, renderer)); 
+  menu_interact(window, renderer, personnage);
 
   /* Fermeture de la piste audio de fond */
   printf("Fermeture audio...");
@@ -164,5 +174,9 @@ int menu(){
 }
 
 int main(){
-  menu();
+  entite_t * personnage = creer_personnage(personnage);
+  personnage = init_inventaire_personnage(personnage);
+  menu(personnage);
+  //sauvegarde(personnage, 1);
+  afficher_entite(personnage);
 }

@@ -8,7 +8,7 @@
 #include "../head/name.h"
 
 
-char * name(SDL_Window * win, SDL_Renderer * screen){
+char * name(SDL_Window * win, SDL_Renderer * screen, entite_t * personnage){
     TTF_Init();
 
     //SDL_Window * win = SDL_CreateWindow("Highway to L2", 350, 150, WINDOW_WIDTH, WINDOW_HEIGHT, SDL_WINDOW_SHOWN | SDL_WINDOW_BORDERLESS);
@@ -73,7 +73,7 @@ char * name(SDL_Window * win, SDL_Renderer * screen){
                         SDL_DestroyTexture(texture_background);
                         SDL_DestroyTexture(texture_img);
                         SDL_DestroyTexture(texture_back);
-                        menu_interact(win, screen);
+                        menu_interact(win, screen, personnage);
                     } 
                 case SDL_TEXTINPUT:
                     if(textInputSize < TEXT_SIZE-1){
