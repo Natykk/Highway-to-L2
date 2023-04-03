@@ -173,10 +173,25 @@ int menu(entite_t * personnage){
   return 0;
 }
 
+/*
 int main(){
+  t_arbre * mage;
+  init_arbre(&mage, cpt_mage, MAGE);
   entite_t * personnage = creer_personnage(personnage);
   personnage = init_inventaire_personnage(personnage);
   menu(personnage);
-  //sauvegarde(personnage, 1);
+  personnage->inventaire->nb[4] = 100;
+  competence_debloquer(personnage, &cpt_mage[0], mage);
+  afficher_entite(personnage);
+  sauvegarde(personnage, 1);
+
+  detruire_personnage(&personnage);
+
+  personnage = creer_personnage(personnage);
+  personnage = init_inventaire_personnage(personnage);
+  menu(personnage);
+  
+
   afficher_entite(personnage);
 }
+*/

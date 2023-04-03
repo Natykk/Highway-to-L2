@@ -57,23 +57,23 @@ int sauvegarde(entite_t *personnage, int num_etage)
         /* Classe du personnage */
         if (personnage->arbre == NULL)
         {
-            fprintf(f_sauv, "-1\n");
+            fprintf(f_sauv, "%d\n", AUCUNE_CLASSE);
         }
         else if (personnage->arbre->classe == ASSASSIN)
         {
-            fprintf(f_sauv, "0\n");
+            fprintf(f_sauv, "%d\n", ASSASSIN);
         }
         else if (personnage->arbre->classe == GUERRIER)
         {
-            fprintf(f_sauv, "1\n");
+            fprintf(f_sauv, "%d\n", GUERRIER);
         }
         else if (personnage->arbre->classe == MAGE)
         {
-            fprintf(f_sauv, "2\n");
+            fprintf(f_sauv, "%d\n", MAGE);
         }
         else if (personnage->arbre->classe == ARCHER)
         {
-            fprintf(f_sauv, "3\n");
+            fprintf(f_sauv, "%d\n", ARCHER);
         }
 
         /* Compétences acquises */
@@ -118,16 +118,11 @@ int chargement(entite_t **personnage)
     if (f_sauv)
     {
         /* Nom personnage */
-        printf("nom\n");
         fscanf(f_sauv, "%s", (*personnage)->nom);
-        printf("nom perso : %s\n", (*personnage)->nom);
-
 
         /* Classe du personnage */
-        printf("classe\n");
         int classe;
         fscanf(f_sauv, "%d", &classe);
-        printf("Classe : %d\n",classe);
         switch (classe){
             case ARCHER:
                 init_arbre(&(*personnage)->arbre, cpt_archer, classe);
@@ -147,15 +142,14 @@ int chargement(entite_t **personnage)
         }
 
         /* Nom des compétences */
-        printf("nom cpt\n");
         char c;
         char *nom_cpt = malloc(sizeof(char) * 50);
 
         fscanf(f_sauv, "%c", &c);
         fgets(nom_cpt, 50, f_sauv);
         nom_cpt[strlen(nom_cpt) - 1] = '\0';
-        printf("nom  cpt : %s\n", nom_cpt);
-        if(strcmp(nom_cpt, "None") && classe != -1){
+    
+        if(strcmp(nom_cpt, "None") && classe != AUCUN){
             t_competence *racine = (*personnage)->arbre->competence[0];
             while (strcmp(nom_cpt, "None") && strcmp(nom_cpt, "END_OF_CPT"))
             {
@@ -181,11 +175,11 @@ int chargement(entite_t **personnage)
         free(nom_cpt);
         nom_cpt = NULL;
 
-        printf("num etage\n");
+        /* numéro de l'étage sauvegardé */
         int num_etage;
         fscanf(f_sauv, "%d", &num_etage);
         
-         printf("inventaire\n");
+        /* complémentation de l'inventaire */
         for (int i = 0; i < NB_OBJET; i++)
         {
             fscanf(f_sauv, "%d", &(*personnage)->inventaire->nb[i]);

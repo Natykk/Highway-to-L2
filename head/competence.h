@@ -5,7 +5,7 @@
 #include <stdlib.h>
 
 typedef enum {non_acquis, acquis} t_acquis;
-typedef enum {ASSASSIN=0, GUERRIER, MAGE, ARCHER} t_classe;
+typedef enum {AUCUNE_CLASSE=-1, ASSASSIN, GUERRIER, MAGE, ARCHER} t_classe;
 
 #include "objet.h"
 
