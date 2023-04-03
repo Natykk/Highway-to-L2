@@ -12,14 +12,13 @@
 char * name(){
     SDL_Init(SDL_INIT_EVERYTHING);
     TTF_Init();
-    Mix_Init(MIX_INIT_MP3);
-    Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 6, 1024);
-    Mix_Music * music = Mix_LoadMUS("../sound/name_choose.mp3");
-    Mix_PlayMusic(music, 10);
+    //Mix_Init(MIX_INIT_MP3);
+    //Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 6, 1024);
+    //Mix_Music * music = Mix_LoadMUS("../sound/name_choose.mp3");
+    //Mix_PlayMusic(music, -1);
 
     SDL_Window * win = SDL_CreateWindow("Highway to L2", 350, 150, WINDOW_WIDTH, WINDOW_HEIGHT, SDL_WINDOW_SHOWN);
     SDL_Renderer *screen =  SDL_CreateRenderer(win, -1, SDL_RENDERER_PRESENTVSYNC);
-
 
     SDL_Surface *image = IMG_Load("../IMG/background_name.png");
     SDL_Texture *texture_background = SDL_CreateTextureFromSurface(screen, image);
@@ -129,20 +128,22 @@ char * name(){
    
     }
     SDL_StopTextInput();
-    Mix_HaltMusic();
-    Mix_CloseAudio();
+    //Mix_HaltMusic();
+    //Mix_CloseAudio();
     SDL_DestroyTexture(textImage1);
     SDL_DestroyTexture(textImage);
     SDL_DestroyTexture(texture_img);
     SDL_DestroyWindow(win);
-    Mix_Quit();
+    //Mix_Quit();
     TTF_Quit();
     SDL_Quit();
     return NULL;
 }
 
+/*
 int main()
 {
     printf("%s\n", name());
     return 1;
 }
+*/
