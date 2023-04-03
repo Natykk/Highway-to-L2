@@ -33,10 +33,7 @@ int fileExists(char * fname){
   }
 }
 
-char * menu_interact(){
-    SDL_Window * window = SDL_CreateWindow("Highway to L2", 350, 150, WINDOW_WIDTH, WINDOW_HEIGHT, SDL_WINDOW_SHOWN | SDL_WINDOW_BORDERLESS);
-    SDL_Renderer * renderer =  SDL_CreateRenderer(window, -1, SDL_RENDERER_PRESENTVSYNC);
-
+char * menu_interact(SDL_Window * window, SDL_Renderer * renderer){
     SDL_Surface *image = IMG_Load("../IMG/background_name.png");
     SDL_Texture *texture_background = SDL_CreateTextureFromSurface(renderer, image);
     SDL_FreeSurface(image);
@@ -108,8 +105,7 @@ char * menu_interact(){
                       SDL_DestroyTexture(texture_nouv_partie);
                       SDL_DestroyTexture(texture_img);
                       SDL_DestroyTexture(texture_background);
-                      SDL_DestroyWindow(window);
-                      player_name = name();
+                      player_name = name(window, renderer);
                       run = 0;
                     } 
                     else if((x >= continuer.x && x <= continuer.x + continuer.w && y >= continuer.y && y <= continuer.y + continuer.h) && (!fempty("../sauv/sauvegarde.txt") && fileExists("../sauv/sauvegarde.txt"))){
@@ -137,7 +133,6 @@ char * menu_interact(){
     SDL_DestroyTexture(texture_nouv_partie);
     SDL_DestroyTexture(texture_img);
     SDL_DestroyTexture(texture_background);
-    SDL_DestroyWindow(window);
     return player_name;
 }
 
@@ -150,8 +145,10 @@ int menu(){
   Mix_Music * music = Mix_LoadMUS("../sound/name_choose.mp3");
   Mix_PlayMusic(music, -1);
 
+  SDL_Window * window = SDL_CreateWindow("Highway to L2", 350, 150, WINDOW_WIDTH, WINDOW_HEIGHT, SDL_WINDOW_SHOWN | SDL_WINDOW_BORDERLESS);
+  SDL_Renderer * renderer =  SDL_CreateRenderer(window, -1, SDL_RENDERER_PRESENTVSYNC);
   /* Interactions du menu */
-  printf("%s\n", menu_interact()); 
+  printf("%s\n", menu_interact(window, renderer)); 
 
   /* Fermeture de la piste audio de fond */
   printf("Fermeture audio...");
@@ -160,6 +157,7 @@ int menu(){
   Mix_Quit();
   printf("...OK?\n");
 
+  SDL_DestroyWindow(window);
   SDL_Quit();
 
   return 0;

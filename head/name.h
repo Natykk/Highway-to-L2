@@ -17,7 +17,8 @@ typedef struct {
   SDL_Surface* surface;
 } Button;
 
-char * name();
-char * menu_interact();
+char * name(SDL_Window * win, SDL_Renderer * screen);
+char * menu_interact(SDL_Window * window, SDL_Renderer * renderer);
+int menu();
 
 #endif

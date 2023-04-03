@@ -8,16 +8,16 @@
 #include "../head/name.h"
 
 
-char * name(){
-    SDL_Init(SDL_INIT_EVERYTHING);
+char * name(SDL_Window * win, SDL_Renderer * screen){
     TTF_Init();
 
-    SDL_Window * win = SDL_CreateWindow("Highway to L2", 350, 150, WINDOW_WIDTH, WINDOW_HEIGHT, SDL_WINDOW_SHOWN | SDL_WINDOW_BORDERLESS);
-    SDL_Renderer *screen =  SDL_CreateRenderer(win, -1, SDL_RENDERER_PRESENTVSYNC);
-
+    //SDL_Window * win = SDL_CreateWindow("Highway to L2", 350, 150, WINDOW_WIDTH, WINDOW_HEIGHT, SDL_WINDOW_SHOWN | SDL_WINDOW_BORDERLESS);
+    //SDL_Renderer *screen =  SDL_CreateRenderer(win, -1, SDL_RENDERER_PRESENTVSYNC);
+    
     SDL_Surface *image = IMG_Load("../IMG/background_name.png");
     SDL_Texture *texture_background = SDL_CreateTextureFromSurface(screen, image);
     SDL_FreeSurface(image);
+    
 
     TTF_Font * font = TTF_OpenFont("../font/necrosans.ttf", 25);
     SDL_Color color = {247,192,21};
@@ -36,7 +36,7 @@ char * name(){
 
     SDL_Surface * temp = TTF_RenderText_Solid(font, "Ecrire le pseudo de votre personnage", color);
     SDL_Texture * textImage = SDL_CreateTextureFromSurface(screen, temp);
-    SDL_Rect pos = {demandeNom.x + demandeNom.w, img_rect.y + img_rect.h, temp->w, temp->h};
+    SDL_Rect saisieNom = {demandeNom.x + demandeNom.w, img_rect.y + img_rect.h, temp->w, temp->h};
     SDL_FreeSurface(temp);
     temp = NULL;
 
@@ -52,7 +52,6 @@ char * name(){
     SDL_StartTextInput();
     char * textInput = malloc(sizeof(char)*TEXT_SIZE);
     int textInputSize = 0;
-    
     
     int run = 1;
     int x, y;
@@ -74,8 +73,7 @@ char * name(){
                         SDL_DestroyTexture(texture_background);
                         SDL_DestroyTexture(texture_img);
                         SDL_DestroyTexture(texture_back);
-                        SDL_DestroyWindow(win);
-                        menu_interact();
+                        menu_interact(win, screen);
                     } 
                 case SDL_TEXTINPUT:
                     if(textInputSize < TEXT_SIZE-1){
@@ -89,8 +87,8 @@ char * name(){
                         temp = TTF_RenderText_Solid(font, textInput, color);
                         if(temp){
                             textImage = SDL_CreateTextureFromSurface(screen, temp);
-                            pos.h = temp->h;
-                            pos.w = temp->w;
+                            saisieNom.h = temp->h;
+                            saisieNom.w = temp->w;
                             SDL_FreeSurface(temp);
                             temp = NULL;
                         }
@@ -104,31 +102,29 @@ char * name(){
                         temp = TTF_RenderText_Solid(font, textInput, color);
                         if(temp){
                             textImage = SDL_CreateTextureFromSurface(screen, temp);
-                            pos.h = temp->h;
-                            pos.w = temp->w;
+                            saisieNom.h = temp->h;
+                            saisieNom.w = temp->w;
                             SDL_FreeSurface(temp);
                             temp = NULL;
                         }
                         else{
                             temp = TTF_RenderText_Solid(font, "Ecrire le pseudo de votre personnage", color);
                             textImage = SDL_CreateTextureFromSurface(screen, temp);
-                            pos.h = temp->h;
-                            pos.w = temp->w;
+                            saisieNom.h = temp->h;
+                            saisieNom.w = temp->w;
                             textInputSize = 0;
                             SDL_FreeSurface(temp);
                             temp = NULL;
                         }
                     }
                     else if(event.key.keysym.sym == SDLK_RETURN && textInputSize>0){
+                        run = 0;
                         SDL_StopTextInput();
-                        Mix_HaltMusic();
-                        Mix_CloseAudio();
                         SDL_DestroyTexture(textImage1);
                         SDL_DestroyTexture(textImage);
-                        SDL_DestroyWindow(win);
-                        Mix_Quit();
-                        TTF_Quit();
-                        SDL_Quit();
+                        SDL_DestroyTexture(texture_img);
+                        SDL_DestroyTexture(texture_back);
+                        SDL_DestroyTexture(texture_back);
                         return textInput;
                     }
                     else if(event.key.keysym.sym == SDLK_ESCAPE){
@@ -141,7 +137,7 @@ char * name(){
         }
         SDL_RenderClear(screen);
         SDL_RenderCopy(screen, texture_background, NULL, NULL);
-        SDL_RenderCopy(screen, textImage, NULL, &pos);
+        SDL_RenderCopy(screen, textImage, NULL, &saisieNom);
         SDL_RenderCopy(screen, textImage1, NULL, &demandeNom);
         SDL_RenderCopy(screen, texture_img, NULL, &img_rect);
         SDL_RenderCopy(screen, texture_back, NULL, &button_back);
@@ -152,6 +148,6 @@ char * name(){
     SDL_DestroyTexture(textImage);
     SDL_DestroyTexture(texture_img);
     SDL_DestroyTexture(texture_back);
-    SDL_DestroyWindow(win);
+    SDL_DestroyTexture(texture_background);
     return NULL;
 }
