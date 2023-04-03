@@ -173,7 +173,7 @@ int menu(entite_t * personnage){
   return 0;
 }
 
-/*
+
 int main(){
   t_arbre * mage;
   init_arbre(&mage, cpt_mage, MAGE);
@@ -194,4 +194,3 @@ int main(){
 
   afficher_entite(personnage);
 }
-*/

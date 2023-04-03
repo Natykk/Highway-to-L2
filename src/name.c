@@ -95,6 +95,7 @@ char * name(SDL_Window * win, SDL_Renderer * screen, entite_t * personnage){
                     }
                     break;
                 case SDL_KEYDOWN:
+                    printf("text : %s\n", textInput);
                     if(event.key.keysym.sym == SDLK_BACKSPACE && textInputSize>0){
                         textInputSize--;
                         textInput[textInputSize] = '\0';
@@ -117,7 +118,7 @@ char * name(SDL_Window * win, SDL_Renderer * screen, entite_t * personnage){
                             temp = NULL;
                         }
                     }
-                    else if(event.key.keysym.sym == SDLK_RETURN && textInputSize>0){
+                    else if(event.key.keysym.sym == SDLK_RETURN && textInputSize>0 && strcmp(textInput,"")){
                         run = 0;
                         SDL_StopTextInput();
                         SDL_DestroyTexture(textImage1);
