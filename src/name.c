@@ -7,25 +7,20 @@
 
 #include "../head/name.h"
 
-#define TEXT_SIZE 36
 
 char * name(){
     SDL_Init(SDL_INIT_EVERYTHING);
     TTF_Init();
-    //Mix_Init(MIX_INIT_MP3);
-    //Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 6, 1024);
-    //Mix_Music * music = Mix_LoadMUS("../sound/name_choose.mp3");
-    //Mix_PlayMusic(music, -1);
 
-    SDL_Window * win = SDL_CreateWindow("Highway to L2", 350, 150, WINDOW_WIDTH, WINDOW_HEIGHT, SDL_WINDOW_SHOWN);
+    SDL_Window * win = SDL_CreateWindow("Highway to L2", 350, 150, WINDOW_WIDTH, WINDOW_HEIGHT, SDL_WINDOW_SHOWN | SDL_WINDOW_BORDERLESS);
     SDL_Renderer *screen =  SDL_CreateRenderer(win, -1, SDL_RENDERER_PRESENTVSYNC);
 
     SDL_Surface *image = IMG_Load("../IMG/background_name.png");
     SDL_Texture *texture_background = SDL_CreateTextureFromSurface(screen, image);
     SDL_FreeSurface(image);
 
-    TTF_Font * font = TTF_OpenFont("../font/necrosans.ttf", 20);
-    SDL_Color color = {255,255,255,255};
+    TTF_Font * font = TTF_OpenFont("../font/necrosans.ttf", 25);
+    SDL_Color color = {247,192,21};
 
     SDL_Surface * img_logo = IMG_Load("../IMG/logo.png");
     SDL_Texture * texture_img = SDL_CreateTextureFromSurface(screen, img_logo);
@@ -35,20 +30,32 @@ char * name(){
 
     SDL_Surface * temp1 = TTF_RenderText_Solid(font, "Votre nom : ", color);
     SDL_Texture * textImage1 = SDL_CreateTextureFromSurface(screen, temp1);
-    SDL_Rect demandeNom = {WINDOW_WIDTH * 1 / 5, 20, 100, temp1->h};
+    SDL_Rect demandeNom = {WINDOW_WIDTH/15, img_rect.y + img_rect.h, 150, temp1->h};
     SDL_FreeSurface(temp1);
     temp1 = NULL;
 
     SDL_Surface * temp = TTF_RenderText_Solid(font, "Ecrire le pseudo de votre personnage", color);
     SDL_Texture * textImage = SDL_CreateTextureFromSurface(screen, temp);
-    SDL_Rect pos = {demandeNom.x + demandeNom.w, 20, temp->w, temp->h};
+    SDL_Rect pos = {demandeNom.x + demandeNom.w, img_rect.y + img_rect.h, temp->w, temp->h};
     SDL_FreeSurface(temp);
     temp = NULL;
+
+    Button retour;
+    retour.x = WINDOW_WIDTH * 3 / 8 ;
+    retour.y = WINDOW_HEIGHT - 45;
+    retour.w = 200;
+    retour.h = 50;
+    retour.surface = IMG_Load("../IMG/button/back.png");
+    SDL_Texture *texture_back = SDL_CreateTextureFromSurface(screen, retour.surface);
+    SDL_Rect button_back = { retour.x, retour.y, retour.w, retour.h };
 
     SDL_StartTextInput();
     char * textInput = malloc(sizeof(char)*TEXT_SIZE);
     int textInputSize = 0;
+    
+    
     int run = 1;
+    int x, y;
     while(run){
         SDL_Event event;
         while(SDL_PollEvent(&event)){
@@ -56,6 +63,20 @@ char * name(){
                 case SDL_QUIT:
                     run = 0;
                     break;
+                case SDL_MOUSEBUTTONUP:
+                   SDL_GetMouseState(&x, &y);
+                    if (x >= retour.x && x <= retour.x + retour.w && y >= retour.y && y <= retour.y + retour.h){
+                        run = 0;
+                        printf("Menu\n");
+                        SDL_StopTextInput();
+                        SDL_DestroyTexture(textImage1);
+                        SDL_DestroyTexture(textImage);
+                        SDL_DestroyTexture(texture_background);
+                        SDL_DestroyTexture(texture_img);
+                        SDL_DestroyTexture(texture_back);
+                        SDL_DestroyWindow(win);
+                        menu_interact();
+                    } 
                 case SDL_TEXTINPUT:
                     if(textInputSize < TEXT_SIZE-1){
                         textInput[textInputSize] = event.text.text[0];
@@ -123,27 +144,14 @@ char * name(){
         SDL_RenderCopy(screen, textImage, NULL, &pos);
         SDL_RenderCopy(screen, textImage1, NULL, &demandeNom);
         SDL_RenderCopy(screen, texture_img, NULL, &img_rect);
+        SDL_RenderCopy(screen, texture_back, NULL, &button_back);
         SDL_RenderPresent(screen);
-        
-   
     }
     SDL_StopTextInput();
-    //Mix_HaltMusic();
-    //Mix_CloseAudio();
     SDL_DestroyTexture(textImage1);
     SDL_DestroyTexture(textImage);
     SDL_DestroyTexture(texture_img);
+    SDL_DestroyTexture(texture_back);
     SDL_DestroyWindow(win);
-    //Mix_Quit();
-    TTF_Quit();
-    SDL_Quit();
     return NULL;
 }
-
-/*
-int main()
-{
-    printf("%s\n", name());
-    return 1;
-}
-*/

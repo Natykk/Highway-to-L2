@@ -11,12 +11,6 @@
 
 #include "../head/name.h"
 
-typedef struct {
-  int x, y;
-  int w, h;
-  SDL_Surface* surface;
-} Button;
-
 int fempty(char * fname){
   FILE * lect = fopen(fname, "r");
   int empty = 1;
@@ -39,15 +33,8 @@ int fileExists(char * fname){
   }
 }
 
-int main(){
-    SDL_Init(SDL_INIT_EVERYTHING);
-
-    Mix_Init(MIX_INIT_MP3);
-    Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 6, 1024);
-    Mix_Music * music = Mix_LoadMUS("../sound/name_choose.mp3");
-    Mix_PlayMusic(music, -1);
-
-    SDL_Window * window = SDL_CreateWindow("Highway to L2", 350, 150, WINDOW_WIDTH, WINDOW_HEIGHT, SDL_WINDOW_SHOWN);
+char * menu_interact(){
+    SDL_Window * window = SDL_CreateWindow("Highway to L2", 350, 150, WINDOW_WIDTH, WINDOW_HEIGHT, SDL_WINDOW_SHOWN | SDL_WINDOW_BORDERLESS);
     SDL_Renderer * renderer =  SDL_CreateRenderer(window, -1, SDL_RENDERER_PRESENTVSYNC);
 
     SDL_Surface *image = IMG_Load("../IMG/background_name.png");
@@ -69,7 +56,7 @@ int main(){
     nouv_partie.y = WINDOW_HEIGHT * 6 / 10;
     nouv_partie.w = 200;
     nouv_partie.h = 75;
-    nouv_partie.surface = IMG_Load("../IMG/newgame.png");
+    nouv_partie.surface = IMG_Load("../IMG/button/newgame.png");
     SDL_Texture *texture_nouv_partie = SDL_CreateTextureFromSurface(renderer, nouv_partie.surface);
     SDL_Rect buttonNouv_partie = { nouv_partie.x, nouv_partie.y, nouv_partie.w, nouv_partie.h };
     
@@ -82,7 +69,7 @@ int main(){
       continuer.surface = IMG_Load("../IMG/continue.png");
     }
     else{
-      continuer.surface = IMG_Load("../IMG/continue_dark.png");
+      continuer.surface = IMG_Load("../IMG/button/continue_dark.png");
     }
     SDL_Texture *texture_continuer = SDL_CreateTextureFromSurface(renderer, continuer.surface);
     SDL_Rect buttonContinuer = { continuer.x, continuer.y, continuer.w, continuer.h };
@@ -91,9 +78,12 @@ int main(){
     quitter.y = WINDOW_HEIGHT * 6 / 10 + 5;
     quitter.w = 200;
     quitter.h = 65;
-    quitter.surface = IMG_Load("../IMG/quit.png");
+    quitter.surface = IMG_Load("../IMG/button/quit.png");
     SDL_Texture *texture_quitter = SDL_CreateTextureFromSurface(renderer, quitter.surface);
     SDL_Rect buttonQuitter = { quitter.x, quitter.y, quitter.w, quitter.h };
+
+    char * player_name = malloc(sizeof(char)*TEXT_SIZE);
+    player_name = NULL;
     
     int x, y;
     int run = 1;
@@ -113,15 +103,14 @@ int main(){
                    SDL_GetMouseState(&x, &y);
                     if (x >= nouv_partie.x && x <= nouv_partie.x + nouv_partie.w && y >= nouv_partie.y && y <= nouv_partie.y + nouv_partie.h){
                       printf("Nouv_partie\n");
-                      run=0;
-                      printf("nom : %s\n", name());
-                      Mix_HaltMusic();
-                      Mix_CloseAudio();
+                      SDL_DestroyTexture(texture_continuer);
+                      SDL_DestroyTexture(texture_quitter);
+                      SDL_DestroyTexture(texture_nouv_partie);
                       SDL_DestroyTexture(texture_img);
+                      SDL_DestroyTexture(texture_background);
                       SDL_DestroyWindow(window);
-                      Mix_Quit();
-                      TTF_Quit();
-                      SDL_Quit();
+                      player_name = name();
+                      run = 0;
                     } 
                     else if((x >= continuer.x && x <= continuer.x + continuer.w && y >= continuer.y && y <= continuer.y + continuer.h) && (!fempty("../sauv/sauvegarde.txt") && fileExists("../sauv/sauvegarde.txt"))){
                       printf("Continuer\n");
@@ -143,13 +132,39 @@ int main(){
         SDL_RenderCopy(renderer, texture_img, NULL, &img_rect);
         SDL_RenderPresent(renderer);
     }
-
-    Mix_HaltMusic();
-    Mix_CloseAudio();
+    SDL_DestroyTexture(texture_continuer);
+    SDL_DestroyTexture(texture_quitter);
+    SDL_DestroyTexture(texture_nouv_partie);
     SDL_DestroyTexture(texture_img);
+    SDL_DestroyTexture(texture_background);
     SDL_DestroyWindow(window);
-    Mix_Quit();
-    TTF_Quit();
-    SDL_Quit();
-    return 0;
+    return player_name;
+}
+
+int menu(){
+  SDL_Init(SDL_INIT_EVERYTHING);
+
+  /* Initialisation de la piste audio de fond */
+  Mix_Init(MIX_INIT_MP3);
+  Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 6, 1024);
+  Mix_Music * music = Mix_LoadMUS("../sound/name_choose.mp3");
+  Mix_PlayMusic(music, -1);
+
+  /* Interactions du menu */
+  printf("%s\n", menu_interact()); 
+
+  /* Fermeture de la piste audio de fond */
+  printf("Fermeture audio...");
+  Mix_HaltMusic();
+  Mix_CloseAudio();
+  Mix_Quit();
+  printf("...OK?\n");
+
+  SDL_Quit();
+
+  return 0;
+}
+
+int main(){
+  menu();
 }

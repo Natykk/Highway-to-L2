@@ -9,6 +9,15 @@
 #include "entite.h"
 #include "menu_cpt.h"
 
+#define TEXT_SIZE 33
+
+typedef struct {
+  int x, y;
+  int w, h;
+  SDL_Surface* surface;
+} Button;
+
 char * name();
+char * menu_interact();
 
 #endif
