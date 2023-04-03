@@ -1,6 +1,6 @@
-# ProjetL2 : Roguelike
+# ProjetL2 : Highway to L2
 
-Bienvenue dans le README pour le projet de roguelike en SDL2 
+Bienvenue dans le README pour notre projet type roguelike en SDL2 nommé "Highway to L2". 
 
 ## Introduction
 
