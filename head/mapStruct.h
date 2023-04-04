@@ -10,6 +10,8 @@
 #define PORTE 2
 #define OBSTACLE 3
 #define PILIER 4
+#define PERSO 5
+#define MARCHAND 31
 // Mob entre 10 et 21
 #define DIM_ETAGE 5
 #define DIM_SALLE 25

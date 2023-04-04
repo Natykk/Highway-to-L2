@@ -3,7 +3,6 @@
 
 #include "mapStruct.h"
 
-#define MARCHAND 10
 
 /* Prototype des fonctions */
 t_salle * genererSalleBoss(t_salle * salleBoss);

@@ -15,6 +15,7 @@
 #include "../head/inventaire.h"
 #include "../head/sauvegarde.h"
 #include "../head/menu_cpt.h"
+#include "../head/name.h"
 int flip_map = 0;
 int coords[10][2];
 int NumEtage = 0;
@@ -382,14 +383,15 @@ int perso_attack(t_salle *map, int attaque, entite_t *posPers,SDL_Window* window
     int y = posPers->y;
     if (attaque)
     {
-        // printf("Vous attaquez !\n");
+
+        printf("Vous attaquez ! la salle ou il y a %d mob\n",map->nb_mobs);
         switch (posPers->dir)
         {
         case HAUT:
             if (map->dim[x][y - 1] >= 10 && map->dim[x][y - 1] <= 21)
             { // si il y a un ennemi sur la case du haut
                 map->mob[(map->dim[x][y - 1]) - 10]->vie -= 10;
-                // printf("Vous avez infligé 10 point de dégats au mob il lui reste %d !\n",map->mob[(map->dim[x][y-1])-10]->vie);
+                printf("Vous avez infligé 10 point de dégats au mob %s il lui reste %d !\n",map->mob[(map->dim[x][y-1])-10]->nom,map->mob[(map->dim[x][y-1])-10]->vie);
                 if (map->mob[(map->dim[x][y - 1]) - 10]->vie <= 0)
                 {
                     looter(map->mob[(map->dim[x][y - 1]) - 10], posPers);
@@ -407,7 +409,7 @@ int perso_attack(t_salle *map, int attaque, entite_t *posPers,SDL_Window* window
             if (map->dim[x][y + 1] >= 10 && map->dim[x][y + 1] <= 21)
             { // si il y a un ennemi sur la case du bas
                 map->mob[(map->dim[x][y + 1]) - 10]->vie -= 10;
-                // printf("Vous avez infligé 10 point de dégats au mob il lui reste %d !\n",map->mob[(map->dim[x][y+1])-10]->vie);
+                printf("Vous avez infligé 10 point de dégats au mob %s il lui reste %d !\n",map->mob[(map->dim[x][y + 1])-10]->nom,map->mob[(map->dim[x][y + 1])-10]->vie);
                 if (map->mob[(map->dim[x][y + 1]) - 10]->vie <= 0)
                 {
                     looter(map->mob[(map->dim[x][y + 1]) - 10], posPers);
@@ -417,7 +419,6 @@ int perso_attack(t_salle *map, int attaque, entite_t *posPers,SDL_Window* window
             }
             if(map->dim[x][y+1]==MARCHAND){
                 SDL_RenderClear(renderer);
-
                 afficher_menu(window, renderer,posPers,police);
             }
             break;
@@ -525,21 +526,23 @@ void interact(int attaque, t_salle *map, entite_t *posPers, SDL_Rect *rect, Uint
 {
     int x = posPers->x;
     int y = posPers->y;
-    int Idmob= rand()%map->nb_mobs;
+
+
     int i, j;
     int cheminX;
     int cheminY;
     float dist;
     Uint32 currentTime = SDL_GetTicks();
-    if (enemy_attack(map, posPers, rect) == 0 && attaque == 0)
-    { // si le mob n'attaque pas et que le joueur n'attaque pas
+    for(int Idmob=0;Idmob<map->nb_mobs;Idmob++){
+        printf("Mob N°%d Nom: %s \n",Idmob,map->mob[Idmob]->nom);
+        if (enemy_attack(map, posPers, rect) == 0 && attaque == 0){ // si le mob n'attaque pas et que le joueur n'attaque pas
         if (currentTime - (*lastTime) >= 500)
         { // si 1 seconde s'est écoulée
             // Idmob = rand()%map->nb_mobs;
             *lastTime = currentTime;
             if (map->nb_mobs > 0)
             {
-                while (distance(posPers, map->mob[Idmob]) <= 4)
+                if (distance(posPers, map->mob[Idmob]) <= 4)
                 {
 
                     for (i = 0; i < 20; i++)
@@ -591,6 +594,7 @@ void interact(int attaque, t_salle *map, entite_t *posPers, SDL_Rect *rect, Uint
     if (rect->w <= 0)
     {
         // printf("Vous êtes mort !\n");
+    }
     }
 }
 /*
@@ -680,8 +684,9 @@ void rendu(int map[][LONG_SALLE_BOSS], int tailleI, int tailleJ, SDL_Renderer *r
                 }
                 else
                 {
+                    
                     SDL_RenderCopyEx(renderer, tab_tex[9], NULL, &dstRect, 0, NULL, SDL_FLIP_NONE);
-                    // printf("Vie du mob : %d",map.mob[map.dim[x][y]-10].vie);
+                    
                 }
             }
             if (map[x][y] == PERSO)
@@ -727,16 +732,23 @@ void rendu(int map[][LONG_SALLE_BOSS], int tailleI, int tailleJ, SDL_Renderer *r
         // printf("\n");
     }
 }
-/*
+
 int main()
 {
+    SDL_Init(SDL_INIT_EVERYTHING);
+    entite_t *perso;
+    perso = creer_personnage(perso);
+    perso = init_inventaire_personnage(perso);
+    int Width = (TILE_SIZE * DIM_SALLE);
+    int Height = (TILE_SIZE * DIM_SALLE);
+    SDL_Window *window = SDL_CreateWindow("Highway to L2", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, Width, Height, 0); // On crée la fenêtre
+    SDL_Renderer *renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);        // On crée le renderer
+    menu(window,renderer,perso);
+
     int i;
     t_niv *niv = malloc(sizeof(t_niv));
     genererNiv(niv);
-    entite_t *perso;
     t_salle_boss *salle_boss;
-    perso = creer_personnage(perso);
-    perso = init_inventaire_personnage(perso);
     TTF_Init();
     TTF_Font *police = NULL;
     SDL_Color couleurNoire = {0, 0, 0};
@@ -745,12 +757,6 @@ int main()
     SDL_Rect MobRect;
     int frame;
     int attaque = 0;
-    SDL_Init(SDL_INIT_EVERYTHING);
-    int Width = (TILE_SIZE * DIM_SALLE);
-    int Height = (TILE_SIZE * DIM_SALLE);
-
-    SDL_Window *window = SDL_CreateWindow("Roguelike", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, Width, Height, 0); // On crée la fenêtre
-    SDL_Renderer *renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);        // On crée le renderer
 
     SDL_Texture *tab_tex[10] = {charge_tex(renderer, "../img/brick.png", 0),
                                 charge_tex(renderer, "../img/sol.jpg", 0),
@@ -853,6 +859,7 @@ int main()
                 case SDL_SCANCODE_TAB:
                     SDL_RenderClear(renderer);
                     inv(renderer, window, perso);
+                    SDL_RenderClear(renderer);
                     break;
                 }
                 break;
@@ -935,4 +942,3 @@ int main()
     SDL_DestroyWindow(window);     // On détruit la fenêtre
     SDL_Quit();                    // On quitte la SDL
 }
-*/

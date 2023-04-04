@@ -19,6 +19,6 @@ typedef struct {
 
 char * name(SDL_Window * win, SDL_Renderer * screen, entite_t * personnage);
 int menu_interact(SDL_Window * window, SDL_Renderer * renderer, entite_t * personnage);
-int menu(entite_t * personnage);
+int menu(SDL_Window * window, SDL_Renderer * renderer,entite_t * personnage);
 
 #endif

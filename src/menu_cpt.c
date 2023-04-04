@@ -287,16 +287,14 @@ int afficher_arbre_assassin(SDL_Window *window, SDL_Renderer *renderer, entite_t
         /*        Ajout des rectangles au bout des lignes pour les compétences        */
         /* -------------------------------------------------------------------------- */
 
-         
 
+        SDL_Rect rect1 = {WINDOW_WIDTH * 1 / 2 - TILE_SIZE / 2, WINDOW_HEIGHT * 1 / 6 - TILE_SIZE / 2, TAILLE_CASE, TAILLE_CASE};
         SDL_Rect rect2 = {WINDOW_WIDTH * 1 / 4 - TILE_SIZE / 2, WINDOW_HEIGHT * 1 / 3 - TILE_SIZE / 2, TAILLE_CASE, TAILLE_CASE};
         SDL_Rect rect3 = {WINDOW_WIDTH * 3 / 4 - TILE_SIZE / 2, WINDOW_HEIGHT * 1 / 3 - TILE_SIZE / 2, TAILLE_CASE, TAILLE_CASE};
-
         SDL_Rect rect4 = {WINDOW_WIDTH * 1 / 8 - TILE_SIZE / 2, WINDOW_HEIGHT * 1 / 2 - TILE_SIZE / 2, TAILLE_CASE, TAILLE_CASE};
         SDL_Rect rect5 = {WINDOW_WIDTH * 3 / 8 - TILE_SIZE / 2, WINDOW_HEIGHT * 1 / 2 - TILE_SIZE / 2, TAILLE_CASE, TAILLE_CASE};
         SDL_Rect rect6 = {WINDOW_WIDTH * 5 / 8 - TILE_SIZE / 2, WINDOW_HEIGHT * 1 / 2 - TILE_SIZE / 2, TAILLE_CASE, TAILLE_CASE};
         SDL_Rect rect7 = {WINDOW_WIDTH * 7 / 8 - TILE_SIZE / 2, WINDOW_HEIGHT * 1 / 2 - TILE_SIZE / 2, TAILLE_CASE, TAILLE_CASE};
-
         SDL_Rect rect8 = {WINDOW_WIDTH * 1 / 4 - TILE_SIZE / 2, WINDOW_HEIGHT * 2 / 3 - TILE_SIZE / 2, TAILLE_CASE, TAILLE_CASE};
         SDL_Rect rect9 = {WINDOW_WIDTH * 3 / 4 - TILE_SIZE / 2, WINDOW_HEIGHT * 2 / 3 - TILE_SIZE / 2, TAILLE_CASE, TAILLE_CASE};
 
@@ -316,7 +314,7 @@ int afficher_arbre_assassin(SDL_Window *window, SDL_Renderer *renderer, entite_t
         /*                          Affichage des competences                         */
         /* -------------------------------------------------------------------------- */
 
-        afficher_comp(assassin->competence[0]->name_img, renderer, rect1);
+        //afficher_comp(assassin->competence[0]->name_img, renderer, rect1);
 
         afficher_comp(assassin->competence[1]->name_img, renderer, rect2);
         afficher_comp(assassin->competence[2]->name_img, renderer, rect3);
@@ -1245,12 +1243,7 @@ void afficher_menu(SDL_Window *window, SDL_Renderer *renderer, entite_t *entite,
  * @param competence
  * @return int
  */
-int afficher_competence_SDL(SDL_Window *window,
-                            SDL_Renderer *renderer,
-                            char *path_comp,
-                            entite_t *entite,
-                            t_competence *competence,
-                            t_arbre *arbre,TTF_Font* font)
+int afficher_competence_SDL(SDL_Window *window,SDL_Renderer *renderer,char *path_comp,entite_t *entite,t_competence *competence,t_arbre *arbre,TTF_Font* font)
 {
     int x, y;
 

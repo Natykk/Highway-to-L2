@@ -41,10 +41,10 @@ typedef enum{AUCUN=-1, //!< Aucune direction
  */
 typedef struct entite_s {
     char* nom;
-    float vie;    
-    float degats;
-    float vitesse_att;
-    float vitesse_depl;
+    int vie;    
+    int degats;
+    int vitesse_att;
+    int vitesse_depl;
     int perim_detect;
     int x;
     int y;

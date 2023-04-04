@@ -5,8 +5,6 @@
 #include <SDL2/SDL_ttf.h>
 #include <SDL2/SDL_image.h>
 #include <SDL2/SDL_mixer.h>
-#define WINDOW_WIDTH 700
-#define WINDOW_HEIGHT 600
 // Structure pour représenter un bouton
 
 #include "../head/name.h"
@@ -72,7 +70,7 @@ int menu_interact(SDL_Window * window, SDL_Renderer * renderer, entite_t * perso
     }
     SDL_Texture *texture_continuer = SDL_CreateTextureFromSurface(renderer, continuer.surface);
     SDL_Rect buttonContinuer = { continuer.x, continuer.y, continuer.w, continuer.h };
-
+    
     quitter.x = continuer.x + continuer.w + 10; 
     quitter.y = WINDOW_HEIGHT * 6 / 10 + 5;
     quitter.w = 200;
@@ -145,7 +143,7 @@ int menu_interact(SDL_Window * window, SDL_Renderer * renderer, entite_t * perso
     return 1;
 }
 
-int menu(entite_t * personnage){
+int menu(SDL_Window* window ,SDL_Renderer* renderer ,entite_t * personnage){
   SDL_Init(SDL_INIT_EVERYTHING);
 
   /* Initialisation de la piste audio de fond */
@@ -154,8 +152,6 @@ int menu(entite_t * personnage){
   Mix_Music * music = Mix_LoadMUS("../sound/name_choose.mp3");
   Mix_PlayMusic(music, -1);
 
-  SDL_Window * window = SDL_CreateWindow("Highway to L2", 350, 150, WINDOW_WIDTH, WINDOW_HEIGHT, SDL_WINDOW_SHOWN | SDL_WINDOW_BORDERLESS);
-  SDL_Renderer * renderer =  SDL_CreateRenderer(window, -1, SDL_RENDERER_PRESENTVSYNC);
   
   /* Interactions du menu */
   menu_interact(window, renderer, personnage);
@@ -167,30 +163,6 @@ int menu(entite_t * personnage){
   Mix_Quit();
   printf("...OK?\n");
 
-  SDL_DestroyWindow(window);
-  SDL_Quit();
 
   return 0;
-}
-
-
-int main(){
-  t_arbre * mage;
-  init_arbre(&mage, cpt_mage, MAGE);
-  entite_t * personnage = creer_personnage(personnage);
-  personnage = init_inventaire_personnage(personnage);
-  menu(personnage);
-  personnage->inventaire->nb[4] = 100;
-  competence_debloquer(personnage, &cpt_mage[0], mage);
-  afficher_entite(personnage);
-  sauvegarde(personnage, 1);
-
-  detruire_personnage(&personnage);
-
-  personnage = creer_personnage(personnage);
-  personnage = init_inventaire_personnage(personnage);
-  menu(personnage);
-  
-
-  afficher_entite(personnage);
 }
