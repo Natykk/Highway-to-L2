@@ -5,7 +5,12 @@
 #include "../head/sauvegarde.h"
 #include "../head/arbre.h"
 #include "../head/inventaire.h"
-
+/**
+ * \fn int one_next_cpt_unlock(t_competence *competence)
+ * @brief Renvoie l'indice de la première compétence suivante qui n'est pas acquise
+ * @param competence une compétence
+ * @return l'indice de la première compétence suivante qui n'est pas acquise
+*/
 int one_next_cpt_unlock(t_competence *competence)
 {
     int i;
@@ -18,7 +23,13 @@ int one_next_cpt_unlock(t_competence *competence)
     }
     return -1;
 }
-
+/**
+ * \fn int cpt_aquise(FILE *sauv, t_arbre *arbre)
+ * @brief Sauvegarde les compétences acquises dans le fichier sauvegarde.txt
+ * @param sauv le fichier sauvegarde.txt
+ * @param arbre l'arbre de compétences
+ * @return 1 si la sauvegarde s'est bien déroulée, 0 sinon
+*/
 int cpt_aquise(FILE *sauv, t_arbre *arbre)
 {
     int ind = -1;
@@ -101,7 +112,13 @@ int sauvegarde(entite_t *personnage, int num_etage)
     }
     return 1;
 }
-
+/**
+ * \fn int appliquer(entite_t *personnage, t_competence *competence)
+ * @brief Applique les effets d'une compétence sur un personnage
+ * @param personnage le personnage
+ * @param competence la compétence
+ * @return 1 si l'application s'est bien déroulée, 0 sinon
+*/
 int appliquer(entite_t *personnage, t_competence *competence)
 {
     personnage->degats *= competence->buff.buff_degat;
@@ -111,7 +128,12 @@ int appliquer(entite_t *personnage, t_competence *competence)
     personnage->perim_detect += competence->buff.perim_detect - 1;
     return 1;
 }
-
+/**
+ * \fn int chargement(entite_t **personnage)
+ * @brief Charge les données d'une sauvegarde dans un personnage
+ * @param personnage le personnage
+ * @return 1 si le chargement s'est bien déroulé, 0 sinon
+*/
 int chargement(entite_t **personnage)
 {
     FILE *f_sauv = fopen("../sauv/sauvegarde.txt", "r");

@@ -10,7 +10,12 @@
 #include "../head/name.h"
 #include "../head/inventaire.h"
 #include "../head/sauvegarde.h"
-
+/**
+ * \fn int fempty(char * fname)
+ * @brief Vérifie si un fichier est vide
+ * @param fname le nom du fichier
+ * @return retourne 1 si le fichier est vide, 0 sinon
+*/
 int fempty(char * fname){
   FILE * lect = fopen(fname, "r");
   int empty = 1;
@@ -23,7 +28,12 @@ int fempty(char * fname){
   }
   return empty;
 }
-
+/**
+ * \fn int fileExists(char * fname)
+ * @brief Vérifie si un fichier existe
+ * @param fname le nom du fichier
+ * @return retourne 1 si le fichier existe, 0 sinon
+*/
 int fileExists(char * fname){
   if(!access(fname, F_OK)){
     return 1;
@@ -32,7 +42,14 @@ int fileExists(char * fname){
     return 0;
   }
 }
-
+/**
+ * \fn int menu_interact(SDL_Window * window, SDL_Renderer * renderer, entite_t * personnage)
+ * @brief Affiche le menu et gère les interactions avec celui-ci
+ * @param window la fenêtre
+ * @param renderer le renderer
+ * @param personnage le personnage
+ * @return retourne 1 si le joueur a choisi de quitter, 0 sinon
+*/
 int menu_interact(SDL_Window * window, SDL_Renderer * renderer, entite_t * personnage){
     SDL_Surface *image = IMG_Load("../IMG/background_name.png");
     SDL_Texture *texture_background = SDL_CreateTextureFromSurface(renderer, image);
@@ -142,7 +159,15 @@ int menu_interact(SDL_Window * window, SDL_Renderer * renderer, entite_t * perso
     SDL_DestroyTexture(texture_background);
     return 1;
 }
-
+/**
+ * \fn int menu(SDL_Window* window ,SDL_Renderer* renderer ,entite_t * personnage)
+ * @brief Fonction qui initialise le menu
+ * @param window La fenêtre
+ * @param renderer Le renderer
+ * @param personnage Le personnage
+ * @return 0
+ * 
+*/
 int menu(SDL_Window* window ,SDL_Renderer* renderer ,entite_t * personnage){
   SDL_Init(SDL_INIT_EVERYTHING);
 

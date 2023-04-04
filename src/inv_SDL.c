@@ -14,12 +14,21 @@
 #define MAP_HEIGHT 25
 
 /**
- *\brief Affiche l'inventaire d'une entité donnée en utilisant SDL_Renderer.Cette fonction affiche l'inventaire de l'entité donnée en créant une grille rectangulaire d'articles et de leurs quantités.
- *\param renderer Pointeur vers un objet SDL_Renderer utilisé pour afficher l'inventaire à l'écran.
- *\param window Pointeur vers un objet SDL_Window représentant la fenêtre dans laquelle l'inventaire est affiché.
- *\param pers Pointeur vers un objet entite_t représentant l'entité dont l'inventaire est affiché.
- *\return 0 si la fonction s'exécute avec succès.
- **/
+ * \fn void affichage(SDL_Renderer *renderer, SDL_Window *window, entite_t *pers, int num_rectangles, int rect_width, int rect_height, int rect_spacing, TTF_Font *font, int total_width, int x_start, SDL_Texture *tab_tex[17])
+ * @brief Affiche l'inventaire
+ * @param renderer le renderer
+ * @param window la fenetre
+ * @param pers le personnage
+ * @param num_rectangles le nombre d'items dans l'inventaire
+ * @param rect_width la largeur des rectangles contenant les items
+ * @param rect_height la hauteur des rectangles contenant les items
+ * @param rect_spacing l'espace entre les items
+ * @param font la police
+ * @param total_width la largeur totale de l'inventaire
+ * @param x_start la position de départ en x
+ * @param tab_tex le tableau de textures
+ * 
+*/
 void affichage(SDL_Renderer *renderer, SDL_Window *window, entite_t *pers, int num_rectangles, int rect_width, int rect_height, int rect_spacing, TTF_Font *font, int total_width, int x_start, SDL_Texture *tab_tex[17])
 {
     int i;
@@ -62,6 +71,14 @@ void affichage(SDL_Renderer *renderer, SDL_Window *window, entite_t *pers, int n
         SDL_DestroyTexture(text_texture); // libère la texture
     }
 }
+/**
+ * \fn int inv(SDL_Renderer *renderer, SDL_Window *window, entite_t *pers)
+ * @brief Affiche l'inventaire
+ * @param renderer le renderer
+ * @param window la fenetre
+ * @param pers le personnage
+ * @return 0 si tout s'est bien passé
+*/
 int inv(SDL_Renderer *renderer, SDL_Window *window, entite_t *pers)
 {
     TTF_Init();

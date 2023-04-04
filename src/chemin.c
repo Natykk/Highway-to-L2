@@ -4,18 +4,32 @@
 #include "../head/chemin.h"
 
 typedef struct element {int nombre; struct element* suivant;} t_element;
-t_element* tete;
-t_element* queue;
+t_element* tete; //<! Pointeur sur le premier élément de la file
+t_element* queue; //<! Pointeur sur le dernier élément de la file
 
+/**
+ * \fn void initfile(void)
+ * @brief Initialise la file
+ * 
+*/
 void initfile(void){
 	tete = NULL;
 	queue = NULL;
 }
-
+/**
+ * \fn int filevide(void)
+ * @brief Renvoie VRAI si la file est vide, FAUX sinon
+ * @return int
+*/
 int filevide(void){
 	return tete == NULL;
 }
-
+/**
+ * \fn void ajouter(int v)
+ * @brief Ajoute un élément à la file
+ * @param v un entier quelquonque
+ * 
+*/
 void ajouter(int v){
 t_element* nouv;
 
@@ -31,7 +45,11 @@ else{
 }
 queue = nouv; 	
 }
-
+/**
+ * \fn void retirer(int* v)
+ * @brief Retire un élément de la file
+ * @param v un entier quelquonque
+*/
 void retirer(int* v){
 t_element* premier;
 
@@ -42,6 +60,11 @@ if(!filevide()){
 	free(premier);
 }
 }
+/**
+ * \fn void afficher_file(void)
+ * @brief Affiche la file
+ * 
+*/
 void afficher_file(void){
     t_element* courant;
     t_element* courant2;
@@ -61,18 +84,26 @@ void afficher_file(void){
     }
     //printf("\n");
 }
-void afficher_lab(int lab[9][9]){
-    for(int i = 0; i < 8; i++) {
-        for(int j = 0; j < 8; j++) {
-            //printf("%d ", lab[i][j]);
-        }
-        //printf("\n");
-    }
-}
+/**
+ * \fn int valides(int i, int j)
+ * @brief Renvoie VRAI si i et j désignent une case de la matrice
+ * @param i coordonnée x
+ * @param j coordonnée y
+ * @return renvoie VRAI si i et j désignent une case de la matrice
+*/
 int valides(int i, int j){
 // renvoie VRAI si i et j désignent une case de la matrice
 	return(i>=0 && i<8 &&j>=0 && j<8);
 }
+/**
+ * \fn void marquer_chemin(int lab[9][9],int x, int y,int coords[20][2])
+ * @brief Marque le chemin le plus court a partir de lab[x][y]
+ * @param lab matrice du labyrinthe
+ * @param x coordonnée x
+ * @param y coordonnée y
+ * @param coords tableau de coordonnées
+ * 
+*/
 void marquer_chemin(int lab[9][9],int x, int y,int coords[20][2]){
 // Marque le chemin le plus court a partir de lab[x][y]
 // Renvoie sa taille dans lgmin
@@ -92,6 +123,17 @@ void marquer_chemin(int lab[9][9],int x, int y,int coords[20][2]){
     coords[Maxmarq-marq][1]=y;
     //printf("\n\n\n");
 }
+/**
+ * \fn int chercher_chemin(int xd, int yd, int xa, int ya,int lab[9][9],int coords[20][2])
+ * @brief Cherche le chemin D -> A le plus court avec une file 
+ * @param xd coordonnée x de départ
+ * @param yd coordonnée y de départ
+ * @param xa coordonnée x d'arrivée
+ * @param ya coordonnée y d'arrivée
+ * @param lab matrice du labyrinthe
+ * @param coords tableau de coordonnées
+ * @return renvoie VRAI si un chemin existe, FAUX sinon
+*/
 int chercher_chemin(int xd, int yd, int xa, int ya,int lab[9][9],int coords[20][2]){
 // Cherche le chemin D -> A le plus court avec une file
 // Renvoie VRAI si un chemin existe, FAUX sinon

@@ -78,7 +78,14 @@ t_competence cpt_archer[NB_CPT]={
     {non_acquis, "Salve Ultime", "L'archer débloque son plein potentiel pour rendre ses flèches plus meurtrières. Effet : Augmente énormement la vitesse d'attaque et de déplacement.", {NO_IMPROVE, NO_IMPROVE, ULTRA_IMPROVE, ULTRA_IMPROVE, NO_IMPROVE}, NULL, 3, NULL, 0, NULL, NULL,3, 5},
 };
 
-
+/**
+ * \fn init_obj_necessaires(t_competence* competence, t_classe typeClasse, int indice)
+ * \brief Fonction qui initialise les objets nécessaires pour débloquer une compétence
+ * \param competence La compétence à initialiser
+ * \param typeClasse Le type de classe de la compétence
+ * \param indice L'indice de la compétence dans le tableau de compétence
+ * \return 0 si tout s'est bien passé, -1 sinon
+*/
 int init_obj_necessaires(t_competence* competence, t_classe typeClasse, int indice){
     competence->obj_necessaires = malloc(sizeof(objet_inv_t));
     competence->obj_necessaires->nb = malloc(sizeof(int) * competence->taille_tab_obj_nec);
@@ -391,7 +398,12 @@ int init_obj_necessaires(t_competence* competence, t_classe typeClasse, int indi
     return 1;
 }
 
-//Met le nom de la compétence en question à "débloqué"
+/**
+ * \fn int changer_nomImgCpt(t_competence * competence)
+ * \brief Met le nom de la compétence en question à "débloqué"
+ * \param competence La compétence dont on veut changer le nom
+ * \return 1 si tout s'est bien passé, 0 sinon
+*/
 int changer_nomImgCpt(t_competence * competence){
     int i;
     for(i=0; i<strlen(competence->name_img); i++);
@@ -404,7 +416,14 @@ int changer_nomImgCpt(t_competence * competence){
     return 1;
 }
 
-//Met le nom des compétences à "bloqué" (l=lock);
+
+/**
+ * \fn int remplissage_nomImgCpt(t_competence **competences, t_classe typeClasse)
+ * \brief Met le nom des compétences à "bloqué" (l=lock)
+ * \param competences Les compétences dont on veut changer le nom
+ * \param typeClasse Le type de classe dont on veut changer le nom
+ * \return 1 si tout s'est bien passé, 0 sinon
+*/
 int remplissage_nomImgCpt(t_competence **competences, t_classe typeClasse){  
     printf("Attribution du nom\n");
     int i, j, k;
@@ -430,7 +449,13 @@ int remplissage_nomImgCpt(t_competence **competences, t_classe typeClasse){
 
     return 1;
 }
-
+/**
+ * \fn int init_competences(t_competence ** competences, t_classe typeClasse)
+ * \brief Initialise les compétences
+ * \param competences Les compétences à initialiser
+ * \param typeClasse Le type de classe dont on veut initialiser les compétences
+ * \return 1 si tout s'est bien passé, 0 sinon
+*/
 int init_competences(t_competence ** competences, t_classe typeClasse){
     int i, j, k;
     int branche_parcourus=0;
@@ -507,7 +532,11 @@ int init_competences(t_competence ** competences, t_classe typeClasse){
 
     return 1;
 }
-
+/**
+ * \fn void aff_competence(t_competence competence)
+ * \brief Affiche les informations d'une compétence
+ * \param competence La compétence à afficher
+*/
 void aff_competence(t_competence competence){
     printf("\n");
     if(competence.competence_acquise == non_acquis){

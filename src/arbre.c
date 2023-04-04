@@ -6,7 +6,12 @@
 #include "../head/arbre.h"
 #include "../head/inventaire.h"
 
-
+/**
+ * \fn void aff_classe (t_arbre * arbre)
+ * \brief Affiche la classe de l'arbre
+ * \param arbre : arbre dont on veut afficher la classe
+ * \return void
+*/
 void aff_classe(t_arbre * arbre){
     int i;
     switch(arbre->classe){
@@ -20,7 +25,12 @@ void aff_classe(t_arbre * arbre){
         aff_competence(*arbre->competence[i]);
     }
 }
-
+/**
+ * \fn int detruire_arbre(t_arbre ** arbre)
+ * \brief Désalloue la mémoire de l'arbre
+ * \param arbre : arbre dont on veut désallouer la mémoire
+ * \return 0 si tout s'est bien passé, 1 sinon
+*/
 int detruire_arbre(t_arbre ** arbre){
     int i, j;
     switch((*arbre)->classe){
@@ -81,7 +91,14 @@ int detruire_arbre(t_arbre ** arbre){
     return 0;
 }
 
-
+/**
+ * \fn ini init_arbre(t_arbre ** arbre, t_competence *competences, t_classe typeClasse)
+ * \brief Initialise l'arbre de compétences
+ * \param arbre : arbre à initialiser
+ * \param competences : tableau de compétences
+ * \param typeClasse : type de classe de l'arbre
+ * \return 0 si tout s'est bien passé, 1 sinon
+ */
 int init_arbre(t_arbre ** arbre, t_competence *competences, t_classe typeClasse){
     (*arbre) = malloc(sizeof(t_arbre));
     (*arbre)->classe = typeClasse;
@@ -98,7 +115,12 @@ int init_arbre(t_arbre ** arbre, t_competence *competences, t_classe typeClasse)
 
     return 0;
 }
-
+/**
+ * \fn int one_preced_cpt_debloq(t_competence * competence)
+ * \brief Vérifie si une compétence a au moins une compétence précédente débloquée
+ * \param competence : compétence dont on veut vérifier les précédentes
+ * \return 1 si au moins une compétence précédente est débloquée, 0 sinon
+*/
 int one_preced_cpt_debloq(t_competence * competence){
     int i;
     if(competence->nb_prec == 0){
@@ -112,7 +134,13 @@ int one_preced_cpt_debloq(t_competence * competence){
     return 0;
    
 }
-
+/**
+ * \fn int cpt_in_arbre_joueur(entite_t * personnage, t_competence * competence)
+ * \brief Vérifie si une compétence est dans l'arbre du joueur
+ * \param personnage : personnage dont on veut vérifier l'arbre
+ * \param competence : compétence dont on veut vérifier l'appartenance à l'arbre
+ * \return 1 si la compétence est dans l'arbre du joueur, 0 sinon
+*/
 int cpt_in_arbre_joueur(entite_t * personnage, t_competence * competence){
     if(personnage->arbre != NULL){
         for(int i=0; i<NB_CPT; i++){
@@ -123,7 +151,14 @@ int cpt_in_arbre_joueur(entite_t * personnage, t_competence * competence){
     }
     return 0;
 }
-
+/**
+ * \fn int peut_debloquer_cpt(entite_t * personnage, t_competence * competence, t_arbre * arbre_cpt)
+ * \brief Vérifie si une compétence peut être débloquée
+ * \param personnage : personnage dont on veut vérifier l'arbre
+ * \param competence : compétence dont on veut vérifier la possibilité de déblocage
+ * \param arbre_cpt : arbre de compétences du joueur
+ * \return 1 si la compétence peut être débloquée, 0 sinon
+*/
 int peut_deploquer_cpt(entite_t * personnage, t_competence * competence, t_arbre * arbre_cpt){
     int i, ind_obj;
     
@@ -154,7 +189,14 @@ int peut_deploquer_cpt(entite_t * personnage, t_competence * competence, t_arbre
         return -4;
     }
 }
-
+/**
+ * \fn int competence_debloquer(entite_t * personnage, t_competence * competence, t_arbre * arbre_cpt)
+ * \brief Débloque une compétence
+ * \param personnage : personnage dont on veut débloquer la compétence
+ * \param competence : compétence à débloquer
+ * \param arbre_cpt : arbre de compétences du joueur
+ * \return 0 si la compétence a été débloquée, -1 si la compétence n'a pas pu être débloquée (aucune compétence précédente n'est acquise), -2 si la compétence n'a pas pu être débloquée (pas assez de ressources dans l'inventaire), -3 si la compétence n'a pas pu être débloquée (compétence d'un autre arbre), -4 si la compétence n'a pas pu être débloquée (autre raison), -5 si la compétence n'a pas pu être débloquée (étage déjà débloqué)
+*/
 int competence_debloquer(entite_t * personnage, t_competence * competence, t_arbre * arbre_cpt){
     int ind_obj, i;
     if(arbre_cpt->competence[0] == competence){

@@ -7,7 +7,15 @@
 
 #include "../head/name.h"
 
-
+/**
+ * \fn char * name(SDL_Window * win, SDL_Renderer * screen, entite_t * personnage)
+ * @brief Affiche le menu et gère les interactions textuelle avec celui-ci
+ * @param win la fenêtre
+ * @param screen le renderer
+ * @param personnage le personnage
+ * @return retourne le nom du personnage
+ * @return retourne NULL si le joueur a choisi de quitter ou si une erreur est survenue sinon retourne le nom du personnage
+*/
 char * name(SDL_Window * win, SDL_Renderer * screen, entite_t * personnage){
     TTF_Init();
 

@@ -5,7 +5,11 @@
 
 #define BOSS 10 //Boss : à enlever quand boss créés
 #define SPAWN 10 //Lieu de SPAWN dans la salle du boss : à enlever ?
-
+/**
+ * \fn void afficher_salle_boss(t_salle * salle)
+ * @brief Affiche la salle du boss dans la console
+ * @param salle la salle du boss
+*/
 void afficher_salle_boss(t_salle * salle){
     int i, j;
     for(i=0; i<LARG_SALLE_BOSS; i++){
@@ -21,7 +25,12 @@ void afficher_salle_boss(t_salle * salle){
         printf("\n");
     }
 }
-
+/**
+ * \fn t_salle * genererSalleBoss(t_salle * salleBoss)
+ * @brief Génère la salle du boss
+ * @param salleBoss la salle du boss
+ * @return la salle du boss
+*/
 t_salle * genererSalleBoss(t_salle * salleBoss){
     salleBoss = malloc(sizeof(t_salle));
     salleBoss->nb_mobs=0;
@@ -46,12 +55,21 @@ t_salle * genererSalleBoss(t_salle * salleBoss){
     }
     return salleBoss;
 }
-
+/**
+ * \fn void detruireSalleBoss(t_salle ** salleBoss)
+ * @brief Détruit la salle du boss
+ * @param salleBoss pointeur sur la salle du boss
+*/
 void detruireSalleBoss(t_salle ** salleBoss){
     free(*salleBoss);
     *salleBoss=NULL;
 }
-
+/**
+ * \fn t_salle * genererSalleMarchand(t_salle * salleMarchand)
+ * @brief Génère la salle du marchand
+ * @param salleMarchand la salle du marchand
+ * @return la salle du marchand
+*/
 t_salle * genererSalleMarchand(t_salle * salleMarchand){
     salleMarchand = malloc(sizeof(t_salle));
     salleMarchand->nb_mobs=0;

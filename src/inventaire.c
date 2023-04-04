@@ -11,7 +11,12 @@
  * @version 1.0
  * @date 31/01/2023
  */
-
+/**
+ * \fn afficher_inventaire(entite_t * entite)
+ * @brief Fonction qui permet d'afficher l'inventaire d'une entite
+ * @param entite
+ * 
+*/
 void afficher_inventaire(entite_t * entite) {
     for(int i = 0; i < entite->place_inv; i++) {
         printf("{%s,%d} \n", entite->inventaire->objet[i].nom, entite->inventaire->nb[i]);
@@ -170,9 +175,4 @@ entite_t* init_inventaire_monstre(entite_t * monstre) {
     }
 }
 
-/**
- * @brief Test de l'inventaire avec utilisation des primitives
- * et des structures de données liées aux objets.
- * @return int 
- */
 
