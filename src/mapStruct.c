@@ -502,15 +502,19 @@ int detruireNiv(t_niv ** niveau){
  * \brief Fonction principale qui génère un niveau et le détruit.
  * 
 */
+/*
 int main(){
     int i, j;
+    srand(time(NULL));
     t_etage * etage = malloc(sizeof(t_etage));
-    for(int gen=0; gen<10; gen++){
+    //for(int gen=0; gen<10; gen++){
     etage->nb_salle = 10;
     genererEtage(etage);
     afficher_etage(etage);
-    }
+    afficher_salle_etage(etage);
+    //}
 
     free(etage);
     etage=NULL;
 }
+*/
