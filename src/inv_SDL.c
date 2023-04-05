@@ -1,11 +1,11 @@
 #include <stdio.h>
 #include <stdbool.h>
 #define SDL_MAIN_HANDLED
-#include </home/remy/SDL2/include/SDL2/SDL.h>
-#include </home/remy/SDL2/include/SDL2/SDL_timer.h>
-#include </home/remy/SDL2/include/SDL2/SDL_image.h>
-#include </home/remy/SDL2/include/SDL2/SDL_mixer.h>
-#include </home/remy/SDL2/include/SDL2/SDL_ttf.h>
+#include <SDL2/SDL.h>
+#include <SDL2/SDL_timer.h>
+#include <SDL2/SDL_image.h>
+#include <SDL2/SDL_mixer.h>
+#include <SDL2/SDL_ttf.h>
 #include "../head/entite.h"
 
 #define TILE_SIZE 32
@@ -85,71 +85,71 @@ int inv(SDL_Renderer *renderer, SDL_Window *window, entite_t *pers)
 
     SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
     // on charge les textures des images de l'inventaire
-    SDL_Surface *Cailloux_surf = IMG_Load("../IMG/items/Cailloux.png");
+    SDL_Surface *Cailloux_surf = IMG_Load("../img/items/Cailloux.png");
     SDL_Texture *Cailloux_Tex = SDL_CreateTextureFromSurface(renderer, Cailloux_surf);
     SDL_FreeSurface(Cailloux_surf);
 
-    SDL_Surface *Coeur_de_Diable_surf = IMG_Load("../IMG/items/Coeur_de_Diable.png");
+    SDL_Surface *Coeur_de_Diable_surf = IMG_Load("../img/items/Coeur_de_Diable.png");
     SDL_Texture *Coeur_de_Diable_Tex = SDL_CreateTextureFromSurface(renderer, Coeur_de_Diable_surf);
     SDL_FreeSurface(Coeur_de_Diable_surf);
 
-    SDL_Surface *Corne_de_Diablotin_surf = IMG_Load("../IMG/items/Corne_de_Diablotin.png");
+    SDL_Surface *Corne_de_Diablotin_surf = IMG_Load("../img/items/Corne_de_Diablotin.png");
     SDL_Texture *Corne_de_Diablotin_Tex = SDL_CreateTextureFromSurface(renderer, Corne_de_Diablotin_surf);
     SDL_FreeSurface(Corne_de_Diablotin_surf);
 
-    SDL_Surface *Croquette_surf = IMG_Load("../IMG/items/Croquette.png");
+    SDL_Surface *Croquette_surf = IMG_Load("../img/items/Croquette.png");
     SDL_Texture *Croquette_Tex = SDL_CreateTextureFromSurface(renderer, Croquette_surf);
     SDL_FreeSurface(Croquette_surf);
 
-    SDL_Surface *Fourrure_surf = IMG_Load("../IMG/items/Fourrure.png");
+    SDL_Surface *Fourrure_surf = IMG_Load("../img/items/Fourrure.png");
     SDL_Texture *Fourrure_Tex = SDL_CreateTextureFromSurface(renderer, Fourrure_surf);
     SDL_FreeSurface(Fourrure_surf);
 
-    SDL_Surface *Green_Goo_surf = IMG_Load("../IMG/items/Green_Goo.png");
+    SDL_Surface *Green_Goo_surf = IMG_Load("../img/items/Green_Goo.png");
     SDL_Texture *Green_Goo_Tex = SDL_CreateTextureFromSurface(renderer, Green_Goo_surf);
     SDL_FreeSurface(Green_Goo_surf);
 
-    SDL_Surface *Grey_Goo_surf = IMG_Load("../IMG/items/Grey_Goo.png");
+    SDL_Surface *Grey_Goo_surf = IMG_Load("../img/items/Grey_Goo.png");
     SDL_Texture *Grey_Goo_Tex = SDL_CreateTextureFromSurface(renderer, Grey_Goo_surf);
     SDL_FreeSurface(Grey_Goo_surf);
 
-    SDL_Surface *Griffe_surf = IMG_Load("../IMG/items/Griffe.png");
+    SDL_Surface *Griffe_surf = IMG_Load("../img/items/Griffe.png");
     SDL_Texture *Griffe_Tex = SDL_CreateTextureFromSurface(renderer, Griffe_surf);
     SDL_FreeSurface(Griffe_surf);
 
-    SDL_Surface *Grimoire_surf = IMG_Load("../IMG/items/Grimoire.png");
+    SDL_Surface *Grimoire_surf = IMG_Load("../img/items/Grimoire.png");
     SDL_Texture *Grimoire_Tex = SDL_CreateTextureFromSurface(renderer, Grimoire_surf);
     SDL_FreeSurface(Grimoire_surf);
 
-    SDL_Surface *lance_surf = IMG_Load("../IMG/items/lance.png");
+    SDL_Surface *lance_surf = IMG_Load("../img/items/lance.png");
     SDL_Texture *lance_Tex = SDL_CreateTextureFromSurface(renderer, lance_surf);
     SDL_FreeSurface(lance_surf);
 
-    SDL_Surface *lance_pierre_surf = IMG_Load("../IMG/items/lance_pierre.png");
+    SDL_Surface *lance_pierre_surf = IMG_Load("../img/items/lance_pierre.png");
     SDL_Texture *lance_pierre_Tex = SDL_CreateTextureFromSurface(renderer, lance_pierre_surf);
     SDL_FreeSurface(lance_pierre_surf);
 
-    SDL_Surface *Massue_surf = IMG_Load("../IMG/items/Massue.png");
+    SDL_Surface *Massue_surf = IMG_Load("../img/items/Massue.png");
     SDL_Texture *Massue_Tex = SDL_CreateTextureFromSurface(renderer, Massue_surf);
     SDL_FreeSurface(Massue_surf);
 
-    SDL_Surface *Or_surf = IMG_Load("../IMG/items/Or.png");
+    SDL_Surface *Or_surf = IMG_Load("../img/items/Or.png");
     SDL_Texture *Or_Tex = SDL_CreateTextureFromSurface(renderer, Or_surf);
     SDL_FreeSurface(Or_surf);
 
-    SDL_Surface *Pioche_surf = IMG_Load("../IMG/items/Pioche.png");
+    SDL_Surface *Pioche_surf = IMG_Load("../img/items/Pioche.png");
     SDL_Texture *Pioche_Tex = SDL_CreateTextureFromSurface(renderer, Pioche_surf);
     SDL_FreeSurface(Pioche_surf);
 
-    SDL_Surface *Queue_de_Diablotin_surf = IMG_Load("../IMG/items/Queue_de_Diablotin.png");
+    SDL_Surface *Queue_de_Diablotin_surf = IMG_Load("../img/items/Queue_de_Diablotin.png");
     SDL_Texture *Queue_de_Diablotin_Tex = SDL_CreateTextureFromSurface(renderer, Queue_de_Diablotin_surf);
     SDL_FreeSurface(Queue_de_Diablotin_surf);
 
-    SDL_Surface *Red_Goo_surf = IMG_Load("../IMG/items/Red_Goo.png");
+    SDL_Surface *Red_Goo_surf = IMG_Load("../img/items/Red_Goo.png");
     SDL_Texture *Red_Goo_Tex = SDL_CreateTextureFromSurface(renderer, Red_Goo_surf);
     SDL_FreeSurface(Red_Goo_surf);
 
-    SDL_Surface *Tete_surf = IMG_Load("../IMG/items/Tete.png");
+    SDL_Surface *Tete_surf = IMG_Load("../img/items/Tete.png");
     SDL_Texture *Tete_Tex = SDL_CreateTextureFromSurface(renderer, Tete_surf);
     SDL_FreeSurface(Tete_surf);
     // on met les textures dans un tableau

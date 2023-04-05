@@ -431,10 +431,10 @@ int remplissage_nomImgCpt(t_competence **competences, t_classe typeClasse){
         if(competences[i]->name_img==NULL){
             competences[i]->name_img=malloc(sizeof(char)*T_NOM);
             switch(typeClasse){
-                case ARCHER: strcpy(competences[i]->name_img, "../IMG/competences/archer/"); break;
-                case ASSASSIN: strcpy(competences[i]->name_img, "../IMG/competences/assassin/"); break;
-                case GUERRIER: strcpy(competences[i]->name_img, "../IMG/competences/guerrier/"); break;
-                case MAGE: strcpy(competences[i]->name_img, "../IMG/competences/mage/"); break;
+                case ARCHER: strcpy(competences[i]->name_img, "../img/competences/archer/"); break;
+                case ASSASSIN: strcpy(competences[i]->name_img, "../img/competences/assassin/"); break;
+                case GUERRIER: strcpy(competences[i]->name_img, "../img/competences/guerrier/"); break;
+                case MAGE: strcpy(competences[i]->name_img, "../img/competences/mage/"); break;
                 default : break;
             }
             for(j=0, k=strlen(competences[i]->name_img); j<strlen(competences[i]->nom); j++){

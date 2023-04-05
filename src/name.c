@@ -1,8 +1,8 @@
 #include <stdio.h>
-#include </home/remy/SDL2/include/SDL2/SDL.h>
-#include </home/remy/SDL2/include/SDL2/SDL_ttf.h>
-#include </home/remy/SDL2/include/SDL2/SDL_mixer.h>
-#include </home/remy/SDL2/include/SDL2/SDL_image.h>
+#include <SDL2/SDL.h>
+#include <SDL2/SDL_ttf.h>
+#include <SDL2/SDL_mixer.h>
+#include <SDL2/SDL_image.h>
 #include <string.h>
 
 #include "../head/name.h"
@@ -22,7 +22,7 @@ char * name(SDL_Window * win, SDL_Renderer * screen, entite_t * personnage){
     //SDL_Window * win = SDL_CreateWindow("Highway to L2", 350, 150, WINDOW_WIDTH, WINDOW_HEIGHT, SDL_WINDOW_SHOWN | SDL_WINDOW_BORDERLESS);
     //SDL_Renderer *screen =  SDL_CreateRenderer(win, -1, SDL_RENDERER_PRESENTVSYNC);
     
-    SDL_Surface *image = IMG_Load("../IMG/background_name.png");
+    SDL_Surface *image = IMG_Load("../img/background_name.png");
     SDL_Texture *texture_background = SDL_CreateTextureFromSurface(screen, image);
     SDL_FreeSurface(image);
     
@@ -30,7 +30,7 @@ char * name(SDL_Window * win, SDL_Renderer * screen, entite_t * personnage){
     TTF_Font * font = TTF_OpenFont("../font/necrosans.ttf", 25);
     SDL_Color color = {247,192,21};
 
-    SDL_Surface * img_logo = IMG_Load("../IMG/logo.png");
+    SDL_Surface * img_logo = IMG_Load("../img/logo.png");
     SDL_Texture * texture_img = SDL_CreateTextureFromSurface(screen, img_logo);
     SDL_Rect img_rect = {WINDOW_WIDTH/15, WINDOW_HEIGHT/3, WINDOW_WIDTH * 7 / 8, WINDOW_WIDTH * 2 / 8};
     SDL_FreeSurface(img_logo);
@@ -53,7 +53,7 @@ char * name(SDL_Window * win, SDL_Renderer * screen, entite_t * personnage){
     retour.y = WINDOW_HEIGHT - 45;
     retour.w = 200;
     retour.h = 50;
-    retour.surface = IMG_Load("../IMG/button/back.png");
+    retour.surface = IMG_Load("../img/button/back.png");
     SDL_Texture *texture_back = SDL_CreateTextureFromSurface(screen, retour.surface);
     SDL_Rect button_back = { retour.x, retour.y, retour.w, retour.h };
 
