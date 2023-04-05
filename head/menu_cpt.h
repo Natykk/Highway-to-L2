@@ -1,7 +1,7 @@
 #ifndef __MENU_CPT__
 #define __MENU_CPT__
 
-#include <SDL2/SDL.h>
+#include </home/remy/SDL2/include/SDL2/SDL.h>
 
 #include "arbre.h"
 

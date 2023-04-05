@@ -1,10 +1,10 @@
 #include <stdio.h>
 #include <unistd.h>
 #define SDL_MAIN_HANDLED
-#include <SDL2/SDL.h>
-#include <SDL2/SDL_ttf.h>
-#include <SDL2/SDL_image.h>
-#include <SDL2/SDL_mixer.h>
+#include </home/remy/SDL2/include/SDL2/SDL.h>
+#include </home/remy/SDL2/include/SDL2/SDL_ttf.h>
+#include </home/remy/SDL2/include/SDL2/SDL_image.h>
+#include </home/remy/SDL2/include/SDL2/SDL_mixer.h>
 // Structure pour représenter un bouton
 
 #include "../head/name.h"
@@ -169,7 +169,7 @@ int menu_interact(SDL_Window * window, SDL_Renderer * renderer, entite_t * perso
  * 
 */
 int menu(SDL_Window* window ,SDL_Renderer* renderer ,entite_t * personnage){
-  SDL_Init(SDL_INIT_EVERYTHING);
+  //SDL_Init(SDL_INIT_EVERYTHING);
 
   /* Initialisation de la piste audio de fond */
   Mix_Init(MIX_INIT_MP3);
@@ -188,6 +188,14 @@ int menu(SDL_Window* window ,SDL_Renderer* renderer ,entite_t * personnage){
   Mix_Quit();
   printf("...OK?\n");
 
-
   return 0;
+}
+
+int main(){
+  SDL_Init(SDL_INIT_EVERYTHING);
+  entite_t * personnage = creer_personnage(personnage);
+  SDL_Window *window = SDL_CreateWindow("Arbre de C", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, WINDOW_WIDTH, WINDOW_HEIGHT, SDL_WINDOW_SHOWN);
+  SDL_Renderer *renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_SOFTWARE);
+  menu(window, renderer, personnage);
+  return 1;
 }

@@ -1,17 +1,16 @@
 #include <stdbool.h>
 #include <stdio.h>
 #define SDL_MAIN_HANDLED
-#include <SDL2/SDL.h>
+#include </home/remy/SDL2/include/SDL2/SDL.h>
 #include <math.h>
-#include <SDL2/SDL_timer.h>
-#include <SDL2/SDL_image.h>
-#include <SDL2/SDL_mixer.h>
-#include <SDL2/SDL_ttf.h>
+#include </home/remy/SDL2/include/SDL2/SDL_timer.h>
+#include </home/remy/SDL2/include/SDL2/SDL_image.h>
+#include </home/remy/SDL2/include/SDL2/SDL_mixer.h>
+#include </home/remy/SDL2/include/SDL2/SDL_ttf.h>
 
 #include "../head/entite.h"
 #include "../head/mapBoss.h"
 #include "../head/chemin.h"
-#include "../head/inv_SDL.h"
 #include "../head/inventaire.h"
 #include "../head/sauvegarde.h"
 #include "../head/menu_cpt.h"
