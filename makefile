@@ -50,7 +50,7 @@
 # project name (generate executable with this name)
 TARGETS  = menu_cpt
 
-SDLROUTE = -IC:SDL2\include -LC:SDL2\lib
+SDLROUTE = -I$(HOME)/SDL2/include -L$(HOME)/SDL2/lib
 LIBS = -lm -lSDL2main -lSDL2 -lSDL2_image -lSDL2_ttf -lSDL2_mixer 
 
 CC       = gcc -g3

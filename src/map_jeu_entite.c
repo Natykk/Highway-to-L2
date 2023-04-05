@@ -1,17 +1,16 @@
 #include <stdbool.h>
 #include <stdio.h>
 #define SDL_MAIN_HANDLED
-#include <SDL2/SDL.h>
+#include </home/remy/SDL2/include/SDL2/SDL.h>
 #include <math.h>
-#include <SDL2/SDL_timer.h>
-#include <SDL2/SDL_image.h>
-#include <SDL2/SDL_mixer.h>
-#include <SDL2/SDL_ttf.h>
+#include </home/remy/SDL2/include/SDL2/SDL_timer.h>
+#include </home/remy/SDL2/include/SDL2/SDL_image.h>
+#include </home/remy/SDL2/include/SDL2/SDL_mixer.h>
+#include </home/remy/SDL2/include/SDL2/SDL_ttf.h>
 
 #include "../head/entite.h"
 #include "../head/mapBoss.h"
 #include "../head/chemin.h"
-#include "../head/inv_SDL.h"
 #include "../head/inventaire.h"
 #include "../head/sauvegarde.h"
 #include "../head/menu_cpt.h"
@@ -23,10 +22,9 @@ int NumEtage = 0;
 #define TILE_SIZE 32
 #define DIM_SALLE 25
 #define DIM_SALLE 25
-
 const int SPRITE_FRAMES = 4;  // Nombre de frames de l'animation
-const int SPRITE_WIDTH = 32;  // Largeur d'une frame
-const int SPRITE_HEIGHT = 32; // Hauteur d'une frame
+const int hauteur_fenetre = LONG_SALLE_BOSS*TILE_SIZE;   
+const int largeur_fenetre = LARG_SALLE_BOSS*TILE_SIZE;
 
 
 /**
@@ -633,16 +631,24 @@ SDL_Texture *charge_tex(SDL_Renderer *renderer, char *path, int bmp_flag)
  */
 void rendu(int map[][LONG_SALLE_BOSS], int tailleI, int tailleJ, SDL_Renderer *renderer, SDL_Texture *tab_tex[10], SDL_Rect dstRect, SDL_Rect Door, SDL_Rect srcRect, SDL_Rect PersRect, entite_t *perso, int attaque, int frame)
 {
-    // printf("tailleI : %d tailleJ : %d\n",tailleI,tailleJ);
+    int tailleRenduX = tailleI * TILE_SIZE;
+    int tailleRenduY = tailleJ * TILE_SIZE;
+
+    // Détermination du point de départ pour le rendu
+    int departX = (largeur_fenetre - tailleRenduX) / 2;
+    int departY = (hauteur_fenetre - tailleRenduY) / 2;
+    
     for (int x = 0; x < tailleI; x++)
     {
+        int posX = departX + x * TILE_SIZE;
         for (int y = 0; y < tailleJ; y++)
         { // On parcourt la map
+            int posY = departY + y * TILE_SIZE;
             if (map[x][y] == PORTE)
             { // Porte
                 SDL_Texture *DoorTex = tab_tex[2];
-                dstRect.x = x * TILE_SIZE;
-                dstRect.y = y * TILE_SIZE;
+                dstRect.x = posX;
+                dstRect.y = posY;
                 Door.w = 16; // Largeur de la frame
                 Door.y = 0;
                 Door.h = 16; // Hauteur de la frame
@@ -677,8 +683,8 @@ void rendu(int map[][LONG_SALLE_BOSS], int tailleI, int tailleJ, SDL_Renderer *r
                  MobRect.y = 0;
                  MobRect.h = 16; // Hauteur de la frame
                  */
-                dstRect.x = x * TILE_SIZE; // Position de la frame
-                dstRect.y = y * TILE_SIZE; // Position de la frame
+                dstRect.x = posX; // Position de la frame
+                dstRect.y = posY; // Position de la frame
 
                 if (map[x][y] == 10)
                 {
@@ -699,8 +705,8 @@ void rendu(int map[][LONG_SALLE_BOSS], int tailleI, int tailleJ, SDL_Renderer *r
                 PersRect.w = 20;         // Largeur de la frame
                 PersRect.y = 0;
                 PersRect.h = 24;           // Hauteur de la frame
-                dstRect.x = x * TILE_SIZE; // Position de la frame
-                dstRect.y = y * TILE_SIZE; // Position de la frame
+                dstRect.x = posX; // Position de la frame
+                dstRect.y = posY; // Position de la frame
                 if (perso->dir == HAUT)    // On affiche le perso dans la bonne direction
                     SDL_RenderCopyEx(renderer, tab_tex[5], &PersRect, &dstRect, 0, NULL, SDL_FLIP_NONE);
                 if (perso->dir == BAS)
@@ -716,19 +722,19 @@ void rendu(int map[][LONG_SALLE_BOSS], int tailleI, int tailleJ, SDL_Renderer *r
             }
             if (map[x][y] == MUR)
             {                              // Si c'est un mur
-                dstRect.x = x * TILE_SIZE; // Position du mur
-                dstRect.y = y * TILE_SIZE;
+                dstRect.x = posX; // Position du mur
+                dstRect.y = posY;
                 SDL_RenderCopy(renderer, tab_tex[0], &srcRect, &dstRect); // On affiche le mur
             }
             if (map[x][y] == OBSTACLE)
             {
-                dstRect.x = x * TILE_SIZE; // Position de l'obstacle
-                dstRect.y = y * TILE_SIZE;
+                dstRect.x = posX; // Position de l'obstacle
+                dstRect.y = posY;
                 SDL_RenderCopy(renderer, tab_tex[4], &srcRect, &dstRect); // On affiche l'obstacle
             }
             if(map[x][y]== MARCHAND){
-                dstRect.x = x * TILE_SIZE; // Position de l'obstacle
-                dstRect.y = y * TILE_SIZE;
+                dstRect.x = posX; // Position de l'obstacle
+                dstRect.y = posY;
                 SDL_RenderCopy(renderer, tab_tex[4], &srcRect, &dstRect); // On affiche l'obstacle
             }
         }
@@ -742,9 +748,7 @@ int main()
     entite_t *perso;
     perso = creer_personnage(perso);
     perso = init_inventaire_personnage(perso);
-    int Width = (TILE_SIZE * DIM_SALLE);
-    int Height = (TILE_SIZE * DIM_SALLE);
-    SDL_Window *window = SDL_CreateWindow("Highway to L2", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, Width, Height, 0); // On crée la fenêtre
+    SDL_Window *window = SDL_CreateWindow("Highway to L2", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,largeur_fenetre,hauteur_fenetre, 0); // On crée la fenêtre
     SDL_Renderer *renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);        // On crée le renderer
     menu(window,renderer,perso);
 
@@ -819,11 +823,6 @@ int main()
         { // On récupère les évènements
             switch (event.type)
             {
-            case SDL_WINDOWEVENT_SIZE_CHANGED:
-                Width = event.window.data1;
-                Height = event.window.data2;
-
-                break;
             case SDL_QUIT:
                 continuer = 0;
                 break;
@@ -914,22 +913,14 @@ int main()
         int i, j;
         if (niv->etages[NumEtage].boss == 1)
         {
-            SDL_SetWindowSize(window, (TILE_SIZE * LARG_SALLE_BOSS), (TILE_SIZE * LONG_SALLE_BOSS));
             rendu(map.dim, LARG_SALLE_BOSS, LONG_SALLE_BOSS, renderer, tab_tex, dstRect, Door, srcRect, PersRect, perso, attaque, frame); // on fais le rendu de la salle
         }
         else if (niv->etages[NumEtage].marchand == 1)
         {
-            // SDL_SetWindowSize(window, (TILE_SIZE*LARG_MARCHAND), (TILE_SIZE*LONG_MARCHAND));
             rendu(map.dim, LARG_MARCHAND, LONG_MARCHAND, renderer, tab_tex, dstRect, Door, srcRect, PersRect, perso, attaque, frame); // on fais le rendu de la salle
         }
         else
         {
-            if (Width == (TILE_SIZE * LARG_SALLE_BOSS) && Height == (TILE_SIZE * LONG_SALLE_BOSS))
-            {
-                Width = (TILE_SIZE * DIM_SALLE);
-                Height = (TILE_SIZE * DIM_SALLE);
-            }
-            SDL_SetWindowSize(window, Width, Height);
             rendu(map.dim, DIM_SALLE, DIM_SALLE, renderer, tab_tex, dstRect, Door, srcRect, PersRect, perso, attaque, frame); // on fais le rendu de la salle
         }
 
