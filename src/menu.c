@@ -1,10 +1,10 @@
 #include <stdio.h>
 #include <unistd.h>
 #define SDL_MAIN_HANDLED
-#include </home/remy/SDL2/include/SDL2/SDL.h>
-#include </home/remy/SDL2/include/SDL2/SDL_ttf.h>
-#include </home/remy/SDL2/include/SDL2/SDL_image.h>
-#include </home/remy/SDL2/include/SDL2/SDL_mixer.h>
+#include <SDL2/SDL.h>
+#include <SDL2/SDL_ttf.h>
+#include <SDL2/SDL_image.h>
+#include <SDL2/SDL_mixer.h>
 // Structure pour représenter un bouton
 
 #include "../head/name.h"
@@ -51,11 +51,11 @@ int fileExists(char * fname){
  * @return retourne 1 si le joueur a choisi de quitter, 0 sinon
 */
 int menu_interact(SDL_Window * window, SDL_Renderer * renderer, entite_t * personnage){
-    SDL_Surface *image = IMG_Load("../IMG/background_name.png");
+    SDL_Surface *image = IMG_Load("../img/background/background_name.png");
     SDL_Texture *texture_background = SDL_CreateTextureFromSurface(renderer, image);
     SDL_FreeSurface(image);
 
-    SDL_Surface * img_logo = IMG_Load("../IMG/logo.png");
+    SDL_Surface * img_logo = IMG_Load("../img/logo.png");
     SDL_Texture * texture_img = SDL_CreateTextureFromSurface(renderer, img_logo);
     SDL_Rect img_rect = {WINDOW_WIDTH/15, WINDOW_HEIGHT/3, WINDOW_WIDTH * 7 / 8, WINDOW_WIDTH * 2 / 8};
     SDL_FreeSurface(img_logo);
@@ -70,7 +70,7 @@ int menu_interact(SDL_Window * window, SDL_Renderer * renderer, entite_t * perso
     nouv_partie.y = WINDOW_HEIGHT * 6 / 10;
     nouv_partie.w = 200;
     nouv_partie.h = 75;
-    nouv_partie.surface = IMG_Load("../IMG/button/newgame.png");
+    nouv_partie.surface = IMG_Load("../img/button/newgame.png");
     SDL_Texture *texture_nouv_partie = SDL_CreateTextureFromSurface(renderer, nouv_partie.surface);
     SDL_Rect buttonNouv_partie = { nouv_partie.x, nouv_partie.y, nouv_partie.w, nouv_partie.h };
     
@@ -80,10 +80,10 @@ int menu_interact(SDL_Window * window, SDL_Renderer * renderer, entite_t * perso
     continuer.h = 75;
     
     if(!fempty("../sauv/sauvegarde.txt") && fileExists("../sauv/sauvegarde.txt")){
-      continuer.surface = IMG_Load("../IMG/button/continue.png");
+      continuer.surface = IMG_Load("../img/button/continue.png");
     }
     else{
-      continuer.surface = IMG_Load("../IMG/button/continue_dark.png");
+      continuer.surface = IMG_Load("../img/button/continue_dark.png");
     }
     SDL_Texture *texture_continuer = SDL_CreateTextureFromSurface(renderer, continuer.surface);
     SDL_Rect buttonContinuer = { continuer.x, continuer.y, continuer.w, continuer.h };
@@ -92,7 +92,7 @@ int menu_interact(SDL_Window * window, SDL_Renderer * renderer, entite_t * perso
     quitter.y = WINDOW_HEIGHT * 6 / 10 + 5;
     quitter.w = 200;
     quitter.h = 65;
-    quitter.surface = IMG_Load("../IMG/button/quit.png");
+    quitter.surface = IMG_Load("../img/button/quit.png");
     SDL_Texture *texture_quitter = SDL_CreateTextureFromSurface(renderer, quitter.surface);
     SDL_Rect buttonQuitter = { quitter.x, quitter.y, quitter.w, quitter.h };
 
@@ -189,13 +189,4 @@ int menu(SDL_Window* window ,SDL_Renderer* renderer ,entite_t * personnage){
   printf("...OK?\n");
 
   return 0;
-}
-
-int main(){
-  SDL_Init(SDL_INIT_EVERYTHING);
-  entite_t * personnage = creer_personnage(personnage);
-  SDL_Window *window = SDL_CreateWindow("Arbre de C", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, WINDOW_WIDTH, WINDOW_HEIGHT, SDL_WINDOW_SHOWN);
-  SDL_Renderer *renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_SOFTWARE);
-  menu(window, renderer, personnage);
-  return 1;
 }

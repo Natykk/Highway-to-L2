@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include </home/remy/SDL2/include/SDL2/SDL.h>
-#include </home/remy/SDL2/include/SDL2/SDL_ttf.h>
+#include <SDL2/SDL.h>
+#include <SDL2/SDL_ttf.h>
 
 #ifndef __NAME__
 #define __NAME__
@@ -20,5 +20,7 @@ typedef struct {
 char * name(SDL_Window * win, SDL_Renderer * screen, entite_t * personnage);
 int menu_interact(SDL_Window * window, SDL_Renderer * renderer, entite_t * personnage);
 int menu(SDL_Window * window, SDL_Renderer * renderer,entite_t * personnage);
+void affichage( SDL_Renderer *renderer, SDL_Window *window,entite_t *pers, int num_rectangles, int rect_width, int rect_height, int rect_spacing,TTF_Font *font,int total_width,int x_start,SDL_Texture* tab_tex[17]);
+int inv(SDL_Renderer* renderer,SDL_Window* window,entite_t* pers);
 
 #endif
