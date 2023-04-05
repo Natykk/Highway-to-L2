@@ -18,8 +18,8 @@
  * \return affichage des numéros de salle
  */
 
-/*
-void affichier_num_salle(t_etage * etage){
+
+void afficher_num_salle(t_etage * etage){
     int i, j;
     for(i=0; i<DIM_ETAGE; i++){
         for(j=0; j<DIM_ETAGE; j++){
@@ -29,7 +29,7 @@ void affichier_num_salle(t_etage * etage){
     }
     printf("\n\n");
 }
-*/
+
 
 
 /**
@@ -42,26 +42,20 @@ void afficher_salle(t_salle salle){
     int i, j;
     for(i=0; i<DIM_SALLE; i++){
         for(j=0; j<DIM_SALLE; j++){
-            switch(salle.dim[i][j]){
-                case VIDE : printf(" "); break;
-                case PORTE : printf("|"); break;
-                case MUR : printf("*"); break;
-                case OBSTACLE : printf("+"); break;
-                default: printf("%d",salle.dim[i][j]); break;
-                //default: printf("%s->%f ",salle.mob[(salle.dim[i][j])-10].nom,salle.mob[(salle.dim[i][j])-10].degats); break;
+            if(salle.dim[i][j]>=10 && salle.dim[i][j]<=21){
+                printf("M");
+            }
+            else{
+                switch(salle.dim[i][j]){
+                    case VIDE : printf(" "); break;
+                    case PORTE : printf("|"); break;
+                    case MUR : printf("*"); break;
+                    case OBSTACLE : printf("+"); break;
+                    default: break;
+                }
             }
         }
         printf("\n");
-    }
-    
-    for(i=0; i<salle.nb_mobs; i++){
-         if(salle.dim[i][j]>=10 && salle.dim[i][j] <=22){
-                //printf("%d", (salle.dim[i][j])-10);
-                switch (salle.dim[i][j])
-                {
-                
-                }
-            }
     }
 }
 
@@ -71,7 +65,7 @@ void afficher_salle(t_salle salle){
  * \param etage l'étage à afficher
  * \brief Fonction d'affichage des salles d'un étage
  */
-/*
+
 void afficher_salle_etage(t_etage * etage){
     int i, j;
     for(i=0; i<DIM_ETAGE; i++){
@@ -87,14 +81,14 @@ void afficher_salle_etage(t_etage * etage){
         }
     } 
 }
-*/
+
 
 /**
  * \fn void afficher_etage(t_etage * etage)
  * \param etage l'étage à afficher
  * \brief Fonction d'affichage d'un étage
  */
-/*
+
 void afficher_etage(t_etage * etage){
     int i, j;
     for(i=0; i<DIM_ETAGE; i++){
@@ -117,9 +111,9 @@ void afficher_etage(t_etage * etage){
     printf("\n\n");
     
     //afficher_salle_etage(etage);
-    affichier_num_salle(etage);
+    afficher_num_salle(etage);
 }
-*/
+
 
 /**
  * \fn int salle_disponible(int x, int y, t_salle etage[DIM_ETAGE][DIM_ETAGE])
@@ -443,7 +437,7 @@ int genererEtage(t_etage * etage){
             }
         }while(x == prev_x && y == prev_y);
 
-        if(i_salle<=etage->nb_salle && etage->etage[x][y].statut!=START){
+        if(i_salle<=etage->nb_salle && i_salle>1){
                 etage->etage[x][y].statut=COMMON;
             }
         if(i_salle==etage->nb_salle && exit_attribue==0){
@@ -508,4 +502,15 @@ int detruireNiv(t_niv ** niveau){
  * \brief Fonction principale qui génère un niveau et le détruit.
  * 
 */
+int main(){
+    int i, j;
+    t_etage * etage = malloc(sizeof(t_etage));
+    for(int gen=0; gen<10; gen++){
+    etage->nb_salle = 10;
+    genererEtage(etage);
+    afficher_etage(etage);
+    }
 
+    free(etage);
+    etage=NULL;
+}
