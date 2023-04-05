@@ -19,6 +19,7 @@
 int flip_map = 0;
 int coords[10][2];
 int NumEtage = 0;
+SDL_Texture* tab_tex[10]={NULL};
 
 #define TILE_SIZE 32
 #define DIM_SALLE 25
@@ -28,6 +29,58 @@ const int hauteur_fenetre = LONG_SALLE_BOSS*TILE_SIZE;
 const int largeur_fenetre = LARG_SALLE_BOSS*TILE_SIZE;
 
 
+/**
+ * \fn charge_tex(SDL_Renderer *renderer,char *path,int bmp_flag)
+ * @brief Charge une texture
+ * @param renderer Le renderer
+ * @param path Le chemin de la texture
+ * @param bmp_flag Si la texture est au format bmp
+ * @return La texture
+ */
+SDL_Texture *charge_tex(SDL_Renderer *renderer, char *path, int bmp_flag)
+{
+    SDL_Surface *surface = (bmp_flag == 1) ? SDL_LoadBMP(path) : IMG_Load(path);
+    SDL_Texture *texture = SDL_CreateTextureFromSurface(renderer, surface);
+    SDL_FreeSurface(surface);
+    return texture;
+}
+
+SDL_Texture * choix_tex_niv(SDL_Renderer* renderer){
+    if(NumEtage==0){ // Foret
+        tab_tex[0]=charge_tex(renderer, "../img/brick.png", 0);
+        tab_tex[1]=charge_tex(renderer, "../img/sol.jpg", 0);
+        tab_tex[2]=charge_tex(renderer, "../img/wooden_door.png", 0);
+        tab_tex[3]=charge_tex(renderer, "../img/Idle-Sheet.png", 0);
+        tab_tex[4]=charge_tex(renderer, "../img/rock.png", 0);
+        tab_tex[5]=charge_tex(renderer, "../img/1_north.png", 0);
+        tab_tex[6]=charge_tex(renderer, "../img/1_south.png", 0);
+        tab_tex[7]=charge_tex(renderer, "../img/1_side.png", 0);
+        tab_tex[8]=charge_tex(renderer, "../img/GreenSlime/Grn_Idle1.png", 0);
+        tab_tex[9]=charge_tex(renderer, "../img/BlueSlime/Blue_Idle1.png", 0);             
+    }else if(NumEtage==1){ // Mine
+        tab_tex[0]=charge_tex(renderer, "../img/brick.png", 0);
+        tab_tex[1]=charge_tex(renderer, "../img/sol.jpg", 0);
+        tab_tex[2]=charge_tex(renderer, "../img/wooden_door.png", 0);
+        tab_tex[3]=charge_tex(renderer, "../img/Idle-Sheet.png", 0);
+        tab_tex[4]=charge_tex(renderer, "../img/rock.png", 0);
+        tab_tex[5]=charge_tex(renderer, "../img/1_north.png", 0);
+        tab_tex[6]=charge_tex(renderer, "../img/1_south.png", 0);
+        tab_tex[7]=charge_tex(renderer, "../img/1_side.png", 0);
+        tab_tex[8]=charge_tex(renderer, "../img/GreenSlime/Grn_Idle1.png", 0);
+        tab_tex[9]=charge_tex(renderer, "../img/BlueSlime/Blue_Idle1.png", 0);
+    }else if(NumEtage==2){// Enfer
+        tab_tex[0]=charge_tex(renderer, "../img/brick.png", 0);
+        tab_tex[1]=charge_tex(renderer, "../img/sol.jpg", 0);
+        tab_tex[2]=charge_tex(renderer, "../img/wooden_door.png", 0);
+        tab_tex[3]=charge_tex(renderer, "../img/Idle-Sheet.png", 0);
+        tab_tex[4]=charge_tex(renderer, "../img/rock.png", 0);
+        tab_tex[5]=charge_tex(renderer, "../img/1_north.png", 0);
+        tab_tex[6]=charge_tex(renderer, "../img/1_south.png", 0);
+        tab_tex[7]=charge_tex(renderer, "../img/1_side.png", 0);
+        tab_tex[8]=charge_tex(renderer, "../img/GreenSlime/Grn_Idle1.png", 0);
+        tab_tex[9]=charge_tex(renderer, "../img/BlueSlime/Blue_Idle1.png", 0);
+    }
+}
 /**
  *  \fn float distance(entite_t* entite1, entite_t* entite2)
  *  \brief Calcule la distance entre deux entites
@@ -262,7 +315,7 @@ void chemin_vers_perso(entite_t *perso, entite_t *mob, int map[][LONG_SALLE_BOSS
 * \param niv Pointeur sur le niveau
 * \return Rien
 */
-void mouvement(t_salle *map, entite_t *pers, t_pos *posSalle, t_niv *niv)
+void mouvement(t_salle *map, entite_t *pers, t_pos *posSalle, t_niv *niv,SDL_Renderer* renderer)
 {
     int x = pers->x;
     int y = pers->y;
@@ -354,6 +407,7 @@ void mouvement(t_salle *map, entite_t *pers, t_pos *posSalle, t_niv *niv)
                 transfert(&niv->etages[NumEtage].etage[posSalle->x][posSalle->y], map, 0);
                 pers->x = DIM_SALLE / 2;
                 pers->y = DIM_SALLE / 2;
+                choix_tex_niv(renderer);
             }
             else
             {
@@ -412,7 +466,6 @@ int perso_attack(t_salle *map, int attaque, entite_t *pers,SDL_Window* window,SD
             if(map->dim[x][y-1]==MARCHAND){
                 SDL_RenderClear(renderer);
                 afficher_menu(window, renderer,pers,police);
-                
             }
             break;
         case BAS:
@@ -540,7 +593,7 @@ int enemy_attack(t_salle *map, entite_t *pers, SDL_Rect *rect)
  * \param niv le niveau
  * \return void
  */
-void interact(int attaque, t_salle *map, entite_t *pers, SDL_Rect *rect, Uint32 *lastTime, t_pos *posSalle, t_niv *niv)
+void interact(int attaque, t_salle *map, entite_t *pers,Uint32 *lastTime, t_pos *posSalle, t_niv *niv,SDL_Renderer* renderer)
 {
     int nbNULL=0;
     for(int i=0;i<map->nb_mobs;i++){
@@ -585,7 +638,7 @@ void interact(int attaque, t_salle *map, entite_t *pers, SDL_Rect *rect, Uint32 
             }
             // on fait bouger le mob si il est pas mort 
             if(map->mob[i]!=NULL){ // si le mob n'est pas mort
-                mouvement(map, map->mob[i], posSalle, niv);
+                mouvement(map, map->mob[i], posSalle, niv,renderer);
             }
         }
         else // si le mob est trop loin pour attaquer
@@ -593,27 +646,13 @@ void interact(int attaque, t_salle *map, entite_t *pers, SDL_Rect *rect, Uint32 
             // on choisit une direction aléatoire pour le mob
             if(map->mob[i]!=NULL){ // si le mob n'est pas mort
                 map->mob[i]->dir = rand() % 4;
-                mouvement(map, map->mob[i], posSalle, niv);
+                mouvement(map, map->mob[i], posSalle, niv,renderer);
             }
             
         }
     }
 }
-/*
- * \fn charge_tex(SDL_Renderer *renderer,char *path,int bmp_flag)
- * @brief Charge une texture
- * @param renderer Le renderer
- * @param path Le chemin de la texture
- * @param bmp_flag Si la texture est au format bmp
- * @return La texture
- */
-SDL_Texture *charge_tex(SDL_Renderer *renderer, char *path, int bmp_flag)
-{
-    SDL_Surface *surface = (bmp_flag == 1) ? SDL_LoadBMP(path) : IMG_Load(path);
-    SDL_Texture *texture = SDL_CreateTextureFromSurface(renderer, surface);
-    SDL_FreeSurface(surface);
-    return texture;
-}
+
 /**
  *\fn void rendu(int map[][LONG_SALLE_BOSS],int tailleI,int tailleJ,SDL_Renderer *renderer,SDL_Texture* tab_tex[10],SDL_Rect dstRect,SDL_Rect Door,SDL_Rect srcRect,SDL_Rect PersRect,entite_t* perso,int attaque,int frame)
  * \brief Fonction qui permet de faire le rendu de la map
@@ -743,6 +782,8 @@ void rendu(int map[][LONG_SALLE_BOSS], int tailleI, int tailleJ, SDL_Renderer *r
     }
 }
 
+
+
 int main()
 {
     SDL_Init(SDL_INIT_EVERYTHING);
@@ -765,17 +806,8 @@ int main()
     SDL_Rect MobRect;
     int frame;
     int attaque = 0;
+    choix_tex_niv(renderer);
 
-    SDL_Texture *tab_tex[10] = {charge_tex(renderer, "../img/brick.png", 0),
-                                charge_tex(renderer, "../img/sol.jpg", 0),
-                                charge_tex(renderer, "../img/wooden_door.png", 0),
-                                charge_tex(renderer, "../img/Idle-Sheet.png", 0),
-                                charge_tex(renderer, "../img/rock.png", 0),
-                                charge_tex(renderer, "../img/1_north.png", 0),
-                                charge_tex(renderer, "../img/1_south.png", 0),
-                                charge_tex(renderer, "../img/1_side.png", 0),
-                                charge_tex(renderer, "../img/GreenSlime/Grn_Idle1.png", 0),
-                                charge_tex(renderer, "../img/BlueSlime/Blue_Idle1.png", 0)};
     t_salle map;                    // Matrice de la salle
     t_pos posSalle;                 // Position de la salle dans
     perso->x = (DIM_SALLE / 2) - 1; // Position du perso au millieu de la salle
@@ -805,11 +837,7 @@ int main()
     SDL_Rect dstRect = {0, 0, TILE_SIZE, TILE_SIZE};         // Position de la texture
 
     SDL_Rect Door;
-    SDL_Rect rect; // Rectangle de vie
-    rect.x = 50;   // Position du rectangle sur la largeur
-    rect.y = 50;   // Position du rectangle sur la hauteur
-    rect.w = 250;  // Largeur du rectangle
-    rect.h = 50;   // Hauteur du rectangle
+
 
     perso->dir = BAS;                 // Variable de déplacement
     Uint32 lastTime = SDL_GetTicks(); // Temps de la dernière mise à jour de l'animation
@@ -833,22 +861,22 @@ int main()
                 case SDL_SCANCODE_W:
                 case SDL_SCANCODE_UP:
                     perso->dir = HAUT;
-                    mouvement(&map, perso, &posSalle, niv);
+                    mouvement(&map, perso, &posSalle, niv,renderer);
                     break;
                 case SDL_SCANCODE_A:
                 case SDL_SCANCODE_LEFT:
                     perso->dir = GAUCHE;
-                    mouvement(&map, perso, &posSalle, niv);
+                    mouvement(&map, perso, &posSalle, niv,renderer);
                     break;
                 case SDL_SCANCODE_S:
                 case SDL_SCANCODE_DOWN:
                     perso->dir = BAS;
-                    mouvement(&map, perso, &posSalle, niv);
+                    mouvement(&map, perso, &posSalle, niv,renderer);
                     break;
                 case SDL_SCANCODE_D:
                 case SDL_SCANCODE_RIGHT:
                     perso->dir = DROITE;
-                    mouvement(&map, perso, &posSalle, niv);
+                    mouvement(&map, perso, &posSalle, niv,renderer);
                     break;
                 case SDL_SCANCODE_ESCAPE:
                     continuer = 0;
@@ -898,7 +926,6 @@ int main()
         }
         SDL_RenderCopyEx(renderer, tab_tex[1], NULL, NULL, 0, NULL, flip); // On affiche le sol
 
-        SDL_RenderDrawRect(renderer, &rect);              // on decide de dessiner un rectangle avec les coordonnées de rect
         SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255); // On defini la couleur du rectangle
                                                           // Un texte signale dans quel étage on est et quel salle on est
                                                           // info_map(&map,niv,police,couleurNoire,window);
@@ -928,7 +955,7 @@ int main()
         SDL_RenderPresent(renderer); // On affiche l'écran
         if (SDL_GetTicks() - lastTimeInteract >= 500)
         {
-            interact(attaque, &map, perso, &rect, &MajMove, &posSalle, niv);
+            interact(attaque, &map, perso,&MajMove, &posSalle, niv,renderer);
             lastTimeInteract = SDL_GetTicks();
         }
 
