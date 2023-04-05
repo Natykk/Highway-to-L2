@@ -1,8 +1,8 @@
 #include <stdio.h>
-#include <SDL2/SDL.h>
-#include <SDL2/SDL_ttf.h>
-#include <SDL2/SDL_mixer.h>
-#include <SDL2/SDL_image.h>
+#include </home/remy/SDL2/include/SDL2/SDL.h>
+#include </home/remy/SDL2/include/SDL2/SDL_ttf.h>
+#include </home/remy/SDL2/include/SDL2/SDL_mixer.h>
+#include </home/remy/SDL2/include/SDL2/SDL_image.h>
 #include <string.h>
 
 #include "../head/name.h"
