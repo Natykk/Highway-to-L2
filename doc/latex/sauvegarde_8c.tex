@@ -1,0 +1,113 @@
+\hypertarget{sauvegarde_8c}{}\doxysection{Référence du fichier /mnt/c/\+Users/natik/\+Projet\+L2/src/sauvegarde.c}
+\label{sauvegarde_8c}\index{/mnt/c/Users/natik/ProjetL2/src/sauvegarde.c@{/mnt/c/Users/natik/ProjetL2/src/sauvegarde.c}}
+
+
+Fichier contenant les fonctions pour la sauvegarde.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}../head/sauvegarde.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../head/arbre.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../head/inventaire.\+h\char`\"{}}\newline
+Graphe des dépendances par inclusion de sauvegarde.\+c\+:
+% FIG 0
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{sauvegarde_8c_a10265b931c965f42694dc5743712eb54}{one\+\_\+next\+\_\+cpt\+\_\+unlock}} (t\+\_\+competence $\ast$competence)
+\begin{DoxyCompactList}\small\item\em Renvoie l\textquotesingle{}indice de la première compétence suivante qui n\textquotesingle{}est pas acquise. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{sauvegarde_8c_a9841b00b6648bbb1bc4dda9d95349f36}{cpt\+\_\+aquise}} (FILE $\ast$sauv, t\+\_\+arbre $\ast$arbre)
+\begin{DoxyCompactList}\small\item\em Sauvegarde les compétences acquises dans le fichier sauvegarde.\+txt. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{sauvegarde_8c_a83e5857ba2ca95d3f7082d0aa33bf4df}\label{sauvegarde_8c_a83e5857ba2ca95d3f7082d0aa33bf4df}} 
+int {\bfseries sauvegarde} (entite\+\_\+t $\ast$personnage, int num\+\_\+etage)
+\item 
+int \mbox{\hyperlink{sauvegarde_8c_a96490affbaf34a840d718f28dec3bd0d}{appliquer}} (entite\+\_\+t $\ast$personnage, t\+\_\+competence $\ast$competence)
+\begin{DoxyCompactList}\small\item\em Applique les effets d\textquotesingle{}une compétence sur un personnage. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{sauvegarde_8c_adc26325d7dcd1c6236e39cc9bd52ca0d}{chargement}} (entite\+\_\+t $\ast$$\ast$personnage)
+\begin{DoxyCompactList}\small\item\em Charge les données d\textquotesingle{}une sauvegarde dans un personnage. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Fichier contenant les fonctions pour la sauvegarde. 
+
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{sauvegarde_8c_a96490affbaf34a840d718f28dec3bd0d}\label{sauvegarde_8c_a96490affbaf34a840d718f28dec3bd0d}} 
+\index{sauvegarde.c@{sauvegarde.c}!appliquer@{appliquer}}
+\index{appliquer@{appliquer}!sauvegarde.c@{sauvegarde.c}}
+\doxysubsubsection{\texorpdfstring{appliquer()}{appliquer()}}
+{\footnotesize\ttfamily int appliquer (\begin{DoxyParamCaption}\item[{entite\+\_\+t $\ast$}]{personnage,  }\item[{t\+\_\+competence $\ast$}]{competence }\end{DoxyParamCaption})}
+
+
+
+Applique les effets d\textquotesingle{}une compétence sur un personnage. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em personnage} & le personnage \\
+\hline
+{\em competence} & la compétence \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+1 si l\textquotesingle{}application s\textquotesingle{}est bien déroulée, 0 sinon 
+\end{DoxyReturn}
+\mbox{\Hypertarget{sauvegarde_8c_adc26325d7dcd1c6236e39cc9bd52ca0d}\label{sauvegarde_8c_adc26325d7dcd1c6236e39cc9bd52ca0d}} 
+\index{sauvegarde.c@{sauvegarde.c}!chargement@{chargement}}
+\index{chargement@{chargement}!sauvegarde.c@{sauvegarde.c}}
+\doxysubsubsection{\texorpdfstring{chargement()}{chargement()}}
+{\footnotesize\ttfamily int chargement (\begin{DoxyParamCaption}\item[{entite\+\_\+t $\ast$$\ast$}]{personnage }\end{DoxyParamCaption})}
+
+
+
+Charge les données d\textquotesingle{}une sauvegarde dans un personnage. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em personnage} & le personnage \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+1 si le chargement s\textquotesingle{}est bien déroulé, 0 sinon 
+\end{DoxyReturn}
+\mbox{\Hypertarget{sauvegarde_8c_a9841b00b6648bbb1bc4dda9d95349f36}\label{sauvegarde_8c_a9841b00b6648bbb1bc4dda9d95349f36}} 
+\index{sauvegarde.c@{sauvegarde.c}!cpt\_aquise@{cpt\_aquise}}
+\index{cpt\_aquise@{cpt\_aquise}!sauvegarde.c@{sauvegarde.c}}
+\doxysubsubsection{\texorpdfstring{cpt\_aquise()}{cpt\_aquise()}}
+{\footnotesize\ttfamily int cpt\+\_\+aquise (\begin{DoxyParamCaption}\item[{FILE $\ast$}]{sauv,  }\item[{t\+\_\+arbre $\ast$}]{arbre }\end{DoxyParamCaption})}
+
+
+
+Sauvegarde les compétences acquises dans le fichier sauvegarde.\+txt. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em sauv} & le fichier sauvegarde.\+txt \\
+\hline
+{\em arbre} & l\textquotesingle{}arbre de compétences \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+1 si la sauvegarde s\textquotesingle{}est bien déroulée, 0 sinon 
+\end{DoxyReturn}
+\mbox{\Hypertarget{sauvegarde_8c_a10265b931c965f42694dc5743712eb54}\label{sauvegarde_8c_a10265b931c965f42694dc5743712eb54}} 
+\index{sauvegarde.c@{sauvegarde.c}!one\_next\_cpt\_unlock@{one\_next\_cpt\_unlock}}
+\index{one\_next\_cpt\_unlock@{one\_next\_cpt\_unlock}!sauvegarde.c@{sauvegarde.c}}
+\doxysubsubsection{\texorpdfstring{one\_next\_cpt\_unlock()}{one\_next\_cpt\_unlock()}}
+{\footnotesize\ttfamily int one\+\_\+next\+\_\+cpt\+\_\+unlock (\begin{DoxyParamCaption}\item[{t\+\_\+competence $\ast$}]{competence }\end{DoxyParamCaption})}
+
+
+
+Renvoie l\textquotesingle{}indice de la première compétence suivante qui n\textquotesingle{}est pas acquise. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em competence} & une compétence \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+l\textquotesingle{}indice de la première compétence suivante qui n\textquotesingle{}est pas acquise 
+\end{DoxyReturn}

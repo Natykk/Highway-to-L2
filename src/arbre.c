@@ -5,7 +5,11 @@
 
 #include "../head/arbre.h"
 #include "../head/inventaire.h"
-
+/**
+ * \file arbre.c
+ * \brief Fichier contenant les fonctions de gestion des arbres de compétences
+ * 
+*/
 /**
  * \fn void aff_classe (t_arbre * arbre)
  * \brief Affiche la classe de l'arbre

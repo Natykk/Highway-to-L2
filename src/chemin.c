@@ -2,7 +2,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "../head/chemin.h"
-
+/**
+ * \file chemin.c
+ * \brief Fichier contenant les fonctions pour l'algorithme de chemin le plus court
+*/
 typedef struct element {int nombre; struct element* suivant;} t_element;
 t_element* tete; //<! Pointeur sur le premier élément de la file
 t_element* queue; //<! Pointeur sur le dernier élément de la file

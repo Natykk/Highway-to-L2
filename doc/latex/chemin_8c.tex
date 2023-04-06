@@ -1,0 +1,174 @@
+\hypertarget{chemin_8c}{}\doxysection{Référence du fichier /mnt/c/\+Users/natik/\+Projet\+L2/src/chemin.c}
+\label{chemin_8c}\index{/mnt/c/Users/natik/ProjetL2/src/chemin.c@{/mnt/c/Users/natik/ProjetL2/src/chemin.c}}
+
+
+Fichier contenant les fonctions pour l\textquotesingle{}algorithme de chemin le plus court.  
+
+
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}../head/chemin.\+h\char`\"{}}\newline
+Graphe des dépendances par inclusion de chemin.\+c\+:
+% FIG 0
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structelement}{element}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Définitions de type}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{chemin_8c_aaa9f09bf55fb32a9090e2dc051b75a6a}\label{chemin_8c_aaa9f09bf55fb32a9090e2dc051b75a6a}} 
+typedef struct \mbox{\hyperlink{structelement}{element}} {\bfseries t\+\_\+element}
+\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{chemin_8c_a273907fa64f10a578e107dde70a12876}\label{chemin_8c_a273907fa64f10a578e107dde70a12876}} 
+void \mbox{\hyperlink{chemin_8c_a273907fa64f10a578e107dde70a12876}{initfile}} (void)
+\begin{DoxyCompactList}\small\item\em Initialise la file. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{chemin_8c_a4b48b65698f5783adf206700444ea9bd}{filevide}} (void)
+\begin{DoxyCompactList}\small\item\em Renvoie VRAI si la file est vide, FAUX sinon. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{chemin_8c_ac7273bd1a4e188d9e2035a1b7575aad4}{ajouter}} (int v)
+\begin{DoxyCompactList}\small\item\em Ajoute un élément à la file. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{chemin_8c_a08eddf9603567f4706419d8328ffcce0}{retirer}} (int $\ast$v)
+\begin{DoxyCompactList}\small\item\em Retire un élément de la file. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{chemin_8c_ac1f442dab8aac569e72a0be822f28cd3}\label{chemin_8c_ac1f442dab8aac569e72a0be822f28cd3}} 
+void \mbox{\hyperlink{chemin_8c_ac1f442dab8aac569e72a0be822f28cd3}{afficher\+\_\+file}} (void)
+\begin{DoxyCompactList}\small\item\em Affiche la file. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{chemin_8c_a730ee142f3d2e67bc393e6ca7ba88fc7}{valides}} (int i, int j)
+\begin{DoxyCompactList}\small\item\em Renvoie VRAI si i et j désignent une case de la matrice. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{chemin_8c_a3930ad6d4bbd0f643a9501bedd5a8e9f}{marquer\+\_\+chemin}} (int lab\mbox{[}9\mbox{]}\mbox{[}9\mbox{]}, int x, int y, int coords\mbox{[}20\mbox{]}\mbox{[}2\mbox{]})
+\begin{DoxyCompactList}\small\item\em Marque le chemin le plus court a partir de lab\mbox{[}x\mbox{]}\mbox{[}y\mbox{]}. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{chemin_8c_a12cd25c018867e2cd5fd03954d58837b}{chercher\+\_\+chemin}} (int xd, int yd, int xa, int ya, int lab\mbox{[}9\mbox{]}\mbox{[}9\mbox{]}, int coords\mbox{[}20\mbox{]}\mbox{[}2\mbox{]})
+\begin{DoxyCompactList}\small\item\em Cherche le chemin D -\/$>$ A le plus court avec une file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{chemin_8c_ac64a6a741ed90e894c695c6f92ad31b8}\label{chemin_8c_ac64a6a741ed90e894c695c6f92ad31b8}} 
+\mbox{\hyperlink{structelement}{t\+\_\+element}} $\ast$ {\bfseries tete}
+\item 
+\mbox{\Hypertarget{chemin_8c_ae8f83cc1f73001fbaedaa4ee4e4312ae}\label{chemin_8c_ae8f83cc1f73001fbaedaa4ee4e4312ae}} 
+\mbox{\hyperlink{structelement}{t\+\_\+element}} $\ast$ {\bfseries queue}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Fichier contenant les fonctions pour l\textquotesingle{}algorithme de chemin le plus court. 
+
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{chemin_8c_ac7273bd1a4e188d9e2035a1b7575aad4}\label{chemin_8c_ac7273bd1a4e188d9e2035a1b7575aad4}} 
+\index{chemin.c@{chemin.c}!ajouter@{ajouter}}
+\index{ajouter@{ajouter}!chemin.c@{chemin.c}}
+\doxysubsubsection{\texorpdfstring{ajouter()}{ajouter()}}
+{\footnotesize\ttfamily void ajouter (\begin{DoxyParamCaption}\item[{int}]{v }\end{DoxyParamCaption})}
+
+
+
+Ajoute un élément à la file. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em v} & un entier quelquonque \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{chemin_8c_a12cd25c018867e2cd5fd03954d58837b}\label{chemin_8c_a12cd25c018867e2cd5fd03954d58837b}} 
+\index{chemin.c@{chemin.c}!chercher\_chemin@{chercher\_chemin}}
+\index{chercher\_chemin@{chercher\_chemin}!chemin.c@{chemin.c}}
+\doxysubsubsection{\texorpdfstring{chercher\_chemin()}{chercher\_chemin()}}
+{\footnotesize\ttfamily int chercher\+\_\+chemin (\begin{DoxyParamCaption}\item[{int}]{xd,  }\item[{int}]{yd,  }\item[{int}]{xa,  }\item[{int}]{ya,  }\item[{int}]{lab\mbox{[}9\mbox{]}\mbox{[}9\mbox{]},  }\item[{int}]{coords\mbox{[}20\mbox{]}\mbox{[}2\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Cherche le chemin D -\/$>$ A le plus court avec une file. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em xd} & coordonnée x de départ \\
+\hline
+{\em yd} & coordonnée y de départ \\
+\hline
+{\em xa} & coordonnée x d\textquotesingle{}arrivée \\
+\hline
+{\em ya} & coordonnée y d\textquotesingle{}arrivée \\
+\hline
+{\em lab} & matrice du labyrinthe \\
+\hline
+{\em coords} & tableau de coordonnées \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+renvoie VRAI si un chemin existe, FAUX sinon 
+\end{DoxyReturn}
+\mbox{\Hypertarget{chemin_8c_a4b48b65698f5783adf206700444ea9bd}\label{chemin_8c_a4b48b65698f5783adf206700444ea9bd}} 
+\index{chemin.c@{chemin.c}!filevide@{filevide}}
+\index{filevide@{filevide}!chemin.c@{chemin.c}}
+\doxysubsubsection{\texorpdfstring{filevide()}{filevide()}}
+{\footnotesize\ttfamily int filevide (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Renvoie VRAI si la file est vide, FAUX sinon. 
+
+\begin{DoxyReturn}{Renvoie}
+int 
+\end{DoxyReturn}
+\mbox{\Hypertarget{chemin_8c_a3930ad6d4bbd0f643a9501bedd5a8e9f}\label{chemin_8c_a3930ad6d4bbd0f643a9501bedd5a8e9f}} 
+\index{chemin.c@{chemin.c}!marquer\_chemin@{marquer\_chemin}}
+\index{marquer\_chemin@{marquer\_chemin}!chemin.c@{chemin.c}}
+\doxysubsubsection{\texorpdfstring{marquer\_chemin()}{marquer\_chemin()}}
+{\footnotesize\ttfamily void marquer\+\_\+chemin (\begin{DoxyParamCaption}\item[{int}]{lab\mbox{[}9\mbox{]}\mbox{[}9\mbox{]},  }\item[{int}]{x,  }\item[{int}]{y,  }\item[{int}]{coords\mbox{[}20\mbox{]}\mbox{[}2\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Marque le chemin le plus court a partir de lab\mbox{[}x\mbox{]}\mbox{[}y\mbox{]}. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em lab} & matrice du labyrinthe \\
+\hline
+{\em x} & coordonnée x \\
+\hline
+{\em y} & coordonnée y \\
+\hline
+{\em coords} & tableau de coordonnées \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{chemin_8c_a08eddf9603567f4706419d8328ffcce0}\label{chemin_8c_a08eddf9603567f4706419d8328ffcce0}} 
+\index{chemin.c@{chemin.c}!retirer@{retirer}}
+\index{retirer@{retirer}!chemin.c@{chemin.c}}
+\doxysubsubsection{\texorpdfstring{retirer()}{retirer()}}
+{\footnotesize\ttfamily void retirer (\begin{DoxyParamCaption}\item[{int $\ast$}]{v }\end{DoxyParamCaption})}
+
+
+
+Retire un élément de la file. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em v} & un entier quelquonque \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{chemin_8c_a730ee142f3d2e67bc393e6ca7ba88fc7}\label{chemin_8c_a730ee142f3d2e67bc393e6ca7ba88fc7}} 
+\index{chemin.c@{chemin.c}!valides@{valides}}
+\index{valides@{valides}!chemin.c@{chemin.c}}
+\doxysubsubsection{\texorpdfstring{valides()}{valides()}}
+{\footnotesize\ttfamily int valides (\begin{DoxyParamCaption}\item[{int}]{i,  }\item[{int}]{j }\end{DoxyParamCaption})}
+
+
+
+Renvoie VRAI si i et j désignent une case de la matrice. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em i} & coordonnée x \\
+\hline
+{\em j} & coordonnée y \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+renvoie VRAI si i et j désignent une case de la matrice 
+\end{DoxyReturn}

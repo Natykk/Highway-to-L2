@@ -6,6 +6,10 @@
 #include "../head/arbre.h"
 #include "../head/inventaire.h"
 /**
+ * \file sauvegarde.c
+ * \brief Fichier contenant les fonctions pour la sauvegarde
+*/
+/**
  * \fn int one_next_cpt_unlock(t_competence *competence)
  * @brief Renvoie l'indice de la première compétence suivante qui n'est pas acquise
  * @param competence une compétence

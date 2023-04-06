@@ -1,3 +1,7 @@
+/**
+ * \file map_jeu_entite.c
+ * \brief Fichier contenant les fonctions principal du jeu
+*/
 #include <stdbool.h>
 #include <stdio.h>
 #define SDL_MAIN_HANDLED
@@ -13,18 +17,17 @@
 #include "../head/chemin.h"
 #include "../head/inventaire.h"
 #include "../head/sauvegarde.h"
+#include "../head/attaques.h"
 #include "../head/menu_cpt.h"
 #include "../head/name.h"
-int flip_map = 0;
-
-int NumEtage = 2;
+int NumEtage = 0;
 SDL_Texture *tab_tex[10] = {NULL};
 
 #define TILE_SIZE 32
 #define DIM_SALLE 25
 #define DIM_SALLE 25
-int coords[10][2];
-const int SPRITE_FRAMES = 4; // Nombre de frames de l'animation
+int coords[9][2] = { 0 };
+#define SPRITE_FRAMES 4 // Nombre de frames de l'animation
 const int hauteur_fenetre = LONG_SALLE_BOSS * TILE_SIZE;
 const int largeur_fenetre = LARG_SALLE_BOSS * TILE_SIZE;
 
@@ -46,15 +49,23 @@ SDL_Texture *charge_tex(SDL_Renderer *renderer, char *path, int bmp_flag)
 
 SDL_Texture *choix_tex_niv(SDL_Renderer *renderer)
 {
+    if(tab_tex[0]!=NULL){
+        for(int i=0;i<10;i++){
+            if(tab_tex[i]!=NULL){
+                SDL_DestroyTexture(tab_tex[i]);
+            }
+        }
+    }
     tab_tex[2] = charge_tex(renderer, "../img/foret/wooden_door.png", 0); // Porte
     tab_tex[5] = charge_tex(renderer, "../img/personnage/1_north.png", 0);
     tab_tex[6] = charge_tex(renderer, "../img/personnage/1_south.png", 0);
     tab_tex[7] = charge_tex(renderer, "../img/personnage/1_side.png", 0);
+    tab_tex[3]=charge_tex(renderer, "../img/personnage/marchand.png", 0);
     if (NumEtage == 0)
     { // Foret
         tab_tex[0] = charge_tex(renderer, "../img/foret/bush.png", 0); // Mur 
         tab_tex[1] = charge_tex(renderer, "../img/foret/floor_grass.png", 0); // Sol 
-        // tab_tex[3]=charge_tex(renderer, "../img/foret/Idle-Sheet.png", 0);
+       
         tab_tex[4] = charge_tex(renderer, "../img/foret/souche.png", 0); // obstacle
         tab_tex[8] = charge_tex(renderer, "../img/foret/GreenSlime/GrnSheet.png", 0); // mob 1
         //tab_tex[9] = charge_tex(renderer, "../img/foret/BlueSlime/Blue_Idle1.png", 0);
@@ -72,7 +83,7 @@ SDL_Texture *choix_tex_niv(SDL_Renderer *renderer)
         tab_tex[0] = charge_tex(renderer, "../img/enfer/mur_enfer.png", 0); // Mur 
         tab_tex[1] = charge_tex(renderer, "../img/enfer/floor_hell.png", 0); // Sol 
         //tab_tex[3]=charge_tex(renderer, "../img/enfer/Idle-Sheet.png", 0);
-       //tab_tex[4] = charge_tex(renderer, "../img/enfer/lave.png", 0); // obstacle
+        tab_tex[4] = charge_tex(renderer, "../img/enfer/rock.png", 0); // obstacle
         tab_tex[8] = charge_tex(renderer, "../img/enfer/RedSlime/GrnSheet.png", 0); // mob 1
     }
 }
@@ -201,7 +212,6 @@ void changement(t_niv *niv, entite_t *perso, t_pos *posSalle, t_salle *map)
         transfert(&niv->etages[NumEtage].etage[posSalle->x][posSalle->y], map, 0);
         // map->num_salle=niv->etages[NumEtage].etage[posSalle->x][posSalle->y].num_salle;
         map->dim[perso->x][perso->y] = PERSO;
-        flip_map = rand() % 4;
         if (niv->etages[NumEtage].boss == 1)
         {
             printf("Vous avez battu le boss\n");
@@ -271,8 +281,7 @@ void chemin_vers_perso(entite_t *perso, entite_t *mob, int map[][LONG_SALLE_BOSS
             {
                 mat[i][j] = 1;
             }
-            else
-            {
+            else{
                 mat[i][j] = 0;
             }
         }
@@ -432,104 +441,21 @@ void mouvement(t_salle *map, entite_t *pers, t_pos *posSalle, t_niv *niv, SDL_Re
  * @param attaque Si le perso attaque
  * @param pers Le personnage
  **/
-int perso_attack(t_salle *map, int attaque, entite_t *pers, SDL_Window *window, SDL_Renderer *renderer, TTF_Font *police)
+int perso_attack(t_salle *map, int attaque, entite_t *pers, void (*attaque_pers)(proj_t, entite_t*,t_salle*),SDL_Window* window,SDL_Renderer* renderer,TTF_Font* police)
 {
     int x = pers->x;
     int y = pers->y;
-    if (attaque)
-    {
-
-        printf("Vous attaquez ! la salle ou il y a %d mob\n", map->nb_mobs);
-        switch (pers->dir)
-        {
-        case HAUT:
-            if (map->dim[x][y - 1] >= 10 && map->dim[x][y - 1] <= 21)
-            { // si il y a un ennemi sur la case du haut
-                map->mob[(map->dim[x][y - 1]) - 10]->vie -= 10;
-                printf("Vous avez infligé 10 point de dégats au mob %s il lui reste %d !\n", map->mob[(map->dim[x][y - 1]) - 10]->nom, map->mob[(map->dim[x][y - 1]) - 10]->vie);
-                if (map->mob[(map->dim[x][y - 1]) - 10]->vie <= 0)
-                {
-                    looter(map->mob[(map->dim[x][y - 1]) - 10], pers);
-                    detruire_mob(&(map->mob[(map->dim[x][y - 1]) - 10]));
-                    // on decale le tableau de mob
-                    map->mob[(map->dim[x][y - 1]) - 10] = NULL;
-                    map->dim[x][y - 1] = VIDE;
-                }
-            }
-            if (map->dim[x][y - 1] == MARCHAND)
-            {
-                SDL_RenderClear(renderer);
-                afficher_menu(window, renderer, pers, police);
-            }
-            break;
-        case BAS:
-            if (map->dim[x][y + 1] >= 10 && map->dim[x][y + 1] <= 21)
-            { // si il y a un ennemi sur la case du bas
-                map->mob[(map->dim[x][y + 1]) - 10]->vie -= 10;
-                printf("Vous avez infligé 10 point de dégats au mob %s il lui reste %d !\n", map->mob[(map->dim[x][y + 1]) - 10]->nom, map->mob[(map->dim[x][y + 1]) - 10]->vie);
-                if (map->mob[(map->dim[x][y + 1]) - 10]->vie <= 0)
-                {
-                    looter(map->mob[(map->dim[x][y + 1]) - 10], pers);
-                    detruire_mob(&map->mob[(map->dim[x][y + 1]) - 10]);
-                    map->mob[(map->dim[x][y + 1]) - 10] = NULL;
-                    map->dim[x][y + 1] = VIDE;
-                }
-            }
-            if (map->dim[x][y + 1] == MARCHAND)
-            {
-                SDL_RenderClear(renderer);
-                afficher_menu(window, renderer, pers, police);
-            }
-            break;
-        case GAUCHE:
-            if (map->dim[x - 1][y] >= 10 && map->dim[x - 1][y] <= 21)
-            { // si il y a un ennemi sur la case de gauche
-                map->mob[(map->dim[x - 1][y]) - 10]->vie -= 10;
-                // printf("Vous avez infligé 10 point de dégats au mob il lui reste %d !\n",map->mob[(map->dim[x-1][y])-10]->vie);
-                if (map->mob[(map->dim[x - 1][y]) - 10]->vie <= 0)
-                {
-                    looter(map->mob[(map->dim[x - 1][y]) - 10], pers);
-                    detruire_mob(&(map->mob[(map->dim[x - 1][y]) - 10]));
-                    map->mob[(map->dim[x - 1][y]) - 10] = NULL;
-                    map->dim[x - 1][y] = VIDE;
-                }
-            }
-            if (map->dim[x - 1][y] == MARCHAND)
-            {
-                SDL_RenderClear(renderer);
-                afficher_menu(window, renderer, pers, police);
-            }
-            break;
-        case DROITE:
-            if (map->dim[x + 1][y] >= 10 && map->dim[x + 1][y] <= 21)
-            { // si il y a un ennemi sur la case de droite
-                map->mob[(map->dim[x + 1][y]) - 10]->vie -= 10;
-                // printf("Vous avez infligé 10 point de dégats au mob il lui reste %d !\n",map->mob[(map->dim[x+1][y])-10]->vie);
-                if (map->mob[(map->dim[x + 1][y]) - 10]->vie <= 0)
-                {
-
-                    looter(map->mob[(map->dim[x + 1][y]) - 10], pers);
-                    detruire_mob(&(map->mob[(map->dim[x + 1][y] - 10)]));
-                    map->mob[(map->dim[x + 1][y] - 10)] = NULL;
-                    map->dim[x + 1][y] = VIDE;
-                }
-            }
-            if (map->dim[x + 1][y] == MARCHAND)
-            {
-                SDL_RenderClear(renderer);
-
-                afficher_menu(window, renderer, pers, police);
-            }
-            break;
-        default:
-            break;
+    proj_t proj = AUCUN_PROJ;
+    if(pers->arbre != NULL){
+        switch(pers->arbre->classe){
+            case MAGE: proj = BOULE; break;
+            case ARCHER: proj = FLECHE; break;
+            default: proj = AUCUN_PROJ;
         }
-        return 1;
+    }else{
+        proj = AUCUN_PROJ;
     }
-    else
-    {
-        return 0;
-    }
+    attaque_pers(proj, pers, map);
 }
 
 /**
@@ -610,7 +536,7 @@ void interact(int attaque, t_salle *map, entite_t *pers, Uint32 *lastTime, t_pos
         float dist;
         if (map->mob[i] != NULL && distance(pers, map->mob[i]) <= 4) // si le mob est à moins de 4 cases du joueur
         {
-            for (int j = 0; j < 20; j++) // on réinitialise le tableau de coordonnées
+            for (int j = 0; j < 10; j++) // on réinitialise le tableau de coordonnées
             {
                 coords[j][0] = 0;
                 coords[j][1] = 0;
@@ -775,15 +701,14 @@ void rendu(int map[][LONG_SALLE_BOSS], int tailleI, int tailleJ, SDL_Renderer *r
             }
             if (map[x][y] == MARCHAND)
             {
-                dstRect.x = posX; // Position de l'obstacle
-                dstRect.y = posY;
-                SDL_RenderCopy(renderer, tab_tex[4], &srcRect, &dstRect); // On affiche l'obstacle
-            }
-            if (map[x][y] == VIDE)
-            {
-                dstRect.x = posX;
-                dstRect.y = posY;
-                //SDL_RenderCopy(renderer,tab_tex[1], NULL, &dstRect);
+                SDL_Rect Marchand;
+                Marchand.x = frame * 47; // Combien de Pixel on doit décaler pour afficher la bonne frame
+                Marchand.w = 47;         // Largeur de la frame
+                Marchand.y = 0;
+                Marchand.h = 38;        // Hauteur de la frame
+                dstRect.x = posX;       // Position de la frame
+                dstRect.y = posY; 
+                SDL_RenderCopy(renderer, tab_tex[3], &Marchand, &dstRect); // On affiche l'obstacle
             }
         }
         // printf("\n");
@@ -847,6 +772,9 @@ int main()
 
     map.dim[perso->x][perso->y] = PERSO;
     // affichage de la matrice de la salle
+
+    void (*fonc_attaque)(proj_t, entite_t*, t_salle*) = NULL;
+    init_liste_proj();
 
     SDL_Rect srcRect = {0, 0, TILE_SIZE / 2, TILE_SIZE / 2}; // Position de la texture
     SDL_Rect dstRect = {0, 0, TILE_SIZE, TILE_SIZE};         // Position de la texture
@@ -924,7 +852,16 @@ int main()
                     break;
                 case SDL_SCANCODE_SPACE:
                     attaque = 1;
-                    perso_attack(&map, attaque, perso, window, renderer, police);
+                    if(perso->arbre != NULL){
+                        switch(perso->arbre->classe){
+                            case MAGE: fonc_attaque = attaque_proj; break;
+                            case ARCHER: fonc_attaque = attaque_proj; break;
+                            default: fonc_attaque = attaque_cac;
+                        }
+                    }else{
+                        fonc_attaque = attaque_cac;
+                    }
+                    perso_attack(&map, attaque, perso, fonc_attaque,window,renderer,police);
                     // interact(attaque,&map,perso);
                     break;
                 case SDL_SCANCODE_LSHIFT:
@@ -948,6 +885,8 @@ int main()
                 break;
             }
         }
+        if(!liste_vide_proj())
+            maj_proj(perso, &map);
         Uint32 currentTime = SDL_GetTicks(); // Temps actuel
         if (currentTime - lastTime >= 300)
         {                                        // Mettre à jour toutes les 300 ms
