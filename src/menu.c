@@ -6,7 +6,11 @@
 #include <SDL2/SDL_image.h>
 #include <SDL2/SDL_mixer.h>
 // Structure pour représenter un bouton
-
+/**
+ * \file menu.c
+ * \brief Fichier contenant les fonctions pour le menu
+ * 
+*/
 #include "../head/name.h"
 #include "../head/inventaire.h"
 #include "../head/sauvegarde.h"

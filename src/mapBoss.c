@@ -2,7 +2,10 @@
 #include <stdlib.h>
 
 #include "../head/mapBoss.h"
-
+/**
+ * \file mapBoss.c
+ * \brief Fichier contenant les fonctions pour la génération de la salle du boss et marchand
+*/
 #define BOSS 10 //Boss : à enlever quand boss créés
 #define SPAWN 10 //Lieu de SPAWN dans la salle du boss : à enlever ?
 /**

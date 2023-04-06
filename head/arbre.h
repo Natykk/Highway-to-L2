@@ -3,6 +3,10 @@
 
 #include "competence.h"
 #include "entite.h"
+/**
+ * \file arbre.h
+ * \brief Fichier contenant les structure et prototype de fonction pour la gestion des arbres de compétences
+*/
 
 typedef struct arbre{
     t_classe classe;

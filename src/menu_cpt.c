@@ -15,7 +15,7 @@
 /**
  * @file menu_cpt.c
  * @author GEORGET Rémy
- * @brief
+ * @brief Fichier contenant les fonctions pour le menu des compétences
  * @date 2023-03-24
  */
 

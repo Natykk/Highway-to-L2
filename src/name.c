@@ -6,7 +6,10 @@
 #include <string.h>
 
 #include "../head/name.h"
-
+/**
+ * \file name.c
+ * \brief Fichier contenant les fonctions pour la gestion du nom du personnage
+*/
 /**
  * \fn char * name(SDL_Window * win, SDL_Renderer * screen, entite_t * personnage)
  * @brief Affiche le menu et gère les interactions textuelle avec celui-ci

@@ -1,0 +1,53 @@
+\hypertarget{name_8c}{}\doxysection{Référence du fichier /mnt/c/\+Users/natik/\+Projet\+L2/src/name.c}
+\label{name_8c}\index{/mnt/c/Users/natik/ProjetL2/src/name.c@{/mnt/c/Users/natik/ProjetL2/src/name.c}}
+
+
+Fichier contenant les fonctions pour la gestion du nom du personnage.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$SDL2/\+SDL.\+h$>$}\newline
+{\ttfamily \#include $<$SDL2/\+SDL\+\_\+ttf.\+h$>$}\newline
+{\ttfamily \#include $<$SDL2/\+SDL\+\_\+mixer.\+h$>$}\newline
+{\ttfamily \#include $<$SDL2/\+SDL\+\_\+image.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}../head/name.\+h\char`\"{}}\newline
+Graphe des dépendances par inclusion de name.\+c\+:
+% FIG 0
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+char $\ast$ \mbox{\hyperlink{name_8c_ae464e8c747bbc0422da7c7cda7d3a9f1}{name}} (SDL\+\_\+\+Window $\ast$win, SDL\+\_\+\+Renderer $\ast$screen, entite\+\_\+t $\ast$personnage)
+\begin{DoxyCompactList}\small\item\em Affiche le menu et gère les interactions textuelle avec celui-\/ci. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Fichier contenant les fonctions pour la gestion du nom du personnage. 
+
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{name_8c_ae464e8c747bbc0422da7c7cda7d3a9f1}\label{name_8c_ae464e8c747bbc0422da7c7cda7d3a9f1}} 
+\index{name.c@{name.c}!name@{name}}
+\index{name@{name}!name.c@{name.c}}
+\doxysubsubsection{\texorpdfstring{name()}{name()}}
+{\footnotesize\ttfamily char $\ast$ name (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Window $\ast$}]{win,  }\item[{SDL\+\_\+\+Renderer $\ast$}]{screen,  }\item[{entite\+\_\+t $\ast$}]{personnage }\end{DoxyParamCaption})}
+
+
+
+Affiche le menu et gère les interactions textuelle avec celui-\/ci. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em win} & la fenêtre \\
+\hline
+{\em screen} & le renderer \\
+\hline
+{\em personnage} & le personnage \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+retourne le nom du personnage 
+
+retourne NULL si le joueur a choisi de quitter ou si une erreur est survenue sinon retourne le nom du personnage 
+\end{DoxyReturn}

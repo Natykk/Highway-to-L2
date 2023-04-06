@@ -1,0 +1,376 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Projet Roguelike: Référence du fichier /mnt/c/Users/natik/ProjetL2/src/chemin.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Projet Roguelike
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#typedef-members">Définitions de type</a> &#124;
+<a href="#func-members">Fonctions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
+  <div class="headertitle">
+<div class="title">Référence du fichier chemin.c</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Fichier contenant les fonctions pour l'algorithme de chemin le plus court.  
+<a href="#details">Plus de détails...</a></p>
+<div class="textblock"><code>#include &lt;stdbool.h&gt;</code><br />
+<code>#include &lt;stdio.h&gt;</code><br />
+<code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &quot;../head/chemin.h&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Graphe des dépendances par inclusion de chemin.c:</div>
+<div class="dyncontent">
+<div class="center"><img src="chemin_8c__incl.png" border="0" usemap="#a_2mnt_2c_2Users_2natik_2ProjetL2_2src_2chemin_8c" alt=""/></div>
+</div>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structelement.html">element</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Définitions de type</h2></td></tr>
+<tr class="memitem:aaa9f09bf55fb32a9090e2dc051b75a6a"><td class="memItemLeft" align="right" valign="top"><a id="aaa9f09bf55fb32a9090e2dc051b75a6a"></a>
+typedef struct <a class="el" href="structelement.html">element</a>&#160;</td><td class="memItemRight" valign="bottom"><b>t_element</b></td></tr>
+<tr class="separator:aaa9f09bf55fb32a9090e2dc051b75a6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:a273907fa64f10a578e107dde70a12876"><td class="memItemLeft" align="right" valign="top"><a id="a273907fa64f10a578e107dde70a12876"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="chemin_8c.html#a273907fa64f10a578e107dde70a12876">initfile</a> (void)</td></tr>
+<tr class="memdesc:a273907fa64f10a578e107dde70a12876"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialise la file. <br /></td></tr>
+<tr class="separator:a273907fa64f10a578e107dde70a12876"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b48b65698f5783adf206700444ea9bd"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="chemin_8c.html#a4b48b65698f5783adf206700444ea9bd">filevide</a> (void)</td></tr>
+<tr class="memdesc:a4b48b65698f5783adf206700444ea9bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Renvoie VRAI si la file est vide, FAUX sinon.  <a href="chemin_8c.html#a4b48b65698f5783adf206700444ea9bd">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a4b48b65698f5783adf206700444ea9bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac7273bd1a4e188d9e2035a1b7575aad4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="chemin_8c.html#ac7273bd1a4e188d9e2035a1b7575aad4">ajouter</a> (int v)</td></tr>
+<tr class="memdesc:ac7273bd1a4e188d9e2035a1b7575aad4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ajoute un élément à la file.  <a href="chemin_8c.html#ac7273bd1a4e188d9e2035a1b7575aad4">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ac7273bd1a4e188d9e2035a1b7575aad4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a08eddf9603567f4706419d8328ffcce0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="chemin_8c.html#a08eddf9603567f4706419d8328ffcce0">retirer</a> (int *v)</td></tr>
+<tr class="memdesc:a08eddf9603567f4706419d8328ffcce0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retire un élément de la file.  <a href="chemin_8c.html#a08eddf9603567f4706419d8328ffcce0">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a08eddf9603567f4706419d8328ffcce0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac1f442dab8aac569e72a0be822f28cd3"><td class="memItemLeft" align="right" valign="top"><a id="ac1f442dab8aac569e72a0be822f28cd3"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="chemin_8c.html#ac1f442dab8aac569e72a0be822f28cd3">afficher_file</a> (void)</td></tr>
+<tr class="memdesc:ac1f442dab8aac569e72a0be822f28cd3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affiche la file. <br /></td></tr>
+<tr class="separator:ac1f442dab8aac569e72a0be822f28cd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a730ee142f3d2e67bc393e6ca7ba88fc7"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="chemin_8c.html#a730ee142f3d2e67bc393e6ca7ba88fc7">valides</a> (int i, int j)</td></tr>
+<tr class="memdesc:a730ee142f3d2e67bc393e6ca7ba88fc7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Renvoie VRAI si i et j désignent une case de la matrice.  <a href="chemin_8c.html#a730ee142f3d2e67bc393e6ca7ba88fc7">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a730ee142f3d2e67bc393e6ca7ba88fc7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3930ad6d4bbd0f643a9501bedd5a8e9f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="chemin_8c.html#a3930ad6d4bbd0f643a9501bedd5a8e9f">marquer_chemin</a> (int lab[9][9], int x, int y, int coords[20][2])</td></tr>
+<tr class="memdesc:a3930ad6d4bbd0f643a9501bedd5a8e9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Marque le chemin le plus court a partir de lab[x][y].  <a href="chemin_8c.html#a3930ad6d4bbd0f643a9501bedd5a8e9f">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a3930ad6d4bbd0f643a9501bedd5a8e9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a12cd25c018867e2cd5fd03954d58837b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="chemin_8c.html#a12cd25c018867e2cd5fd03954d58837b">chercher_chemin</a> (int xd, int yd, int xa, int ya, int lab[9][9], int coords[20][2])</td></tr>
+<tr class="memdesc:a12cd25c018867e2cd5fd03954d58837b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cherche le chemin D -&gt; A le plus court avec une file.  <a href="chemin_8c.html#a12cd25c018867e2cd5fd03954d58837b">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a12cd25c018867e2cd5fd03954d58837b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:ac64a6a741ed90e894c695c6f92ad31b8"><td class="memItemLeft" align="right" valign="top"><a id="ac64a6a741ed90e894c695c6f92ad31b8"></a>
+<a class="el" href="structelement.html">t_element</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>tete</b></td></tr>
+<tr class="separator:ac64a6a741ed90e894c695c6f92ad31b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae8f83cc1f73001fbaedaa4ee4e4312ae"><td class="memItemLeft" align="right" valign="top"><a id="ae8f83cc1f73001fbaedaa4ee4e4312ae"></a>
+<a class="el" href="structelement.html">t_element</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>queue</b></td></tr>
+<tr class="separator:ae8f83cc1f73001fbaedaa4ee4e4312ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Fichier contenant les fonctions pour l'algorithme de chemin le plus court. </p>
+</div><h2 class="groupheader">Documentation des fonctions</h2>
+<a id="ac7273bd1a4e188d9e2035a1b7575aad4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac7273bd1a4e188d9e2035a1b7575aad4">&#9670;&nbsp;</a></span>ajouter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ajouter </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>v</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Ajoute un élément à la file. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">v</td><td>un entier quelquonque </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a12cd25c018867e2cd5fd03954d58837b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a12cd25c018867e2cd5fd03954d58837b">&#9670;&nbsp;</a></span>chercher_chemin()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int chercher_chemin </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>xd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>yd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>xa</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>ya</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>lab</em>[9][9], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>coords</em>[20][2]&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Cherche le chemin D -&gt; A le plus court avec une file. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">xd</td><td>coordonnée x de départ </td></tr>
+    <tr><td class="paramname">yd</td><td>coordonnée y de départ </td></tr>
+    <tr><td class="paramname">xa</td><td>coordonnée x d'arrivée </td></tr>
+    <tr><td class="paramname">ya</td><td>coordonnée y d'arrivée </td></tr>
+    <tr><td class="paramname">lab</td><td>matrice du labyrinthe </td></tr>
+    <tr><td class="paramname">coords</td><td>tableau de coordonnées </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>renvoie VRAI si un chemin existe, FAUX sinon </dd></dl>
+
+</div>
+</div>
+<a id="a4b48b65698f5783adf206700444ea9bd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4b48b65698f5783adf206700444ea9bd">&#9670;&nbsp;</a></span>filevide()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int filevide </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Renvoie VRAI si la file est vide, FAUX sinon. </p>
+<dl class="section return"><dt>Renvoie</dt><dd>int </dd></dl>
+
+</div>
+</div>
+<a id="a3930ad6d4bbd0f643a9501bedd5a8e9f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3930ad6d4bbd0f643a9501bedd5a8e9f">&#9670;&nbsp;</a></span>marquer_chemin()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void marquer_chemin </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>lab</em>[9][9], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>coords</em>[20][2]&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Marque le chemin le plus court a partir de lab[x][y]. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">lab</td><td>matrice du labyrinthe </td></tr>
+    <tr><td class="paramname">x</td><td>coordonnée x </td></tr>
+    <tr><td class="paramname">y</td><td>coordonnée y </td></tr>
+    <tr><td class="paramname">coords</td><td>tableau de coordonnées </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a08eddf9603567f4706419d8328ffcce0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a08eddf9603567f4706419d8328ffcce0">&#9670;&nbsp;</a></span>retirer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void retirer </td>
+          <td>(</td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>v</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Retire un élément de la file. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">v</td><td>un entier quelquonque </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a730ee142f3d2e67bc393e6ca7ba88fc7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a730ee142f3d2e67bc393e6ca7ba88fc7">&#9670;&nbsp;</a></span>valides()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int valides </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>i</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>j</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Renvoie VRAI si i et j désignent une case de la matrice. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">i</td><td>coordonnée x </td></tr>
+    <tr><td class="paramname">j</td><td>coordonnée y </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>renvoie VRAI si i et j désignent une case de la matrice </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>

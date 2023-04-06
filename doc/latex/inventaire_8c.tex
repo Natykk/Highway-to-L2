@@ -8,15 +8,15 @@ Fichier d\textquotesingle{}en-\/tete pour les primitives liées aux entites.
 {\ttfamily \#include $<$stdio.\+h$>$}\newline
 {\ttfamily \#include $<$stdlib.\+h$>$}\newline
 {\ttfamily \#include $<$string.\+h$>$}\newline
-{\ttfamily \#include \char`\"{}../head/entite.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../head/inventaire.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../head/objet.\+h\char`\"{}}\newline
 Graphe des dépendances par inclusion de inventaire.\+c\+:
 % FIG 0
 \doxysubsection*{Fonctions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{inventaire_8c_a2b7e2521c6a11687762975fe62385d32}\label{inventaire_8c_a2b7e2521c6a11687762975fe62385d32}} 
-void {\bfseries afficher\+\_\+inventaire} (entite\+\_\+t $\ast$entite)
-\item 
+void \mbox{\hyperlink{inventaire_8c_a80214ba54e6ffdb246b745bb6a99ce2d}{afficher\+\_\+inventaire}} (entite\+\_\+t $\ast$entite)
+\begin{DoxyCompactList}\small\item\em Fonction qui permet d\textquotesingle{}afficher l\textquotesingle{}inventaire d\textquotesingle{}une entite. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{inventaire_8c_af0daae5e363ae18f8e188fcab34cb8b8}\label{inventaire_8c_af0daae5e363ae18f8e188fcab34cb8b8}} 
 void {\bfseries looter} (entite\+\_\+t $\ast$entite\+\_\+source, entite\+\_\+t $\ast$entite\+\_\+destination)
 \item 
@@ -25,9 +25,7 @@ entite\+\_\+t $\ast$ {\bfseries init\+\_\+inventaire\+\_\+personnage} (entite\+\
 \item 
 \mbox{\Hypertarget{inventaire_8c_a3a6ed488b154490fff9f5cc2d8a440b9}\label{inventaire_8c_a3a6ed488b154490fff9f5cc2d8a440b9}} 
 entite\+\_\+t $\ast$ {\bfseries init\+\_\+inventaire\+\_\+monstre} (entite\+\_\+t $\ast$monstre)
-\item 
-int \mbox{\hyperlink{inventaire_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
-\begin{DoxyCompactList}\small\item\em Test de l\textquotesingle{}inventaire avec utilisation des primitives et des structures de données liées aux objets. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{DoxyCompactItemize}
 
 
 \doxysubsection{Description détaillée}
@@ -45,24 +43,18 @@ GEORGET Rémy, GALLAIS Matéo.
 
 
 \doxysubsection{Documentation des fonctions}
-\mbox{\Hypertarget{inventaire_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}\label{inventaire_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}} 
-\index{inventaire.c@{inventaire.c}!main@{main}}
-\index{main@{main}!inventaire.c@{inventaire.c}}
-\doxysubsubsection{\texorpdfstring{main()}{main()}}
-{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{inventaire_8c_a80214ba54e6ffdb246b745bb6a99ce2d}\label{inventaire_8c_a80214ba54e6ffdb246b745bb6a99ce2d}} 
+\index{inventaire.c@{inventaire.c}!afficher\_inventaire@{afficher\_inventaire}}
+\index{afficher\_inventaire@{afficher\_inventaire}!inventaire.c@{inventaire.c}}
+\doxysubsubsection{\texorpdfstring{afficher\_inventaire()}{afficher\_inventaire()}}
+{\footnotesize\ttfamily afficher\+\_\+inventaire (\begin{DoxyParamCaption}\item[{entite\+\_\+t $\ast$}]{entite }\end{DoxyParamCaption})}
 
 
 
-Test de l\textquotesingle{}inventaire avec utilisation des primitives et des structures de données liées aux objets. 
+Fonction qui permet d\textquotesingle{}afficher l\textquotesingle{}inventaire d\textquotesingle{}une entite. 
 
-Fonction principale qui malloc un niveau et le détruit.
 
-Fonction principale qui génère un niveau et le détruit.
-
-Fonction principale.
-
-\begin{DoxyReturn}{Renvoie}
-int
-
-0 
-\end{DoxyReturn}
+\begin{DoxyParams}{Paramètres}
+{\em entite} & \\
+\hline
+\end{DoxyParams}

@@ -1,6 +1,9 @@
 #ifndef __COMPETENCE__
 #define __COMPETENCE__
-
+/**
+ * \file competence.h
+ * \brief Fichier contenant les structures et prototypes de fonctions pour la gestion des compétences
+*/
 #include <stdio.h>
 #include <stdlib.h>
 

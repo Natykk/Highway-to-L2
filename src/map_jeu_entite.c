@@ -1,3 +1,7 @@
+/**
+ * \file map_jeu_entite.c
+ * \brief Fichier contenant les fonctions principal du jeu
+*/
 #include <stdbool.h>
 #include <stdio.h>
 #define SDL_MAIN_HANDLED

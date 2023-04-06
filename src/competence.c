@@ -3,7 +3,10 @@
 #include <string.h>
 
 #include "../head/competence.h"
-
+/**
+ * \file competence.c
+ * \brief Fichier contenant les fonctions pour les compétences
+*/
 t_competence cpt_assassin[NB_CPT]={
     //étage1:
     {non_acquis, "Frappe Rapide", "Cette compétence se concentre sur la rapidité d'attaque pour neutraliser rapidement la cible. Effet : Augmente la vitesse d'attaque.", {NO_IMPROVE, NO_IMPROVE, MIDDLE_IMPROVE, NO_IMPROVE, NO_IMPROVE}, NULL, 0, NULL, 2, NULL,NULL,1, 1},
