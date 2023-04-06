@@ -11,6 +11,7 @@
 #include "../head/menu_cpt.h"
 #include "../head/itoa.h"
 #include "../head/inventaire.h"
+#include "../head/competence.h"
 
 /**
  * @file menu_cpt.c
@@ -1312,7 +1313,6 @@ int afficher_competence_SDL(SDL_Window *window,SDL_Renderer *renderer,char *path
         int check = construire_chaine_buff(chaine, i, tab[i]);
         if (check == 1)
         {
-
             surface = TTF_RenderText_Solid(font, chaine, color);
             texture = SDL_CreateTextureFromSurface(renderer, surface);
             SDL_Delay(20);
@@ -1345,12 +1345,13 @@ int afficher_competence_SDL(SDL_Window *window,SDL_Renderer *renderer,char *path
         SDL_FreeSurface(surface);
         SDL_DestroyTexture(texture);
     }
-
-    surface = TTF_RenderText_Solid(font, "Debloquer", color);
-    texture = SDL_CreateTextureFromSurface(renderer, surface);
-    SDL_RenderCopy(renderer, texture, NULL, &rect_deb);
-    SDL_FreeSurface(surface);
-    SDL_DestroyTexture(texture);
+    if(competence->competence_acquise == non_acquis){
+        surface = TTF_RenderText_Solid(font, "Debloquer", color);
+        texture = SDL_CreateTextureFromSurface(renderer, surface);
+        SDL_RenderCopy(renderer, texture, NULL, &rect_deb);
+        SDL_FreeSurface(surface);
+        SDL_DestroyTexture(texture);
+    }
 
     surface = TTF_RenderText_Solid(font, "Retour", color);
     texture = SDL_CreateTextureFromSurface(renderer, surface);
@@ -1388,11 +1389,12 @@ int afficher_competence_SDL(SDL_Window *window,SDL_Renderer *renderer,char *path
                 {
                     x = event.button.x;
                     y = event.button.y;
-                    if(in_rect(x, y, &rect_deb)) {
-                        check = competence_debloquer(entite, competence, arbre);
-                        return 1;
+                    if(competence->competence_acquise == non_acquis){
+                        if(in_rect(x, y, &rect_deb)) {
+                            check = competence_debloquer(entite, competence, arbre);
+                            return 1;
+                        }
                     }
-
                     if (in_rect(x, y, &rect_ret))
                     {
                         return 1;

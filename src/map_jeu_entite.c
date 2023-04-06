@@ -759,6 +759,8 @@ int main()
     int attaque = 0;
     choix_tex_niv(renderer);
 
+    perso->inventaire->nb[3]=10;
+
     afficher_menu(window, renderer, perso, police);
 
     t_salle map;                    // Matrice de la salle
