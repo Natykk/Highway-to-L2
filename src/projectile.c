@@ -3,6 +3,8 @@
 
 #include <./head/projectile.h>
 #include <./head/mapStruct.h>
+t_element * drapeau;
+t_element * ec;
 
 void init_liste_proj(void){
 //Cree la liste constitue du seul drapeau

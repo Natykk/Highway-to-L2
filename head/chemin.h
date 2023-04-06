@@ -29,5 +29,5 @@ void ajouter(int x);
 void retirer(int *x);
 int filevide();
 void afficher_file();
-int coords[9][2];
+extern int coords[9][2];
 #endif

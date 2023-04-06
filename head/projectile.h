@@ -1,3 +1,6 @@
+#ifndef PROJ_H
+#define PROJ_H
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
@@ -24,8 +27,8 @@ typedef struct element
     struct element *succ;
 } t_element;
 
-t_element *drapeau;
-t_element *ec;
+extern t_element * drapeau;
+extern t_element * ec;
 
 typedef enum proj_s
 {
@@ -57,3 +60,5 @@ int valide(int x, int y);
 projectile_t *creer_projectiles(proj_t type);
 void detruire_projectiles(projectile_t **proj);
 void calcul_position(projectile_t *proj);
+
+#endif
