@@ -26,6 +26,10 @@ SDL_Texture *tab_tex[10] = {NULL};
 #define TILE_SIZE 32
 #define DIM_SALLE 25
 #define DIM_SALLE 25
+
+#define BAR_WIDTH 400
+#define BAR_HEIGHT 10
+
 int coords[9][2] = { 0 };
 #define SPRITE_FRAMES 4 // Nombre de frames de l'animation
 const int hauteur_fenetre = LONG_SALLE_BOSS * TILE_SIZE;
@@ -724,7 +728,13 @@ int main()
     perso = init_inventaire_personnage(perso);
     SDL_Window *window = SDL_CreateWindow("Highway to L2", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, largeur_fenetre, hauteur_fenetre, 0); // On crée la fenêtre
     SDL_Renderer *renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);                               // On crée le renderer
-    menu(window, renderer, perso);
+    if(menu(window, renderer, perso) == 0){
+        SDL_DestroyRenderer(renderer);
+        SDL_DestroyWindow(window);
+        SDL_Quit();
+        return 0;
+    }
+    
     if(!sauvegarde(perso, 0)){
         printf("problème lors de la sauvegarde\n");
         SDL_DestroyRenderer(renderer);
@@ -784,14 +794,23 @@ int main()
     int max_vie = perso->vie;
     int mort = 0;
 
-    SDL_Rect fond_vie_barre;
-    fond_vie_barre.w = WINDOW_WIDTH / 2;
-    fond_vie_barre.h = 10;
-    fond_vie_barre.x = WINDOW_WIDTH / 2 - fond_vie_barre.w / 8;
-    fond_vie_barre.y = WINDOW_HEIGHT - 20;
+    SDL_Surface* redHealthBarSurface = IMG_Load("./IMG/red_healthbar.png");
+    SDL_Texture* redHealthBarTexture = SDL_CreateTextureFromSurface(renderer, redHealthBarSurface);
+    //SDL_FreeSurface(redHealthBarSurface);
 
-    SDL_Color noir = {0,0,0};
-    SDL_Color rouge = {255,0,0};
+    SDL_Surface* blackHealthBarSurface = IMG_Load("./IMG/black_healthbar.png");
+    SDL_Texture* blackHealthBarTexture = SDL_CreateTextureFromSurface(renderer, blackHealthBarSurface);
+    //SDL_FreeSurface(redHealthBarSurface);
+
+    // Initialisation des variables de vie
+    int maxHealth = perso->vie;
+
+    // Calcul de la longueur de la barre de vie en pixels
+    int barLength = (int)((float)perso->vie / (float)maxHealth * (float)BAR_WIDTH);
+ 
+    // Création de la barre de vie
+    SDL_Rect healthBarRect = {WINDOW_WIDTH/2 - BAR_WIDTH/2, WINDOW_HEIGHT - 2 * BAR_HEIGHT, BAR_WIDTH, BAR_HEIGHT};
+
     
     perso->dir = BAS;                 // Variable de déplacement
     Uint32 lastTime = SDL_GetTicks(); // Temps de la dernière mise à jour de l'animation
@@ -893,6 +912,7 @@ int main()
             frame = (frame + 1) % SPRITE_FRAMES; // Passer à la frame suivante
             lastTime = currentTime;              // Mettre à jour le temps de la dernière mise à jour
         }
+        SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
         SDL_RenderClear(renderer); // On efface l'écran
         
 
@@ -919,7 +939,21 @@ int main()
         }
         
 
+        float healthPercentage = (float)perso->vie / (float)maxHealth;
+        int healthBarWidth = (int)(healthPercentage * (float)healthBarRect.w);
+
+        // Dessin de la barre de vie
+        SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+        SDL_RenderFillRect(renderer, &healthBarRect);
+
+        SDL_Rect redHealthBarRect = {healthBarRect.x, healthBarRect.y, healthBarWidth, healthBarRect.h};
+        SDL_RenderCopy(renderer, redHealthBarTexture, NULL, &redHealthBarRect);
+
+        SDL_Rect blackHealthBarRect = {healthBarRect.x + healthBarWidth, healthBarRect.y, healthBarRect.w - healthBarWidth, healthBarRect.h};
+        SDL_RenderCopy(renderer, blackHealthBarTexture, NULL, &blackHealthBarRect);
         SDL_RenderPresent(renderer); // On affiche l'écran 
+
+
         if (SDL_GetTicks() - lastTimeInteract >= 500)
         {
             interact(attaque, &map, perso, &MajMove, &posSalle, niv, renderer);
@@ -927,12 +961,20 @@ int main()
         }
 
     } // Fin boucle principale
+    SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+    SDL_RenderPresent(renderer); // On affiche l'écran 
 
     detruireNiv(&niv); // On libère la mémoire
     for (i = 0; i < 10; i++)
     {
         SDL_DestroyTexture(tab_tex[i]); // On détruit les textures
     }
+
+    SDL_DestroyTexture(redHealthBarTexture);
+    SDL_FreeSurface(redHealthBarSurface);
+
+    SDL_DestroyTexture(blackHealthBarTexture);
+    SDL_FreeSurface(blackHealthBarSurface);
 
     if(mort == 1){
         if(gameover(window, renderer, perso)){

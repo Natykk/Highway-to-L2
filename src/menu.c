@@ -103,6 +103,7 @@ int menu_interact(SDL_Window * window, SDL_Renderer * renderer, entite_t * perso
     char * player_name = malloc(sizeof(char)*TEXT_SIZE);
     player_name = NULL;
     
+    int retour;
     int x, y;
     int run = 1;
     while(run){
@@ -128,6 +129,7 @@ int menu_interact(SDL_Window * window, SDL_Renderer * renderer, entite_t * perso
                       SDL_DestroyTexture(texture_background);
                       personnage->nom = name(window, renderer, personnage);
                       run = 0;
+                      retour = 1;
                     } 
                     else if((x >= continuer.x && x <= continuer.x + continuer.w && y >= continuer.y && y <= continuer.y + continuer.h) && (!fempty("../sauv/sauvegarde.txt") && fileExists("../sauv/sauvegarde.txt"))){
                       /*
@@ -139,10 +141,12 @@ int menu_interact(SDL_Window * window, SDL_Renderer * renderer, entite_t * perso
                       */
                       chargement(&personnage);
                       run=0;
+                      retour = 1;
                     }
                     else if(x >= quitter.x && x <= quitter.x + quitter.w && y >= quitter.y && y <= quitter.y + quitter.h){
                       printf("Quitter\n");
                       run=0;
+                      retour = 0;
                     }
                     break;
                 default: break;
@@ -161,7 +165,7 @@ int menu_interact(SDL_Window * window, SDL_Renderer * renderer, entite_t * perso
     SDL_DestroyTexture(texture_nouv_partie);
     SDL_DestroyTexture(texture_img);
     SDL_DestroyTexture(texture_background);
-    return 1;
+    return retour;
 }
 /**
  * \fn int menu(SDL_Window* window ,SDL_Renderer* renderer ,entite_t * personnage)
@@ -181,14 +185,14 @@ int menu(SDL_Window* window ,SDL_Renderer* renderer, entite_t * personnage){
 
   
   /* Interactions du menu */
-  menu_interact(window, renderer, personnage);
+  int retour_menu = menu_interact(window, renderer, personnage);
 
   /* Fermeture de la piste audio de fond */
   Mix_HaltMusic();
   Mix_CloseAudio();
   Mix_Quit();
 
-  return 0;
+  return retour_menu;
 }
 
 
@@ -215,7 +219,7 @@ int gameover(SDL_Window * window, SDL_Renderer * renderer, entite_t * personnage
 
   SDL_Surface * gameover = IMG_Load("../IMG/gameover.png");
   SDL_Texture * texture_gameover = SDL_CreateTextureFromSurface(renderer, gameover);
-  SDL_Rect img_rect = {WINDOW_WIDTH/15, WINDOW_HEIGHT/3, WINDOW_WIDTH * 7 / 8, 300};
+  SDL_Rect img_rect = {WINDOW_WIDTH/15, WINDOW_HEIGHT / 5, WINDOW_WIDTH * 7 / 8, WINDOW_HEIGHT * 2 / 3};
   SDL_FreeSurface(gameover);
   gameover = NULL;
 

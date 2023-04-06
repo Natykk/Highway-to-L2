@@ -218,19 +218,19 @@ int genererSalle(int x_salle, int y_salle, t_etage * etage){
     if(etage->etage[x_salle][y_salle].statut==EXIT){
         etage->etage[x_salle][y_salle].nb_porte=1;
         if(salle_disponible(x_salle-1, y_salle, etage->etage)==-1 && etage->etage[x_salle-1][y_salle].num_salle == etage->etage[x_salle][y_salle].num_salle-1){
-            etage->etage[x_salle][y_salle].dim[0][DIM_SALLE/2-1]=PORTE;
+            etage->etage[x_salle][y_salle].dim[0][DIM_SALLE/2]=PORTE;
             cpt_porte++;
         }
         if(salle_disponible(x_salle+1, y_salle, etage->etage)==-1 && etage->etage[x_salle+1][y_salle].num_salle == etage->etage[x_salle][y_salle].num_salle-1){
-            etage->etage[x_salle][y_salle].dim[DIM_SALLE-1][DIM_SALLE/2-1]=PORTE;
+            etage->etage[x_salle][y_salle].dim[DIM_SALLE-1][DIM_SALLE/2]=PORTE;
             cpt_porte++;
         }
         if(salle_disponible(x_salle, y_salle-1, etage->etage)==-1 && etage->etage[x_salle][y_salle-1].num_salle == etage->etage[x_salle][y_salle].num_salle-1){
-            etage->etage[x_salle][y_salle].dim[DIM_SALLE/2-1][0]=PORTE;
+            etage->etage[x_salle][y_salle].dim[DIM_SALLE/2][0]=PORTE;
             cpt_porte++;
         }
         if(salle_disponible(x_salle, y_salle+1, etage->etage)==-1 && etage->etage[x_salle][y_salle+1].num_salle == etage->etage[x_salle][y_salle].num_salle-1){
-            etage->etage[x_salle][y_salle].dim[DIM_SALLE/2-1][DIM_SALLE-1]=PORTE;
+            etage->etage[x_salle][y_salle].dim[DIM_SALLE/2][DIM_SALLE-1]=PORTE;
             cpt_porte++;
         }
     }
