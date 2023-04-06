@@ -25,7 +25,7 @@ char * name(SDL_Window * win, SDL_Renderer * screen, entite_t * personnage){
     //SDL_Window * win = SDL_CreateWindow("Highway to L2", 350, 150, WINDOW_WIDTH, WINDOW_HEIGHT, SDL_WINDOW_SHOWN | SDL_WINDOW_BORDERLESS);
     //SDL_Renderer *screen =  SDL_CreateRenderer(win, -1, SDL_RENDERER_PRESENTVSYNC);
     
-    SDL_Surface *image = IMG_Load("../IMG/background/background_name.png");
+    SDL_Surface *image = IMG_Load("../img/background/background_name.png");
     SDL_Texture *texture_background = SDL_CreateTextureFromSurface(screen, image);
     SDL_FreeSurface(image);
     

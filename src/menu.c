@@ -59,7 +59,7 @@ int menu_interact(SDL_Window * window, SDL_Renderer * renderer, entite_t * perso
     SDL_Texture *texture_background = SDL_CreateTextureFromSurface(renderer, image);
     SDL_FreeSurface(image);
 
-    SDL_Surface * img_logo = IMG_Load("../img/logo.png");
+    SDL_Surface * img_logo = IMG_Load("../img/background/logo.png");
     SDL_Texture * texture_img = SDL_CreateTextureFromSurface(renderer, img_logo);
     SDL_Rect img_rect = {WINDOW_WIDTH/15, WINDOW_HEIGHT/3, WINDOW_WIDTH * 7 / 8, WINDOW_WIDTH * 2 / 8};
     SDL_FreeSurface(img_logo);
@@ -83,7 +83,7 @@ int menu_interact(SDL_Window * window, SDL_Renderer * renderer, entite_t * perso
     continuer.w = 200;
     continuer.h = 75;
     
-    if(!fempty("../sauv/sauvegarde.txt") && fileExists("../sauv/sauvegarde.txt")){
+    if(!fempty("./sauv/sauvegarde.txt") && fileExists("./sauv/sauvegarde.txt")){
       continuer.surface = IMG_Load("../img/button/continue.png");
     }
     else{
@@ -205,7 +205,7 @@ int gameover(SDL_Window * window, SDL_Renderer * renderer, entite_t * personnage
   menu_button.y = WINDOW_HEIGHT * 6 / 10;
   menu_button.w = 200;
   menu_button.h = 75;
-  menu_button.surface = IMG_Load("../IMG/button/menu.png");
+  menu_button.surface = IMG_Load("../img/button/menu.png");
   SDL_Texture *texture_menu = SDL_CreateTextureFromSurface(renderer, menu_button.surface);
   SDL_Rect menu_partie = { menu_button.x, menu_button.y, menu_button.w, menu_button.h };
 
@@ -217,7 +217,7 @@ int gameover(SDL_Window * window, SDL_Renderer * renderer, entite_t * personnage
   SDL_Texture *texture_quitter = SDL_CreateTextureFromSurface(renderer, quitter.surface);
   SDL_Rect buttonQuitter = { quitter.x, quitter.y, quitter.w, quitter.h };
 
-  SDL_Surface * gameover = IMG_Load("../IMG/gameover.png");
+  SDL_Surface * gameover = IMG_Load("../img/background/gameover.png");
   SDL_Texture * texture_gameover = SDL_CreateTextureFromSurface(renderer, gameover);
   SDL_Rect img_rect = {WINDOW_WIDTH/15, WINDOW_HEIGHT / 5, WINDOW_WIDTH * 7 / 8, WINDOW_HEIGHT * 2 / 3};
   SDL_FreeSurface(gameover);

@@ -799,11 +799,11 @@ int main()
     int max_vie = perso->vie;
     int mort = 0;
 
-    SDL_Surface* redHealthBarSurface = IMG_Load("./IMG/red_healthbar.png");
+    SDL_Surface* redHealthBarSurface = IMG_Load("./img/life_bar/red_healthbar.png");
     SDL_Texture* redHealthBarTexture = SDL_CreateTextureFromSurface(renderer, redHealthBarSurface);
     //SDL_FreeSurface(redHealthBarSurface);
 
-    SDL_Surface* blackHealthBarSurface = IMG_Load("./IMG/black_healthbar.png");
+    SDL_Surface* blackHealthBarSurface = IMG_Load("./img/life_bar/black_healthbar.png");
     SDL_Texture* blackHealthBarTexture = SDL_CreateTextureFromSurface(renderer, blackHealthBarSurface);
     //SDL_FreeSurface(redHealthBarSurface);
 
