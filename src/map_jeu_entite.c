@@ -805,8 +805,8 @@ int main()
     { // Boucle principale
         iboucle++;
         
-        if(iboucle%10 == 0){
-            perso->vie -= 1;
+        if(iboucle%50 == 0){
+            perso->vie -= 2;
         }
         printf("%d\n", perso->vie);
 
