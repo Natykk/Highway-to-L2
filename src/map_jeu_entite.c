@@ -20,15 +20,14 @@
 #include "../head/attaques.h"
 #include "../head/menu_cpt.h"
 #include "../head/name.h"
-int flip_map = 0;
 int NumEtage = 0;
 SDL_Texture *tab_tex[10] = {NULL};
 
 #define TILE_SIZE 32
 #define DIM_SALLE 25
 #define DIM_SALLE 25
-int coords[10][2];
-const int SPRITE_FRAMES = 4; // Nombre de frames de l'animation
+int coords[9][2] = { 0 };
+#define SPRITE_FRAMES 4 // Nombre de frames de l'animation
 const int hauteur_fenetre = LONG_SALLE_BOSS * TILE_SIZE;
 const int largeur_fenetre = LARG_SALLE_BOSS * TILE_SIZE;
 
@@ -213,7 +212,6 @@ void changement(t_niv *niv, entite_t *perso, t_pos *posSalle, t_salle *map)
         transfert(&niv->etages[NumEtage].etage[posSalle->x][posSalle->y], map, 0);
         // map->num_salle=niv->etages[NumEtage].etage[posSalle->x][posSalle->y].num_salle;
         map->dim[perso->x][perso->y] = PERSO;
-        flip_map = rand() % 4;
         if (niv->etages[NumEtage].boss == 1)
         {
             printf("Vous avez battu le boss\n");
@@ -538,7 +536,7 @@ void interact(int attaque, t_salle *map, entite_t *pers, Uint32 *lastTime, t_pos
         float dist;
         if (map->mob[i] != NULL && distance(pers, map->mob[i]) <= 4) // si le mob est à moins de 4 cases du joueur
         {
-            for (int j = 0; j < 20; j++) // on réinitialise le tableau de coordonnées
+            for (int j = 0; j < 10; j++) // on réinitialise le tableau de coordonnées
             {
                 coords[j][0] = 0;
                 coords[j][1] = 0;
