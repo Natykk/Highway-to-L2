@@ -48,7 +48,7 @@
 
 
 # project name (generate executable with this name)
-TARGETS  = menu_cpt
+TARGETS  = map_jeu_entite
 
 SDLROUTE = -I$(HOME)/SDL2/include -L$(HOME)/SDL2/lib
 LIBS = -lm -lSDL2main -lSDL2 -lSDL2_image -lSDL2_ttf -lSDL2_mixer 

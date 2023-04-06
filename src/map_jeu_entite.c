@@ -13,6 +13,7 @@
 #include "../head/chemin.h"
 #include "../head/inventaire.h"
 #include "../head/sauvegarde.h"
+#include "../head/attaques.h"
 #include "../head/menu_cpt.h"
 #include "../head/name.h"
 int flip_map = 0;
@@ -271,8 +272,7 @@ void chemin_vers_perso(entite_t *perso, entite_t *mob, int map[][LONG_SALLE_BOSS
             {
                 mat[i][j] = 1;
             }
-            else
-            {
+            else{
                 mat[i][j] = 0;
             }
         }
@@ -432,104 +432,21 @@ void mouvement(t_salle *map, entite_t *pers, t_pos *posSalle, t_niv *niv, SDL_Re
  * @param attaque Si le perso attaque
  * @param pers Le personnage
  **/
-int perso_attack(t_salle *map, int attaque, entite_t *pers, SDL_Window *window, SDL_Renderer *renderer, TTF_Font *police)
+int perso_attack(t_salle *map, int attaque, entite_t *pers, void (*attaque_pers)(proj_t, entite_t*,t_salle*),SDL_Window* window,SDL_Renderer* renderer,TTF_Font* police)
 {
     int x = pers->x;
     int y = pers->y;
-    if (attaque)
-    {
-
-        printf("Vous attaquez ! la salle ou il y a %d mob\n", map->nb_mobs);
-        switch (pers->dir)
-        {
-        case HAUT:
-            if (map->dim[x][y - 1] >= 10 && map->dim[x][y - 1] <= 21)
-            { // si il y a un ennemi sur la case du haut
-                map->mob[(map->dim[x][y - 1]) - 10]->vie -= 10;
-                printf("Vous avez infligé 10 point de dégats au mob %s il lui reste %d !\n", map->mob[(map->dim[x][y - 1]) - 10]->nom, map->mob[(map->dim[x][y - 1]) - 10]->vie);
-                if (map->mob[(map->dim[x][y - 1]) - 10]->vie <= 0)
-                {
-                    looter(map->mob[(map->dim[x][y - 1]) - 10], pers);
-                    detruire_mob(&(map->mob[(map->dim[x][y - 1]) - 10]));
-                    // on decale le tableau de mob
-                    map->mob[(map->dim[x][y - 1]) - 10] = NULL;
-                    map->dim[x][y - 1] = VIDE;
-                }
-            }
-            if (map->dim[x][y - 1] == MARCHAND)
-            {
-                SDL_RenderClear(renderer);
-                afficher_menu(window, renderer, pers, police);
-            }
-            break;
-        case BAS:
-            if (map->dim[x][y + 1] >= 10 && map->dim[x][y + 1] <= 21)
-            { // si il y a un ennemi sur la case du bas
-                map->mob[(map->dim[x][y + 1]) - 10]->vie -= 10;
-                printf("Vous avez infligé 10 point de dégats au mob %s il lui reste %d !\n", map->mob[(map->dim[x][y + 1]) - 10]->nom, map->mob[(map->dim[x][y + 1]) - 10]->vie);
-                if (map->mob[(map->dim[x][y + 1]) - 10]->vie <= 0)
-                {
-                    looter(map->mob[(map->dim[x][y + 1]) - 10], pers);
-                    detruire_mob(&map->mob[(map->dim[x][y + 1]) - 10]);
-                    map->mob[(map->dim[x][y + 1]) - 10] = NULL;
-                    map->dim[x][y + 1] = VIDE;
-                }
-            }
-            if (map->dim[x][y + 1] == MARCHAND)
-            {
-                SDL_RenderClear(renderer);
-                afficher_menu(window, renderer, pers, police);
-            }
-            break;
-        case GAUCHE:
-            if (map->dim[x - 1][y] >= 10 && map->dim[x - 1][y] <= 21)
-            { // si il y a un ennemi sur la case de gauche
-                map->mob[(map->dim[x - 1][y]) - 10]->vie -= 10;
-                // printf("Vous avez infligé 10 point de dégats au mob il lui reste %d !\n",map->mob[(map->dim[x-1][y])-10]->vie);
-                if (map->mob[(map->dim[x - 1][y]) - 10]->vie <= 0)
-                {
-                    looter(map->mob[(map->dim[x - 1][y]) - 10], pers);
-                    detruire_mob(&(map->mob[(map->dim[x - 1][y]) - 10]));
-                    map->mob[(map->dim[x - 1][y]) - 10] = NULL;
-                    map->dim[x - 1][y] = VIDE;
-                }
-            }
-            if (map->dim[x - 1][y] == MARCHAND)
-            {
-                SDL_RenderClear(renderer);
-                afficher_menu(window, renderer, pers, police);
-            }
-            break;
-        case DROITE:
-            if (map->dim[x + 1][y] >= 10 && map->dim[x + 1][y] <= 21)
-            { // si il y a un ennemi sur la case de droite
-                map->mob[(map->dim[x + 1][y]) - 10]->vie -= 10;
-                // printf("Vous avez infligé 10 point de dégats au mob il lui reste %d !\n",map->mob[(map->dim[x+1][y])-10]->vie);
-                if (map->mob[(map->dim[x + 1][y]) - 10]->vie <= 0)
-                {
-
-                    looter(map->mob[(map->dim[x + 1][y]) - 10], pers);
-                    detruire_mob(&(map->mob[(map->dim[x + 1][y] - 10)]));
-                    map->mob[(map->dim[x + 1][y] - 10)] = NULL;
-                    map->dim[x + 1][y] = VIDE;
-                }
-            }
-            if (map->dim[x + 1][y] == MARCHAND)
-            {
-                SDL_RenderClear(renderer);
-
-                afficher_menu(window, renderer, pers, police);
-            }
-            break;
-        default:
-            break;
+    proj_t proj = AUCUN_PROJ;
+    if(pers->arbre != NULL){
+        switch(pers->arbre->classe){
+            case MAGE: proj = BOULE; break;
+            case ARCHER: proj = FLECHE; break;
+            default: proj = AUCUN_PROJ;
         }
-        return 1;
+    }else{
+        proj = AUCUN_PROJ;
     }
-    else
-    {
-        return 0;
-    }
+    attaque_pers(proj, pers, map);
 }
 
 /**
@@ -841,6 +758,9 @@ int main()
     map.dim[perso->x][perso->y] = PERSO;
     // affichage de la matrice de la salle
 
+    void (*fonc_attaque)(proj_t, entite_t*, t_salle*) = NULL;
+    init_liste_proj();
+
     SDL_Rect srcRect = {0, 0, TILE_SIZE / 2, TILE_SIZE / 2}; // Position de la texture
     SDL_Rect dstRect = {0, 0, TILE_SIZE, TILE_SIZE};         // Position de la texture
 
@@ -890,7 +810,16 @@ int main()
                     break;
                 case SDL_SCANCODE_SPACE:
                     attaque = 1;
-                    perso_attack(&map, attaque, perso, window, renderer, police);
+                    if(perso->arbre != NULL){
+                        switch(perso->arbre->classe){
+                            case MAGE: fonc_attaque = attaque_proj; break;
+                            case ARCHER: fonc_attaque = attaque_proj; break;
+                            default: fonc_attaque = attaque_cac;
+                        }
+                    }else{
+                        fonc_attaque = attaque_cac;
+                    }
+                    perso_attack(&map, attaque, perso, fonc_attaque,window,renderer,police);
                     // interact(attaque,&map,perso);
                     break;
                 case SDL_SCANCODE_LSHIFT:
@@ -914,6 +843,8 @@ int main()
                 break;
             }
         }
+        if(!liste_vide_proj())
+            maj_proj(perso, &map);
         Uint32 currentTime = SDL_GetTicks(); // Temps actuel
         if (currentTime - lastTime >= 300)
         {                                        // Mettre à jour toutes les 300 ms
