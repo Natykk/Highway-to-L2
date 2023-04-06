@@ -51,7 +51,7 @@
 TARGETS  = menu_cpt
 
 SDLROUTE = -I$(HOME)/SDL2/include -L$(HOME)/SDL2/lib
-LIBS = -lm -lSDL2main -lSDL2 -lSDL2_image -lSDL2_ttf -lSDL2_mixer 
+LIBS = -lm -lSDL2main -lSDL2 -lSDL2_image -lSDL2_ttf -lSDL2_mixer -g3
 
 CC       = gcc -g3
 # compiling flags here

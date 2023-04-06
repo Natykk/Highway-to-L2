@@ -22,7 +22,7 @@ char * name(SDL_Window * win, SDL_Renderer * screen, entite_t * personnage){
     //SDL_Window * win = SDL_CreateWindow("Highway to L2", 350, 150, WINDOW_WIDTH, WINDOW_HEIGHT, SDL_WINDOW_SHOWN | SDL_WINDOW_BORDERLESS);
     //SDL_Renderer *screen =  SDL_CreateRenderer(win, -1, SDL_RENDERER_PRESENTVSYNC);
     
-    SDL_Surface *image = IMG_Load("../img/background_name.png");
+    SDL_Surface *image = IMG_Load("../IMG/background/background_name.png");
     SDL_Texture *texture_background = SDL_CreateTextureFromSurface(screen, image);
     SDL_FreeSurface(image);
     
@@ -84,7 +84,7 @@ char * name(SDL_Window * win, SDL_Renderer * screen, entite_t * personnage){
                         menu_interact(win, screen, personnage);
                     } 
                 case SDL_TEXTINPUT:
-                    if(textInputSize < TEXT_SIZE-1){
+                    if(textInputSize < TEXT_SIZE-1 && event.text.text[0] != ' '){
                         textInput[textInputSize] = event.text.text[0];
                         textInputSize++;
                         textInput[textInputSize] = '\0';
@@ -103,7 +103,6 @@ char * name(SDL_Window * win, SDL_Renderer * screen, entite_t * personnage){
                     }
                     break;
                 case SDL_KEYDOWN:
-                    printf("text : %s\n", textInput);
                     if(event.key.keysym.sym == SDLK_BACKSPACE && textInputSize>0){
                         textInputSize--;
                         textInput[textInputSize] = '\0';
@@ -127,13 +126,15 @@ char * name(SDL_Window * win, SDL_Renderer * screen, entite_t * personnage){
                         }
                     }
                     else if(event.key.keysym.sym == SDLK_RETURN && textInputSize>0 && strcmp(textInput,"")){
-                        run = 0;
+                        textInputSize++;
+                        textInput[textInputSize] = '\0';
                         SDL_StopTextInput();
                         SDL_DestroyTexture(textImage1);
                         SDL_DestroyTexture(textImage);
                         SDL_DestroyTexture(texture_img);
                         SDL_DestroyTexture(texture_back);
                         SDL_DestroyTexture(texture_back);
+                        run = 0;
                         return textInput;
                     }
                     else if(event.key.keysym.sym == SDLK_ESCAPE){

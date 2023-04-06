@@ -164,7 +164,7 @@ extern int acces_boss(char *chaine)
 extern entite_t *creer_personnage(entite_t *entite)
 {
     entite = malloc(sizeof(entite_t));
-    entite->nom = malloc(sizeof(char) * 34);
+    entite->nom = malloc(sizeof(char) * 35);
     //strcpy(entite->nom, "Bon Scott");
 
     entite->vie = 20;

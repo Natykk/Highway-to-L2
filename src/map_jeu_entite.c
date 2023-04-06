@@ -794,12 +794,19 @@ void rendu(int map[][LONG_SALLE_BOSS], int tailleI, int tailleJ, SDL_Renderer *r
 int main()
 {
     SDL_Init(SDL_INIT_EVERYTHING);
-    entite_t *perso;
+    entite_t * perso = NULL;
     perso = creer_personnage(perso);
     perso = init_inventaire_personnage(perso);
     SDL_Window *window = SDL_CreateWindow("Highway to L2", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, largeur_fenetre, hauteur_fenetre, 0); // On crée la fenêtre
     SDL_Renderer *renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);                               // On crée le renderer
     menu(window, renderer, perso);
+    if(!sauvegarde(perso, 0)){
+        printf("problème lors de la sauvegarde\n");
+        SDL_DestroyRenderer(renderer);
+        SDL_DestroyWindow(window);
+        SDL_Quit();
+        return 0;
+    }
 
     int i;
     
@@ -846,13 +853,40 @@ int main()
 
     SDL_Rect Door;
 
+    int max_vie = perso->vie;
+    int mort = 0;
+
+    SDL_Rect fond_vie_barre;
+    fond_vie_barre.w = WINDOW_WIDTH / 2;
+    fond_vie_barre.h = 10;
+    fond_vie_barre.x = WINDOW_WIDTH / 2 - fond_vie_barre.w / 8;
+    fond_vie_barre.y = WINDOW_HEIGHT - 20;
+
+    SDL_Color noir = {0,0,0};
+    SDL_Color rouge = {255,0,0};
+    
     perso->dir = BAS;                 // Variable de déplacement
     Uint32 lastTime = SDL_GetTicks(); // Temps de la dernière mise à jour de l'animation
     Uint32 MajMove = SDL_GetTicks();
     Uint32 lastTimeInteract = SDL_GetTicks();
     int continuer = 1; // Variable de fin de boucle
+    long int iboucle=0;
+
+    printf("Avant boucle jeu");
     while (continuer)
     { // Boucle principale
+        iboucle++;
+        
+        if(iboucle%10 == 0){
+            perso->vie -= 1;
+        }
+        printf("%d\n", perso->vie);
+
+        if(perso->vie <= 0){
+            continuer = 0;
+            mort = 1;
+            break;
+        }
 
         SDL_Event event;
         if (SDL_PollEvent(&event))
@@ -922,8 +956,6 @@ int main()
         }
         SDL_RenderClear(renderer); // On efface l'écran
         
-       
-        
 
         if (map.nb_mobs == 0)
         {                // Si il n'y a plus de mobs dans la salle
@@ -946,8 +978,9 @@ int main()
         {
             rendu(map.dim, DIM_SALLE, DIM_SALLE, renderer, tab_tex, dstRect, Door, srcRect, PersRect, perso, attaque, frame); // on fais le rendu de la salle
         }
+        
 
-        SDL_RenderPresent(renderer); // On affiche l'écran
+        SDL_RenderPresent(renderer); // On affiche l'écran 
         if (SDL_GetTicks() - lastTimeInteract >= 500)
         {
             interact(attaque, &map, perso, &MajMove, &posSalle, niv, renderer);
@@ -961,7 +994,16 @@ int main()
     {
         SDL_DestroyTexture(tab_tex[i]); // On détruit les textures
     }
+
+    if(mort == 1){
+        if(gameover(window, renderer, perso)){
+            SDL_DestroyRenderer(renderer); // On détruit le renderer
+            SDL_DestroyWindow(window);     // On détruit la fenêtre
+            main();
+        }
+    }
+
     SDL_DestroyRenderer(renderer); // On détruit le renderer
     SDL_DestroyWindow(window);     // On détruit la fenêtre
-    SDL_Quit();                    // On quitte la SDL
+    SDL_Quit();                  // On quitte la SDL
 }

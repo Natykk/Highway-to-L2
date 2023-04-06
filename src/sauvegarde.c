@@ -49,22 +49,24 @@ int cpt_aquise(FILE *sauv, t_arbre *arbre)
     return 1;
 }
 
-int sauvegarde(entite_t *personnage, int num_etage)
-{
+int sauvegarde(entite_t *personnage, int num_etage){
     if (personnage != NULL)
     {
-        FILE *f_sauv = fopen("../sauv/sauvegarde.txt", "w");
-
-        /* Nom du personnage */
-        if (personnage->nom != NULL && strcmp(personnage->nom, ""))
-        {
+        FILE * f_sauv = NULL;
+        f_sauv = fopen("./sauv/sauvegarde.txt", "w");
+        if(f_sauv == NULL){
+            printf("pb de création\n");
+            return 0;
+        }
+        if (personnage->nom != NULL && strcmp(personnage->nom, "")){
             fprintf(f_sauv, "%s\n", personnage->nom);
         }
         else
         {
             fprintf(f_sauv, "None\n");
         }
-
+        
+        printf("sauv_classe\n");
         /* Classe du personnage */
         if (personnage->arbre == NULL)
         {
@@ -99,6 +101,7 @@ int sauvegarde(entite_t *personnage, int num_etage)
         fprintf(f_sauv, "%d\n", num_etage);
 
         /* Inventaire du personnage */
+
         for (int i = 0; i < NB_OBJET; i++)
         {
             fprintf(f_sauv, "%d\n", personnage->inventaire->nb[i]);
@@ -109,9 +112,12 @@ int sauvegarde(entite_t *personnage, int num_etage)
     else
     {
         printf("Le personnage n'a pas été initialisé : impossible de sauvegarder\n");
+        return 0;
     }
     return 1;
 }
+
+
 /**
  * \fn int appliquer(entite_t *personnage, t_competence *competence)
  * @brief Applique les effets d'une compétence sur un personnage

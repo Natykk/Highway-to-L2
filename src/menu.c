@@ -168,9 +168,7 @@ int menu_interact(SDL_Window * window, SDL_Renderer * renderer, entite_t * perso
  * @return 0
  * 
 */
-int menu(SDL_Window* window ,SDL_Renderer* renderer ,entite_t * personnage){
-  //SDL_Init(SDL_INIT_EVERYTHING);
-
+int menu(SDL_Window* window ,SDL_Renderer* renderer, entite_t * personnage){
   /* Initialisation de la piste audio de fond */
   Mix_Init(MIX_INIT_MP3);
   Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 6, 1024);
@@ -182,11 +180,97 @@ int menu(SDL_Window* window ,SDL_Renderer* renderer ,entite_t * personnage){
   menu_interact(window, renderer, personnage);
 
   /* Fermeture de la piste audio de fond */
-  printf("Fermeture audio...");
   Mix_HaltMusic();
   Mix_CloseAudio();
   Mix_Quit();
-  printf("...OK?\n");
 
   return 0;
 }
+
+
+int gameover(SDL_Window * window, SDL_Renderer * renderer, entite_t * personnage){
+  SDL_RenderClear(renderer);
+  Button menu_button;
+  Button quitter;
+
+  menu_button.x = WINDOW_WIDTH / 2 - 200 ;
+  menu_button.y = WINDOW_HEIGHT * 6 / 10;
+  menu_button.w = 200;
+  menu_button.h = 75;
+  menu_button.surface = IMG_Load("../IMG/button/menu.png");
+  SDL_Texture *texture_menu = SDL_CreateTextureFromSurface(renderer, menu_button.surface);
+  SDL_Rect menu_partie = { menu_button.x, menu_button.y, menu_button.w, menu_button.h };
+
+  quitter.x = WINDOW_WIDTH / 2; 
+  quitter.y = menu_button.y + 5;
+  quitter.w = 200;
+  quitter.h = 65;
+  quitter.surface = IMG_Load("../img/button/quit.png");
+  SDL_Texture *texture_quitter = SDL_CreateTextureFromSurface(renderer, quitter.surface);
+  SDL_Rect buttonQuitter = { quitter.x, quitter.y, quitter.w, quitter.h };
+
+  SDL_Surface * gameover = IMG_Load("../IMG/gameover.png");
+  SDL_Texture * texture_gameover = SDL_CreateTextureFromSurface(renderer, gameover);
+  SDL_Rect img_rect = {WINDOW_WIDTH/15, WINDOW_HEIGHT/3, WINDOW_WIDTH * 7 / 8, 300};
+  SDL_FreeSurface(gameover);
+  gameover = NULL;
+
+  Mix_Init(MIX_INIT_MP3);
+  Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 6, 1024);
+  Mix_Music * music = Mix_LoadMUS("../sound/mort.mp3");
+  Mix_PlayMusic(music, 1);
+
+  int x, y;
+  int run = 1;
+  while(run){
+      SDL_Event event;
+      while(SDL_PollEvent(&event)){
+          switch(event.type){
+              case SDL_QUIT:
+                  run = 0;
+                  break;
+              case SDL_MOUSEBUTTONUP:
+                  SDL_GetMouseState(&x, &y);
+                  if (x >= menu_button.x && x <= menu_button.x + menu_button.w && y >= menu_button.y && y <= menu_button.y + menu_button.h){
+                    SDL_DestroyTexture(texture_menu);
+                    SDL_DestroyTexture(texture_gameover);
+                    run = 0;
+                    return 1;
+                  } 
+                  else if (x >= quitter.x && x <= quitter.x + quitter.w && y >= quitter.y && y <= quitter.y + quitter.h){
+                    SDL_DestroyTexture(texture_menu);
+                    SDL_DestroyTexture(texture_gameover);
+                    run = 0;
+                    return 0;
+                  } 
+              default: break;
+          }
+      }
+      SDL_RenderClear(renderer);
+      SDL_RenderCopy(renderer, texture_quitter, NULL, &buttonQuitter);
+      SDL_RenderCopy(renderer, texture_menu, NULL, &menu_partie);
+      SDL_RenderCopy(renderer, texture_gameover, NULL, &img_rect);
+      SDL_RenderPresent(renderer);
+  }
+  SDL_DestroyTexture(texture_menu);
+  SDL_DestroyTexture(texture_gameover);
+  SDL_DestroyTexture(texture_quitter);
+
+  Mix_HaltMusic();
+  Mix_CloseAudio();
+  Mix_Quit();
+  return 0;
+}
+/*
+int main(){
+  SDL_Init(SDL_INIT_EVERYTHING);
+  SDL_Window *window = SDL_CreateWindow("Arbre de C", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, WINDOW_WIDTH, WINDOW_HEIGHT, SDL_WINDOW_SHOWN);
+  SDL_Renderer *renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_SOFTWARE);
+  entite_t * personnage = creer_personnage(personnage);
+  menu(window, renderer, personnage);
+  if(gameover(window, renderer, personnage)){
+    menu(window, renderer, personnage);
+  }
+  SDL_Quit();
+}
+*/

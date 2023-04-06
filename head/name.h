@@ -22,5 +22,6 @@ int menu_interact(SDL_Window * window, SDL_Renderer * renderer, entite_t * perso
 int menu(SDL_Window * window, SDL_Renderer * renderer,entite_t * personnage);
 void affichage( SDL_Renderer *renderer, SDL_Window *window,entite_t *pers, int num_rectangles, int rect_width, int rect_height, int rect_spacing,TTF_Font *font,int total_width,int x_start,SDL_Texture* tab_tex[17]);
 int inv(SDL_Renderer* renderer,SDL_Window* window,entite_t* pers);
+int gameover(SDL_Window * window, SDL_Renderer * renderer, entite_t * personnage);
 
 #endif
