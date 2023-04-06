@@ -314,7 +314,7 @@ int afficher_arbre_assassin(SDL_Window *window, SDL_Renderer *renderer, entite_t
         /*                          Affichage des competences                         */
         /* -------------------------------------------------------------------------- */
 
-        //afficher_comp(assassin->competence[0]->name_img, renderer, rect1);
+        afficher_comp(assassin->competence[0]->name_img, renderer, rect1);
 
         afficher_comp(assassin->competence[1]->name_img, renderer, rect2);
         afficher_comp(assassin->competence[2]->name_img, renderer, rect3);
@@ -1068,7 +1068,7 @@ int afficher_arbre_archer(SDL_Window *window, SDL_Renderer *renderer, entite_t *
  */
 void afficher_menu(SDL_Window *window, SDL_Renderer *renderer, entite_t *entite,TTF_Font* font)
 {
-    SDL_Delay(10);
+    //SDL_Delay(10);
     SDL_RenderClear(renderer);
 
     afficher_background(window,renderer);
@@ -1079,10 +1079,10 @@ void afficher_menu(SDL_Window *window, SDL_Renderer *renderer, entite_t *entite,
     int running = 1;
     int running1 = 1;
 
-    t_arbre* archer;
-    t_arbre* guerrier;
-    t_arbre* mage;
-    t_arbre* assassin;
+    t_arbre* archer = NULL;
+    t_arbre* guerrier = NULL;
+    t_arbre* mage = NULL;
+    t_arbre* assassin = NULL;
 
     init_arbre(&archer, cpt_archer, ARCHER);
     init_arbre(&mage, cpt_mage, MAGE);

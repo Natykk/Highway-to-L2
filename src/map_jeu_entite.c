@@ -728,6 +728,7 @@ int main()
     perso = init_inventaire_personnage(perso);
     SDL_Window *window = SDL_CreateWindow("Highway to L2", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, largeur_fenetre, hauteur_fenetre, 0); // On crée la fenêtre
     SDL_Renderer *renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);                               // On crée le renderer
+    
     if(menu(window, renderer, perso) == 0){
         SDL_DestroyRenderer(renderer);
         SDL_DestroyWindow(window);
@@ -757,6 +758,8 @@ int main()
     int frame;
     int attaque = 0;
     choix_tex_niv(renderer);
+
+    afficher_menu(window, renderer, perso, police);
 
     t_salle map;                    // Matrice de la salle
     t_pos posSalle;                 // Position de la salle dans
@@ -823,11 +826,6 @@ int main()
     while (continuer)
     { // Boucle principale
         iboucle++;
-        
-        if(iboucle%50 == 0){
-            perso->vie -= 2;
-        }
-        printf("%d\n", perso->vie);
 
         if(perso->vie <= 0){
             continuer = 0;
