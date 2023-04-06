@@ -34,7 +34,7 @@ void afficher_salle_boss(t_salle * salle){
  * @param salleBoss la salle du boss
  * @return la salle du boss
 */
-t_salle * genererSalleBoss(t_salle_boss * salleBoss){
+t_salle * genererSalleBoss(t_salle * salleBoss){
     salleBoss = malloc(sizeof(t_salle));
     salleBoss->nb_mobs=0;
     for(int i=0; i<LARG_SALLE_BOSS; i++){
