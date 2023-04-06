@@ -1,5 +1,8 @@
 #include "../head/itoa.h"
-
+/**
+ * \file itoa.c
+ * \brief Fichier contenant les fonctions pour la conversion d'un entier en chaine de caractères
+*/
 /**
  * @fn swap
  * @brief Fonction qui échange 2 caractères

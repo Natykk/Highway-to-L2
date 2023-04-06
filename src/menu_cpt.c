@@ -15,7 +15,7 @@
 /**
  * @file menu_cpt.c
  * @author GEORGET Rémy
- * @brief
+ * @brief Fichier contenant les fonctions pour le menu des compétences
  * @date 2023-03-24
  */
 
@@ -225,7 +225,7 @@ void afficher_comp(char *path, SDL_Renderer *renderer, SDL_Rect rect)
 void afficher_background(SDL_Window *window, SDL_Renderer *renderer)
 {
     // Affichage d'une image de fond
-    SDL_Surface *image = IMG_Load("../img/background_comp.jpg");
+    SDL_Surface *image = IMG_Load("../img/background/background_comp.jpg");
     SDL_Texture *texture_background = SDL_CreateTextureFromSurface(renderer, image);
     SDL_RenderCopy(renderer, texture_background, NULL, NULL);
     SDL_FreeSurface(image);

@@ -1,0 +1,142 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Projet Roguelike: Référence du fichier /mnt/c/Users/natik/ProjetL2/src/menu_cpt.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Projet Roguelike
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Fonctions</a>  </div>
+  <div class="headertitle">
+<div class="title">Référence du fichier menu_cpt.c</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Fichier contenant les fonctions pour le menu des compétences.  
+<a href="#details">Plus de détails...</a></p>
+<div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
+<code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &lt;stdbool.h&gt;</code><br />
+<code>#include &lt;string.h&gt;</code><br />
+<code>#include &lt;SDL2/SDL_ttf.h&gt;</code><br />
+<code>#include &lt;SDL2/SDL_mixer.h&gt;</code><br />
+<code>#include &lt;SDL2/SDL_image.h&gt;</code><br />
+<code>#include &quot;../head/menu_cpt.h&quot;</code><br />
+<code>#include &quot;../head/itoa.h&quot;</code><br />
+<code>#include &quot;../head/inventaire.h&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Graphe des dépendances par inclusion de menu_cpt.c:</div>
+<div class="dyncontent">
+<div class="center"><img src="menu__cpt_8c__incl.png" border="0" usemap="#a_2mnt_2c_2Users_2natik_2ProjetL2_2src_2menu__cpt_8c" alt=""/></div>
+</div>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:a60a9f40cc43024feb9dc831db209c5fd"><td class="memItemLeft" align="right" valign="top"><a id="a60a9f40cc43024feb9dc831db209c5fd"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>construire_chaine_objets</b> (char *result, int nb_obj, int nb_obj_requis, char *nom_obj)</td></tr>
+<tr class="separator:a60a9f40cc43024feb9dc831db209c5fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f41e03806da48e5ad550664092223df"><td class="memItemLeft" align="right" valign="top"><a id="a7f41e03806da48e5ad550664092223df"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>construire_chaine_buff</b> (char *result, int i, int buff)</td></tr>
+<tr class="separator:a7f41e03806da48e5ad550664092223df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a63e2fa8cf0ae1a8c2259a85f15708f1d"><td class="memItemLeft" align="right" valign="top"><a id="a63e2fa8cf0ae1a8c2259a85f15708f1d"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>check_valid_cpt</b> (SDL_Renderer *renderer, TTF_Font *font, SDL_Color color, SDL_Rect rect, int check)</td></tr>
+<tr class="separator:a63e2fa8cf0ae1a8c2259a85f15708f1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac308721bc2f50d1c8cf65fd239736306"><td class="memItemLeft" align="right" valign="top"><a id="ac308721bc2f50d1c8cf65fd239736306"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>in_rect</b> (int x, int y, struct SDL_Rect *r)</td></tr>
+<tr class="separator:ac308721bc2f50d1c8cf65fd239736306"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a833ff54f7bbf068c611a7363e742acd3"><td class="memItemLeft" align="right" valign="top"><a id="a833ff54f7bbf068c611a7363e742acd3"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>afficher_comp</b> (char *path, SDL_Renderer *renderer, SDL_Rect rect)</td></tr>
+<tr class="separator:a833ff54f7bbf068c611a7363e742acd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a33ba0123629a327c56b09f57b5b9b1dd"><td class="memItemLeft" align="right" valign="top"><a id="a33ba0123629a327c56b09f57b5b9b1dd"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>afficher_background</b> (SDL_Window *window, SDL_Renderer *renderer)</td></tr>
+<tr class="separator:a33ba0123629a327c56b09f57b5b9b1dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2903f5ba7c56dfa8ad350152f74f60af"><td class="memItemLeft" align="right" valign="top"><a id="a2903f5ba7c56dfa8ad350152f74f60af"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>afficher_arbre_assassin</b> (SDL_Window *window, SDL_Renderer *renderer, entite_t *entite, t_arbre *assassin, TTF_Font *font)</td></tr>
+<tr class="separator:a2903f5ba7c56dfa8ad350152f74f60af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af0f9fae62dda27778175bf1300535a9f"><td class="memItemLeft" align="right" valign="top"><a id="af0f9fae62dda27778175bf1300535a9f"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>afficher_arbre_guerrier</b> (SDL_Window *window, SDL_Renderer *renderer, entite_t *entite, t_arbre *guerrier, TTF_Font *font)</td></tr>
+<tr class="separator:af0f9fae62dda27778175bf1300535a9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a37321cd94d433ca2d4f9285209c0fa9e"><td class="memItemLeft" align="right" valign="top"><a id="a37321cd94d433ca2d4f9285209c0fa9e"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>afficher_arbre_mage</b> (SDL_Window *window, SDL_Renderer *renderer, entite_t *entite, t_arbre *mage, TTF_Font *font)</td></tr>
+<tr class="separator:a37321cd94d433ca2d4f9285209c0fa9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1cb59680e5e864b1453d0e726f342af9"><td class="memItemLeft" align="right" valign="top"><a id="a1cb59680e5e864b1453d0e726f342af9"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>afficher_arbre_archer</b> (SDL_Window *window, SDL_Renderer *renderer, entite_t *entite, t_arbre *archer, TTF_Font *font)</td></tr>
+<tr class="separator:a1cb59680e5e864b1453d0e726f342af9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af207cd787a1b5eb4fadf1e81e6a7d054"><td class="memItemLeft" align="right" valign="top"><a id="af207cd787a1b5eb4fadf1e81e6a7d054"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>afficher_menu</b> (SDL_Window *window, SDL_Renderer *renderer, entite_t *entite, TTF_Font *font)</td></tr>
+<tr class="separator:af207cd787a1b5eb4fadf1e81e6a7d054"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a47de14e767837ab550fba0dd5a34d5c4"><td class="memItemLeft" align="right" valign="top"><a id="a47de14e767837ab550fba0dd5a34d5c4"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>afficher_competence_SDL</b> (SDL_Window *window, SDL_Renderer *renderer, char *path_comp, entite_t *entite, t_competence *competence, t_arbre *arbre, TTF_Font *font)</td></tr>
+<tr class="separator:a47de14e767837ab550fba0dd5a34d5c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Fichier contenant les fonctions pour le menu des compétences. </p>
+<dl class="section author"><dt>Auteur</dt><dd>GEORGET Rémy </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>2023-03-24 </dd></dl>
+</div></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>

@@ -1,0 +1,69 @@
+\hypertarget{menu__cpt_8c}{}\doxysection{Référence du fichier /mnt/c/\+Users/natik/\+Projet\+L2/src/menu\+\_\+cpt.c}
+\label{menu__cpt_8c}\index{/mnt/c/Users/natik/ProjetL2/src/menu\_cpt.c@{/mnt/c/Users/natik/ProjetL2/src/menu\_cpt.c}}
+
+
+Fichier contenant les fonctions pour le menu des compétences.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$SDL2/\+SDL\+\_\+ttf.\+h$>$}\newline
+{\ttfamily \#include $<$SDL2/\+SDL\+\_\+mixer.\+h$>$}\newline
+{\ttfamily \#include $<$SDL2/\+SDL\+\_\+image.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}../head/menu\+\_\+cpt.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../head/itoa.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../head/inventaire.\+h\char`\"{}}\newline
+Graphe des dépendances par inclusion de menu\+\_\+cpt.\+c\+:
+% FIG 0
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{menu__cpt_8c_a60a9f40cc43024feb9dc831db209c5fd}\label{menu__cpt_8c_a60a9f40cc43024feb9dc831db209c5fd}} 
+void {\bfseries construire\+\_\+chaine\+\_\+objets} (char $\ast$result, int nb\+\_\+obj, int nb\+\_\+obj\+\_\+requis, char $\ast$nom\+\_\+obj)
+\item 
+\mbox{\Hypertarget{menu__cpt_8c_a7f41e03806da48e5ad550664092223df}\label{menu__cpt_8c_a7f41e03806da48e5ad550664092223df}} 
+int {\bfseries construire\+\_\+chaine\+\_\+buff} (char $\ast$result, int i, int buff)
+\item 
+\mbox{\Hypertarget{menu__cpt_8c_a63e2fa8cf0ae1a8c2259a85f15708f1d}\label{menu__cpt_8c_a63e2fa8cf0ae1a8c2259a85f15708f1d}} 
+int {\bfseries check\+\_\+valid\+\_\+cpt} (SDL\+\_\+\+Renderer $\ast$renderer, TTF\+\_\+\+Font $\ast$font, SDL\+\_\+\+Color color, SDL\+\_\+\+Rect rect, int check)
+\item 
+\mbox{\Hypertarget{menu__cpt_8c_ac308721bc2f50d1c8cf65fd239736306}\label{menu__cpt_8c_ac308721bc2f50d1c8cf65fd239736306}} 
+int {\bfseries in\+\_\+rect} (int x, int y, struct SDL\+\_\+\+Rect $\ast$r)
+\item 
+\mbox{\Hypertarget{menu__cpt_8c_a833ff54f7bbf068c611a7363e742acd3}\label{menu__cpt_8c_a833ff54f7bbf068c611a7363e742acd3}} 
+void {\bfseries afficher\+\_\+comp} (char $\ast$path, SDL\+\_\+\+Renderer $\ast$renderer, SDL\+\_\+\+Rect rect)
+\item 
+\mbox{\Hypertarget{menu__cpt_8c_a33ba0123629a327c56b09f57b5b9b1dd}\label{menu__cpt_8c_a33ba0123629a327c56b09f57b5b9b1dd}} 
+void {\bfseries afficher\+\_\+background} (SDL\+\_\+\+Window $\ast$window, SDL\+\_\+\+Renderer $\ast$renderer)
+\item 
+\mbox{\Hypertarget{menu__cpt_8c_a2903f5ba7c56dfa8ad350152f74f60af}\label{menu__cpt_8c_a2903f5ba7c56dfa8ad350152f74f60af}} 
+int {\bfseries afficher\+\_\+arbre\+\_\+assassin} (SDL\+\_\+\+Window $\ast$window, SDL\+\_\+\+Renderer $\ast$renderer, entite\+\_\+t $\ast$entite, t\+\_\+arbre $\ast$assassin, TTF\+\_\+\+Font $\ast$font)
+\item 
+\mbox{\Hypertarget{menu__cpt_8c_af0f9fae62dda27778175bf1300535a9f}\label{menu__cpt_8c_af0f9fae62dda27778175bf1300535a9f}} 
+int {\bfseries afficher\+\_\+arbre\+\_\+guerrier} (SDL\+\_\+\+Window $\ast$window, SDL\+\_\+\+Renderer $\ast$renderer, entite\+\_\+t $\ast$entite, t\+\_\+arbre $\ast$guerrier, TTF\+\_\+\+Font $\ast$font)
+\item 
+\mbox{\Hypertarget{menu__cpt_8c_a37321cd94d433ca2d4f9285209c0fa9e}\label{menu__cpt_8c_a37321cd94d433ca2d4f9285209c0fa9e}} 
+int {\bfseries afficher\+\_\+arbre\+\_\+mage} (SDL\+\_\+\+Window $\ast$window, SDL\+\_\+\+Renderer $\ast$renderer, entite\+\_\+t $\ast$entite, t\+\_\+arbre $\ast$mage, TTF\+\_\+\+Font $\ast$font)
+\item 
+\mbox{\Hypertarget{menu__cpt_8c_a1cb59680e5e864b1453d0e726f342af9}\label{menu__cpt_8c_a1cb59680e5e864b1453d0e726f342af9}} 
+int {\bfseries afficher\+\_\+arbre\+\_\+archer} (SDL\+\_\+\+Window $\ast$window, SDL\+\_\+\+Renderer $\ast$renderer, entite\+\_\+t $\ast$entite, t\+\_\+arbre $\ast$archer, TTF\+\_\+\+Font $\ast$font)
+\item 
+\mbox{\Hypertarget{menu__cpt_8c_af207cd787a1b5eb4fadf1e81e6a7d054}\label{menu__cpt_8c_af207cd787a1b5eb4fadf1e81e6a7d054}} 
+void {\bfseries afficher\+\_\+menu} (SDL\+\_\+\+Window $\ast$window, SDL\+\_\+\+Renderer $\ast$renderer, entite\+\_\+t $\ast$entite, TTF\+\_\+\+Font $\ast$font)
+\item 
+\mbox{\Hypertarget{menu__cpt_8c_a47de14e767837ab550fba0dd5a34d5c4}\label{menu__cpt_8c_a47de14e767837ab550fba0dd5a34d5c4}} 
+int {\bfseries afficher\+\_\+competence\+\_\+\+SDL} (SDL\+\_\+\+Window $\ast$window, SDL\+\_\+\+Renderer $\ast$renderer, char $\ast$path\+\_\+comp, entite\+\_\+t $\ast$entite, t\+\_\+competence $\ast$competence, t\+\_\+arbre $\ast$arbre, TTF\+\_\+\+Font $\ast$font)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Fichier contenant les fonctions pour le menu des compétences. 
+
+\begin{DoxyAuthor}{Auteur}
+GEORGET Rémy 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2023-\/03-\/24 
+\end{DoxyDate}

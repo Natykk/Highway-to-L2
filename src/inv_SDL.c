@@ -11,7 +11,11 @@
 #define TILE_SIZE 32
 #define MAP_WIDTH 25
 #define MAP_HEIGHT 25
-
+/**
+ * \file inv_SDL.c
+ * \brief Fichier contenant les fonctions pour l'inventaire
+ * 
+*/
 /**
  * \fn void affichage(SDL_Renderer *renderer, SDL_Window *window, entite_t *pers, int num_rectangles, int rect_width, int rect_height, int rect_spacing, TTF_Font *font, int total_width, int x_start, SDL_Texture *tab_tex[17])
  * @brief Affiche l'inventaire

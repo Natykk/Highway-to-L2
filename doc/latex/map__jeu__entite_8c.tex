@@ -1,0 +1,226 @@
+\hypertarget{map__jeu__entite_8c}{}\doxysection{Référence du fichier /mnt/c/\+Users/natik/\+Projet\+L2/src/map\+\_\+jeu\+\_\+entite.c}
+\label{map__jeu__entite_8c}\index{/mnt/c/Users/natik/ProjetL2/src/map\_jeu\_entite.c@{/mnt/c/Users/natik/ProjetL2/src/map\_jeu\_entite.c}}
+
+
+Fichier contenant les fonctions principal du jeu.  
+
+
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$SDL2/\+SDL.\+h$>$}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include $<$SDL2/\+SDL\+\_\+timer.\+h$>$}\newline
+{\ttfamily \#include $<$SDL2/\+SDL\+\_\+image.\+h$>$}\newline
+{\ttfamily \#include $<$SDL2/\+SDL\+\_\+mixer.\+h$>$}\newline
+{\ttfamily \#include $<$SDL2/\+SDL\+\_\+ttf.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}../head/entite.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../head/map\+Boss.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../head/chemin.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../head/inventaire.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../head/sauvegarde.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../head/menu\+\_\+cpt.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../head/name.\+h\char`\"{}}\newline
+Graphe des dépendances par inclusion de map\+\_\+jeu\+\_\+entite.\+c\+:
+% FIG 0
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{map__jeu__entite_8c_a51f528deaaeb973f417b46a2ec36f850}\label{map__jeu__entite_8c_a51f528deaaeb973f417b46a2ec36f850}} 
+\#define {\bfseries SDL\+\_\+\+MAIN\+\_\+\+HANDLED}
+\item 
+\mbox{\Hypertarget{map__jeu__entite_8c_a62ecd70800687eb2d625af180c4210d7}\label{map__jeu__entite_8c_a62ecd70800687eb2d625af180c4210d7}} 
+\#define {\bfseries TILE\+\_\+\+SIZE}~32
+\item 
+\mbox{\Hypertarget{map__jeu__entite_8c_a9230576da8e0593bbd21f1efa0856bf6}\label{map__jeu__entite_8c_a9230576da8e0593bbd21f1efa0856bf6}} 
+\#define {\bfseries DIM\+\_\+\+SALLE}~25
+\item 
+\mbox{\Hypertarget{map__jeu__entite_8c_a9230576da8e0593bbd21f1efa0856bf6}\label{map__jeu__entite_8c_a9230576da8e0593bbd21f1efa0856bf6}} 
+\#define {\bfseries DIM\+\_\+\+SALLE}~25
+\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+SDL\+\_\+\+Texture $\ast$ \mbox{\hyperlink{map__jeu__entite_8c_abe120e22a95d4cb1d7428be17e9df30e}{charge\+\_\+tex}} (SDL\+\_\+\+Renderer $\ast$renderer, char $\ast$path, int bmp\+\_\+flag)
+\begin{DoxyCompactList}\small\item\em Charge une texture. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{map__jeu__entite_8c_a293d8a245ac9f6ef2859300921c3a7c1}\label{map__jeu__entite_8c_a293d8a245ac9f6ef2859300921c3a7c1}} 
+SDL\+\_\+\+Texture $\ast$ {\bfseries choix\+\_\+tex\+\_\+niv} (SDL\+\_\+\+Renderer $\ast$renderer)
+\item 
+float \mbox{\hyperlink{map__jeu__entite_8c_a4e1a90047f48d4810c62f3055cf0c6e9}{distance}} (entite\+\_\+t $\ast$entite1, entite\+\_\+t $\ast$entite2)
+\begin{DoxyCompactList}\small\item\em Calcule la distance entre deux entites. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{map__jeu__entite_8c_ad6b966cf635e2b298d712d27e234c0c8}\label{map__jeu__entite_8c_ad6b966cf635e2b298d712d27e234c0c8}} 
+void {\bfseries sauvegarde\+\_\+salle} (t\+\_\+salle $\ast$salle, t\+\_\+salle $\ast$map)
+\item 
+\mbox{\Hypertarget{map__jeu__entite_8c_a4c44749fbbe6f81c1787be7b139e2351}\label{map__jeu__entite_8c_a4c44749fbbe6f81c1787be7b139e2351}} 
+void {\bfseries transfert} (t\+\_\+salle $\ast$salle, t\+\_\+salle $\ast$map, int type)
+\item 
+void \mbox{\hyperlink{map__jeu__entite_8c_ae45ca6fffc0666ed994e6846dc881ae1}{changement}} (t\+\_\+niv $\ast$niv, entite\+\_\+t $\ast$perso, t\+\_\+pos $\ast$pos\+Salle, t\+\_\+salle $\ast$map)
+\begin{DoxyCompactList}\small\item\em Change de salle. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{map__jeu__entite_8c_aceb4948762cafa6ef6a9a7912a095dde}{chemin\+\_\+vers\+\_\+perso}} (entite\+\_\+t $\ast$perso, entite\+\_\+t $\ast$mob, int map\mbox{[}$\,$\mbox{]}\mbox{[}LONG\+\_\+\+SALLE\+\_\+\+BOSS\mbox{]})
+\begin{DoxyCompactList}\small\item\em Calcul le chemin vers le perso. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{map__jeu__entite_8c_a2453bd609d185c2d224bd631c5ef57bb}\label{map__jeu__entite_8c_a2453bd609d185c2d224bd631c5ef57bb}} 
+void {\bfseries mouvement} (t\+\_\+salle $\ast$map, entite\+\_\+t $\ast$pers, t\+\_\+pos $\ast$pos\+Salle, t\+\_\+niv $\ast$niv, SDL\+\_\+\+Renderer $\ast$renderer)
+\item 
+\mbox{\Hypertarget{map__jeu__entite_8c_a43852d9965f403e34260cc66f272252b}\label{map__jeu__entite_8c_a43852d9965f403e34260cc66f272252b}} 
+int {\bfseries perso\+\_\+attack} (t\+\_\+salle $\ast$map, int attaque, entite\+\_\+t $\ast$pers, SDL\+\_\+\+Window $\ast$window, SDL\+\_\+\+Renderer $\ast$renderer, TTF\+\_\+\+Font $\ast$police)
+\item 
+int \mbox{\hyperlink{map__jeu__entite_8c_aa804e0a9187f1a513de222200c5ad194}{enemy\+\_\+attack}} (t\+\_\+salle $\ast$map, entite\+\_\+t $\ast$pers, SDL\+\_\+\+Rect $\ast$rect)
+\begin{DoxyCompactList}\small\item\em Fonction qui permet de faire attaquer les mobs. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{map__jeu__entite_8c_afa36041b3e8b97881c157c07c1302e47}\label{map__jeu__entite_8c_afa36041b3e8b97881c157c07c1302e47}} 
+void {\bfseries interact} (int attaque, t\+\_\+salle $\ast$map, entite\+\_\+t $\ast$pers, Uint32 $\ast$last\+Time, t\+\_\+pos $\ast$pos\+Salle, t\+\_\+niv $\ast$niv, SDL\+\_\+\+Renderer $\ast$renderer)
+\item 
+\mbox{\Hypertarget{map__jeu__entite_8c_a315e3db7af675eb73343cfb782e17b16}\label{map__jeu__entite_8c_a315e3db7af675eb73343cfb782e17b16}} 
+void {\bfseries rendu} (int map\mbox{[}$\,$\mbox{]}\mbox{[}LONG\+\_\+\+SALLE\+\_\+\+BOSS\mbox{]}, int tailleI, int tailleJ, SDL\+\_\+\+Renderer $\ast$renderer, SDL\+\_\+\+Texture $\ast$tab\+\_\+tex\mbox{[}10\mbox{]}, SDL\+\_\+\+Rect dst\+Rect, SDL\+\_\+\+Rect Door, SDL\+\_\+\+Rect src\+Rect, SDL\+\_\+\+Rect Pers\+Rect, entite\+\_\+t $\ast$perso, int attaque, int frame)
+\item 
+int \mbox{\hyperlink{map__jeu__entite_8c_a51af30a60f9f02777c6396b8247e356f}{main}} ()
+\begin{DoxyCompactList}\small\item\em Fonction principale qui génère un niveau et le détruit. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{map__jeu__entite_8c_ae03b68aae505e34b4cbfc026e0c14509}\label{map__jeu__entite_8c_ae03b68aae505e34b4cbfc026e0c14509}} 
+int {\bfseries flip\+\_\+map} = 0
+\item 
+\mbox{\Hypertarget{map__jeu__entite_8c_a9cbc24ddfb9309f8b6ddea033f44cc4c}\label{map__jeu__entite_8c_a9cbc24ddfb9309f8b6ddea033f44cc4c}} 
+int {\bfseries Num\+Etage} = 2
+\item 
+\mbox{\Hypertarget{map__jeu__entite_8c_a2a05d359cab99ddfc2fdcaa728d4a16e}\label{map__jeu__entite_8c_a2a05d359cab99ddfc2fdcaa728d4a16e}} 
+SDL\+\_\+\+Texture $\ast$ {\bfseries tab\+\_\+tex} \mbox{[}10\mbox{]} = \{NULL\}
+\item 
+\mbox{\Hypertarget{map__jeu__entite_8c_a9e47b324bc80c26929ab8aee43552a27}\label{map__jeu__entite_8c_a9e47b324bc80c26929ab8aee43552a27}} 
+int {\bfseries coords} \mbox{[}10\mbox{]}\mbox{[}2\mbox{]}
+\item 
+\mbox{\Hypertarget{map__jeu__entite_8c_a95c0ec0a94f763bc3311ef40582f6f33}\label{map__jeu__entite_8c_a95c0ec0a94f763bc3311ef40582f6f33}} 
+const int {\bfseries SPRITE\+\_\+\+FRAMES} = 4
+\item 
+\mbox{\Hypertarget{map__jeu__entite_8c_acc5260da649a38e8af954a50354e7c73}\label{map__jeu__entite_8c_acc5260da649a38e8af954a50354e7c73}} 
+const int {\bfseries hauteur\+\_\+fenetre} = LONG\+\_\+\+SALLE\+\_\+\+BOSS $\ast$ TILE\+\_\+\+SIZE
+\item 
+\mbox{\Hypertarget{map__jeu__entite_8c_a16c2714d646dde3b8bda684d77d18dc0}\label{map__jeu__entite_8c_a16c2714d646dde3b8bda684d77d18dc0}} 
+const int {\bfseries largeur\+\_\+fenetre} = LARG\+\_\+\+SALLE\+\_\+\+BOSS $\ast$ TILE\+\_\+\+SIZE
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Fichier contenant les fonctions principal du jeu. 
+
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{map__jeu__entite_8c_ae45ca6fffc0666ed994e6846dc881ae1}\label{map__jeu__entite_8c_ae45ca6fffc0666ed994e6846dc881ae1}} 
+\index{map\_jeu\_entite.c@{map\_jeu\_entite.c}!changement@{changement}}
+\index{changement@{changement}!map\_jeu\_entite.c@{map\_jeu\_entite.c}}
+\doxysubsubsection{\texorpdfstring{changement()}{changement()}}
+{\footnotesize\ttfamily void changement (\begin{DoxyParamCaption}\item[{t\+\_\+niv $\ast$}]{niv,  }\item[{entite\+\_\+t $\ast$}]{perso,  }\item[{t\+\_\+pos $\ast$}]{pos\+Salle,  }\item[{t\+\_\+salle $\ast$}]{map }\end{DoxyParamCaption})}
+
+
+
+Change de salle. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em niv} & Le niveau \\
+\hline
+{\em perso} & Le personnage \\
+\hline
+{\em pos\+Salle} & La position de la salle \\
+\hline
+{\em map} & La map \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{map__jeu__entite_8c_abe120e22a95d4cb1d7428be17e9df30e}\label{map__jeu__entite_8c_abe120e22a95d4cb1d7428be17e9df30e}} 
+\index{map\_jeu\_entite.c@{map\_jeu\_entite.c}!charge\_tex@{charge\_tex}}
+\index{charge\_tex@{charge\_tex}!map\_jeu\_entite.c@{map\_jeu\_entite.c}}
+\doxysubsubsection{\texorpdfstring{charge\_tex()}{charge\_tex()}}
+{\footnotesize\ttfamily charge\+\_\+tex (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{char $\ast$}]{path,  }\item[{int}]{bmp\+\_\+flag }\end{DoxyParamCaption})}
+
+
+
+Charge une texture. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em renderer} & Le renderer \\
+\hline
+{\em path} & Le chemin de la texture \\
+\hline
+{\em bmp\+\_\+flag} & Si la texture est au format bmp \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+La texture 
+\end{DoxyReturn}
+\mbox{\Hypertarget{map__jeu__entite_8c_aceb4948762cafa6ef6a9a7912a095dde}\label{map__jeu__entite_8c_aceb4948762cafa6ef6a9a7912a095dde}} 
+\index{map\_jeu\_entite.c@{map\_jeu\_entite.c}!chemin\_vers\_perso@{chemin\_vers\_perso}}
+\index{chemin\_vers\_perso@{chemin\_vers\_perso}!map\_jeu\_entite.c@{map\_jeu\_entite.c}}
+\doxysubsubsection{\texorpdfstring{chemin\_vers\_perso()}{chemin\_vers\_perso()}}
+{\footnotesize\ttfamily void chemin\+\_\+vers\+\_\+perso (\begin{DoxyParamCaption}\item[{entite\+\_\+t $\ast$}]{perso,  }\item[{entite\+\_\+t $\ast$}]{mob,  }\item[{int}]{map\mbox{[}$\,$\mbox{]}\mbox{[}\+LONG\+\_\+\+SALLE\+\_\+\+BOSS\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Calcul le chemin vers le perso. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em perso} & Le personnage \\
+\hline
+{\em mob} & Le mob \\
+\hline
+{\em map} & La map \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{map__jeu__entite_8c_a4e1a90047f48d4810c62f3055cf0c6e9}\label{map__jeu__entite_8c_a4e1a90047f48d4810c62f3055cf0c6e9}} 
+\index{map\_jeu\_entite.c@{map\_jeu\_entite.c}!distance@{distance}}
+\index{distance@{distance}!map\_jeu\_entite.c@{map\_jeu\_entite.c}}
+\doxysubsubsection{\texorpdfstring{distance()}{distance()}}
+{\footnotesize\ttfamily float distance (\begin{DoxyParamCaption}\item[{entite\+\_\+t $\ast$}]{entite1,  }\item[{entite\+\_\+t $\ast$}]{entite2 }\end{DoxyParamCaption})}
+
+
+
+Calcule la distance entre deux entites. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em entite1} & L\textquotesingle{}entite 1 \\
+\hline
+{\em entite2} & L\textquotesingle{}entite 2 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+La distance entre les deux entites 
+\end{DoxyReturn}
+\mbox{\Hypertarget{map__jeu__entite_8c_aa804e0a9187f1a513de222200c5ad194}\label{map__jeu__entite_8c_aa804e0a9187f1a513de222200c5ad194}} 
+\index{map\_jeu\_entite.c@{map\_jeu\_entite.c}!enemy\_attack@{enemy\_attack}}
+\index{enemy\_attack@{enemy\_attack}!map\_jeu\_entite.c@{map\_jeu\_entite.c}}
+\doxysubsubsection{\texorpdfstring{enemy\_attack()}{enemy\_attack()}}
+{\footnotesize\ttfamily int enemy\+\_\+attack (\begin{DoxyParamCaption}\item[{t\+\_\+salle $\ast$}]{map,  }\item[{entite\+\_\+t $\ast$}]{pers,  }\item[{SDL\+\_\+\+Rect $\ast$}]{rect }\end{DoxyParamCaption})}
+
+
+
+Fonction qui permet de faire attaquer les mobs. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em map} & la map \\
+\hline
+{\em pers} & la position du joueur \\
+\hline
+{\em rect} & les points de vie du joueur \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+1 si le joueur a perdu des points de vie, 0 sinon 
+\end{DoxyReturn}
+\mbox{\Hypertarget{map__jeu__entite_8c_a51af30a60f9f02777c6396b8247e356f}\label{map__jeu__entite_8c_a51af30a60f9f02777c6396b8247e356f}} 
+\index{map\_jeu\_entite.c@{map\_jeu\_entite.c}!main@{main}}
+\index{main@{main}!map\_jeu\_entite.c@{map\_jeu\_entite.c}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Fonction principale qui génère un niveau et le détruit. 
+
+Le but sera de creer differents mobs et entites afin de les tester. Le but sera de faire en sorte de prendre le maximum de cas particuliers.
+
+\begin{DoxyReturn}{Renvoie}
+int 
+\end{DoxyReturn}

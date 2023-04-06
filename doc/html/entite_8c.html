@@ -76,17 +76,12 @@ $(function() {
 <p>Primitives liées aux entites.  
 <a href="#details">Plus de détails...</a></p>
 <div class="textblock"><code>#include &quot;../head/entite.h&quot;</code><br />
-<code>#include &quot;../head/objet.h&quot;</code><br />
+<code>#include &quot;../head/arbre.h&quot;</code><br />
 <code>#include &lt;string.h&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Graphe des dépendances par inclusion de entite.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="entite_8c__incl.png" border="0" usemap="#a_2mnt_2c_2Users_2natik_2ProjetL2_2src_2entite_8c" alt=""/></div>
-</div>
-</div><div class="textblock"><div class="dynheader">
-Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier :</div>
-<div class="dyncontent">
-<div class="center"><img src="entite_8c__dep__incl.png" border="0" usemap="#a_2mnt_2c_2Users_2natik_2ProjetL2_2src_2entite_8cdep" alt=""/></div>
 </div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
@@ -100,21 +95,38 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>associer_entite</b> (
 <tr class="memitem:a87ba579bb75dd4df19b1026c64cb0e50"><td class="memItemLeft" align="right" valign="top"><a id="a87ba579bb75dd4df19b1026c64cb0e50"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>acces_mob</b> (char *chaine)</td></tr>
 <tr class="separator:a87ba579bb75dd4df19b1026c64cb0e50"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aecdaa513897e975de2fe5256db0ce50c"><td class="memItemLeft" align="right" valign="top"><a id="aecdaa513897e975de2fe5256db0ce50c"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>acces_boss</b> (char *chaine)</td></tr>
+<tr class="separator:aecdaa513897e975de2fe5256db0ce50c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa6a9c845929e4ab11aadc9e914a4ce62"><td class="memItemLeft" align="right" valign="top"><a id="aa6a9c845929e4ab11aadc9e914a4ce62"></a>
 entite_t *&#160;</td><td class="memItemRight" valign="bottom"><b>creer_personnage</b> (entite_t *entite)</td></tr>
 <tr class="separator:aa6a9c845929e4ab11aadc9e914a4ce62"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aed3ed510f67c2cc47ac11e476499a066"><td class="memItemLeft" align="right" valign="top"><a id="aed3ed510f67c2cc47ac11e476499a066"></a>
 entite_t *&#160;</td><td class="memItemRight" valign="bottom"><b>creer_monstre</b> (entite_t *entite, char *nom)</td></tr>
 <tr class="separator:aed3ed510f67c2cc47ac11e476499a066"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a49cfe95b383b1791469e6eb1d25d7b3e"><td class="memItemLeft" align="right" valign="top"><a id="a49cfe95b383b1791469e6eb1d25d7b3e"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>detruire_entitee</b> (entite_t *entite)</td></tr>
-<tr class="separator:a49cfe95b383b1791469e6eb1d25d7b3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad609d7bba18a6fedd04070e7f704eabe"><td class="memItemLeft" align="right" valign="top"><a id="ad609d7bba18a6fedd04070e7f704eabe"></a>
+entite_t *&#160;</td><td class="memItemRight" valign="bottom"><b>creer_boss</b> (entite_t *entite, char *nom)</td></tr>
+<tr class="separator:ad609d7bba18a6fedd04070e7f704eabe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2ed6c7ce22c5482cf6a33bf4ec285ec7"><td class="memItemLeft" align="right" valign="top"><a id="a2ed6c7ce22c5482cf6a33bf4ec285ec7"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>detruire_entitee</b> (entite_t **entite)</td></tr>
+<tr class="separator:a2ed6c7ce22c5482cf6a33bf4ec285ec7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a467a9d69502a2a8279caa001489fa230"><td class="memItemLeft" align="right" valign="top"><a id="a467a9d69502a2a8279caa001489fa230"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>detruire_personnage</b> (entite_t **personnage)</td></tr>
+<tr class="separator:a467a9d69502a2a8279caa001489fa230"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a698a2516ea30aedba8f48a1a63c69f4b"><td class="memItemLeft" align="right" valign="top"><a id="a698a2516ea30aedba8f48a1a63c69f4b"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>detruire_mob</b> (entite_t **mob)</td></tr>
+<tr class="separator:a698a2516ea30aedba8f48a1a63c69f4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6fd83f1f50b736bec55bbadfad7a9776"><td class="memItemLeft" align="right" valign="top"><a id="a6fd83f1f50b736bec55bbadfad7a9776"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>detruire_boss</b> (entite_t **boss)</td></tr>
+<tr class="separator:a6fd83f1f50b736bec55bbadfad7a9776"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
 <tr class="memitem:a9de48f40123e9967bd7131738bfe518b"><td class="memItemLeft" align="right" valign="top">entite_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="entite_8c.html#a9de48f40123e9967bd7131738bfe518b">tab_mob</a> [NB_MOBS]</td></tr>
 <tr class="memdesc:a9de48f40123e9967bd7131738bfe518b"><td class="mdescLeft">&#160;</td><td class="mdescRight">tableau qui stocke tout les mobs présents dans le jeu  <a href="entite_8c.html#a9de48f40123e9967bd7131738bfe518b">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a9de48f40123e9967bd7131738bfe518b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a817603511beeb70beacaae71fc17397e"><td class="memItemLeft" align="right" valign="top">entite_t&#160;</td><td class="memItemRight" valign="bottom"><b>tab_boss</b> [NB_BOSS]</td></tr>
+<tr class="separator:a817603511beeb70beacaae71fc17397e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
 <div class="textblock"><p>Primitives liées aux entites. </p>
@@ -122,6 +134,24 @@ Variables</h2></td></tr>
 <dl class="section version"><dt>Version</dt><dd>1.0 </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>31/01/2023 </dd></dl>
 </div><h2 class="groupheader">Documentation des variables</h2>
+<a id="a817603511beeb70beacaae71fc17397e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a817603511beeb70beacaae71fc17397e">&#9670;&nbsp;</a></span>tab_boss</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">entite_t tab_boss[NB_BOSS]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Valeur initiale :</b><div class="fragment"><div class="line">= {</div>
+<div class="line">    {<span class="stringliteral">&quot;Volibeer&quot;</span>, 400, 25, 0.5, 1, 10, 0, 0, NULL, NULL, 0, 1, HAUT},</div>
+<div class="line">    {<span class="stringliteral">&quot;Darick&quot;</span>, 800, 40, 1, 0.25, 15, 0, 0, NULL, NULL, 0, 1, HAUT},</div>
+<div class="line">    {<span class="stringliteral">&quot;Satan&quot;</span>, 1500, 150, 2, 2, 15, 0, 0, NULL, NULL, 0, 1, HAUT}}</div>
+</div><!-- fragment -->
+</div>
+</div>
 <a id="a9de48f40123e9967bd7131738bfe518b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9de48f40123e9967bd7131738bfe518b">&#9670;&nbsp;</a></span>tab_mob</h2>
 
@@ -134,19 +164,18 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <b>Valeur initiale :</b><div class="fragment"><div class="line">= {</div>
-<div class="line">    {<span class="stringliteral">&quot;Slime_Vert&quot;</span>, 2, 1, 0.75, 0.40, 0, 0, NULL,1},</div>
-<div class="line">    {<span class="stringliteral">&quot;Loup&quot;</span>, 10, 4, 1.0, 1.2, 0, 0, NULL, 2},</div>
-<div class="line">    {<span class="stringliteral">&quot;Brigant&quot;</span>, 20, 6, 0.9, 1.1, 0, 0, NULL, 1},</div>
-<div class="line">    {<span class="stringliteral">&quot;Chaman&quot;</span>, 12, 12, 0.8, 1, 0, 0, NULL, 2},</div>
-<div class="line">    {<span class="stringliteral">&quot;Slime_Gris&quot;</span>, 10, 5, 0.75, 0.40, 0, 0, NULL, 1},</div>
-<div class="line">    {<span class="stringliteral">&quot;Nain&quot;</span>, 30, 8, 0.75, 0.40, 0, 0, NULL, 2},</div>
-<div class="line">    {<span class="stringliteral">&quot;Nain_Rider&quot;</span>, 20, 5, 1.5, 1.2, 0, 0, NULL, 3},</div>
-<div class="line">    {<span class="stringliteral">&quot;Orc&quot;</span>, 80, 20, 0.10, 0.20, 0, 0, NULL, 2},</div>
-<div class="line">    {<span class="stringliteral">&quot;Slime_Rouge&quot;</span>, 50, 25, 0.75, 0.40, 0, 0, NULL, 1},</div>
-<div class="line">    {<span class="stringliteral">&quot;Diablotin&quot;</span>, 40, 40, 1.4, 1.0, 0, 0, NULL, 3},</div>
-<div class="line">    {<span class="stringliteral">&quot;Diable&quot;</span>, 80, 80, 0.8, 1.2, 0, 0, NULL, 2},</div>
-<div class="line">    {<span class="stringliteral">&quot;Cerbere&quot;</span>, 200, 100, 1.8, 0.7, 0, 0, NULL, 2}</div>
-<div class="line">}</div>
+<div class="line">    {<span class="stringliteral">&quot;Slime_Vert&quot;</span>, 2, 1, 0.75, 0.40, 6, 0, 0, NULL, NULL, 1, 1, HAUT},</div>
+<div class="line">    {<span class="stringliteral">&quot;Loup&quot;</span>, 10, 4, 1.0, 1.2, 8, 0, 0, NULL, NULL, 2, 1, HAUT},</div>
+<div class="line">    {<span class="stringliteral">&quot;Brigant&quot;</span>, 20, 6, 0.9, 1.1, 7, 0, 0, NULL, NULL, 1, 1, HAUT},</div>
+<div class="line">    {<span class="stringliteral">&quot;Chaman&quot;</span>, 12, 12, 0.8, 1, 9, 0, 0, NULL, NULL, 2, 1, HAUT},</div>
+<div class="line">    {<span class="stringliteral">&quot;Slime_Gris&quot;</span>, 10, 5, 0.75, 0.40, 6, 0, 0, NULL, NULL, 1, 1, HAUT},</div>
+<div class="line">    {<span class="stringliteral">&quot;Nain&quot;</span>, 30, 8, 0.75, 0.40, 5, 0, 0, NULL, NULL, 2, 1, HAUT},</div>
+<div class="line">    {<span class="stringliteral">&quot;Nain_Rider&quot;</span>, 20, 5, 1.5, 1.2, 10, 0, 0, NULL, NULL, 3, 1, HAUT},</div>
+<div class="line">    {<span class="stringliteral">&quot;Orc&quot;</span>, 80, 20, 0.10, 0.20, 8, 0, 0, NULL, NULL, 2, 1, HAUT},</div>
+<div class="line">    {<span class="stringliteral">&quot;Slime_Rouge&quot;</span>, 50, 25, 0.75, 0.40, 6, 0, 0, NULL, NULL, 1, 1, HAUT},</div>
+<div class="line">    {<span class="stringliteral">&quot;Diablotin&quot;</span>, 40, 40, 1.4, 1.0, 5, 0, 0, NULL, NULL, 3, 1, HAUT},</div>
+<div class="line">    {<span class="stringliteral">&quot;Diable&quot;</span>, 80, 80, 0.8, 1.2, 10, 0, 0, NULL, NULL, 2, 1, HAUT},</div>
+<div class="line">    {<span class="stringliteral">&quot;Cerbere&quot;</span>, 200, 100, 1.8, 0.7, 12, 0, 0, NULL, NULL, 2, 1, HAUT}}</div>
 </div><!-- fragment -->
 <p>tableau qui stocke tout les mobs présents dans le jeu </p>
 

@@ -1,3 +1,7 @@
+/**
+ * \file map_jeu_entite.c
+ * \brief Fichier contenant les fonctions principal du jeu
+*/
 #include <stdbool.h>
 #include <stdio.h>
 #define SDL_MAIN_HANDLED
@@ -17,8 +21,7 @@
 #include "../head/menu_cpt.h"
 #include "../head/name.h"
 int flip_map = 0;
-
-int NumEtage = 2;
+int NumEtage = 0;
 SDL_Texture *tab_tex[10] = {NULL};
 
 #define TILE_SIZE 32
@@ -47,15 +50,23 @@ SDL_Texture *charge_tex(SDL_Renderer *renderer, char *path, int bmp_flag)
 
 SDL_Texture *choix_tex_niv(SDL_Renderer *renderer)
 {
+    if(tab_tex[0]!=NULL){
+        for(int i=0;i<10;i++){
+            if(tab_tex[i]!=NULL){
+                SDL_DestroyTexture(tab_tex[i]);
+            }
+        }
+    }
     tab_tex[2] = charge_tex(renderer, "../img/foret/wooden_door.png", 0); // Porte
     tab_tex[5] = charge_tex(renderer, "../img/personnage/1_north.png", 0);
     tab_tex[6] = charge_tex(renderer, "../img/personnage/1_south.png", 0);
     tab_tex[7] = charge_tex(renderer, "../img/personnage/1_side.png", 0);
+    tab_tex[3]=charge_tex(renderer, "../img/personnage/marchand.png", 0);
     if (NumEtage == 0)
     { // Foret
         tab_tex[0] = charge_tex(renderer, "../img/foret/bush.png", 0); // Mur 
         tab_tex[1] = charge_tex(renderer, "../img/foret/floor_grass.png", 0); // Sol 
-        // tab_tex[3]=charge_tex(renderer, "../img/foret/Idle-Sheet.png", 0);
+       
         tab_tex[4] = charge_tex(renderer, "../img/foret/souche.png", 0); // obstacle
         tab_tex[8] = charge_tex(renderer, "../img/foret/GreenSlime/GrnSheet.png", 0); // mob 1
         //tab_tex[9] = charge_tex(renderer, "../img/foret/BlueSlime/Blue_Idle1.png", 0);
@@ -73,7 +84,7 @@ SDL_Texture *choix_tex_niv(SDL_Renderer *renderer)
         tab_tex[0] = charge_tex(renderer, "../img/enfer/mur_enfer.png", 0); // Mur 
         tab_tex[1] = charge_tex(renderer, "../img/enfer/floor_hell.png", 0); // Sol 
         //tab_tex[3]=charge_tex(renderer, "../img/enfer/Idle-Sheet.png", 0);
-       //tab_tex[4] = charge_tex(renderer, "../img/enfer/lave.png", 0); // obstacle
+        tab_tex[4] = charge_tex(renderer, "../img/enfer/rock.png", 0); // obstacle
         tab_tex[8] = charge_tex(renderer, "../img/enfer/RedSlime/GrnSheet.png", 0); // mob 1
     }
 }
@@ -692,15 +703,14 @@ void rendu(int map[][LONG_SALLE_BOSS], int tailleI, int tailleJ, SDL_Renderer *r
             }
             if (map[x][y] == MARCHAND)
             {
-                dstRect.x = posX; // Position de l'obstacle
-                dstRect.y = posY;
-                SDL_RenderCopy(renderer, tab_tex[4], &srcRect, &dstRect); // On affiche l'obstacle
-            }
-            if (map[x][y] == VIDE)
-            {
-                dstRect.x = posX;
-                dstRect.y = posY;
-                //SDL_RenderCopy(renderer,tab_tex[1], NULL, &dstRect);
+                SDL_Rect Marchand;
+                Marchand.x = frame * 47; // Combien de Pixel on doit décaler pour afficher la bonne frame
+                Marchand.w = 47;         // Largeur de la frame
+                Marchand.y = 0;
+                Marchand.h = 38;        // Hauteur de la frame
+                dstRect.x = posX;       // Position de la frame
+                dstRect.y = posY; 
+                SDL_RenderCopy(renderer, tab_tex[3], &Marchand, &dstRect); // On affiche l'obstacle
             }
         }
         // printf("\n");

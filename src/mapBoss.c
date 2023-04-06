@@ -2,7 +2,10 @@
 #include <stdlib.h>
 
 #include "../head/mapBoss.h"
-
+/**
+ * \file mapBoss.c
+ * \brief Fichier contenant les fonctions pour la génération de la salle du boss et marchand
+*/
 #define BOSS 10 //Boss : à enlever quand boss créés
 #define SPAWN 10 //Lieu de SPAWN dans la salle du boss : à enlever ?
 /**
@@ -31,7 +34,7 @@ void afficher_salle_boss(t_salle * salle){
  * @param salleBoss la salle du boss
  * @return la salle du boss
 */
-t_salle * genererSalleBoss(t_salle_boss * salleBoss){
+t_salle * genererSalleBoss(t_salle * salleBoss){
     salleBoss = malloc(sizeof(t_salle));
     salleBoss->nb_mobs=0;
     for(int i=0; i<LARG_SALLE_BOSS; i++){
