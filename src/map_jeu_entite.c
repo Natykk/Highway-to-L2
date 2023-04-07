@@ -11,13 +11,13 @@
 #include <SDL2/SDL_image.h>
 #include <SDL2/SDL_mixer.h>
 #include <SDL2/SDL_ttf.h>
-
+#include "../head/attaques.h"
 #include "../head/entite.h"
 #include "../head/mapBoss.h"
 #include "../head/chemin.h"
 #include "../head/inventaire.h"
 #include "../head/sauvegarde.h"
-#include "../head/attaques.h"
+
 #include "../head/menu_cpt.h"
 #include "../head/name.h"
 int NumEtage = 0;
@@ -445,7 +445,9 @@ void mouvement(t_salle *map, entite_t *pers, t_pos *posSalle, t_niv *niv, SDL_Re
  * @param attaque Si le perso attaque
  * @param pers Le personnage
  **/
-int perso_attack(t_salle *map, int attaque, entite_t *pers, void (*attaque_pers)(proj_t, entite_t*,t_salle*),SDL_Window* window,SDL_Renderer* renderer,TTF_Font* police)
+
+
+int perso_attack(t_salle *map, int attaque, entite_t *pers ,void (*attaque_pers)(proj_t, entite_t*,t_salle*),SDL_Window* window,SDL_Renderer* renderer,TTF_Font* police)
 {
     int x = pers->x;
     int y = pers->y;
@@ -467,44 +469,36 @@ int perso_attack(t_salle *map, int attaque, entite_t *pers, void (*attaque_pers)
  * \brief Fonction qui permet de faire attaquer les mobs
  * \param map la map
  * \param pers la position du joueur
- * \param rect les points de vie du joueur
  * \return 1 si le joueur a perdu des points de vie, 0 sinon
  */
-int enemy_attack(t_salle *map, entite_t *pers, SDL_Rect *rect)
+int enemy_attack(t_salle *map, entite_t *pers)
 {
     int x = pers->x;
     int y = pers->y;
-    if (rect->w > 0)
-    {
         if (map->dim[x][y - 1] >= 10 && map->dim[x][y - 1] <= 21)
         { // si il y a un ennemi sur la case du bas
-            // printf("Vous avez perdu %d points de vie ! avec le mob %s\n",map->mob[(map->dim[x][y-1])-10]->degats,map->mob[(map->dim[x][y-1])-10]->nom);
-            // rect->w-=(int)(map->mob[(map->dim[x][y-1])-10]->degats);
+            printf("Vous avez perdu %d points de vie ! avec le mob %s\n",map->mob[(map->dim[x][y-1])-10]->degats,map->mob[(map->dim[x][y-1])-10]->nom);
+            pers->vie-=(int)(map->mob[(map->dim[x][y-1])-10]->degats);
             return 1;
         }
         if (map->dim[x][y + 1] >= 10 && map->dim[x][y + 1] <= 21)
         { // si il y a un ennemi sur la case du haut
-            // printf("Vous avez perdu %d points de vie ! avec le mob %s\n",map->mob[(map->dim[x][y+1])-10]->degats,map->mob[(map->dim[x][y+1])-10]->nom);
-            // rect->w-=(int)map->mob[(map->dim[x][y+1])-10]->degats;
+            printf("Vous avez perdu %d points de vie ! avec le mob %s\n",map->mob[(map->dim[x][y+1])-10]->degats,map->mob[(map->dim[x][y+1])-10]->nom);
+            pers->vie-=(int)(map->mob[(map->dim[x][y+1])-10]->degats);
             return 1;
         }
         if (map->dim[x - 1][y] >= 10 && map->dim[x - 1][y] <= 21)
         { // si il y a un ennemi sur la case de droite
-            // printf("Vous avez perdu %d points de vie ! avec le mob %s\n",map->mob[(map->dim[x-1][y])-10]->degats,map->mob[(map->dim[x-1][y])-10]->nom);
-            // rect->w-=(int)map->mob[(map->dim[x-1][y])-10]->degats;
+            printf("Vous avez perdu %d points de vie ! avec le mob %s\n",map->mob[(map->dim[x-1][y])-10]->degats,map->mob[(map->dim[x-1][y])-10]->nom);
+            pers->vie-=(int)(map->mob[(map->dim[x-1][y])-10]->degats);
             return 1;
         }
         if (map->dim[x + 1][y] >= 10 && map->dim[x + 1][y] <= 21)
         { // si il y a un ennemi sur la case de gauche
-            // printf("Vous avez perdu %d points de vie ! avec le mob %s\n",map->mob[(map->dim[x+1][y])-10]->degats,map->mob[(map->dim[x+1][y])-10]->nom);
-            // rect->w-=(int)(map->mob[(map->dim[x+1][y])-10]->degats);
+            printf("Vous avez perdu %d points de vie ! avec le mob %s\n",map->mob[(map->dim[x+1][y])-10]->degats,map->mob[(map->dim[x+1][y])-10]->nom);
+            pers->vie-=(int)(map->mob[(map->dim[x+1][y])-10]->degats);
             return 1;
         }
-        if (rect->w < 250)
-        { // si le perso n'est pas en combat
-            rect->w += 2;
-        }
-    }
     return 0;
 }
 
@@ -759,10 +753,6 @@ int main()
     int attaque = 0;
     choix_tex_niv(renderer);
 
-    perso->inventaire->nb[3]=10;
-
-    afficher_menu(window, renderer, perso, police);
-
     t_salle map;                    // Matrice de la salle
     t_pos posSalle;                 // Position de la salle dans
     perso->x = (DIM_SALLE / 2) - 1; // Position du perso au millieu de la salle
@@ -799,13 +789,13 @@ int main()
     int max_vie = perso->vie;
     int mort = 0;
 
-    SDL_Surface* redHealthBarSurface = IMG_Load("./img/life_bar/red_healthbar.png");
+    SDL_Surface* redHealthBarSurface = IMG_Load("../img/life_bar/red_healthbar.png");
     SDL_Texture* redHealthBarTexture = SDL_CreateTextureFromSurface(renderer, redHealthBarSurface);
-    //SDL_FreeSurface(redHealthBarSurface);
+    SDL_FreeSurface(redHealthBarSurface);
 
-    SDL_Surface* blackHealthBarSurface = IMG_Load("./img/life_bar/black_healthbar.png");
+    SDL_Surface* blackHealthBarSurface = IMG_Load("../img/life_bar/black_healthbar.png");
     SDL_Texture* blackHealthBarTexture = SDL_CreateTextureFromSurface(renderer, blackHealthBarSurface);
-    //SDL_FreeSurface(redHealthBarSurface);
+    SDL_FreeSurface(blackHealthBarSurface);
 
     // Initialisation des variables de vie
     int maxHealth = perso->vie;
@@ -816,19 +806,16 @@ int main()
     // Création de la barre de vie
     SDL_Rect healthBarRect = {WINDOW_WIDTH/2 - BAR_WIDTH/2, WINDOW_HEIGHT - 2 * BAR_HEIGHT, BAR_WIDTH, BAR_HEIGHT};
 
-    
     perso->dir = BAS;                 // Variable de déplacement
     Uint32 lastTime = SDL_GetTicks(); // Temps de la dernière mise à jour de l'animation
     Uint32 MajMove = SDL_GetTicks();
     Uint32 lastTimeInteract = SDL_GetTicks();
     int continuer = 1; // Variable de fin de boucle
-    long int iboucle=0;
 
-    printf("Avant boucle jeu");
+    printf("Avant boucle jeu %d\n",perso->vie);
     while (continuer)
     { // Boucle principale
-        iboucle++;
-
+    printf("jeu %d\n",perso->vie);
         if(perso->vie <= 0){
             continuer = 0;
             mort = 1;
@@ -880,8 +867,8 @@ int main()
                     }else{
                         fonc_attaque = attaque_cac;
                     }
-                    perso_attack(&map, attaque, perso, fonc_attaque,window,renderer,police);
-                    // interact(attaque,&map,perso);
+                    perso_attack(&map, attaque, perso,fonc_attaque,window,renderer,police);
+                    //interact(attaque,&map,perso,lastTimeInteract,&posSalle,niv,renderer);
                     break;
                 case SDL_SCANCODE_LSHIFT:
                     break;
@@ -904,6 +891,7 @@ int main()
                 break;
             }
         }
+        
         if(!liste_vide_proj())
             maj_proj(perso, &map);
         Uint32 currentTime = SDL_GetTicks(); // Temps actuel
@@ -956,6 +944,7 @@ int main()
 
         if (SDL_GetTicks() - lastTimeInteract >= 500)
         {
+            enemy_attack(&map, perso);
             interact(attaque, &map, perso, &MajMove, &posSalle, niv, renderer);
             lastTimeInteract = SDL_GetTicks();
         }
@@ -970,20 +959,21 @@ int main()
         SDL_DestroyTexture(tab_tex[i]); // On détruit les textures
     }
 
-    SDL_DestroyTexture(redHealthBarTexture);
-    SDL_FreeSurface(redHealthBarSurface);
+    SDL_DestroyTexture(redHealthBarTexture);// On detruit la barre de vie 
 
-    SDL_DestroyTexture(blackHealthBarTexture);
-    SDL_FreeSurface(blackHealthBarSurface);
+    SDL_DestroyTexture(blackHealthBarTexture); // On detruit le fond de la barre de vie
+    
 
     if(mort == 1){
-        if(gameover(window, renderer, perso)){
+        printf("Menu de mort\n");
+        if(gameover(window, renderer, perso)){ // On affiche le menu de mort et on regarde si on veut recommencer
+            printf("Nouvelle partie\n");
             SDL_DestroyRenderer(renderer); // On détruit le renderer
             SDL_DestroyWindow(window);     // On détruit la fenêtre
             main();
         }
     }
-
+    printf("Fin du jeu\n");
     SDL_DestroyRenderer(renderer); // On détruit le renderer
     SDL_DestroyWindow(window);     // On détruit la fenêtre
     SDL_Quit();                  // On quitte la SDL

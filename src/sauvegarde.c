@@ -57,7 +57,7 @@ int sauvegarde(entite_t *personnage, int num_etage){
     if (personnage != NULL)
     {
         FILE * f_sauv = NULL;
-        f_sauv = fopen("./sauv/sauvegarde.txt", "w");
+        f_sauv = fopen("../sauv/sauvegarde.txt", "w");
         if(f_sauv == NULL){
             printf("pb de création\n");
             return 0;

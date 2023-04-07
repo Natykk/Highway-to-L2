@@ -99,7 +99,7 @@ int valides(int i, int j){
 	return(i>=0 && i<8 &&j>=0 && j<8);
 }
 /**
- * \fn void marquer_chemin(int lab[9][9],int x, int y,int coords[20][2])
+ * \fn void marquer_chemin(int lab[9][9],int x, int y,int coords[9][2])
  * @brief Marque le chemin le plus court a partir de lab[x][y]
  * @param lab matrice du labyrinthe
  * @param x coordonnée x
@@ -107,7 +107,7 @@ int valides(int i, int j){
  * @param coords tableau de coordonnées
  * 
 */
-void marquer_chemin(int lab[9][9],int x, int y,int coords[20][2]){
+void marquer_chemin(int lab[9][9],int x, int y,int coords[9][2]){
 // Marque le chemin le plus court a partir de lab[x][y]
 // Renvoie sa taille dans lgmin
     //printf("Marquage du chemin le plus court...\n");
@@ -127,7 +127,7 @@ void marquer_chemin(int lab[9][9],int x, int y,int coords[20][2]){
     //printf("\n\n\n");
 }
 /**
- * \fn int chercher_chemin(int xd, int yd, int xa, int ya,int lab[9][9],int coords[20][2])
+ * \fn int chercher_chemin(int xd, int yd, int xa, int ya,int lab[9][9],int coords[9][2])
  * @brief Cherche le chemin D -> A le plus court avec une file 
  * @param xd coordonnée x de départ
  * @param yd coordonnée y de départ
@@ -137,7 +137,7 @@ void marquer_chemin(int lab[9][9],int x, int y,int coords[20][2]){
  * @param coords tableau de coordonnées
  * @return renvoie VRAI si un chemin existe, FAUX sinon
 */
-int chercher_chemin(int xd, int yd, int xa, int ya,int lab[9][9],int coords[20][2]){
+int chercher_chemin(int xd, int yd, int xa, int ya,int lab[9][9],int coords[9][2]){
 // Cherche le chemin D -> A le plus court avec une file
 // Renvoie VRAI si un chemin existe, FAUX sinon
     //printf("Cherche chemin le plus court...\n");

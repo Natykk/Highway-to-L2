@@ -83,7 +83,7 @@ int menu_interact(SDL_Window * window, SDL_Renderer * renderer, entite_t * perso
     continuer.w = 200;
     continuer.h = 75;
     
-    if(!fempty("./sauv/sauvegarde.txt") && fileExists("./sauv/sauvegarde.txt")){
+    if(!fempty("../sauv/sauvegarde.txt") && fileExists("../sauv/sauvegarde.txt")){
       continuer.surface = IMG_Load("../img/button/continue.png");
     }
     else{
