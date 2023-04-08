@@ -5,10 +5,95 @@
 #include "../head/sauvegarde.h"
 #include "../head/arbre.h"
 #include "../head/inventaire.h"
-/**
- * \file sauvegarde.c
- * \brief Fichier contenant les fonctions pour la sauvegarde
-*/
+#include <openssl/aes.h>
+#include <unistd.h>
+
+
+#define BLOCK_SIZE 16
+
+
+
+
+int chiffre_fichier_AES(const char *clef, const char *fichier_entree, const char *fichier_sortie) {
+    AES_KEY cle;
+    unsigned char iv[BLOCK_SIZE], buffer[BLOCK_SIZE], chiffr[BLOCK_SIZE];
+    int bytes_lus, bytes_ecrits;
+    FILE *fichier_entree_ptr, *fichier_sortie_ptr;
+
+    // Initialisation de la clé et du vecteur d'initialisation
+    if (AES_set_encrypt_key((const unsigned char*)clef, 128, &cle) < 0) {
+        return -1;
+    }
+    memset(iv, 0, BLOCK_SIZE);
+
+    // Ouverture des fichiers d'entrée et de sortie
+    fichier_entree_ptr = fopen(fichier_entree, "rb");
+    if (fichier_entree_ptr == NULL) {
+        return -1;
+    }
+    fichier_sortie_ptr = fopen(fichier_sortie, "wb");
+    if (fichier_sortie_ptr == NULL) {
+        fclose(fichier_entree_ptr);
+        return -1;
+    }
+
+    // Lecture et chiffrement des blocs de données
+    while ((bytes_lus = fread(buffer, 1, BLOCK_SIZE, fichier_entree_ptr)) > 0) {
+        AES_cbc_encrypt(buffer, chiffr, bytes_lus, &cle, iv, AES_ENCRYPT);
+        bytes_ecrits = fwrite(chiffr, 1, bytes_lus, fichier_sortie_ptr);
+        if (bytes_ecrits != bytes_lus) {
+            fclose(fichier_entree_ptr);
+            fclose(fichier_sortie_ptr);
+            return -1;
+        }
+    }
+
+    // Fermeture des fichiers
+    fclose(fichier_entree_ptr);
+    fclose(fichier_sortie_ptr);
+
+    return 0;
+}
+int dechiffre_fichier_AES(const char *clef, const char *fichier_entree, const char *fichier_sortie) {
+    AES_KEY cle;
+    unsigned char iv[BLOCK_SIZE], buffer[BLOCK_SIZE], dechiffr[BLOCK_SIZE];
+    int bytes_lus, bytes_ecrits;
+    FILE *fichier_entree_ptr, *fichier_sortie_ptr;
+
+    // Initialisation de la clé et du vecteur d'initialisation
+    if (AES_set_decrypt_key((const unsigned char*)clef, 128, &cle) < 0) {
+        return -1;
+    }
+    memset(iv, 0, BLOCK_SIZE);
+
+    // Ouverture des fichiers d'entrée et de sortie
+    fichier_entree_ptr = fopen(fichier_entree, "rb");
+    if (fichier_entree_ptr == NULL) {
+        return -1;
+    }
+    fichier_sortie_ptr = fopen(fichier_sortie, "wb");
+    if (fichier_sortie_ptr == NULL) {
+        fclose(fichier_entree_ptr);
+        return -1;
+    }
+
+    // Lecture et déchiffrement des blocs de données
+    while ((bytes_lus = fread(buffer, 1, BLOCK_SIZE, fichier_entree_ptr)) > 0) {
+        AES_cbc_encrypt(buffer, dechiffr, bytes_lus, &cle, iv, AES_DECRYPT);
+        bytes_ecrits = fwrite(dechiffr, 1, bytes_lus, fichier_sortie_ptr);
+        if (bytes_ecrits != bytes_lus) {
+            fclose(fichier_entree_ptr);
+            fclose(fichier_sortie_ptr);
+            return -1;
+        }
+    }
+
+    // Fermeture des fichiers
+    fclose(fichier_entree_ptr);
+    fclose(fichier_sortie_ptr);
+
+    return 0;
+}
 /**
  * \fn int one_next_cpt_unlock(t_competence *competence)
  * @brief Renvoie l'indice de la première compétence suivante qui n'est pas acquise
@@ -53,7 +138,7 @@ int cpt_aquise(FILE *sauv, t_arbre *arbre)
     return 1;
 }
 
-int sauvegarde(entite_t *personnage, int num_etage){
+int sauvegarde(entite_t *personnage, int num_etage,unsigned char *key){
     if (personnage != NULL)
     {
         FILE * f_sauv = NULL;
@@ -70,7 +155,6 @@ int sauvegarde(entite_t *personnage, int num_etage){
             fprintf(f_sauv, "None\n");
         }
         
-        printf("sauv_classe\n");
         /* Classe du personnage */
         if (personnage->arbre == NULL)
         {
@@ -110,8 +194,13 @@ int sauvegarde(entite_t *personnage, int num_etage){
         {
             fprintf(f_sauv, "%d\n", personnage->inventaire->nb[i]);
         }
-        printf("Perso Sauvegarde\n");
+        
         fclose(f_sauv);
+        chiffre_fichier_AES(key,"../sauv/sauvegarde.txt","../sauv/sauvegarde_crypt.txt");
+
+        FILE* file = fopen("../sauv/sauvegarde.txt", "w");
+        fclose(file);
+       
     }
     else
     {
@@ -144,8 +233,11 @@ int appliquer(entite_t *personnage, t_competence *competence)
  * @param personnage le personnage
  * @return 1 si le chargement s'est bien déroulé, 0 sinon
 */
-int chargement(entite_t **personnage)
+
+int chargement(entite_t **personnage, unsigned char *key)
 {
+    
+    dechiffre_fichier_AES(key,"../sauv/sauvegarde_crypt.txt","../sauv/sauvegarde.txt");
     FILE *f_sauv = fopen("../sauv/sauvegarde.txt", "r");
     if (f_sauv)
     {
@@ -216,6 +308,8 @@ int chargement(entite_t **personnage)
         {
             fscanf(f_sauv, "%d", &(*personnage)->inventaire->nb[i]);
         }
+        FILE* file = fopen("../sauv/sauvegarde.txt", "w");
+        fclose(file);
 
         return num_etage;
     }
@@ -232,7 +326,6 @@ int main(){
     init_arbre(&mage, cpt_mage, MAGE);
     entite_t * personnage;
     personnage = creer_personnage(personnage);
-    //personnage->nom = "médor";
     personnage = init_inventaire_personnage(personnage);
     //afficher_entite(personnage);
 
@@ -240,43 +333,43 @@ int main(){
     rang=acces_obj("Grimoire");
     if(rang>-1){
         personnage->inventaire->nb[rang] = 30;
-        printf("ressource ajoutée!\n");
+        
     }
 
     rang=acces_obj("Or");
     if(rang>-1){
         personnage->inventaire->nb[rang] = 50;
-        printf("ressource ajoutée!\n");
+        
     }
 
     rang=acces_obj("Green Goo");
     if(rang>-1){
         personnage->inventaire->nb[rang] = 20;
-        printf("ressource ajoutée!\n");
+        
     }
 
     rang=acces_obj("Grey Goo");
     if(rang>-1){
         personnage->inventaire->nb[rang] = 30;
-        printf("ressource ajoutée!\n");
+        
     }
 
     rang=acces_obj("Griffe");
     if(rang>-1){
         personnage->inventaire->nb[rang] = 20;
-        printf("ressource ajoutée!\n");
+        
     }
 
     rang=acces_obj("Red Goo");
     if(rang>-1){
         personnage->inventaire->nb[rang] = 20;
-        printf("ressource ajoutée!\n");
+        
     }
 
     rang=acces_obj("Tetes");
     if(rang>-1){
         personnage->inventaire->nb[rang] = 20;
-        printf("ressource ajoutée!\n");
+        
     }
 
     afficher_inventaire(personnage);
@@ -285,15 +378,21 @@ int main(){
     competence_debloquer(personnage, mage->competence[3], mage);
     competence_debloquer(personnage, mage->competence[5], mage);
     competence_debloquer(personnage, mage->competence[9], mage);
-    sauvegarde(personnage, 2);
+    sauvegarde(personnage, 2,"0123456789abcdef","01234567890123456");
+    //printf("--/\\-SAUVEGARDE---/\\-\n");
     detruire_arbre(&personnage->arbre);
-    detruire_entitee(personnage);
+    detruire_entitee(&personnage);
+    
+    personnage = creer_personnage(personnage);
+    personnage = init_inventaire_personnage(personnage);
 
-    chargement(&personnage);
+    chargement(&personnage,"0123456789abcdef","01234567890123456");
+    //printf("--/\\-CHARGEMENT-/\\---\n");
     afficher_entite(personnage);
+    //printf("----AFFICHAGE TERMINER----\n");
     //aff_classe(personnage->arbre);
     //afficher_inventaire(personnage);
     detruire_arbre(&personnage->arbre);
-    detruire_entitee(personnage);
+    detruire_entitee(&personnage);
 }
 */

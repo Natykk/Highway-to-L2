@@ -51,7 +51,7 @@
 TARGETS  = map_jeu_entite
 
 SDLROUTE = -I$(HOME)/SDL2/include -L$(HOME)/SDL2/lib
-LIBS = -lm -lSDL2main -lSDL2 -lSDL2_image -lSDL2_ttf -lSDL2_mixer -g3
+LIBS = -lm -lssl -lcrypto -lSDL2main -lSDL2 -lSDL2_image -lSDL2_ttf -lSDL2_mixer -g3
 
 CC       = gcc -g3
 # compiling flags here

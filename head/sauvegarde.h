@@ -3,7 +3,7 @@
 
 #include "entite.h"
 
-int sauvegarde(entite_t *personnage, int num_etage);
-int chargement(entite_t **personnage);
+int sauvegarde(entite_t *personnage, int num_etage, unsigned char *key);
+int chargement(entite_t **personnage, unsigned char *key);
 
 #endif

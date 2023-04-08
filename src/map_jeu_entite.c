@@ -21,7 +21,7 @@
 #include "../head/menu_cpt.h"
 #include "../head/name.h"
 int NumEtage = 0;
-SDL_Texture *tab_tex[10] = {NULL};
+SDL_Texture *tab_tex[20] = {NULL};
 
 #define TILE_SIZE 32
 #define DIM_SALLE 25
@@ -67,10 +67,10 @@ SDL_Texture *choix_tex_niv(SDL_Renderer *renderer)
         }
     }
     tab_tex[2] = charge_tex(renderer, "../img/foret/wooden_door.png", 0); // Porte
-    tab_tex[5] = charge_tex(renderer, "../img/personnage/1_north.png", 0);
-    tab_tex[6] = charge_tex(renderer, "../img/personnage/1_south.png", 0);
-    tab_tex[7] = charge_tex(renderer, "../img/personnage/1_side.png", 0);
-    tab_tex[3] = charge_tex(renderer, "../img/personnage/marchand.png", 0);
+    tab_tex[5] = charge_tex(renderer, "../img/personnage/1_north.png", 0); // Perso coté nord
+    tab_tex[6] = charge_tex(renderer, "../img/personnage/1_south.png", 0); // Perso coté sud
+    tab_tex[7] = charge_tex(renderer, "../img/personnage/1_side.png", 0); // Perso sur les cotés (est ou ouest)
+    tab_tex[3] = charge_tex(renderer, "../img/personnage/marchand.png", 0); // Marchand
     if (NumEtage == 0)
     {                                                                         // Foret
         tab_tex[0] = charge_tex(renderer, "../img/foret/bush.png", 0);        // Mur
@@ -78,22 +78,20 @@ SDL_Texture *choix_tex_niv(SDL_Renderer *renderer)
 
         tab_tex[4] = charge_tex(renderer, "../img/foret/souche.png", 0);              // obstacle
         tab_tex[8] = charge_tex(renderer, "../img/foret/GreenSlime/GrnSheet.png", 0); // mob 1
-        // tab_tex[9] = charge_tex(renderer, "../img/foret/BlueSlime/Blue_Idle1.png", 0);
+
     }
     else if (NumEtage == 1)
     {                                                                      // Mine
         tab_tex[0] = charge_tex(renderer, "../img/mines/mur_mine.png", 0); // Mur
         tab_tex[1] = charge_tex(renderer, "../img/mines/sol.jpg", 0);      // Sol
-        // tab_tex[3]=charge_tex(renderer, "../img/mine/Idle-Sheet.png", 0);
-        tab_tex[4] = charge_tex(renderer, "../img/mines/rock.png", 0);                 // obstacle
+        tab_tex[4] = charge_tex(renderer, "../img/mines/rock.png", 0);     // obstacle
         tab_tex[8] = charge_tex(renderer, "../img/mines/GreySlime/Whitesheet.png", 0); // mob 1
     }
     else if (NumEtage == 2)
     {                                                                        // Enfer
         tab_tex[0] = charge_tex(renderer, "../img/enfer/mur_enfer.png", 0);  // Mur
         tab_tex[1] = charge_tex(renderer, "../img/enfer/floor_hell.png", 0); // Sol
-        // tab_tex[3]=charge_tex(renderer, "../img/enfer/Idle-Sheet.png", 0);
-        tab_tex[4] = charge_tex(renderer, "../img/enfer/rock.png", 0);              // obstacle
+        tab_tex[4] = charge_tex(renderer, "../img/enfer/rock.png", 0);       // obstacle
         tab_tex[8] = charge_tex(renderer, "../img/enfer/RedSlime/GrnSheet.png", 0); // mob 1
     }
 }
@@ -251,7 +249,7 @@ void changement(t_niv *niv, entite_t *perso, t_pos *posSalle, t_salle *map)
             perso->y = 1;
             perso->x = (LARG_MARCHAND / 2) - 1;
             map->dim[perso->x][perso->y] = PERSO;
-            sauvegarde(perso, NumEtage);
+            sauvegarde(perso, NumEtage,"0123456789abcdef","01234567890123456");
         }
         // printf("Salle n°%d\n", map->num_salle);
     }
@@ -747,7 +745,7 @@ int main()
         return 0;
     }
 
-    if (!sauvegarde(perso, 0))
+    if (!sauvegarde(perso, 0,"0123456789abcdef","01234567890123456"))
     {
         printf("problème lors de la sauvegarde\n");
         SDL_DestroyRenderer(renderer);

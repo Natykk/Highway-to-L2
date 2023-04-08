@@ -83,7 +83,7 @@ int menu_interact(SDL_Window * window, SDL_Renderer * renderer, entite_t * perso
     continuer.w = 200;
     continuer.h = 75;
     
-    if(!fempty("../sauv/sauvegarde.txt") && fileExists("../sauv/sauvegarde.txt")){
+    if( (!fempty("../sauv/sauvegarde_crypt.txt") && fileExists("../sauv/sauvegarde_crypt.txt")) ){
       continuer.surface = IMG_Load("../img/button/continue.png");
     }
     else{
@@ -131,7 +131,7 @@ int menu_interact(SDL_Window * window, SDL_Renderer * renderer, entite_t * perso
                       run = 0;
                       retour = 1;
                     } 
-                    else if((x >= continuer.x && x <= continuer.x + continuer.w && y >= continuer.y && y <= continuer.y + continuer.h) && (!fempty("../sauv/sauvegarde.txt") && fileExists("../sauv/sauvegarde.txt"))){
+                    else if((x >= continuer.x && x <= continuer.x + continuer.w && y >= continuer.y && y <= continuer.y + continuer.h) && (!fempty("../sauv/sauvegarde_crypt.txt") && fileExists("../sauv/sauvegarde_crypt.txt")) ){
                       /*
                       SDL_DestroyTexture(texture_continuer);
                       SDL_DestroyTexture(texture_quitter);
@@ -139,7 +139,7 @@ int menu_interact(SDL_Window * window, SDL_Renderer * renderer, entite_t * perso
                       SDL_DestroyTexture(texture_img);
                       SDL_DestroyTexture(texture_background);
                       */
-                      chargement(&personnage);
+                      chargement(&personnage,"0123456789abcdef","01234567890123456");
                       run=0;
                       retour = 1;
                     }

@@ -308,7 +308,6 @@ int genererSalle(int x_salle, int y_salle, t_etage * etage){
     int x_mob, y_mob;
     while(nbMobplace<nbMob){
             num_mob=rand()%4 + NumEtage*4; // Prend un mob au hasard dans le tableau de mob suivant l'etage
-            printf("%s\n",tab_mob[num_mob].nom);
            etage->etage[x_salle][y_salle].mob[nbMobplace]=creer_monstre(etage->etage[x_salle][y_salle].mob[nbMobplace],tab_mob[num_mob].nom); // Créer le mob       
 
         do{
