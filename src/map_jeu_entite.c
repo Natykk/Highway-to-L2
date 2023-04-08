@@ -249,7 +249,7 @@ void changement(t_niv *niv, entite_t *perso, t_pos *posSalle, t_salle *map)
             perso->y = 1;
             perso->x = (LARG_MARCHAND / 2) - 1;
             map->dim[perso->x][perso->y] = PERSO;
-            sauvegarde(perso, NumEtage,"0123456789abcdef","01234567890123456");
+            sauvegarde(perso, NumEtage,"0123456789abcdef");
         }
         // printf("Salle n°%d\n", map->num_salle);
     }
@@ -546,7 +546,11 @@ void interact(int attaque, t_salle *map, entite_t *pers, Uint32 *lastTime, t_pos
     {
         int cheminX, cheminY;
         float dist;
-        if (map->mob[i] != NULL && distance(pers, map->mob[i]) <= 4) // si le mob est à moins de 4 cases du joueur
+        int zone_detect = map->mob[i]->perim_detect - pers->perim_detect;
+        if(zone_detect<=0){
+            zone_detect = 1;
+        }
+        if (map->mob[i] != NULL && distance(pers, map->mob[i]) <= zone_detect) // si le mob est à moins de 4 cases du joueur
         {
             for (int j = 0; j < 10; j++) // on réinitialise le tableau de coordonnées
             {
@@ -745,7 +749,7 @@ int main()
         return 0;
     }
 
-    if (!sauvegarde(perso, 0,"0123456789abcdef","01234567890123456"))
+    if (!sauvegarde(perso, 0,"0123456789abcdef"))
     {
         printf("problème lors de la sauvegarde\n");
         SDL_DestroyRenderer(renderer);

@@ -1,12 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <openssl/aes.h>
+#include <unistd.h>
 
 #include "../head/sauvegarde.h"
 #include "../head/arbre.h"
 #include "../head/inventaire.h"
-#include <openssl/aes.h>
-#include <unistd.h>
+
 
 
 #define BLOCK_SIZE 16
@@ -236,7 +237,6 @@ int appliquer(entite_t *personnage, t_competence *competence)
 
 int chargement(entite_t **personnage, unsigned char *key)
 {
-    
     dechiffre_fichier_AES(key,"../sauv/sauvegarde_crypt.txt","../sauv/sauvegarde.txt");
     FILE *f_sauv = fopen("../sauv/sauvegarde.txt", "r");
     if (f_sauv)

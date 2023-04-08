@@ -139,7 +139,7 @@ int menu_interact(SDL_Window * window, SDL_Renderer * renderer, entite_t * perso
                       SDL_DestroyTexture(texture_img);
                       SDL_DestroyTexture(texture_background);
                       */
-                      chargement(&personnage,"0123456789abcdef","01234567890123456");
+                      chargement(&personnage,"0123456789abcdef");
                       run=0;
                       retour = 1;
                     }
