@@ -546,7 +546,12 @@ void interact(int attaque, t_salle *map, entite_t *pers, Uint32 *lastTime, t_pos
     {
         int cheminX, cheminY;
         float dist;
-        int zone_detect = map->mob[i]->perim_detect - pers->perim_detect;
+        int zone_detect;
+        if(map->mob[i]!=NULL){
+            zone_detect = map->mob[i]->perim_detect - pers->perim_detect;
+        }else{
+            zone_detect = 4;
+        }
         if(zone_detect<=0){
             zone_detect = 1;
         }

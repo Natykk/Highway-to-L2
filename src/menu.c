@@ -5,6 +5,7 @@
 #include <SDL2/SDL_ttf.h>
 #include <SDL2/SDL_image.h>
 #include <SDL2/SDL_mixer.h>
+#include <openssl/sha.h>
 // Structure pour représenter un bouton
 /**
  * \file menu.c
@@ -82,8 +83,34 @@ int menu_interact(SDL_Window * window, SDL_Renderer * renderer, entite_t * perso
     continuer.y = WINDOW_HEIGHT * 6 / 10 ;
     continuer.w = 200;
     continuer.h = 75;
-    
-    if( (!fempty("../sauv/sauvegarde_crypt.txt") && fileExists("../sauv/sauvegarde_crypt.txt")) ){
+
+    FILE* f_hash;
+    char hash_sauvegarder[(SHA256_DIGEST_LENGTH*2) + 1];
+    f_hash = fopen("../sauv/sauvegarde.hash", "r");
+    if (f_hash != NULL) {
+        fscanf(f_hash, "%s", hash_sauvegarder);
+        fclose(f_hash);
+    }
+    else {
+        printf("Erreur ouverture fichier hash\n");
+
+    }
+
+    char sha256_after[(SHA256_DIGEST_LENGTH*2)+1];
+    if (sha256_file("../sauv/sauvegarde_crypt.data", sha256_after) != 0) {
+        printf("Erreur dans le calcul du hash du menu\n");
+    }
+    int hash_flag = 0;
+    if (strcmp(sha256_after,hash_sauvegarder) == 0) {
+        printf("hash match\n");
+        hash_flag = 1;
+    } else {
+        printf("hash match pas\n");
+        hash_flag = 0;
+    }
+
+
+    if( (!fempty("../sauv/sauvegarde_crypt.data") && fileExists("../sauv/sauvegarde_crypt.data")) && hash_flag == 1 ){
       continuer.surface = IMG_Load("../img/button/continue.png");
     }
     else{
@@ -131,7 +158,7 @@ int menu_interact(SDL_Window * window, SDL_Renderer * renderer, entite_t * perso
                       run = 0;
                       retour = 1;
                     } 
-                    else if((x >= continuer.x && x <= continuer.x + continuer.w && y >= continuer.y && y <= continuer.y + continuer.h) && (!fempty("../sauv/sauvegarde_crypt.txt") && fileExists("../sauv/sauvegarde_crypt.txt")) ){
+                    else if((x >= continuer.x && x <= continuer.x + continuer.w && y >= continuer.y && y <= continuer.y + continuer.h) && (!fempty("../sauv/sauvegarde_crypt.data") && fileExists("../sauv/sauvegarde_crypt.data")) ){
                       /*
                       SDL_DestroyTexture(texture_continuer);
                       SDL_DestroyTexture(texture_quitter);

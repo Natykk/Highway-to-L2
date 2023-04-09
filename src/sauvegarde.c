@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <openssl/aes.h>
+#include <openssl/sha.h>
 #include <unistd.h>
 
 #include "../head/sauvegarde.h"
@@ -12,58 +13,59 @@
 
 #define BLOCK_SIZE 16
 
+#define SHA256_DIGEST_LENGTH 32
 
+int sha256_file(const char *path, char *hash) {
+    FILE *file;
+    SHA256_CTX sha256_ctx;
+    unsigned char buffer[BUFSIZ];
+    int bytesRead;
+    unsigned char sha256_hash[SHA256_DIGEST_LENGTH];
+    int i;
 
-
-int chiffre_fichier_AES(const char *clef, const char *fichier_entree, const char *fichier_sortie) {
-    AES_KEY cle;
-    unsigned char iv[BLOCK_SIZE], buffer[BLOCK_SIZE], chiffr[BLOCK_SIZE];
-    int bytes_lus, bytes_ecrits;
-    FILE *fichier_entree_ptr, *fichier_sortie_ptr;
-
-    // Initialisation de la clé et du vecteur d'initialisation
-    if (AES_set_encrypt_key((const unsigned char*)clef, 128, &cle) < 0) {
-        return -1;
-    }
-    memset(iv, 0, BLOCK_SIZE);
-
-    // Ouverture des fichiers d'entrée et de sortie
-    fichier_entree_ptr = fopen(fichier_entree, "rb");
-    if (fichier_entree_ptr == NULL) {
-        return -1;
-    }
-    fichier_sortie_ptr = fopen(fichier_sortie, "wb");
-    if (fichier_sortie_ptr == NULL) {
-        fclose(fichier_entree_ptr);
+    // ouvre le fichier
+    file = fopen(path, "rb");
+    if (!file) {
         return -1;
     }
 
-    // Lecture et chiffrement des blocs de données
-    while ((bytes_lus = fread(buffer, 1, BLOCK_SIZE, fichier_entree_ptr)) > 0) {
-        AES_cbc_encrypt(buffer, chiffr, bytes_lus, &cle, iv, AES_ENCRYPT);
-        bytes_ecrits = fwrite(chiffr, 1, bytes_lus, fichier_sortie_ptr);
-        if (bytes_ecrits != bytes_lus) {
-            fclose(fichier_entree_ptr);
-            fclose(fichier_sortie_ptr);
-            return -1;
-        }
+    // Initialise le hash
+    SHA256_Init(&sha256_ctx);
+
+    // Calcule le hash du fichier avec des morceau de 521 octets 
+    while ((bytesRead = fread(buffer, 1, BUFSIZ, file)) > 0) {
+        SHA256_Update(&sha256_ctx, buffer, bytesRead);
     }
 
-    // Fermeture des fichiers
-    fclose(fichier_entree_ptr);
-    fclose(fichier_sortie_ptr);
+    // Finalise le hash et le convertit en chaîne de caractère hexadécimale
+    SHA256_Final(sha256_hash, &sha256_ctx);
+    for (i = 0; i < SHA256_DIGEST_LENGTH; i++) {
+        sprintf(&hash[i * 2], "%02x", sha256_hash[i]);
+    }
+
+    // Ferme le fichier
+    fclose(file);
 
     return 0;
 }
-int dechiffre_fichier_AES(const char *clef, const char *fichier_entree, const char *fichier_sortie) {
+
+
+int de_chiffre_fichier_AES(const char *clef, const char *fichier_entree, const char *fichier_sortie,int mode) {
     AES_KEY cle;
     unsigned char iv[BLOCK_SIZE], buffer[BLOCK_SIZE], dechiffr[BLOCK_SIZE];
     int bytes_lus, bytes_ecrits;
     FILE *fichier_entree_ptr, *fichier_sortie_ptr;
 
     // Initialisation de la clé et du vecteur d'initialisation
-    if (AES_set_decrypt_key((const unsigned char*)clef, 128, &cle) < 0) {
+    if(mode==AES_DECRYPT){
+        if (AES_set_decrypt_key((const unsigned char*)clef, 128, &cle) < 0) {
+            return -1;
+        }
+    }
+    if(mode==AES_ENCRYPT){
+        if (AES_set_encrypt_key((const unsigned char*)clef, 128, &cle) < 0) {
         return -1;
+        }
     }
     memset(iv, 0, BLOCK_SIZE);
 
@@ -80,7 +82,12 @@ int dechiffre_fichier_AES(const char *clef, const char *fichier_entree, const ch
 
     // Lecture et déchiffrement des blocs de données
     while ((bytes_lus = fread(buffer, 1, BLOCK_SIZE, fichier_entree_ptr)) > 0) {
-        AES_cbc_encrypt(buffer, dechiffr, bytes_lus, &cle, iv, AES_DECRYPT);
+        if(mode==AES_ENCRYPT){
+            AES_cbc_encrypt(buffer, dechiffr, bytes_lus, &cle, iv,AES_ENCRYPT);
+        }
+        if(mode==AES_DECRYPT){
+            AES_cbc_encrypt(buffer, dechiffr, bytes_lus, &cle, iv,AES_DECRYPT);
+        }
         bytes_ecrits = fwrite(dechiffr, 1, bytes_lus, fichier_sortie_ptr);
         if (bytes_ecrits != bytes_lus) {
             fclose(fichier_entree_ptr);
@@ -88,7 +95,6 @@ int dechiffre_fichier_AES(const char *clef, const char *fichier_entree, const ch
             return -1;
         }
     }
-
     // Fermeture des fichiers
     fclose(fichier_entree_ptr);
     fclose(fichier_sortie_ptr);
@@ -197,10 +203,26 @@ int sauvegarde(entite_t *personnage, int num_etage,unsigned char *key){
         }
         
         fclose(f_sauv);
-        chiffre_fichier_AES(key,"../sauv/sauvegarde.txt","../sauv/sauvegarde_crypt.txt");
+        de_chiffre_fichier_AES(key,"../sauv/sauvegarde.txt","../sauv/sauvegarde_crypt.data",AES_ENCRYPT);
 
         FILE* file = fopen("../sauv/sauvegarde.txt", "w");
         fclose(file);
+
+        
+        char hash[(SHA256_DIGEST_LENGTH*2) + 1];
+    if (sha256_file("../sauv/sauvegarde_crypt.data", hash) != 0) {
+        printf("Erreur dans le calcul du hash \n");
+        return 1;
+    }
+    
+        FILE* f_hash = fopen("../sauv/sauvegarde.hash", "w");
+        if(f_hash == NULL){
+            printf("pb fichier hash\n");
+            return 0;
+        }
+        fprintf(f_hash, "%s\n", hash);
+        fclose(f_hash);
+
        
     }
     else
@@ -237,7 +259,7 @@ int appliquer(entite_t *personnage, t_competence *competence)
 
 int chargement(entite_t **personnage, unsigned char *key)
 {
-    dechiffre_fichier_AES(key,"../sauv/sauvegarde_crypt.txt","../sauv/sauvegarde.txt");
+    de_chiffre_fichier_AES(key,"../sauv/sauvegarde_crypt.data","../sauv/sauvegarde.txt",AES_DECRYPT);
     FILE *f_sauv = fopen("../sauv/sauvegarde.txt", "r");
     if (f_sauv)
     {
