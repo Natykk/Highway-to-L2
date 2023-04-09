@@ -26,7 +26,7 @@
 #define LONG_COULOIR 15
 
 #define MOB_MAX 10
-
+extern int NumEtage;
 
 /**
  * @file mapStruct.h

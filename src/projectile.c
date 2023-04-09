@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include <./head/projectile.h>
-#include <./head/mapStruct.h>
+#include "../head/projectile.h"
+#include "../head/mapStruct.h"
 t_element * drapeau;
 t_element * ec;
 

@@ -1,4 +1,4 @@
-TARGETS  = menu_cpt
+TARGETS  = map_jeu_entite
 
 LIBS = -lm -lSDL2main -lSDL2 -lSDL2_image -lSDL2_ttf -lSDL2_mixer 
 

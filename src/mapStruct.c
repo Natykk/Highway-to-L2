@@ -301,14 +301,13 @@ int genererSalle(int x_salle, int y_salle, t_etage * etage){
     }
 
     
-    int nbMob=2; //rand()%10+1;        //génère entre 1 et 11 mobs 
+    int nbMob=rand()%4+1;  //génère entre 1 et 5 mobs
     int num_mob;
     etage->etage[x_salle][y_salle].nb_mobs=nbMob;
     int nbMobplace=0;
     int x_mob, y_mob;
     while(nbMobplace<nbMob){
-            //etage->etage[x_salle][y_salle].mob[nbMobplace]=malloc(sizeof(entite_t));
-            num_mob=rand()%NB_MOBS; // Prend un mob au hasard dans le tableau de mob
+            num_mob=rand()%4 + NumEtage*4; // Prend un mob au hasard dans le tableau de mob suivant l'etage
            etage->etage[x_salle][y_salle].mob[nbMobplace]=creer_monstre(etage->etage[x_salle][y_salle].mob[nbMobplace],tab_mob[num_mob].nom); // Créer le mob       
 
         do{
@@ -321,12 +320,10 @@ int genererSalle(int x_salle, int y_salle, t_etage * etage){
         //afficher_entite(etage->etage[x_salle][y_salle].mob[nbMobplace]);
         etage->etage[x_salle][y_salle].mob[nbMobplace]->persoOuMob=1;
         etage->etage[x_salle][y_salle].mob[nbMobplace]=init_inventaire_monstre(etage->etage[x_salle][y_salle].mob[nbMobplace]);
-        //afficher_inventaire(etage->etage[x_salle][y_salle].mob[nbMobplace]);
         etage->etage[x_salle][y_salle].dim[x_mob][y_mob]=nbMobplace+10;
-        etage->etage[x_salle][y_salle].mob[nbMobplace]->inventaire->nb[0]=rand()%1+1;
+        init_inventaire_monstre(etage->etage[x_salle][y_salle].mob[nbMobplace]);
         nbMobplace++;
     }
-    //afficher_salle(etage->etage[x_salle][y_salle]);
 
     return OK;
 }
@@ -470,11 +467,14 @@ int genererNiv(t_niv * niveau){
     niveau->etages[0].nb_salle = rand()%4+8;
     niveau->etages[1].nb_salle = rand()%4+8;
     niveau->etages[2].nb_salle = rand()%4+8;
+    NumEtage=0;
     do{
         genererEtage(&niveau->etages[0]);
+        NumEtage++;
     }while(!etageConforme(&niveau->etages[0]));
     do{
         genererEtage(&niveau->etages[1]);
+        NumEtage++;
     }while(!etageConforme(&niveau->etages[1]));
     do{
         genererEtage(&niveau->etages[2]);

@@ -5,7 +5,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
-#include <./head/entite.h>
+#include "../head/entite.h"
 
 typedef struct projectile_s
 {
