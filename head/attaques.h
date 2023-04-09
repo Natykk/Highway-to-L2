@@ -4,6 +4,7 @@
 #include "../head/mapStruct.h"
 #include "../head/inventaire.h"
 #include "../head/projectile.h"
+#include "../head/arbre.h"
 
 extern void maj_proj(entite_t * posPers, t_salle * map);
 extern void attaque_proj(proj_t typeproj, entite_t * posPers, t_salle * map);

@@ -5,6 +5,11 @@
 void maj_proj(entite_t * posPers, t_salle * map){
     projectile_t * tmp = NULL;
     int x_cour,y_cour;
+    int PROJ_TIREUR;
+    switch(posPers->arbre->classe){
+        case ARCHER: PROJ_TIREUR = PROJ_FLECHE; break;
+        case MAGE: PROJ_TIREUR = PROJ_BOULE; break;
+    }
     en_tete_proj();
     while(!liste_vide_proj() && !hors_liste_proj()){
         /*Traitement element courant*/
@@ -26,6 +31,8 @@ void maj_proj(entite_t * posPers, t_salle * map){
                 }
             }else if(id_tile != VIDE){
                 tmp->touche = true;
+            }else{
+                map->dim[tmp->x][tmp->y] = PROJ_TIREUR;
             }
             if(!(tmp->portee) || tmp->touche){
                 detruire_projectiles(&tmp);
@@ -58,6 +65,9 @@ void attaque_proj(proj_t typeproj, entite_t * posPers, t_salle * map){
 }
 
 bool degats(int degats, int id_mob, t_salle * map){
+    if(id_mob == MARCHAND){
+        return false;
+    }
     (map->mob[id_mob - 10]->vie) -= degats;
     if((map->mob[id_mob - 10]->vie) <= 0)
         return true;

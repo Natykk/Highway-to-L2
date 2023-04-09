@@ -13,6 +13,8 @@
 #define PERSO 5
 #define MARCHAND 31
 // Mob entre 10 et 21
+#define PROJ_FLECHE 69
+#define PROJ_BOULE 70
 #define DIM_ETAGE 5
 #define DIM_SALLE 25
 
