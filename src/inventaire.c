@@ -18,8 +18,12 @@
  * 
 */
 void afficher_inventaire(entite_t * entite) {
-    for(int i = 0; i < entite->place_inv; i++) {
-        printf("{%s,%d} \n", entite->inventaire->objet[i].nom, entite->inventaire->nb[i]);
+    if(entite->inventaire != NULL) {
+        printf("Inventaire de %s : \n\n", entite->nom);
+        for(int i = 0; i < entite->place_inv; i++) {
+            printf("{%s,%d} \n", entite->inventaire->objet[i].nom, entite->inventaire->nb[i]);
+        }
+        printf("\n");
     }
 }
 
@@ -47,6 +51,7 @@ void looter(entite_t * entite_source, entite_t * entite_destination){
         
         //printf("mob : %d\n", entite_source->inventaire->nb[i]);
         entite_destination->inventaire->nb[rang] += entite_source->inventaire->nb[i];
+        entite_source->inventaire->nb[i] -= entite_destination->inventaire->nb[rang];
         //printf("perso : %s\n", entite_destination->inventaire->objet[rang].nom);
         /*
         // On regarde si l'objet est bien dans l'inventaire 
