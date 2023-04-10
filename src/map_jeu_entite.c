@@ -549,19 +549,21 @@ void interact(int attaque, t_salle *map, entite_t *pers, Uint32 *lastTime, t_pos
         int zone_detect;
         if(map->mob[i]!=NULL){
             zone_detect = map->mob[i]->perim_detect - pers->perim_detect;
-        }else{
-            zone_detect = 4;
         }
-        if(zone_detect<=0){
+        /*else{
+            zone_detect = 4;
+        }*/
+        if(zone_detect<= 0){
             zone_detect = 1;
         }
-        if (map->mob[i] != NULL && distance(pers, map->mob[i]) <= zone_detect) // si le mob est à moins de 4 cases du joueur
+        if (map->mob[i] != NULL && distance(pers, map->mob[i]) <= zone_detect) // si le mob est à moins de zone_detect cases du joueur
         {
-            for (int j = 0; j < 10; j++) // on réinitialise le tableau de coordonnées
+            for (int j = 0; j < 9; j++) // on réinitialise le tableau de coordonnées
             {
                 coords[j][0] = 0;
                 coords[j][1] = 0;
             }
+            printf("Aucun pb matrice coords\n");
             chemin_vers_perso(pers, map->mob[i], map->dim); // on calcule le chemin vers le joueur
             // on récupère les coordonnées de la première case du chemin
             cheminX = map->mob[i]->x - coords[0][0];
@@ -736,7 +738,7 @@ void rendu(int map[][LONG_SALLE_BOSS], int tailleI, int tailleJ, SDL_Renderer *r
     }
 }
 
-/*
+
 int main()
 {
     printf("NumEtage %d\n", NumEtage);
@@ -954,6 +956,7 @@ int main()
 
         if (!liste_vide_proj())
             maj_proj(perso, &map);
+
         Uint32 currentTime = SDL_GetTicks(); // Temps actuel
         if (currentTime - lastTime >= 300)
         {                                        // Mettre à jour toutes les 300 ms
@@ -1000,9 +1003,11 @@ int main()
         SDL_RenderPresent(renderer); // On affiche l'écran
 
         if (SDL_GetTicks() - lastTimeInteract >= 500)
-        {
+        {   
+            printf("pas de pb...");
             enemy_attack(&map, perso);
             interact(attaque, &map, perso, &MajMove, &posSalle, niv, renderer);
+            printf("...OK\n");
             lastTimeInteract = SDL_GetTicks();
         }
 
@@ -1025,7 +1030,7 @@ int main()
         printf("Menu de mort\n");
         if (gameover(window, renderer, perso))
         { // On affiche le menu de mort et on regarde si on veut recommencer
-            printf("Nouvelle partie\n");
+            printf("Direction menu\n");
             SDL_DestroyRenderer(renderer); // On détruit le renderer
             SDL_DestroyWindow(window);     // On détruit la fenêtre
             main();
@@ -1036,4 +1041,3 @@ int main()
     SDL_DestroyWindow(window);     // On détruit la fenêtre
     SDL_Quit();                    // On quitte la SDL
 }
-*/

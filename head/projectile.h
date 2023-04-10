@@ -9,7 +9,7 @@
 
 typedef struct projectile_s
 {
-    float vitesse_depl;
+    int vitesse_depl;
     int portee;
     float degats;
     bool touche;
@@ -32,14 +32,14 @@ extern t_element * ec;
 
 typedef enum proj_s
 {
-    AUCUN_PROJ,
+    AUCUN_PROJ = -1,
     FLECHE,
     BOULE
 } proj_t;
 
 typedef struct stat_proj_s
 {
-    float vitesse_depl;
+    int vitesse_depl;
     int porte;
 } stat_proj_t;
 

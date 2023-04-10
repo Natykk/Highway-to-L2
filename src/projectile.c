@@ -104,8 +104,8 @@ void ajout_gauche_proj(projectile_t * proj){
 /*Statistiques des projectiles*/
 #define NB_PROJ 2
 stat_proj_t tab_stat_proj[NB_PROJ] = {
-    {2.0, 4}, /*FLECHE*/
-    {1.5, 6}  /*BOULE*/
+    {2, 6}, /*FLECHE*/
+    {2, 8}  /*BOULE*/
 };
 /*------------------------*/
 

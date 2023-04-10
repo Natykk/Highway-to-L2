@@ -6,48 +6,54 @@ void maj_proj(entite_t * posPers, t_salle * map){
     projectile_t * tmp = NULL;
     int x_cour,y_cour;
     int PROJ_TIREUR;
-    switch(posPers->arbre->classe){
-        case ARCHER: PROJ_TIREUR = PROJ_FLECHE; break;
-        case MAGE: PROJ_TIREUR = PROJ_BOULE; break;
-    }
+    bool depassement;
     en_tete_proj();
     while(!liste_vide_proj() && !hors_liste_proj()){
         /*Traitement element courant*/
-        tmp = ec->proj;
         int id_tile;
-        calcul_position(tmp); //On calcul la nouvelle position d'un projectile
+        tmp = ec->proj;
+        calcul_position(tmp); //On calcule la nouvelle position d'un projectile
         x_cour = tmp->xp;
         y_cour = tmp->yp;
+        //switch(posPers->arbre->classe){
+        //    case ARCHER: PROJ_TIREUR = tmp->dir + PROJ_FLECHE_H; break;
+        //    case MAGE: PROJ_TIREUR = tmp->dir + PROJ_BOULE_B; break;
+        //}
+        PROJ_TIREUR = tmp->dir + PROJ_BOULE_H;
 
-        while(tmp != NULL && (x_cour != (tmp->x) || y_cour != (tmp->y)) && valide(x_cour, y_cour)){
-            if((id_tile = map->dim[tmp->x][tmp->y]) >= 10){
+        while(tmp != NULL && !depassement && valide(x_cour, y_cour)){
+            id_tile = map->dim[x_cour][y_cour];
+            if(id_tile > 9 && id_tile < 22){
                 tmp->touche = true;
                 if(degats(tmp->degats, id_tile, map)){
                     looter(map->mob[id_tile - 10], posPers);
                     detruire_mob(&(map->mob[id_tile-10]));
-                    map->mob[(map->dim[tmp->x][tmp->y])] = NULL;
-                    map->dim[tmp->x][tmp->y] = VIDE;
-
+                    map->mob[(map->dim[x_cour][y_cour])] = NULL;
+                    map->dim[x_cour][y_cour] = VIDE;
                 }
-            }else if(id_tile != VIDE){
+            }else if(id_tile > VIDE && id_tile < PERSO){
                 tmp->touche = true;
-            }else{
-                map->dim[tmp->x][tmp->y] = PROJ_TIREUR;
             }
-            if(!(tmp->portee) || tmp->touche){
+            if((tmp->portee) <= 0 || tmp->touche){
+                map->dim[tmp->xp][tmp->yp] = VIDE;
                 detruire_projectiles(&tmp);
                 oter_elt_proj();
             }
             if(tmp != NULL){
                 switch(tmp->dir){
-                    case HAUT: y_cour--; break;
-                    case DROITE: x_cour++; break;
-                    case BAS: y_cour++; break;
-                    case GAUCHE: x_cour--; break;
+                    case HAUT: y_cour--; depassement = (y_cour < tmp->y); break;
+                    case DROITE: x_cour++; depassement = (x_cour > tmp->x); break;
+                    case BAS: y_cour++; depassement = (y_cour > tmp->y); break;
+                    case GAUCHE: x_cour--; depassement = (x_cour < tmp->x); break;
                 }
             }
         }
-    suivant_proj();
+        if(tmp != NULL && map->dim[tmp->x][tmp->y] == VIDE){
+            map->dim[tmp->x][tmp->y] = PROJ_TIREUR;
+        }
+        if(tmp != NULL && map->dim[tmp->xp][tmp->yp] != PERSO)
+            map->dim[tmp->xp][tmp->yp] = VIDE;
+        suivant_proj();
     }
 }
 

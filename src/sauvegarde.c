@@ -149,7 +149,22 @@ int sauvegarde(entite_t *personnage, int num_etage,unsigned char *key){
     if (personnage != NULL)
     {
         FILE * f_sauv = NULL;
-        f_sauv = fopen("../sauv/sauvegarde.txt", "w");
+        FILE * f_sauv1 = NULL;
+        FILE * f_sauv2 = NULL;
+        f_sauv1 = fopen("../sauv/sauvegarde.txt", "w");
+        f_sauv2 = fopen("./sauv/sauvegarde.txt", "w");
+        if(f_sauv1 == NULL && f_sauv2 != NULL){
+            f_sauv = f_sauv2;
+            f_sauv2 = NULL;
+            fclose(f_sauv1);
+        }
+        else if(f_sauv1 != NULL && f_sauv2 == NULL){
+            f_sauv = f_sauv1;
+            f_sauv1 = NULL;
+            fclose(f_sauv2);
+        }
+
+
         if(f_sauv == NULL){
             printf("pb de création\n");
             return 0;
