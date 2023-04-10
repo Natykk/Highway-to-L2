@@ -33,7 +33,7 @@ char * name(SDL_Window * win, SDL_Renderer * screen, entite_t * personnage){
     TTF_Font * font = TTF_OpenFont("../font/necrosans.ttf", 25);
     SDL_Color color = {247,192,21};
 
-    SDL_Surface * img_logo = IMG_Load("../img/logo.png");
+    SDL_Surface * img_logo = IMG_Load("../img/background/logo.png");
     SDL_Texture * texture_img = SDL_CreateTextureFromSurface(screen, img_logo);
     SDL_Rect img_rect = {WINDOW_WIDTH/15, WINDOW_HEIGHT/3, WINDOW_WIDTH * 7 / 8, WINDOW_WIDTH * 2 / 8};
     SDL_FreeSurface(img_logo);

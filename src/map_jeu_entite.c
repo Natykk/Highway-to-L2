@@ -736,7 +736,7 @@ void rendu(int map[][LONG_SALLE_BOSS], int tailleI, int tailleJ, SDL_Renderer *r
     }
 }
 
-/*
+
 int main()
 {
     printf("NumEtage %d\n", NumEtage);
@@ -1036,4 +1036,3 @@ int main()
     SDL_DestroyWindow(window);     // On détruit la fenêtre
     SDL_Quit();                    // On quitte la SDL
 }
-*/

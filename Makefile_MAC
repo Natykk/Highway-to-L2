@@ -4,11 +4,11 @@ LIBS = -lm -lSDL2main -lSDL2 -lSDL2_image -lSDL2_ttf -lSDL2_mixer
 
 CC       = gcc -g3 
 # compiling flags here
-CFLAGS   = -I.
+CFLAGS   = -I. -Wall -Wextra -I/usr/local/mac-dev-env/openssl-1.1.1a/include
 
 LINKER   = gcc -g3
 # linking flags here
-LFLAGS   = -I. -lm
+LFLAGS   = -I. -lm -L/usr/local/mac-dev-env/openssl-1.1.1a/lib -lssl -lcrypto
 
 # change these to proper directories where each file should be
 SRCDIR   = src
