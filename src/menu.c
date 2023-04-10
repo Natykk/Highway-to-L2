@@ -66,27 +66,21 @@ int menu_interact(SDL_Window * window, SDL_Renderer * renderer, entite_t * perso
     SDL_FreeSurface(img_logo);
     img_logo = NULL;
 
-    // Initialisation des boutons
-    Button nouv_partie;
-    Button continuer;
-    Button quitter;
-
-    nouv_partie.x = WINDOW_WIDTH * 1 / 15 ;
-    nouv_partie.y = WINDOW_HEIGHT * 6 / 10;
-    nouv_partie.w = 200;
-    nouv_partie.h = 75;
-    nouv_partie.surface = IMG_Load("../img/button/newgame.png");
-    SDL_Texture *texture_nouv_partie = SDL_CreateTextureFromSurface(renderer, nouv_partie.surface);
-    SDL_Rect buttonNouv_partie = { nouv_partie.x, nouv_partie.y, nouv_partie.w, nouv_partie.h };
-    
-    continuer.x = nouv_partie.x + nouv_partie.w + 10; 
-    continuer.y = WINDOW_HEIGHT * 6 / 10 ;
-    continuer.w = 200;
-    continuer.h = 75;
-
-    FILE* f_hash;
+    FILE* f_hash = NULL;
+    FILE* f_hash1 = NULL;
+    FILE* f_hash2 = NULL;
     char hash_sauvegarder[(SHA256_DIGEST_LENGTH*2) + 1];
-    f_hash = fopen("../sauv/sauvegarde.hash", "r");
+    f_hash1 = fopen("./sauv/sauvegarde.hash", "r");
+    f_hash2 = fopen("../sauv/sauvegarde.hash", "r");
+    if((f_hash1 && f_hash2) || (f_hash2 && !f_hash1)){
+      f_hash = f_hash2;
+      fclose(f_hash1);
+    }
+    else if(f_hash1 && !f_hash2){
+      f_hash = f_hash1;
+      fclose(f_hash2);
+    }
+
     if (f_hash != NULL) {
         fscanf(f_hash, "%s", hash_sauvegarder);
         fclose(f_hash);
@@ -97,7 +91,7 @@ int menu_interact(SDL_Window * window, SDL_Renderer * renderer, entite_t * perso
     }
 
     char sha256_after[(SHA256_DIGEST_LENGTH*2)+1];
-    if (sha256_file("../sauv/sauvegarde_crypt.data", sha256_after) != 0) {
+    if (sha256_file("../sauv/sauvegarde_crypt.data", sha256_after) != 0 && sha256_file("./sauv/sauvegarde_crypt.data", sha256_after)) {
         printf("Erreur dans le calcul du hash du menu\n");
     }
     int hash_flag = 0;
@@ -109,8 +103,16 @@ int menu_interact(SDL_Window * window, SDL_Renderer * renderer, entite_t * perso
         hash_flag = 0;
     }
 
+    // Initialisation des boutons
+    Button nouv_partie;
+    Button continuer;
+    Button quitter;
 
-    if( (!fempty("../sauv/sauvegarde_crypt.data") && fileExists("../sauv/sauvegarde_crypt.data")) && hash_flag == 1 ){
+    continuer.w = 200;
+    continuer.h = 75;
+    continuer.x = WINDOW_WIDTH / 2 - continuer.w/2; 
+    continuer.y = img_rect.y + img_rect.h * 4 / 5 + 5;
+    if(((!fempty("./sauv/sauvegarde_crypt.data") && fileExists("./sauv/sauvegarde_crypt.data")) || (!fempty("../sauv/sauvegarde_crypt.data") && fileExists("../sauv/sauvegarde_crypt.data"))) && hash_flag == 1 ){
       continuer.surface = IMG_Load("../img/button/continue.png");
     }
     else{
@@ -118,11 +120,19 @@ int menu_interact(SDL_Window * window, SDL_Renderer * renderer, entite_t * perso
     }
     SDL_Texture *texture_continuer = SDL_CreateTextureFromSurface(renderer, continuer.surface);
     SDL_Rect buttonContinuer = { continuer.x, continuer.y, continuer.w, continuer.h };
+
+    nouv_partie.w = 200;
+    nouv_partie.h = 75;
+    nouv_partie.x = continuer.x - nouv_partie.w;
+    nouv_partie.y = continuer.y;
+    nouv_partie.surface = IMG_Load("../img/button/newgame.png");
+    SDL_Texture *texture_nouv_partie = SDL_CreateTextureFromSurface(renderer, nouv_partie.surface);
+    SDL_Rect buttonNouv_partie = { nouv_partie.x, nouv_partie.y, nouv_partie.w, nouv_partie.h };
     
-    quitter.x = continuer.x + continuer.w + 10; 
-    quitter.y = WINDOW_HEIGHT * 6 / 10 + 5;
     quitter.w = 200;
     quitter.h = 65;
+    quitter.x = continuer.x + continuer.w; 
+    quitter.y = continuer.y + 5;
     quitter.surface = IMG_Load("../img/button/quit.png");
     SDL_Texture *texture_quitter = SDL_CreateTextureFromSurface(renderer, quitter.surface);
     SDL_Rect buttonQuitter = { quitter.x, quitter.y, quitter.w, quitter.h };
@@ -130,7 +140,7 @@ int menu_interact(SDL_Window * window, SDL_Renderer * renderer, entite_t * perso
     char * player_name = malloc(sizeof(char)*TEXT_SIZE);
     player_name = NULL;
     
-    int retour;
+    int debut_jeu = 0;
     int x, y;
     int run = 1;
     while(run){
@@ -139,10 +149,12 @@ int menu_interact(SDL_Window * window, SDL_Renderer * renderer, entite_t * perso
             switch(event.type){
                 case SDL_QUIT:
                     run = 0;
+                    debut_jeu = 0;
                     break;
                 case SDL_KEYDOWN:
                   if(event.key.keysym.sym == SDLK_ESCAPE){
                     run = 0;
+                    debut_jeu = 0;
                     break;
                   }
                 case SDL_MOUSEBUTTONUP:
@@ -156,7 +168,7 @@ int menu_interact(SDL_Window * window, SDL_Renderer * renderer, entite_t * perso
                       SDL_DestroyTexture(texture_background);
                       personnage->nom = name(window, renderer, personnage);
                       run = 0;
-                      retour = 1;
+                      debut_jeu = 1;
                     } 
                     else if((x >= continuer.x && x <= continuer.x + continuer.w && y >= continuer.y && y <= continuer.y + continuer.h) && (!fempty("../sauv/sauvegarde_crypt.data") && fileExists("../sauv/sauvegarde_crypt.data")) ){
                       /*
@@ -168,12 +180,12 @@ int menu_interact(SDL_Window * window, SDL_Renderer * renderer, entite_t * perso
                       */
                       chargement(&personnage,"0123456789abcdef");
                       run=0;
-                      retour = 1;
+                      debut_jeu = 1;
                     }
                     else if(x >= quitter.x && x <= quitter.x + quitter.w && y >= quitter.y && y <= quitter.y + quitter.h){
                       printf("Quitter\n");
                       run=0;
-                      retour = 0;
+                      debut_jeu = 0;
                     }
                     break;
                 default: break;
@@ -192,7 +204,7 @@ int menu_interact(SDL_Window * window, SDL_Renderer * renderer, entite_t * perso
     SDL_DestroyTexture(texture_nouv_partie);
     SDL_DestroyTexture(texture_img);
     SDL_DestroyTexture(texture_background);
-    return retour;
+    return debut_jeu;
 }
 /**
  * \fn int menu(SDL_Window* window ,SDL_Renderer* renderer ,entite_t * personnage)
@@ -207,7 +219,7 @@ int menu(SDL_Window* window ,SDL_Renderer* renderer, entite_t * personnage){
   /* Initialisation de la piste audio de fond */
   Mix_Init(MIX_INIT_MP3);
   Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 6, 1024);
-  Mix_Music * music = Mix_LoadMUS("../sound/name_choose.mp3");
+  Mix_Music * music = Mix_LoadMUS("../music/menu.mp3");
   Mix_PlayMusic(music, -1);
 
   

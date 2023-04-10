@@ -39,23 +39,32 @@ char * name(SDL_Window * win, SDL_Renderer * screen, entite_t * personnage){
     SDL_FreeSurface(img_logo);
     img_logo = NULL;
 
-    SDL_Surface * temp1 = TTF_RenderText_Solid(font, "Votre nom : ", color);
-    SDL_Texture * textImage1 = SDL_CreateTextureFromSurface(screen, temp1);
-    SDL_Rect demandeNom = {WINDOW_WIDTH/15, img_rect.y + img_rect.h, 150, temp1->h};
-    SDL_FreeSurface(temp1);
-    temp1 = NULL;
-
     SDL_Surface * temp = TTF_RenderText_Solid(font, "Ecrire le pseudo de votre personnage", color);
     SDL_Texture * textImage = SDL_CreateTextureFromSurface(screen, temp);
-    SDL_Rect saisieNom = {demandeNom.x + demandeNom.w, img_rect.y + img_rect.h, temp->w, temp->h};
+    SDL_Rect saisieNom;
+    saisieNom.w = temp->w;
+    saisieNom.h = temp->h;
+    saisieNom.x = WINDOW_WIDTH / 2 - saisieNom.w / 2;
+    saisieNom.y = img_rect.y + img_rect.h * 9 / 10;
     SDL_FreeSurface(temp);
     temp = NULL;
 
+    SDL_Surface * temp1 = TTF_RenderText_Solid(font, "Votre nom : ", color);
+    SDL_Texture * textImage1 = SDL_CreateTextureFromSurface(screen, temp1);
+    SDL_Rect demandeNom;
+    demandeNom.w = 150;
+    demandeNom.h = temp1->h;
+    demandeNom.x = saisieNom.x - demandeNom.w;
+    demandeNom.y = saisieNom.y;
+    // = {WINDOW_WIDTH/15, img_rect.y + img_rect.h, 150, temp1->h};
+    SDL_FreeSurface(temp1);
+    temp1 = NULL;
+
     Button retour;
-    retour.x = WINDOW_WIDTH * 3 / 8 ;
-    retour.y = WINDOW_HEIGHT - 45;
     retour.w = 200;
     retour.h = 50;
+    retour.x = WINDOW_WIDTH / 2 - retour.w / 2 ;
+    retour.y = WINDOW_HEIGHT - 45;
     retour.surface = IMG_Load("../img/button/back.png");
     SDL_Texture *texture_back = SDL_CreateTextureFromSurface(screen, retour.surface);
     SDL_Rect button_back = { retour.x, retour.y, retour.w, retour.h };
@@ -136,7 +145,7 @@ char * name(SDL_Window * win, SDL_Renderer * screen, entite_t * personnage){
                         SDL_DestroyTexture(textImage);
                         SDL_DestroyTexture(texture_img);
                         SDL_DestroyTexture(texture_back);
-                        SDL_DestroyTexture(texture_back);
+                        SDL_DestroyTexture(texture_background);
                         run = 0;
                         return textInput;
                     }
