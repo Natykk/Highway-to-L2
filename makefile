@@ -1,61 +1,34 @@
-
-# CC = gcc
-
-# CFLAGS = -g3
-
-# SDLROUTE = -I$(HOME)/SDL2/include -L$(HOME)/SDL2/lib
-
-# WINDOWS = -lmingw32
-
-# LIBS = -lm -lSDL2main -lSDL2 -lSDL2_image -lSDL2_ttf -lSDL2_mixer 
-
-# SRCS =  src/competence.c src/entite.c src/mapStruct.c src/objet.c src/chemin.c src/mapBoss.c src/arbre.c src/inv_SDL.c src/menu_cpt.c src/inventaire.c
-
-# HEADERS = head/competence.h head/entite.h head/mapStruct.h head/objet.h head/chemin.h head/mapBoss.h  head/arbre.h head/inv_SDL.h head/menu_cpt.h head/map_jeu_entite.h head/inventaire.h
-
-# OBJS = $(SRCS:src/%.c=obj/%.o)
-
-# OUT = bin/main
-
-# obj/%.o: src/%.c $(HEADERS)
-# 	$(CC) $(CFLAGS) $(SDLROUTE) -c $< -o $@
-
-# $(OUT): $(OBJS)
-# 	$(CC) $(CFLAGS) $(SDLROUTE) $(OBJS) $(LIBS) -o $(OUT)
-
-# all: $(OUT)
-
-# clean:
-# 	rm -rf obj\*.o
-# 	rm -rf bin\*.exe
-
-# run: $(OUT)
-# 	.\$(OUT)
-
-# gdb : $(OUT)
-# 	gdb $(OUT)
-
-# valgrind: $(OUT)
-# 	valgrind $(OUT)
-
-
-# valgrind_leakcheck: $(OUT)
-# 	valgrind --leak-check=full $(OUT)
-
-# valgrind_extreme: $(OUT)
-# 	valgrind --leak-check=full --show-leak-kinds=all --leak-resolution=high --track-origins=yes --vgdb=yes $(OUT)
-
-
-
 # project name (generate executable with this name)
 TARGETS  = map_jeu_entite
 
-SDLROUTE = -I$(HOME)/SDL2/include -L$(HOME)/SDL2/lib
-LIBS = -lm -lssl -lcrypto -lSDL2main -lSDL2 -lSDL2_image -lSDL2_ttf -lSDL2_mixer -g3
+
+
+ifeq ($(OS),Windows_NT)
+	CFLAGS   = -I.
+	SDLROUTE = -I$(HOME)/SDL2/include -L$(HOME)/SDL2/lib
+    LIBS = -lmingw32 -lm -lssl -lcrypto -lSDL2main -lSDL2 -lSDL2_image -lSDL2_ttf -lSDL2_mixer 
+	del = del /Q
+else
+	UNAME_S := $(shell uname -s)
+	ifeq ($(UNAME_S),Linux)
+		CFLAGS   = -I.
+		SDLROUTE = -I$(HOME)/SDL2/include -L$(HOME)/SDL2/lib
+		LIBS = -lm -lssl -lcrypto -lSDL2main -lSDL2 -lSDL2_image -lSDL2_ttf -lSDL2_mixer 
+		del = rm -f
+	endif
+	ifeq ($(UNAME_S),Darwin)
+		SDLROUTE = ""
+		CFLAGS   = -I. -Wall -Wextra -I/usr/local/mac-dev-env/openssl-1.1.1a/include
+		LFLAGS   = -I. -lm -L/usr/local/mac-dev-env/openssl-1.1.1a/lib -lssl -lcrypto
+		LIBS = -lm -lSDL2main -lSDL2 -lSDL2_image -lSDL2_ttf -lSDL2_mixer 
+		del = rm -f
+	endif
+endif
+
 
 CC       = gcc -g3
 # compiling flags here
-CFLAGS   = -I.
+
 
 LINKER   = gcc -g3
 # linking flags here
@@ -73,9 +46,9 @@ DIRS	 = $(OBJDIR) $(BINDIR)
 all: $(DIRS) $(TRGS)
 
 $(OBJDIR):
-	mkdir -p $(OBJDIR)
+	mkdir $(OBJDIR)
 $(BINDIR):
-	mkdir -p $(BINDIR)
+	mkdir $(BINDIR)
 
 SOURCES  := $(wildcard $(SRCDIR)/*.c)
 INCLUDES := $(wildcard $(SRCDIR)/*.h)
@@ -83,7 +56,6 @@ OBJECTS  := $(SOURCES:$(SRCDIR)/%.c=$(OBJDIR)/%.o)
 MAINS	 := $(TARGETS:%=$(OBJDIR)/%.o)
 # Liste des fichiers .o sans ceux contenant un main
 OBJS	 := $(filter-out $(MAINS),$(OBJECTS))
-rm       = rm -f
 
 
 #$(BINDIR)/$(TARGET): $(OBJECTS)
@@ -97,12 +69,9 @@ $(OBJECTS): $(OBJDIR)/%.o: $(SRCDIR)/%.c
 	@echo "Compiled "$<" successfully!"
 
 clean:
-	@$(rm) $(OBJECTS)
+	@$(del) $(OBJECTS)
 	@echo "Cleanup complete!"
 
 remove: clean
-	@$(rm) $(BINDIR)/$(TARGETS)
+	@$(del) $(BINDIR)/$(TARGETS)
 	@echo "Executable removed!"
-
-
-
