@@ -71,7 +71,7 @@ int menu_interact(SDL_Window * window, SDL_Renderer * renderer, entite_t * perso
     FILE* f_hash2 = NULL;
     char hash_sauvegarder[(SHA256_DIGEST_LENGTH*2) + 1];
     f_hash1 = fopen("./sauv/sauvegarde.hash", "r");
-    f_hash2 = fopen("./sauv/sauvegarde.hash", "r");
+    f_hash2 = fopen("../sauv/sauvegarde.hash", "r");
     if((f_hash1 && f_hash2) || (f_hash2 && !f_hash1)){
       f_hash = f_hash2;
       fclose(f_hash1);
@@ -112,6 +112,9 @@ int menu_interact(SDL_Window * window, SDL_Renderer * renderer, entite_t * perso
     continuer.h = 75;
     continuer.x = WINDOW_WIDTH / 2 - continuer.w/2; 
     continuer.y = img_rect.y + img_rect.h * 4 / 5 + 5;
+    printf("fempty et fileExist ./sauv/sauvgarde_crypt.data %d\n",(!fempty("./sauv/sauvegarde_crypt.data") && fileExists("./sauv/sauvegarde_crypt.data")));
+    printf("fempty et fileExist ../sauv/sauvgarde_crypt.data %d\n",(!fempty("../sauv/sauvegarde_crypt.data") && fileExists("../sauv/sauvegarde_crypt.data")));
+    printf("hash_flag %d\n",hash_flag);
     if(((!fempty("./sauv/sauvegarde_crypt.data") && fileExists("./sauv/sauvegarde_crypt.data")) || (!fempty("../sauv/sauvegarde_crypt.data") && fileExists("../sauv/sauvegarde_crypt.data"))) && hash_flag == 1 ){
       continuer.surface = IMG_Load("../img/button/continue.png");
     }

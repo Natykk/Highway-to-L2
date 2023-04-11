@@ -793,6 +793,18 @@ int main()
         return 0;
     }
 
+    SDL_GameController* controller = NULL;
+    for(int i=0;i<SDL_NumJoysticks();i++){
+        if(SDL_IsGameController(i)){
+            controller = SDL_GameControllerOpen(i);
+            if(controller){
+                break;
+            }else{
+                printf("Could not open gamecontroller %i: %s\n", i, SDL_GetError());
+            }
+        }
+    }
+
     if (!sauvegarde(perso, 0,"0123456789abcdef"))
     {
         printf("problème lors de la sauvegarde\n");
@@ -897,6 +909,36 @@ int main()
             case SDL_QUIT:
                 continuer = 0;
                 break;
+            case SDL_CONTROLLERBUTTONDOWN:
+                switch(event.cbutton.button){
+                    case SDL_CONTROLLER_BUTTON_A:
+                        if(perso->vitesse_att*(SDL_GetTicks() - CooldownAttaque) >= BASE_ATTAQUE_SPEED){
+                            attaque = 1;
+                            CooldownAttaque = SDL_GetTicks();
+                        }
+                        break;
+                    case SDL_CONTROLLER_AXIS_RIGHTX:
+                    if(perso->vitesse_depl*(SDL_GetTicks() - CooldownMouvement) >= BASE_MOVE_SPEED){
+                        perso->dir = DROITE;
+                        mouvement(&map, perso, &posSalle, niv, renderer);
+                        CooldownMouvement = SDL_GetTicks();
+                    }
+                    break;
+                    case SDL_CONTROLLER_AXIS_RIGHTY:
+                    if(perso->vitesse_depl*(SDL_GetTicks() - CooldownMouvement) >= BASE_MOVE_SPEED){
+                        perso->dir = HAUT;
+                        mouvement(&map, perso, &posSalle, niv, renderer);
+                        CooldownMouvement = SDL_GetTicks();
+                    }
+                    break;
+                    case SDL_CONTROLLER_AXIS_LEFTY:
+                    if(perso->vitesse_depl*(SDL_GetTicks() - CooldownMouvement) >= BASE_MOVE_SPEED){
+                        perso->dir = BAS;
+                        mouvement(&map, perso, &posSalle, niv, renderer);
+                        CooldownMouvement = SDL_GetTicks();
+                    }
+                    break;
+                }
             case SDL_KEYDOWN:
                 switch (event.key.keysym.scancode)
                 { // On récupère le code de la touche
@@ -1040,10 +1082,17 @@ int main()
 
         if (SDL_GetTicks() - lastTimeInteract >= 500)
         {   
-            printf("pas de pb...");
+
             enemy_attack(&map, perso);
             interact(attaque, &map, perso, &MajMove, &posSalle, niv, renderer);
-            printf("...OK\n");
+            // régénaire la vie du joueur
+            if (perso->vie < maxHealth)
+            {
+                perso->vie += 1;
+                if(perso->vie > maxHealth){
+                    perso->vie = maxHealth;
+                }
+            }
             lastTimeInteract = SDL_GetTicks();
         }
 
