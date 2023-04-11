@@ -71,7 +71,7 @@ int menu_interact(SDL_Window * window, SDL_Renderer * renderer, entite_t * perso
     FILE* f_hash2 = NULL;
     char hash_sauvegarder[(SHA256_DIGEST_LENGTH*2) + 1];
     f_hash1 = fopen("./sauv/sauvegarde.hash", "r");
-    f_hash2 = fopen("../sauv/sauvegarde.hash", "r");
+    f_hash2 = fopen("./sauv/sauvegarde.hash", "r");
     if((f_hash1 && f_hash2) || (f_hash2 && !f_hash1)){
       f_hash = f_hash2;
       fclose(f_hash1);

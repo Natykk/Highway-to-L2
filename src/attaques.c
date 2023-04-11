@@ -15,11 +15,10 @@ void maj_proj(entite_t * posPers, t_salle * map){
         calcul_position(tmp); //On calcule la nouvelle position d'un projectile
         x_cour = tmp->xp;
         y_cour = tmp->yp;
-        //switch(posPers->arbre->classe){
-        //    case ARCHER: PROJ_TIREUR = tmp->dir + PROJ_FLECHE_H; break;
-        //    case MAGE: PROJ_TIREUR = tmp->dir + PROJ_BOULE_B; break;
-        //}
-        PROJ_TIREUR = tmp->dir + PROJ_BOULE_H;
+        switch(posPers->arbre->classe){
+            case ARCHER: PROJ_TIREUR = tmp->dir + PROJ_FLECHE_H; break;
+            case MAGE: PROJ_TIREUR = tmp->dir + PROJ_BOULE_B; break;
+        }
 
         while(tmp != NULL && !depassement && valide(x_cour, y_cour)){
             id_tile = map->dim[x_cour][y_cour];

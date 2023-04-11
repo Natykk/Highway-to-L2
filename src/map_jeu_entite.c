@@ -484,7 +484,7 @@ int perso_attack(t_salle *map, int attaque, entite_t *pers, void (*attaque_pers)
     }
     else
     {
-        proj = BOULE;
+        proj = AUCUN_PROJ;
     }
     attaque_pers(proj, pers, map);
 }
@@ -533,7 +533,7 @@ int enemy_attack(t_salle *map, entite_t *pers)
  * \param attaque 1 si le joueur attaque, 0 sinon
  * \param map la map
  * \param pers le joueur
- * \param rect les points de vie du joueur
+ * \param rect les points de vie du joueured signal S
  * \param lastTime le temps du dernier tour
  * \param posSalle la position de la salle dans l'étage
  * \param niv le niveau
@@ -557,16 +557,16 @@ void interact(int attaque, t_salle *map, entite_t *pers, Uint32 *lastTime, t_pos
     {
         int cheminX, cheminY;
         float dist;
-        //int zone_detect;
-        //if(map->mob[i]!=NULL){
-        //    zone_detect = map->mob[i]->perim_detect - pers->perim_detect;
-        //}else{
-        //    zone_detect = 4;
-        //}
-        //if(zone_detect<=0){
-        //    zone_detect = 1;
-        //}
-        if (map->mob[i] != NULL && distance(pers, map->mob[i]) <= 4) // si le mob est à moins de 4 cases du joueur
+        int zone_detect;
+        if(map->mob[i]!=NULL){
+            zone_detect = map->mob[i]->perim_detect - pers->perim_detect;
+        }else{
+            zone_detect = 4;
+        }
+        if(zone_detect<=0){
+            zone_detect = 1;
+        }
+        if (map->mob[i] != NULL && distance(pers, map->mob[i]) <= zone_detect) // si le mob est à moins de 4 cases du joueur
         {
             for (int j = 0; j < 9; j++) // on réinitialise le tableau de coordonnées
             {
@@ -784,7 +784,7 @@ int main()
     perso = init_inventaire_personnage(perso);
     SDL_Window *window = SDL_CreateWindow("Highway to L2", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, largeur_fenetre, hauteur_fenetre, 0); // On crée la fenêtre
     SDL_Renderer *renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);                               // On crée le renderer
-
+    printf("Bonjour\n");
     if (menu(window, renderer, perso) == 0)
     {
         SDL_DestroyRenderer(renderer);
@@ -955,7 +955,7 @@ int main()
                         }
                         else
                         {
-                            fonc_attaque = attaque_proj;
+                            fonc_attaque = attaque_cac;
                         }
                         CooldownAttaque = SDL_GetTicks();
                         perso_attack(&map, attaque, perso, fonc_attaque, window, renderer, police);

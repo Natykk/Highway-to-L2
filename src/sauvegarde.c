@@ -156,12 +156,10 @@ int sauvegarde(entite_t *personnage, int num_etage,unsigned char *key){
         if(f_sauv1 == NULL && f_sauv2 != NULL){
             f_sauv = f_sauv2;
             f_sauv2 = NULL;
-            fclose(f_sauv1);
         }
         else if(f_sauv1 != NULL && f_sauv2 == NULL){
             f_sauv = f_sauv1;
             f_sauv1 = NULL;
-            fclose(f_sauv2);
         }
 
 
