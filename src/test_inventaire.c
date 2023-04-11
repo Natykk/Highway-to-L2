@@ -19,84 +19,78 @@
  * @return int 
  */
 
-/*
-int main() {
-    entite_t* personnage = NULL;
-    entite_t* slime_vert = NULL;
-    entite_t* satan = NULL; 
+// int main() {
+//     entite_t* personnage = NULL;
+//     entite_t* slime_vert = NULL;
+//     entite_t* satan = NULL; 
 
-    int nb_entite_init = 0;
+//     int nb_entite_init = 0;
 
-    printf("----------------------------------------------------- \n");
-    printf("*         Test sur la création des entitees :       * \n");
-    printf("----------------------------------------------------- \n");
-*/
-    /* -------------------- Création des differentes entites -------------------- */
+//     printf("----------------------------------------------------- \n");
+//     printf("*         Test sur la création des entitees :       * \n");
+//     printf("----------------------------------------------------- \n");
 
-    /* Les inventaires des entites sont alloués dans la fonction de creation des mobs */
-/*
-    personnage = creer_personnage(personnage); 
-    slime_vert = creer_monstre(slime_vert, "Slime_Vert");
-    satan = creer_boss(satan, "Satan");
-*/
-    /* ----------- On regarde si les entites ont bien été initialisés ----------- */
-/*
-    if(personnage != NULL) nb_entite_init++;
-    if(slime_vert != NULL) nb_entite_init++;
-    if(satan != NULL) nb_entite_init++;
+//     /* -------------------- Création des differentes entites -------------------- */
 
-    printf("Nombres d'entites crees : %d", nb_entite_init);
+//     /* Les inventaires des entites sont alloués dans la fonction de creation des mobs */
+//     personnage = creer_personnage(personnage); 
+//     slime_vert = creer_monstre(slime_vert, "Slime_Vert");
+//     satan = creer_boss(satan, "Satan");
 
-    printf("----------------------------------------------------- \n");
-    printf("*       Test sur la création des inventaires :      * \n");
-    printf("----------------------------------------------------- \n");
-*/
-    /* - Creation des inventaires des entites qui en ont un (donc pas les boss) - */
-/*
-    personnage = init_inventaire_personnage(personnage);
-    slime_vert = init_inventaire_monstre(slime_vert);
-*/
-    /* ------------------------ Affichage de l'inventaire ----------------------- */  
-/*   
-    printf("Affichage des inventaires avant le loot : \n");
-    afficher_inventaire(personnage);
-    afficher_inventaire(slime_vert);
-    afficher_inventaire(satan);
-*/
-    /* ----- On remarque que rien n'est affiche pour satan ce qui est normal ---- */
-/*
-    printf("----------------------------------------------------- \n");
-    printf("*             Test sur le loot des mobs             * \n");
-    printf("----------------------------------------------------- \n");
+//     /* ----------- On regarde si les entites ont bien été initialisés ----------- */
+//     if(personnage != NULL) nb_entite_init++;
+//     if(slime_vert != NULL) nb_entite_init++;
+//     if(satan != NULL) nb_entite_init++;
 
-    looter(slime_vert, personnage);
+//     printf("Nombres d'entites crees : %d", nb_entite_init);
 
-    printf("Affichage des inventaires apres le loot : \n");
-    afficher_inventaire(personnage);
-    afficher_inventaire(slime_vert);
-    afficher_inventaire(satan);
+//     printf("----------------------------------------------------- \n");
+//     printf("*       Test sur la création des inventaires :      * \n");
+//     printf("----------------------------------------------------- \n");
+
+//     /* - Creation des inventaires des entites qui en ont un (donc pas les boss) - */
+//     personnage = init_inventaire_personnage(personnage);
+//     slime_vert = init_inventaire_monstre(slime_vert);
+
+//     /* ------------------------ Affichage de l'inventaire ----------------------- */  
+//     printf("Affichage des inventaires avant le loot : \n");
+//     afficher_inventaire(personnage);
+//     afficher_inventaire(slime_vert);
+//     afficher_inventaire(satan);
+
+//     /* ----- On remarque que rien n'est affiche pour satan ce qui est normal ---- */
+
+//     printf("----------------------------------------------------- \n");
+//     printf("*             Test sur le loot des mobs             * \n");
+//     printf("----------------------------------------------------- \n");
+
+//     looter(slime_vert, personnage);
+
+//     printf("Affichage des inventaires apres le loot : \n");
+//     afficher_inventaire(personnage);
+//     afficher_inventaire(slime_vert);
+//     afficher_inventaire(satan);
 
     
-    printf("\n----------------------------------------------------- \n");
-    printf("*         Test de destruction des entitees :        * \n");
-    printf("----------------------------------------------------- \n");
-*/
-    /* -------------------- Destruction des differentes entites -------------------- */
-/* 
-    detruire_personnage(&personnage);
-    detruire_mob(&slime_vert);
-    detruire_boss(&satan);
-*/
-    /* ----------- On regarde si les entites ont bien été détruites ----------- */
-/*
-    if(personnage == NULL) nb_entite_init--;
-    if(slime_vert == NULL) nb_entite_init--;
-    if(satan == NULL) nb_entite_init--;
-*/
-    /* ---------------- Affichage du nombre d'entités detruites --------------- */
-/*
-    printf("\n Nombre d'entites restantes : %d \n\n", nb_entite_init);
+//     printf("\n----------------------------------------------------- \n");
+//     printf("*         Test de destruction des entitees :        * \n");
+//     printf("----------------------------------------------------- \n");
+
+//     /* -------------------- Destruction des differentes entites -------------------- */
+   
+//     detruire_personnage(&personnage);
+//     detruire_mob(&slime_vert);
+//     detruire_boss(&satan);
+
+//     /* ----------- On regarde si les entites ont bien été détruites ----------- */
+
+//     if(personnage == NULL) nb_entite_init--;
+//     if(slime_vert == NULL) nb_entite_init--;
+//     if(satan == NULL) nb_entite_init--;
+
+//     /* ---------------- Affichage du nombre d'entités detruites --------------- */
+
+//     printf("\n Nombre d'entites restantes : %d \n\n", nb_entite_init);
 
 
-}
-*/
+// }

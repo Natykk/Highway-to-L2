@@ -70,6 +70,17 @@ SDL_Texture *choix_tex_niv(SDL_Renderer *renderer)
     tab_tex[5] = charge_tex(renderer, "../img/personnage/1_north.png", 0); // Perso coté nord
     tab_tex[6] = charge_tex(renderer, "../img/personnage/1_south.png", 0); // Perso coté sud
     tab_tex[7] = charge_tex(renderer, "../img/personnage/1_side.png", 0); // Perso sur les cotés (est ou ouest)
+    tab_tex[9] = charge_tex(renderer, "../img/personnage/1_attack_north.png", 0); // Perso coté nord attaque
+    tab_tex[10] = charge_tex(renderer, "../img/personnage/1_attack_south.png", 0); // Perso coté sud attaque
+    tab_tex[11] = charge_tex(renderer, "../img/personnage/1_attack_side.png", 0); // Perso sur les cotés attaque
+    tab_tex[12] = charge_tex(renderer, "../img/personnage/boule_up.png", 0); 
+    tab_tex[13] = charge_tex(renderer, "../img/personnage/boule_down.png", 0); 
+    tab_tex[14] = charge_tex(renderer, "../img/personnage/boule_right.png", 0); 
+    tab_tex[15] = charge_tex(renderer, "../img/personnage/boule_left.png", 0); 
+    tab_tex[16] = charge_tex(renderer, "../img/personnage/fleche_up.png", 0); 
+    tab_tex[17] = charge_tex(renderer, "../img/personnage/fleche_down.png", 0); 
+    tab_tex[18] = charge_tex(renderer, "../img/personnage/fleche_right.png", 0); 
+    tab_tex[19] = charge_tex(renderer, "../img/personnage/fleche_left.png", 0); 
     tab_tex[3] = charge_tex(renderer, "../img/personnage/marchand.png", 0); // Marchand
     if (NumEtage == 0)
     {                                                                         // Foret
@@ -473,7 +484,7 @@ int perso_attack(t_salle *map, int attaque, entite_t *pers, void (*attaque_pers)
     }
     else
     {
-        proj = AUCUN_PROJ;
+        proj = BOULE;
     }
     attaque_pers(proj, pers, map);
 }
@@ -546,17 +557,16 @@ void interact(int attaque, t_salle *map, entite_t *pers, Uint32 *lastTime, t_pos
     {
         int cheminX, cheminY;
         float dist;
-        int zone_detect;
-        if(map->mob[i]!=NULL){
-            zone_detect = map->mob[i]->perim_detect - pers->perim_detect;
-        }
-        /*else{
-            zone_detect = 4;
-        }*/
-        if(zone_detect<= 0){
-            zone_detect = 1;
-        }
-        if (map->mob[i] != NULL && distance(pers, map->mob[i]) <= zone_detect) // si le mob est à moins de zone_detect cases du joueur
+        //int zone_detect;
+        //if(map->mob[i]!=NULL){
+        //    zone_detect = map->mob[i]->perim_detect - pers->perim_detect;
+        //}else{
+        //    zone_detect = 4;
+        //}
+        //if(zone_detect<=0){
+        //    zone_detect = 1;
+        //}
+        if (map->mob[i] != NULL && distance(pers, map->mob[i]) <= 4) // si le mob est à moins de 4 cases du joueur
         {
             for (int j = 0; j < 9; j++) // on réinitialise le tableau de coordonnées
             {
@@ -691,23 +701,36 @@ void rendu(int map[][LONG_SALLE_BOSS], int tailleI, int tailleJ, SDL_Renderer *r
             if (map[x][y] == PERSO)
             { // Si c'est le perso
                 // printf("x = %d, y = %d perso trouvé\n",x,y);
-                PersRect.x = frame * 20; // Combien de Pixel on doit décaler pour afficher la bonne frame
-                PersRect.w = 20;         // Largeur de la frame
-                PersRect.y = 0;
-                PersRect.h = 24;        // Hauteur de la frame
-                dstRect.x = posX;       // Position de la frame
-                dstRect.y = posY;       // Position de la frame
-                if (perso->dir == HAUT) // On affiche le perso dans la bonne direction
-                    SDL_RenderCopyEx(renderer, tab_tex[5], &PersRect, &dstRect, 0, NULL, SDL_FLIP_NONE);
-                if (perso->dir == BAS)
-                    SDL_RenderCopyEx(renderer, tab_tex[6], &PersRect, &dstRect, 0, NULL, SDL_FLIP_NONE);
-                if (perso->dir == GAUCHE)
-                    SDL_RenderCopyEx(renderer, tab_tex[7], &PersRect, &dstRect, 0, NULL, SDL_FLIP_HORIZONTAL);
-                if (perso->dir == DROITE)
-                    SDL_RenderCopyEx(renderer, tab_tex[7], &PersRect, &dstRect, 0, NULL, SDL_FLIP_NONE);
-                if (attaque)
-                {
-                    SDL_RenderCopy(renderer, tab_tex[0], &srcRect, &dstRect);
+                if(!attaque){
+                    PersRect.x = frame * 20; // Combien de Pixel on doit décaler pour afficher la bonne frame
+                    PersRect.w = 20;         // Largeur de la frame
+                    PersRect.y = 0;
+                    PersRect.h = 24;        // Hauteur de la frame
+                    dstRect.x = posX;       // Position de la frame
+                    dstRect.y = posY;       // Position de la frame
+                    if (perso->dir == HAUT) // On affiche le perso dans la bonne direction
+                        SDL_RenderCopyEx(renderer, tab_tex[5], &PersRect, &dstRect, 0, NULL, SDL_FLIP_NONE);
+                    if (perso->dir == BAS)
+                        SDL_RenderCopyEx(renderer, tab_tex[6], &PersRect, &dstRect, 0, NULL, SDL_FLIP_NONE);
+                    if (perso->dir == GAUCHE)
+                        SDL_RenderCopyEx(renderer, tab_tex[7], &PersRect, &dstRect, 0, NULL, SDL_FLIP_HORIZONTAL);
+                    if (perso->dir == DROITE)
+                        SDL_RenderCopyEx(renderer, tab_tex[7], &PersRect, &dstRect, 0, NULL, SDL_FLIP_NONE);
+                }else{
+                    PersRect.x = frame * 20; // Combien de Pixel on doit décaler pour afficher la bonne frame
+                    PersRect.w = 20;         // Largeur de la frame
+                    PersRect.y = 0;
+                    PersRect.h = 24;        // Hauteur de la frame
+                    dstRect.x = posX;       // Position de la frame
+                    dstRect.y = posY;       // Position de la frame
+                    if (perso->dir == HAUT) // On affiche le perso dans la bonne direction
+                        SDL_RenderCopyEx(renderer, tab_tex[9], &PersRect, &dstRect, 0, NULL, SDL_FLIP_NONE);
+                    if (perso->dir == BAS)
+                        SDL_RenderCopyEx(renderer, tab_tex[10], &PersRect, &dstRect, 0, NULL, SDL_FLIP_NONE);
+                    if (perso->dir == GAUCHE)
+                        SDL_RenderCopyEx(renderer, tab_tex[11], &PersRect, &dstRect, 0, NULL, SDL_FLIP_HORIZONTAL);
+                    if (perso->dir == DROITE)
+                        SDL_RenderCopyEx(renderer, tab_tex[11], &PersRect, &dstRect, 0, NULL, SDL_FLIP_NONE);
                 }
             }
             if (map[x][y] == MUR)
@@ -733,9 +756,22 @@ void rendu(int map[][LONG_SALLE_BOSS], int tailleI, int tailleJ, SDL_Renderer *r
                 dstRect.y = posY;
                 SDL_RenderCopy(renderer, tab_tex[3], &Marchand, &dstRect); // On affiche l'obstacle
             }
+            if (map[x][y] >= PROJ_FLECHE_H)
+                dstRect.x = posX; // Position de la boule magique ou de la fleche
+                dstRect.y = posY;
+                switch(map[x][y]){
+                    case PROJ_BOULE_H: SDL_RenderCopy(renderer, tab_tex[12], NULL, &dstRect); break;
+                    case PROJ_BOULE_B: SDL_RenderCopy(renderer, tab_tex[13], NULL, &dstRect); break;
+                    case PROJ_BOULE_D: SDL_RenderCopy(renderer, tab_tex[14], NULL, &dstRect); break;
+                    case PROJ_BOULE_G: SDL_RenderCopy(renderer, tab_tex[15], NULL, &dstRect); break;
+                    case PROJ_FLECHE_H: SDL_RenderCopy(renderer, tab_tex[16], NULL, &dstRect); break;
+                    case PROJ_FLECHE_B: SDL_RenderCopy(renderer, tab_tex[17], NULL, &dstRect); break;
+                    case PROJ_FLECHE_D: SDL_RenderCopy(renderer, tab_tex[18], NULL, &dstRect); break;
+                    case PROJ_FLECHE_G: SDL_RenderCopy(renderer, tab_tex[19], NULL, &dstRect); break;
+                }
+            }
         }
         // printf("\n");
-    }
 }
 
 
@@ -919,7 +955,7 @@ int main()
                         }
                         else
                         {
-                            fonc_attaque = attaque_cac;
+                            fonc_attaque = attaque_proj;
                         }
                         CooldownAttaque = SDL_GetTicks();
                         perso_attack(&map, attaque, perso, fonc_attaque, window, renderer, police);
