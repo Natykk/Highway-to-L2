@@ -14,7 +14,6 @@
 #include "../head/attaques.h"
 #include "../head/entite.h"
 #include "../head/mapBoss.h"
-#include "../head/chemin.h"
 #include "../head/inventaire.h"
 #include "../head/sauvegarde.h"
 
@@ -33,7 +32,7 @@ SDL_Texture *tab_tex[20] = {NULL};
 #define BASE_ATTAQUE_SPEED 500
 #define BASE_MOVE_SPEED 200
 
-int coords[9][2] = {0};
+
 #define SPRITE_FRAMES 4 // Nombre de frames de l'animation
 const int hauteur_fenetre = LONG_SALLE_BOSS * TILE_SIZE;
 const int largeur_fenetre = LARG_SALLE_BOSS * TILE_SIZE;
@@ -266,69 +265,6 @@ void changement(t_niv *niv, entite_t *perso, t_pos *posSalle, t_salle *map)
     }
 }
 /**
- * \fn void chemin_vers_perso(entite_t * perso, entite_t * mob, int map[][LONG_SALLE_BOSS])
- * \brief Calcul le chemin vers le perso
- * @param perso Le personnage
- * @param mob Le mob
- * @param map La map
- *
- */
-void chemin_vers_perso(entite_t *perso, entite_t *mob, int map[][LONG_SALLE_BOSS])
-{
-    int mat[9][9];
-    int i, j;
-
-    int POSPERSX;
-    int POSPERSY;
-    // initialisation de la matrice mat
-    for (i = 0; i < 9; i++)
-    {
-        for (j = 0; j < 9; j++)
-        {
-            // met la valeurs tout autour de la matrice à 1
-            if (i == 0 || i == 8 || j == 0 || j == 8)
-            {
-                mat[i][j] = 1;
-            }
-            // prend en compte les murs de la salle
-            else if (map[i - 1][j - 1] == MUR)
-            {
-                mat[i][j] = 1;
-            }
-            // prend en compte les portes de la salle
-            else if (map[i - 1][j - 1] == PORTE)
-            {
-                mat[i][j] = 1;
-            }
-            else
-            {
-                mat[i][j] = 0;
-            }
-        }
-    }
-    // Met à jour la position du mob par rapport à la matrice mat
-    POSPERSX = perso->x - (mob->x - 4);
-    POSPERSY = perso->y - (mob->y - 4);
-    // Met à jour la position du personnage par rapport à la matrice mat
-    mat[POSPERSX][POSPERSY] = 0;
-
-    // Met à jour la position du mob par rapport à la matrice mat
-    mat[4][4] = 0;
-
-    chercher_chemin(4, 4, POSPERSX, POSPERSY, mat, coords);
-    // conversion des coordonnées X et Y de la matrice mat  en coordonnées de la matrice map
-    for (i = 0; i < 9; i++)
-    {
-        if (coords[i][0] == 0 || coords[i][1] == 0)
-        {
-            break;
-        }
-        coords[i][0] += (mob->x - 4);
-        coords[i][1] += (mob->y - 4);
-    }
-}
-
-/**
  * \fn void mouvement(t_salle *map, entite_t *pers, t_pos *posSalle, t_niv *niv)
  * \brief Fonction qui gère le déplacement du personnage
  * \param map Pointeur sur la salle
@@ -555,8 +491,6 @@ void interact(int attaque, t_salle *map, entite_t *pers, Uint32 *lastTime, t_pos
     }
     for (int i = 0; i < map->nb_mobs; i++) // pour chaque mob présent sur la carte
     {
-        int cheminX, cheminY;
-        float dist;
         int zone_detect;
         if(map->mob[i]!=NULL){
             zone_detect = map->mob[i]->perim_detect - pers->perim_detect;
@@ -567,35 +501,19 @@ void interact(int attaque, t_salle *map, entite_t *pers, Uint32 *lastTime, t_pos
             zone_detect = 1;
         }
         if (map->mob[i] != NULL && distance(pers, map->mob[i]) <= zone_detect) // si le mob est à moins de 4 cases du joueur
-        {
-            for (int j = 0; j < 9; j++) // on réinitialise le tableau de coordonnées
-            {
-                coords[j][0] = 0;
-                coords[j][1] = 0;
-            }
-            printf("Aucun pb matrice coords\n");
-            chemin_vers_perso(pers, map->mob[i], map->dim); // on calcule le chemin vers le joueur
-            // on récupère les coordonnées de la première case du chemin
-            cheminX = map->mob[i]->x - coords[0][0];
-            cheminY = map->mob[i]->y - coords[0][1];
+        { 
             // on change la direction du mob en fonction de la case suivante
-            if (cheminX > 0) // si le mob est à droite du joueur
-            {
+           if(map->mob[i]->x - pers->x > 0){
                 map->mob[i]->dir = 3;
-            }
-            if (cheminX < 0) // si le mob est à gauche du joueur
-            {
+            }else if(map->mob[i]->x - pers->x < 0){
                 map->mob[i]->dir = 1;
-            }
-            if (cheminY > 0) // si le mob est en dessous du joueur
-            {
+            }else if(map->mob[i]->y - pers->y > 0){
                 map->mob[i]->dir = 0;
-            }
-            if (cheminY < 0) // si le mob est au-dessus du joueur
-            {
+            }else if(map->mob[i]->y - pers->y < 0){
                 map->mob[i]->dir = 2;
+            }else{
+                map->mob[i]->dir = rand() % 4;
             }
-            // on fait bouger le mob si il est pas mort
             if (map->mob[i] != NULL)
             { // si le mob n'est pas mort
                 mouvement(map, map->mob[i], posSalle, niv, renderer);
@@ -800,7 +718,7 @@ int main()
             if(controller){
                 break;
             }else{
-                printf("Could not open gamecontroller %i: %s\n", i, SDL_GetError());
+                printf("Pb gamecontroller %i: %s\n", i, SDL_GetError());
             }
         }
     }
@@ -912,11 +830,40 @@ int main()
             case SDL_CONTROLLERBUTTONDOWN:
                 switch(event.cbutton.button){
                     case SDL_CONTROLLER_BUTTON_A:
-                        if(perso->vitesse_att*(SDL_GetTicks() - CooldownAttaque) >= BASE_ATTAQUE_SPEED){
-                            attaque = 1;
-                            CooldownAttaque = SDL_GetTicks();
+                    printf("ATTAQUE\n");
+                        if (perso->vitesse_att*(SDL_GetTicks() - CooldownAttaque) >= BASE_ATTAQUE_SPEED)
+                    {
+                        attaque = 1;
+                        if (perso->arbre != NULL)
+                        {
+                            switch (perso->arbre->classe)
+                            {
+                            case MAGE:
+                                fonc_attaque = attaque_proj;
+                                break;
+                            case ARCHER:
+                                fonc_attaque = attaque_proj;
+                                break;
+                            default:
+                                fonc_attaque = attaque_cac;
+                            }
                         }
+                        else
+                        {
+                            fonc_attaque = attaque_cac;
+                        }
+                        CooldownAttaque = SDL_GetTicks();
+                        perso_attack(&map, attaque, perso, fonc_attaque, window, renderer, police);
+                        // interact(attaque,&map,perso,lastTimeInteract,&posSalle,niv,renderer);
                         break;
+                        CooldownAttaque = SDL_GetTicks();
+                    }
+                    else
+                    {
+                        attaque = 0;
+                        break;
+                    }
+                    break;
                     case SDL_CONTROLLER_AXIS_RIGHTX:
                     if(perso->vitesse_depl*(SDL_GetTicks() - CooldownMouvement) >= BASE_MOVE_SPEED){
                         perso->dir = DROITE;
@@ -1010,6 +957,7 @@ int main()
                         attaque = 0;
                         break;
                     }
+                    break;
                 case SDL_SCANCODE_LSHIFT:
                     break;
                 case SDL_SCANCODE_TAB:
