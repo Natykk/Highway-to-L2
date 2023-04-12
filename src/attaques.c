@@ -34,7 +34,8 @@ void maj_proj(entite_t * posPers, t_salle * map){
                 tmp->touche = true;
             }
             if((tmp->portee) <= 0 || tmp->touche){
-                map->dim[tmp->xp][tmp->yp] = VIDE;
+                if(map->dim[tmp->xp][tmp->yp] != PERSO)
+                    map->dim[tmp->xp][tmp->yp] = VIDE;
                 detruire_projectiles(&tmp);
                 oter_elt_proj();
             }
