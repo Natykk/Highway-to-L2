@@ -12,7 +12,7 @@ Pour compiler et exécuter ce projet, vous aurez besoin de la bibliothèque SDL2
 
 SDL2 : ``` sudo apt-get install libsdl2-dev libsdl2-image-dev libsdl2-ttf-dev libsdl2-mixer-dev ```
 
-OPENSSL : ``` sudo apt-get install libssl-dev `
+OPENSSL : ``` sudo apt-get install libssl-dev ```
 
 
 Une fois que vous avez installé les dépendances, vous pouvez compiler le projet en exécutant la commande ```make``` dans le répertoire racine du projet 
