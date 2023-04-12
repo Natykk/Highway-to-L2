@@ -11,6 +11,7 @@ Ce projet est un roguelike développé en C à l'aide de la bibliothèque SDL2. 
 Pour compiler et exécuter ce projet, vous aurez besoin de la bibliothèque SDL2 et des ces extension image,ttf,mixer ainsi que de la librairie OPENSSL. Vous pouvez les installer en utilisant votre gestionnaire de paquets système préféré. Sur Debian/Ubuntu, vous pouvez utiliser les commande suivante :
 
 SDL2 : ``` sudo apt-get install libsdl2-dev libsdl2-image-dev libsdl2-ttf-dev libsdl2-mixer-dev ```
+
 OPENSSL : ``` sudo apt-get install libssl-dev `
 
 
