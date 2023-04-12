@@ -46,6 +46,10 @@ void looter(entite_t * entite_source, entite_t * entite_destination){
     int rang;
     //printf("LOOTAGE DU MOB %s\n",entite_source->nom);
     // Pour chaque objet que possede la source
+    if(entite_source->inventaire == NULL) {
+        printf("L'inventaire de %s est vide\n", entite_source->nom);
+        return;
+    }
     for(i = 0; i < entite_source->place_inv; i++) {
         rang = acces_obj(entite_source->inventaire->objet[i].nom);
         

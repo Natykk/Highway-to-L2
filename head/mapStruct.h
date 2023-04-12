@@ -11,8 +11,9 @@
 #define OBSTACLE 3
 #define PILIER 4
 #define PERSO 5
-#define MARCHAND 31
 // Mob entre 10 et 21
+#define MARCHAND 31
+#define BOSS 69 
 #define PROJ_FLECHE_H 70
 #define PROJ_FLECHE_D 71
 #define PROJ_FLECHE_B 72
@@ -21,6 +22,7 @@
 #define PROJ_BOULE_D 81
 #define PROJ_BOULE_B 82
 #define PROJ_BOULE_G 83
+
 #define DIM_ETAGE 5
 #define DIM_SALLE 25
 

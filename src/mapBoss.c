@@ -6,8 +6,7 @@
  * \file mapBoss.c
  * \brief Fichier contenant les fonctions pour la génération de la salle du boss et marchand
 */
-#define BOSS 10 //Boss : à enlever quand boss créés
-#define SPAWN 10 //Lieu de SPAWN dans la salle du boss : à enlever ?
+
 /**
  * \fn void afficher_salle_boss(t_salle * salle)
  * @brief Affiche la salle du boss dans la console
@@ -36,7 +35,11 @@ void afficher_salle_boss(t_salle * salle){
 */
 t_salle * genererSalleBoss(t_salle * salleBoss){
     salleBoss = malloc(sizeof(t_salle));
-    salleBoss->nb_mobs=0;
+    salleBoss->mob[0]=creer_boss(salleBoss->mob[0],tab_boss[NumEtage].nom);
+    salleBoss->nb_mobs=1;
+    salleBoss->mob[0]->dir=HAUT;
+    salleBoss->mob[0]->x=LARG_SALLE_BOSS/2;
+    salleBoss->mob[0]->y=LONG_SALLE_BOSS/2;
     for(int i=0; i<LARG_SALLE_BOSS; i++){
             for(int j=0; j<LONG_SALLE_BOSS; j++){
                 salleBoss->dim[i][j]=0;
@@ -53,6 +56,9 @@ t_salle * genererSalleBoss(t_salle * salleBoss){
             }
             if(i==LARG_SALLE_BOSS/2 && j==LONG_SALLE_BOSS-1){
                 salleBoss->dim[i][j]=PORTE;
+            }
+            if(i==LARG_SALLE_BOSS/2 && j==LONG_SALLE_BOSS/2){
+                salleBoss->dim[i][j]=BOSS;
             }
         }
     }

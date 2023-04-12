@@ -17,8 +17,8 @@
 entite_t tab_mob[NB_MOBS] = {
     {"Slime_Vert", 2, 1, 0.75, 0.40, 6, 0, 0, NULL, NULL, 1, 1, HAUT},
     {"Loup", 10, 4, 1.0, 1.2, 8, 0, 0, NULL, NULL, 2, 1, HAUT},
-    {"Brigant", 20, 6, 0.9, 1.1, 7, 0, 0, NULL, NULL, 1, 1, HAUT},
-    {"Chaman", 12, 12, 0.8, 1, 9, 0, 0, NULL, NULL, 2, 1, HAUT},
+    {"Sanglier", 20, 6, 0.9, 1.1, 7, 0, 0, NULL, NULL, 1, 1, HAUT},
+    {"Champi", 12, 12, 0.8, 1, 9, 0, 0, NULL, NULL, 2, 1, HAUT},
     {"Slime_Gris", 10, 5, 0.75, 0.40, 6, 0, 0, NULL, NULL, 1, 1, HAUT},
     {"Nain", 30, 8, 0.75, 0.40, 5, 0, 0, NULL, NULL, 2, 1, HAUT},
     {"Nain_Rider", 20, 5, 1.5, 1.2, 10, 0, 0, NULL, NULL, 3, 1, HAUT},
@@ -50,11 +50,10 @@ extern void afficher_entite(entite_t *entite)
     case 1:
         printf("[MOB] ");
         break;
-        
+
     case 2:
         printf("[BO] ");
         break;
-
 
     default:
         printf("[] ");
@@ -165,7 +164,7 @@ extern entite_t *creer_personnage(entite_t *entite)
 {
     entite = malloc(sizeof(entite_t));
     entite->nom = malloc(sizeof(char) * 35);
-    //strcpy(entite->nom, "Bon Scott");
+    // strcpy(entite->nom, "Bon Scott");
 
     entite->vie = 999;
     entite->degats = 999;
@@ -229,7 +228,7 @@ extern entite_t *creer_boss(entite_t *entite, char *nom)
     int taille_nom = strlen(tab_boss[emplacement].nom);
 
     entite = malloc(sizeof(entite_t));
-    entite->nom = malloc(sizeof(char)*(taille_nom+1));
+    entite->nom = malloc(sizeof(char) * (taille_nom + 1));
 
     strcpy(entite->nom, tab_boss[emplacement].nom);
 
@@ -287,7 +286,8 @@ extern void detruire_entitee(entite_t **entite)
     }
 
     // Destruction de l'entitee
-    if((*entite) != NULL) {
+    if ((*entite) != NULL)
+    {
         free((*entite));
         (*entite) = NULL;
     }
@@ -296,10 +296,11 @@ extern void detruire_entitee(entite_t **entite)
 /**
  * @fn detruire_personnage
  * @brief Fonction qui detruit le personnage
- * 
- * @param personnage 
+ *
+ * @param personnage
  */
-extern void detruire_personnage(entite_t **personnage) {
+extern void detruire_personnage(entite_t **personnage)
+{
 
     // Destruction de l'inventaire
     free((*personnage)->inventaire->objet);
@@ -323,36 +324,52 @@ extern void detruire_personnage(entite_t **personnage) {
 /**
  * @fn detruire_mob
  * @brief Fonction qui detruit un mob
- * 
- * @param mob 
+ *
+ * @param mob
  */
-extern void detruire_mob(entite_t **mob) {
+extern void detruire_mob(entite_t **mob)
+{
 
     // Destruction de l'inventaire
-    free((*mob)->inventaire->objet);
-    (*mob)->inventaire->objet = NULL;
-
-    free((*mob)->inventaire->nb);
-    (*mob)->inventaire->nb = NULL;
-
-    free((*mob)->inventaire);
-    (*mob)->inventaire = NULL;
+    if ((*mob)->inventaire != NULL)
+    {
+       
+        if ((*mob)->inventaire->objet != NULL)
+        {
+            free((*mob)->inventaire->objet);
+            (*mob)->inventaire->objet = NULL;
+        }
+        if ((*mob)->inventaire->nb != NULL)
+        {
+            free((*mob)->inventaire->nb);
+            (*mob)->inventaire->nb = NULL;
+        }
+        free((*mob)->inventaire);
+        (*mob)->inventaire = NULL;
+    }
 
     // Destruction du nom
-    free((*mob)->nom);
-    (*mob)->nom = NULL;
+    if ((*mob)->nom != NULL)
+    {
+        free((*mob)->nom);
+        (*mob)->nom = NULL;
+    }
 
     // Destruction de l'entitee
-    free((*mob));
-    (*mob) = NULL;
+    if ((*mob) != NULL)
+    {
+        free((*mob));
+        (*mob) = NULL;
+    }
 }
 /**
  * @fn detruire_boss
  * @brief Fonction qui detruit un boss
- * 
- * @param boss 
+ *
+ * @param boss
  */
-extern void detruire_boss(entite_t **boss) {
+extern void detruire_boss(entite_t **boss)
+{
 
     // Destruction du nom
     free((*boss)->nom);
@@ -362,4 +379,3 @@ extern void detruire_boss(entite_t **boss) {
     free((*boss));
     (*boss) = NULL;
 }
-
