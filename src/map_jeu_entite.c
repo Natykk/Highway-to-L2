@@ -57,7 +57,7 @@ SDL_Texture *choix_tex_niv(SDL_Renderer *renderer)
 {
     if (tab_tex[0] != NULL)
     {
-        for (int i = 0; i < 10; i++)
+        for (int i = 0; i < 20; i++)
         {
             if (tab_tex[i] != NULL)
             {
@@ -95,7 +95,7 @@ SDL_Texture *choix_tex_niv(SDL_Renderer *renderer)
         tab_tex[0] = charge_tex(renderer, "../img/mines/mur_mine.png", 0); // Mur
         tab_tex[1] = charge_tex(renderer, "../img/mines/sol.jpg", 0);      // Sol
         tab_tex[4] = charge_tex(renderer, "../img/mines/rock.png", 0);     // obstacle
-        tab_tex[8] = charge_tex(renderer, "../img/mines/GreySlime/Whitesheet.png", 0); // mob 1
+        tab_tex[8] = charge_tex(renderer, "../img/mines/GreySlime/WhiteSheet.png", 0); // mob 1
     }
     else if (NumEtage == 2)
     {                                                                        // Enfer
@@ -736,7 +736,6 @@ int main()
 
     t_niv *niv = malloc(sizeof(t_niv));
     genererNiv(niv);
-    NumEtage = 0;
     t_salle_boss *salle_boss;
     TTF_Init();
     TTF_Font *police = NULL;
@@ -767,7 +766,6 @@ int main()
             }
         }
     }
-
     transfert(&niv->etages[NumEtage].etage[posSalle.x][posSalle.y], &map, 0);
 
     map.dim[perso->x][perso->y] = PERSO;
@@ -965,28 +963,33 @@ int main()
                     inv(renderer, window, perso);
                     SDL_RenderClear(renderer);
                     break;
-                }
                 case SDL_SCANCODE_M:
+                    printf("Touche M appuyée\n");
                     switch(perso->dir){
                         case HAUT: if (map.dim[(perso->x)][(perso->y)-1] == MARCHAND){
+                                printf("Marchand HAUT\n");
                                 afficher_menu(window,renderer,perso, police);
                             }
                             break;
                         case BAS: if (map.dim[(perso->x)][(perso->y)+1] == MARCHAND){
+                                printf("Marchand BAS\n");
                                 afficher_menu(window,renderer,perso, police);
                             }
                             break;
                         case GAUCHE: if (map.dim[(perso->x)-1][(perso->y)] == MARCHAND){
+                                printf("Marchand GAUCHE\n");
                                 afficher_menu(window,renderer,perso, police);
                             }
                             break;
                         case DROITE: if (map.dim[(perso->x)+1][(perso->y)] == MARCHAND){
+                                printf("Marchand DROITE\n");
                                 afficher_menu(window,renderer,perso, police);
                             }
                             break;
                     }
                 break;
-
+                }
+                
             case SDL_KEYUP:
                 switch (event.key.keysym.scancode)
                 {
