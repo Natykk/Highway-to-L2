@@ -966,6 +966,25 @@ int main()
                     SDL_RenderClear(renderer);
                     break;
                 }
+                case SDL_SCANCODE_M:
+                    switch(perso->dir){
+                        case HAUT: if (map.dim[(perso->x)][(perso->y)-1] == MARCHAND){
+                                afficher_menu(window,renderer,perso, police);
+                            }
+                            break;
+                        case BAS: if (map.dim[(perso->x)][(perso->y)+1] == MARCHAND){
+                                afficher_menu(window,renderer,perso, police);
+                            }
+                            break;
+                        case GAUCHE: if (map.dim[(perso->x)-1][(perso->y)] == MARCHAND){
+                                afficher_menu(window,renderer,perso, police);
+                            }
+                            break;
+                        case DROITE: if (map.dim[(perso->x)+1][(perso->y)] == MARCHAND){
+                                afficher_menu(window,renderer,perso, police);
+                            }
+                            break;
+                    }
                 break;
 
             case SDL_KEYUP:

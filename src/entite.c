@@ -167,8 +167,8 @@ extern entite_t *creer_personnage(entite_t *entite)
     entite->nom = malloc(sizeof(char) * 35);
     //strcpy(entite->nom, "Bon Scott");
 
-    entite->vie = 20;
-    entite->degats = 5;
+    entite->vie = 999;
+    entite->degats = 999;
     entite->vitesse_att = 1.0;
     entite->vitesse_depl = 1.0;
     entite->perim_detect = 0;

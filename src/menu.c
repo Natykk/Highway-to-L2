@@ -74,11 +74,9 @@ int menu_interact(SDL_Window * window, SDL_Renderer * renderer, entite_t * perso
     f_hash2 = fopen("../sauv/sauvegarde.hash", "r");
     if((f_hash1 && f_hash2) || (f_hash2 && !f_hash1)){
       f_hash = f_hash2;
-      fclose(f_hash1);
     }
     else if(f_hash1 && !f_hash2){
       f_hash = f_hash1;
-      fclose(f_hash2);
     }
 
     if (f_hash != NULL) {
