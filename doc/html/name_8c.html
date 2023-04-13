@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Projet Roguelike: Référence du fichier /mnt/c/Users/natik/ProjetL2/src/name.c</title>
+<title>Highway to L2: Référence du fichier /mnt/c/ProjetL2/src/name.c</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,7 +21,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">Projet Roguelike
+   <div id="projectname">Highway to L2
    </div>
   </td>
  </tr>
@@ -80,30 +80,47 @@ $(function() {
 <code>#include &lt;SDL2/SDL_mixer.h&gt;</code><br />
 <code>#include &lt;SDL2/SDL_image.h&gt;</code><br />
 <code>#include &lt;string.h&gt;</code><br />
-<code>#include &quot;../head/name.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="name_8h_source.html">../head/name.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Graphe des dépendances par inclusion de name.c:</div>
 <div class="dyncontent">
-<div class="center"><img src="name_8c__incl.png" border="0" usemap="#a_2mnt_2c_2Users_2natik_2ProjetL2_2src_2name_8c" alt=""/></div>
+<div class="center"><img src="name_8c__incl.png" border="0" usemap="#a_2mnt_2c_2ProjetL2_2src_2name_8c" alt=""/></div>
+<map name="a_2mnt_2c_2ProjetL2_2src_2name_8c" id="a_2mnt_2c_2ProjetL2_2src_2name_8c">
+<area shape="rect" title="Fichier contenant les fonctions pour la gestion du nom du personnage." alt="" coords="451,5,594,47"/>
+<area shape="rect" title=" " alt="" coords="23,393,89,420"/>
+<area shape="rect" title=" " alt="" coords="317,244,413,271"/>
+<area shape="rect" title=" " alt="" coords="368,169,485,196"/>
+<area shape="rect" title=" " alt="" coords="560,95,699,121"/>
+<area shape="rect" title=" " alt="" coords="723,95,867,121"/>
+<area shape="rect" title=" " alt="" coords="891,95,962,121"/>
+<area shape="rect" href="name_8h.html" title=" " alt="" coords="221,95,339,121"/>
+<area shape="rect" title=" " alt="" coords="139,393,210,420"/>
+<area shape="rect" href="entite_8h.html" title="Fichier d&#39;en&#45;tete pour les primitives liées aux entites." alt="" coords="283,319,355,345"/>
+<area shape="rect" href="menu__cpt_8h.html" title=" " alt="" coords="144,169,243,196"/>
+<area shape="rect" href="objet_8h.html" title="Fichier contenant toutes les structutes de données liées aux objets." alt="" coords="260,393,327,420"/>
+<area shape="rect" href="objet__inv_8h.html" title=" " alt="" coords="247,468,340,495"/>
+<area shape="rect" href="arbre_8h.html" title="Fichier contenant les structure et prototype de fonction pour la gestion des arbres de compétences." alt="" coords="167,244,235,271"/>
+<area shape="rect" href="competence_8h.html" title="Fichier contenant les structures et prototypes de fonctions pour la gestion des compétences." alt="" coords="144,319,259,345"/>
+</map>
 </div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Fonctions</h2></td></tr>
-<tr class="memitem:ae464e8c747bbc0422da7c7cda7d3a9f1"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="name_8c.html#ae464e8c747bbc0422da7c7cda7d3a9f1">name</a> (SDL_Window *win, SDL_Renderer *screen, entite_t *personnage)</td></tr>
-<tr class="memdesc:ae464e8c747bbc0422da7c7cda7d3a9f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affiche le menu et gère les interactions textuelle avec celui-ci.  <a href="name_8c.html#ae464e8c747bbc0422da7c7cda7d3a9f1">Plus de détails...</a><br /></td></tr>
-<tr class="separator:ae464e8c747bbc0422da7c7cda7d3a9f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa63d7f278991cd69234bd8864b3cedf6"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="name_8c.html#aa63d7f278991cd69234bd8864b3cedf6">name</a> (SDL_Window *win, SDL_Renderer *screen, <a class="el" href="structentite__t.html">entite_t</a> *personnage)</td></tr>
+<tr class="memdesc:aa63d7f278991cd69234bd8864b3cedf6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction qui affiche le nom du joueur.  <a href="name_8c.html#aa63d7f278991cd69234bd8864b3cedf6">Plus de détails...</a><br /></td></tr>
+<tr class="separator:aa63d7f278991cd69234bd8864b3cedf6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
 <div class="textblock"><p>Fichier contenant les fonctions pour la gestion du nom du personnage. </p>
 </div><h2 class="groupheader">Documentation des fonctions</h2>
-<a id="ae464e8c747bbc0422da7c7cda7d3a9f1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae464e8c747bbc0422da7c7cda7d3a9f1">&#9670;&nbsp;</a></span>name()</h2>
+<a id="aa63d7f278991cd69234bd8864b3cedf6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa63d7f278991cd69234bd8864b3cedf6">&#9670;&nbsp;</a></span>name()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">char * name </td>
+          <td class="memname">char* name </td>
           <td>(</td>
           <td class="paramtype">SDL_Window *&#160;</td>
           <td class="paramname"><em>win</em>, </td>
@@ -117,7 +134,7 @@ Fonctions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">entite_t *&#160;</td>
+          <td class="paramtype"><a class="el" href="structentite__t.html">entite_t</a> *&#160;</td>
           <td class="paramname"><em>personnage</em>&#160;</td>
         </tr>
         <tr>
@@ -128,7 +145,17 @@ Fonctions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Affiche le menu et gère les interactions textuelle avec celui-ci. </p>
+<p>Fonction qui affiche le nom du joueur. </p>
+<p>Affiche le menu et gère les interactions textuelle avec celui-ci.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">win</td><td>Pointeur sur la fenêtre </td></tr>
+    <tr><td class="paramname">screen</td><td>Pointeur sur le renderer </td></tr>
+    <tr><td class="paramname">personnage</td><td>Pointeur sur le personnage </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Le nom du joueur</dd></dl>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
     <tr><td class="paramname">win</td><td>la fenêtre </td></tr>

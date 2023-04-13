@@ -1,7 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "../head/attaques.h"
-
+/**
+ * \fn void maj_proj(entite_t * posPers, t_salle * map)
+ * \brief Fonction permettant de mettre à jour les projectiles
+ * \param posPers Pointeur sur la position du personnage
+ * \param map Pointeur sur la salle
+*/
 void maj_proj(entite_t *posPers, t_salle *map)
 {
     projectile_t *tmp = NULL;
@@ -84,7 +89,14 @@ void maj_proj(entite_t *posPers, t_salle *map)
         suivant_proj();
     }
 }
-
+/**
+ * \fn void attaque_proj(proj_t typeproj, entite_t * posPers, t_salle * map)
+ * \brief Fonction permettant de qui gère un projectile
+ * \param typeproj Type de projectile
+ * \param posPers Pointeur sur la position du personnage
+ * \param map Pointeur sur la salle
+ * 
+*/
 void attaque_proj(proj_t typeproj, entite_t *posPers, t_salle *map)
 {
     /*On créée le projectile*/
@@ -98,7 +110,14 @@ void attaque_proj(proj_t typeproj, entite_t *posPers, t_salle *map)
     en_tete_proj();
     ajout_droit_proj(proj);
 }
-
+/**
+ * \fn bool degats(int degats, int id_mob, t_salle * map)
+ * \brief Fonction permettant de gérer les dégats infligés à un mob
+ * \param degats Dégats infligés
+ * \param id_mob Identifiant du mob
+ * \param map Pointeur sur la salle
+ * \return true si le mob est mort, false sinon
+*/
 bool degats(int degats, int id_mob, t_salle *map)
 {
     if (id_mob == MARCHAND)
@@ -125,6 +144,14 @@ bool degats(int degats, int id_mob, t_salle *map)
     return false;
 }
 
+/**
+ * \fn void attaque_cac(proj_t typeproj, entite_t *pers, t_salle *map)
+ * \brief Fonction permettant de gérer une attaque au corps à corps
+ * \param typeproj Type de projectile
+ * \param pers Pointeur sur la position du personnage
+ * \param map Pointeur sur la salle
+ * 
+*/
 void attaque_cac(proj_t typeproj, entite_t *pers, t_salle *map)
 {
     int xe = pers->x;

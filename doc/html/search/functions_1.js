@@ -1,12 +1,19 @@
 var searchData=
 [
-  ['changement_96',['changement',['../map__jeu__entite_8c.html#ae45ca6fffc0666ed994e6846dc881ae1',1,'map_jeu_entite.c']]],
-  ['changer_5fnomimgcpt_97',['changer_nomImgCpt',['../competence_8c.html#a085615dd1e4ef15aa422ccf901407de1',1,'competence.c']]],
-  ['charge_5ftex_98',['charge_tex',['../map__jeu__entite_8c.html#abe120e22a95d4cb1d7428be17e9df30e',1,'map_jeu_entite.c']]],
-  ['chargement_99',['chargement',['../sauvegarde_8c.html#adc26325d7dcd1c6236e39cc9bd52ca0d',1,'sauvegarde.c']]],
-  ['chemin_5fvers_5fperso_100',['chemin_vers_perso',['../map__jeu__entite_8c.html#aceb4948762cafa6ef6a9a7912a095dde',1,'map_jeu_entite.c']]],
-  ['chercher_5fchemin_101',['chercher_chemin',['../chemin_8c.html#a12cd25c018867e2cd5fd03954d58837b',1,'chemin.c']]],
-  ['competence_5fdebloquer_102',['competence_debloquer',['../arbre_8c.html#a4f21c3bb6dd0888c652d3863241501e1',1,'arbre.c']]],
-  ['cpt_5faquise_103',['cpt_aquise',['../sauvegarde_8c.html#a9841b00b6648bbb1bc4dda9d95349f36',1,'sauvegarde.c']]],
-  ['cpt_5fin_5farbre_5fjoueur_104',['cpt_in_arbre_joueur',['../arbre_8c.html#ab84bf13e67fba7473fee541f8af4039b',1,'arbre.c']]]
+  ['calcul_5fposition_396',['calcul_position',['../projectile_8c.html#abf926f493118d886b2fada06be5c5c4a',1,'calcul_position(projectile_t *proj):&#160;projectile.c'],['../projectile_8h.html#abf926f493118d886b2fada06be5c5c4a',1,'calcul_position(projectile_t *proj):&#160;projectile.c']]],
+  ['changement_397',['changement',['../map__jeu__entite_8c.html#ae45ca6fffc0666ed994e6846dc881ae1',1,'map_jeu_entite.c']]],
+  ['changer_5fnomimgcpt_398',['changer_nomImgCpt',['../competence_8h.html#a085615dd1e4ef15aa422ccf901407de1',1,'changer_nomImgCpt(t_competence *competence):&#160;competence.c'],['../competence_8c.html#a085615dd1e4ef15aa422ccf901407de1',1,'changer_nomImgCpt(t_competence *competence):&#160;competence.c']]],
+  ['charge_5ftex_399',['charge_tex',['../map__jeu__entite_8c.html#abe120e22a95d4cb1d7428be17e9df30e',1,'map_jeu_entite.c']]],
+  ['chargement_400',['chargement',['../sauvegarde_8h.html#aba8d79fd1197aba1777c17235e41360c',1,'chargement(entite_t **personnage, unsigned char *key):&#160;sauvegarde.c'],['../sauvegarde_8c.html#aba8d79fd1197aba1777c17235e41360c',1,'chargement(entite_t **personnage, unsigned char *key):&#160;sauvegarde.c']]],
+  ['check_5fvalid_5fcpt_401',['check_valid_cpt',['../menu__cpt_8c.html#a63e2fa8cf0ae1a8c2259a85f15708f1d',1,'menu_cpt.c']]],
+  ['choix_5ftex_5fniv_402',['choix_tex_niv',['../map__jeu__entite_8c.html#a293d8a245ac9f6ef2859300921c3a7c1',1,'map_jeu_entite.c']]],
+  ['competence_5fdebloquer_403',['competence_debloquer',['../arbre_8h.html#a4f21c3bb6dd0888c652d3863241501e1',1,'competence_debloquer(entite_t *personnage, t_competence *competence, t_arbre *arbre_cpt):&#160;arbre.c'],['../arbre_8c.html#a4f21c3bb6dd0888c652d3863241501e1',1,'competence_debloquer(entite_t *personnage, t_competence *competence, t_arbre *arbre_cpt):&#160;arbre.c']]],
+  ['construire_5fchaine_5fbuff_404',['construire_chaine_buff',['../menu__cpt_8c.html#a7f41e03806da48e5ad550664092223df',1,'construire_chaine_buff(char *result, int i, int buff):&#160;menu_cpt.c'],['../menu__cpt_8h.html#a4a0d592c854b12406642a6ef120b89a2',1,'construire_chaine_buff(char *result, int i, int buff):&#160;menu_cpt.c']]],
+  ['construire_5fchaine_5fobjets_405',['construire_chaine_objets',['../menu__cpt_8h.html#a97237d0941903ae8e88c80179e553d12',1,'construire_chaine_objets(char *result, int nb_obj, int nb_obj_requis, char *nom_obj):&#160;menu_cpt.c'],['../menu__cpt_8c.html#a60a9f40cc43024feb9dc831db209c5fd',1,'construire_chaine_objets(char *result, int nb_obj, int nb_obj_requis, char *nom_obj):&#160;menu_cpt.c']]],
+  ['cpt_5faquise_406',['cpt_aquise',['../sauvegarde_8c.html#a9841b00b6648bbb1bc4dda9d95349f36',1,'sauvegarde.c']]],
+  ['cpt_5fin_5farbre_5fjoueur_407',['cpt_in_arbre_joueur',['../arbre_8h.html#ab84bf13e67fba7473fee541f8af4039b',1,'cpt_in_arbre_joueur(entite_t *personnage, t_competence *competence):&#160;arbre.c'],['../arbre_8c.html#ab84bf13e67fba7473fee541f8af4039b',1,'cpt_in_arbre_joueur(entite_t *personnage, t_competence *competence):&#160;arbre.c']]],
+  ['creer_5fboss_408',['creer_boss',['../entite_8h.html#a4885082fb3432f4252eb02e6923bed4d',1,'creer_boss(entite_t *, char *):&#160;entite.c'],['../entite_8c.html#ad609d7bba18a6fedd04070e7f704eabe',1,'creer_boss(entite_t *entite, char *nom):&#160;entite.c']]],
+  ['creer_5fmonstre_409',['creer_monstre',['../entite_8h.html#a3fa0ee471c09b5dfdaeb5b1214fac5e9',1,'creer_monstre(entite_t *, char *):&#160;entite.c'],['../entite_8c.html#aed3ed510f67c2cc47ac11e476499a066',1,'creer_monstre(entite_t *entite, char *nom):&#160;entite.c']]],
+  ['creer_5fpersonnage_410',['creer_personnage',['../entite_8h.html#a9fa3ddbfeaa2d080ca913e4a69125eda',1,'creer_personnage(entite_t *):&#160;entite.c'],['../entite_8c.html#aa6a9c845929e4ab11aadc9e914a4ce62',1,'creer_personnage(entite_t *entite):&#160;entite.c']]],
+  ['creer_5fprojectiles_411',['creer_projectiles',['../projectile_8h.html#a7f4bf494705a264eb2cbb8975579c039',1,'creer_projectiles(proj_t type):&#160;projectile.c'],['../projectile_8c.html#af0b2e1bfacb8cd958c93f74278f6ffca',1,'creer_projectiles(proj_t type):&#160;projectile.c']]]
 ];

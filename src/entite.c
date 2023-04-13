@@ -26,12 +26,12 @@ entite_t tab_mob[NB_MOBS] = {
     {"Slime_Rouge", 50, 25, 0.75, 0.40, 6, 0, 0, NULL, NULL, 1, 1, HAUT},
     {"Diablotin", 40, 40, 1.4, 1.0, 5, 0, 0, NULL, NULL, 3, 1, HAUT},
     {"Diable", 80, 80, 0.8, 1.2, 10, 0, 0, NULL, NULL, 2, 1, HAUT},
-    {"Cerbere", 200, 100, 1.8, 0.7, 12, 0, 0, NULL, NULL, 2, 1, HAUT}};
+    {"Cerbere", 120, 100, 1.8, 0.7, 12, 0, 0, NULL, NULL, 2, 1, HAUT}};
 
 entite_t tab_boss[NB_BOSS] = {
-    {"Volibeer", 400, 25, 0.5, 1, 10, 0, 0, NULL, NULL, 0, 1, HAUT},
-    {"Darick", 800, 40, 1, 0.25, 15, 0, 0, NULL, NULL, 0, 1, HAUT},
-    {"Satan", 1500, 150, 2, 2, 15, 0, 0, NULL, NULL, 0, 1, HAUT}};
+    {"Volibeer", 200, 25, 0.5, 1, 10, 0, 0, NULL, NULL, 0, 1, HAUT},
+    {"Darick", 400, 40, 1, 0.25, 15, 0, 0, NULL, NULL, 0, 1, HAUT},
+    {"Satan", 800, 150, 2, 2, 15, 0, 0, NULL, NULL, 0, 1, HAUT}};
 
 /**
  * @fn afficher_entite
@@ -166,8 +166,8 @@ extern entite_t *creer_personnage(entite_t *entite)
     entite->nom = malloc(sizeof(char) * 35);
     // strcpy(entite->nom, "Bon Scott");
 
-    entite->vie = 999;
-    entite->degats = 999;
+    entite->vie = 50;
+    entite->degats = 5;
     entite->vitesse_att = 1.0;
     entite->vitesse_depl = 1.0;
     entite->perim_detect = 0;

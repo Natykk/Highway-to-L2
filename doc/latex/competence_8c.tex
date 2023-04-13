@@ -1,5 +1,5 @@
-\hypertarget{competence_8c}{}\doxysection{Référence du fichier /mnt/c/\+Users/natik/\+Projet\+L2/src/competence.c}
-\label{competence_8c}\index{/mnt/c/Users/natik/ProjetL2/src/competence.c@{/mnt/c/Users/natik/ProjetL2/src/competence.c}}
+\hypertarget{competence_8c}{}\doxysection{Référence du fichier /mnt/c/\+Projet\+L2/src/competence.c}
+\label{competence_8c}\index{/mnt/c/ProjetL2/src/competence.c@{/mnt/c/ProjetL2/src/competence.c}}
 
 
 Fichier contenant les fonctions pour les compétences.  
@@ -10,30 +10,36 @@ Fichier contenant les fonctions pour les compétences.
 {\ttfamily \#include $<$string.\+h$>$}\newline
 {\ttfamily \#include \char`\"{}../head/competence.\+h\char`\"{}}\newline
 Graphe des dépendances par inclusion de competence.\+c\+:
-% FIG 0
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{competence_8c__incl}
+\end{center}
+\end{figure}
 \doxysubsection*{Fonctions}
 \begin{DoxyCompactItemize}
 \item 
-int \mbox{\hyperlink{competence_8c_a7288a7a1da3508f80b1ba35c88a8830a}{init\+\_\+obj\+\_\+necessaires}} (t\+\_\+competence $\ast$competence, t\+\_\+classe type\+Classe, int indice)
+int \mbox{\hyperlink{competence_8c_ab93ddbaa2301bd2df638496a7c0c9cda}{init\+\_\+obj\+\_\+necessaires}} (\mbox{\hyperlink{competence_8h_a774ce31da3950a40e34239f9fa8b8fb1}{t\+\_\+competence}} $\ast$\mbox{\hyperlink{structcompetence}{competence}}, \mbox{\hyperlink{competence_8h_a853cf4e56ef5ad960bf764a4fafe7e77}{t\+\_\+classe}} type\+Classe, int indice)
 \begin{DoxyCompactList}\small\item\em Fonction qui initialise les objets nécessaires pour débloquer une compétence. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{competence_8c_a085615dd1e4ef15aa422ccf901407de1}{changer\+\_\+nom\+Img\+Cpt}} (t\+\_\+competence $\ast$competence)
-\begin{DoxyCompactList}\small\item\em Met le nom de la compétence en question à \char`\"{}débloqué\char`\"{}. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{competence_8c_a52bc84e43fee23e1b1ad6ceef31a8ffb}{remplissage\+\_\+nom\+Img\+Cpt}} (t\+\_\+competence $\ast$$\ast$competences, t\+\_\+classe type\+Classe)
-\begin{DoxyCompactList}\small\item\em Met le nom des compétences à \char`\"{}bloqué\char`\"{} (l=lock) \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{competence_8c_a2fbf26c59ad999c95afdce071d19e145}{init\+\_\+competences}} (t\+\_\+competence $\ast$$\ast$competences, t\+\_\+classe type\+Classe)
-\begin{DoxyCompactList}\small\item\em Initialise les compétences. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{competence_8c_abebf07555a61bc16b15d298476859f58}{aff\+\_\+competence}} (t\+\_\+competence competence)
-\begin{DoxyCompactList}\small\item\em Affiche les informations d\textquotesingle{}une compétence. \end{DoxyCompactList}\end{DoxyCompactItemize}
+int \mbox{\hyperlink{competence_8c_a085615dd1e4ef15aa422ccf901407de1}{changer\+\_\+nom\+Img\+Cpt}} (\mbox{\hyperlink{competence_8h_a774ce31da3950a40e34239f9fa8b8fb1}{t\+\_\+competence}} $\ast$\mbox{\hyperlink{structcompetence}{competence}})
+\begin{DoxyCompactList}\small\item\em Fonction qui change le nom de l\textquotesingle{}image de la compétence. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{competence_8c_a52bc84e43fee23e1b1ad6ceef31a8ffb}{remplissage\+\_\+nom\+Img\+Cpt}} (\mbox{\hyperlink{competence_8h_a774ce31da3950a40e34239f9fa8b8fb1}{t\+\_\+competence}} $\ast$$\ast$competences, \mbox{\hyperlink{competence_8h_a853cf4e56ef5ad960bf764a4fafe7e77}{t\+\_\+classe}} type\+Classe)
+\begin{DoxyCompactList}\small\item\em Fonction qui remplit le nom de l\textquotesingle{}image de la compétence. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{competence_8c_a2fbf26c59ad999c95afdce071d19e145}{init\+\_\+competences}} (\mbox{\hyperlink{competence_8h_a774ce31da3950a40e34239f9fa8b8fb1}{t\+\_\+competence}} $\ast$$\ast$competences, \mbox{\hyperlink{competence_8h_a853cf4e56ef5ad960bf764a4fafe7e77}{t\+\_\+classe}} type\+Classe)
+\begin{DoxyCompactList}\small\item\em Fonction qui initialise les compétences d\textquotesingle{}une classe. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{competence_8c_abebf07555a61bc16b15d298476859f58}{aff\+\_\+competence}} (\mbox{\hyperlink{competence_8h_a774ce31da3950a40e34239f9fa8b8fb1}{t\+\_\+competence}} \mbox{\hyperlink{structcompetence}{competence}})
+\begin{DoxyCompactList}\small\item\em Fonction qui affiche les informations d\textquotesingle{}une compétence. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
-t\+\_\+competence {\bfseries cpt\+\_\+assassin} \mbox{[}NB\+\_\+\+CPT\mbox{]}
+\mbox{\hyperlink{competence_8h_a774ce31da3950a40e34239f9fa8b8fb1}{t\+\_\+competence}} \mbox{\hyperlink{competence_8c_a7d816934334c9583fe29c04ce3d14d6e}{cpt\+\_\+assassin}} \mbox{[}\mbox{\hyperlink{competence_8h_a8e67f772cc7b97f1a02211a20bad0c30}{NB\+\_\+\+CPT}}\mbox{]}
 \item 
-t\+\_\+competence {\bfseries cpt\+\_\+mage} \mbox{[}NB\+\_\+\+CPT\mbox{]}
+\mbox{\hyperlink{competence_8h_a774ce31da3950a40e34239f9fa8b8fb1}{t\+\_\+competence}} \mbox{\hyperlink{competence_8c_abbd8bc4481c04d572d284fa3f17b5a16}{cpt\+\_\+mage}} \mbox{[}\mbox{\hyperlink{competence_8h_a8e67f772cc7b97f1a02211a20bad0c30}{NB\+\_\+\+CPT}}\mbox{]}
 \item 
-t\+\_\+competence {\bfseries cpt\+\_\+guerrier} \mbox{[}NB\+\_\+\+CPT\mbox{]}
+\mbox{\hyperlink{competence_8h_a774ce31da3950a40e34239f9fa8b8fb1}{t\+\_\+competence}} \mbox{\hyperlink{competence_8c_a417bab0dab03433c24a5f483082ed9e6}{cpt\+\_\+guerrier}} \mbox{[}\mbox{\hyperlink{competence_8h_a8e67f772cc7b97f1a02211a20bad0c30}{NB\+\_\+\+CPT}}\mbox{]}
 \item 
-t\+\_\+competence {\bfseries cpt\+\_\+archer} \mbox{[}NB\+\_\+\+CPT\mbox{]}
+\mbox{\hyperlink{competence_8h_a774ce31da3950a40e34239f9fa8b8fb1}{t\+\_\+competence}} \mbox{\hyperlink{competence_8c_aa24ad7b61ca5efb7c7b4cf3c8ac0c3b0}{cpt\+\_\+archer}} \mbox{[}\mbox{\hyperlink{competence_8h_a8e67f772cc7b97f1a02211a20bad0c30}{NB\+\_\+\+CPT}}\mbox{]}
 \end{DoxyCompactItemize}
 
 
@@ -47,14 +53,18 @@ Fichier contenant les fonctions pour les compétences.
 \index{competence.c@{competence.c}!aff\_competence@{aff\_competence}}
 \index{aff\_competence@{aff\_competence}!competence.c@{competence.c}}
 \doxysubsubsection{\texorpdfstring{aff\_competence()}{aff\_competence()}}
-{\footnotesize\ttfamily void aff\+\_\+competence (\begin{DoxyParamCaption}\item[{t\+\_\+competence}]{competence }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void aff\+\_\+competence (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{competence_8h_a774ce31da3950a40e34239f9fa8b8fb1}{t\+\_\+competence}}}]{competence }\end{DoxyParamCaption})}
 
 
 
-Affiche les informations d\textquotesingle{}une compétence. 
+Fonction qui affiche les informations d\textquotesingle{}une compétence. 
+
+Affiche les informations d\textquotesingle{}une compétence.
 
 
 \begin{DoxyParams}{Paramètres}
+{\em competence} & Compétence à afficher\\
+\hline
 {\em competence} & La compétence à afficher \\
 \hline
 \end{DoxyParams}
@@ -62,12 +72,22 @@ Affiche les informations d\textquotesingle{}une compétence.
 \index{competence.c@{competence.c}!changer\_nomImgCpt@{changer\_nomImgCpt}}
 \index{changer\_nomImgCpt@{changer\_nomImgCpt}!competence.c@{competence.c}}
 \doxysubsubsection{\texorpdfstring{changer\_nomImgCpt()}{changer\_nomImgCpt()}}
-{\footnotesize\ttfamily int changer\+\_\+nom\+Img\+Cpt (\begin{DoxyParamCaption}\item[{t\+\_\+competence $\ast$}]{competence }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily int changer\+\_\+nom\+Img\+Cpt (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{competence_8h_a774ce31da3950a40e34239f9fa8b8fb1}{t\+\_\+competence}} $\ast$}]{competence }\end{DoxyParamCaption})}
 
 
 
-Met le nom de la compétence en question à \char`\"{}débloqué\char`\"{}. 
+Fonction qui change le nom de l\textquotesingle{}image de la compétence. 
 
+Met le nom de la compétence en question à \char`\"{}débloqué\char`\"{}.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em competence} & Pointeur sur la compétence à initialiser \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0 si tout s\textquotesingle{}est bien passé, -\/1 sinon
+\end{DoxyReturn}
 
 \begin{DoxyParams}{Paramètres}
 {\em competence} & La compétence dont on veut changer le nom \\
@@ -80,12 +100,24 @@ Met le nom de la compétence en question à \char`\"{}débloqué\char`\"{}.
 \index{competence.c@{competence.c}!init\_competences@{init\_competences}}
 \index{init\_competences@{init\_competences}!competence.c@{competence.c}}
 \doxysubsubsection{\texorpdfstring{init\_competences()}{init\_competences()}}
-{\footnotesize\ttfamily int init\+\_\+competences (\begin{DoxyParamCaption}\item[{t\+\_\+competence $\ast$$\ast$}]{competences,  }\item[{t\+\_\+classe}]{type\+Classe }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily int init\+\_\+competences (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{competence_8h_a774ce31da3950a40e34239f9fa8b8fb1}{t\+\_\+competence}} $\ast$$\ast$}]{competences,  }\item[{\mbox{\hyperlink{competence_8h_a853cf4e56ef5ad960bf764a4fafe7e77}{t\+\_\+classe}}}]{type\+Classe }\end{DoxyParamCaption})}
 
 
 
-Initialise les compétences. 
+Fonction qui initialise les compétences d\textquotesingle{}une classe. 
 
+Initialise les compétences.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em competences} & Pointeur sur le tableau de compétences à initialiser \\
+\hline
+{\em type\+Classe} & Type de la classe \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0 si tout s\textquotesingle{}est bien passé, -\/1 sinon
+\end{DoxyReturn}
 
 \begin{DoxyParams}{Paramètres}
 {\em competences} & Les compétences à initialiser \\
@@ -96,16 +128,28 @@ Initialise les compétences.
 \begin{DoxyReturn}{Renvoie}
 1 si tout s\textquotesingle{}est bien passé, 0 sinon 
 \end{DoxyReturn}
-\mbox{\Hypertarget{competence_8c_a7288a7a1da3508f80b1ba35c88a8830a}\label{competence_8c_a7288a7a1da3508f80b1ba35c88a8830a}} 
+\mbox{\Hypertarget{competence_8c_ab93ddbaa2301bd2df638496a7c0c9cda}\label{competence_8c_ab93ddbaa2301bd2df638496a7c0c9cda}} 
 \index{competence.c@{competence.c}!init\_obj\_necessaires@{init\_obj\_necessaires}}
 \index{init\_obj\_necessaires@{init\_obj\_necessaires}!competence.c@{competence.c}}
 \doxysubsubsection{\texorpdfstring{init\_obj\_necessaires()}{init\_obj\_necessaires()}}
-{\footnotesize\ttfamily init\+\_\+obj\+\_\+necessaires (\begin{DoxyParamCaption}\item[{t\+\_\+competence $\ast$}]{competence,  }\item[{t\+\_\+classe}]{type\+Classe,  }\item[{int}]{indice }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily int init\+\_\+obj\+\_\+necessaires (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{competence_8h_a774ce31da3950a40e34239f9fa8b8fb1}{t\+\_\+competence}} $\ast$}]{competence,  }\item[{\mbox{\hyperlink{competence_8h_a853cf4e56ef5ad960bf764a4fafe7e77}{t\+\_\+classe}}}]{type\+Classe,  }\item[{int}]{indice }\end{DoxyParamCaption})}
 
 
 
 Fonction qui initialise les objets nécessaires pour débloquer une compétence. 
 
+
+\begin{DoxyParams}{Paramètres}
+{\em competence} & Pointeur sur la compétence à initialiser \\
+\hline
+{\em type\+Classe} & Type de la classe \\
+\hline
+{\em indice} & Indice de la compétence dans le tableau de compétences \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0 si tout s\textquotesingle{}est bien passé, -\/1 sinon
+\end{DoxyReturn}
 
 \begin{DoxyParams}{Paramètres}
 {\em competence} & La compétence à initialiser \\
@@ -122,11 +166,25 @@ Fonction qui initialise les objets nécessaires pour débloquer une compétence.
 \index{competence.c@{competence.c}!remplissage\_nomImgCpt@{remplissage\_nomImgCpt}}
 \index{remplissage\_nomImgCpt@{remplissage\_nomImgCpt}!competence.c@{competence.c}}
 \doxysubsubsection{\texorpdfstring{remplissage\_nomImgCpt()}{remplissage\_nomImgCpt()}}
-{\footnotesize\ttfamily int remplissage\+\_\+nom\+Img\+Cpt (\begin{DoxyParamCaption}\item[{t\+\_\+competence $\ast$$\ast$}]{competences,  }\item[{t\+\_\+classe}]{type\+Classe }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily int remplissage\+\_\+nom\+Img\+Cpt (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{competence_8h_a774ce31da3950a40e34239f9fa8b8fb1}{t\+\_\+competence}} $\ast$$\ast$}]{competences,  }\item[{\mbox{\hyperlink{competence_8h_a853cf4e56ef5ad960bf764a4fafe7e77}{t\+\_\+classe}}}]{type\+Classe }\end{DoxyParamCaption})}
 
 
 
-Met le nom des compétences à \char`\"{}bloqué\char`\"{} (l=lock) 
+Fonction qui remplit le nom de l\textquotesingle{}image de la compétence. 
+
+Met le nom des compétences à \char`\"{}bloqué\char`\"{} (l=lock)
+
+
+\begin{DoxyParams}{Paramètres}
+{\em competences} & Pointeur de pointeur sur le tableau de compétences à initialiser \\
+\hline
+{\em type\+Classe} & Type de la classe \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0 si tout s\textquotesingle{}est bien passé, -\/1 sinon
+\end{DoxyReturn}
+Cette fonction est utilisée pour remplir le nom de l\textquotesingle{}image de la compétence
 
 
 \begin{DoxyParams}{Paramètres}
@@ -145,26 +203,26 @@ Met le nom des compétences à \char`\"{}bloqué\char`\"{} (l=lock)
 \index{competence.c@{competence.c}!cpt\_archer@{cpt\_archer}}
 \index{cpt\_archer@{cpt\_archer}!competence.c@{competence.c}}
 \doxysubsubsection{\texorpdfstring{cpt\_archer}{cpt\_archer}}
-{\footnotesize\ttfamily t\+\_\+competence cpt\+\_\+archer\mbox{[}NB\+\_\+\+CPT\mbox{]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{competence_8h_a774ce31da3950a40e34239f9fa8b8fb1}{t\+\_\+competence}} cpt\+\_\+archer\mbox{[}\mbox{\hyperlink{competence_8h_a8e67f772cc7b97f1a02211a20bad0c30}{NB\+\_\+\+CPT}}\mbox{]}}
 
 {\bfseries Valeur initiale \+:}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{=\{}
 \DoxyCodeLine{    }
-\DoxyCodeLine{    \{non\_acquis, \textcolor{stringliteral}{"{}Déplacement Furtif"{}}, \textcolor{stringliteral}{"{}L'archer est capable de se déplacer plus rapidement de manière discrète. Effet : Réduit légèrement le périmètre de détection. Augmente grandement la vitesse de déplacement"{}}, \{NO\_IMPROVE, NO\_IMPROVE, NO\_IMPROVE, BIG\_IMPROVE, SMALL\_IMPROVE\}, NULL, 0, NULL, 3, NULL, NULL,1, 1\},}
+\DoxyCodeLine{    \{\mbox{\hyperlink{competence_8h_ac094ad5c96abb76aa1317fa1edfbff69ae33ca14066e60a500c0d3adb157f33cb}{non\_acquis}}, \textcolor{stringliteral}{"{}Déplacement Furtif"{}}, \textcolor{stringliteral}{"{}L'archer est capable de se déplacer plus rapidement de manière discrète. Effet : Réduit légèrement le périmètre de détection. Augmente grandement la vitesse de déplacement"{}}, \{\mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}}, \mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}}, \mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}}, \mbox{\hyperlink{competence_8h_ad6827934fec2a2d3d83245559f7a2754}{BIG\_IMPROVE}}, \mbox{\hyperlink{competence_8h_a3b42f784c4bb79ce91a0c303bd805c53}{SMALL\_IMPROVE}}\}, NULL, 0, NULL, 3, NULL, NULL,1, 1\},}
 \DoxyCodeLine{    }
-\DoxyCodeLine{    \{non\_acquis, \textcolor{stringliteral}{"{}Arc Séraphin"{}}, \textcolor{stringliteral}{"{}Arc légendaire donnée par la plus grande instance de la Hiérarchie Céleste. Effet : Augmente légèrement les points de vie et grandement les dégats."{}}, \{SMALL\_IMPROVE, BIG\_IMPROVE, NO\_IMPROVE, NO\_IMPROVE, NO\_IMPROVE\}, NULL, 1, NULL, 1, NULL, NULL,2, 2\},}
-\DoxyCodeLine{    \{non\_acquis, \textcolor{stringliteral}{"{}Arc d'Ether"{}}, \textcolor{stringliteral}{"{}L'arc de l'Archer s'améliore en l'Arc d'Ether, léger et facile à manier. Effet : Augmente la vitesse de déplacement et la vitesse d'attaque."{}}, \{NO\_IMPROVE, NO\_IMPROVE, MIDDLE\_IMPROVE, MIDDLE\_IMPROVE, NO\_IMPROVE\}, NULL, 1, NULL, 2, NULL, NULL,2, 2\},}
-\DoxyCodeLine{    \{non\_acquis, \textcolor{stringliteral}{"{}Arc du Vide"{}}, \textcolor{stringliteral}{"{}Arc sinistre obtenu dans le tombeau du pharaon Ramsès II. Effet : Augmente énormement les dégats."{}}, \{NO\_IMPROVE, ULTRA\_IMPROVE, NO\_IMPROVE, NO\_IMPROVE, NO\_IMPROVE\}, NULL, 1, NULL, 1, NULL, NULL, 2, 2\},}
+\DoxyCodeLine{    \{\mbox{\hyperlink{competence_8h_ac094ad5c96abb76aa1317fa1edfbff69ae33ca14066e60a500c0d3adb157f33cb}{non\_acquis}}, \textcolor{stringliteral}{"{}Arc Séraphin"{}}, \textcolor{stringliteral}{"{}Arc légendaire donnée par la plus grande instance de la Hiérarchie Céleste. Effet : Augmente légèrement les points de vie et grandement les dégats."{}}, \{\mbox{\hyperlink{competence_8h_a3b42f784c4bb79ce91a0c303bd805c53}{SMALL\_IMPROVE}}, \mbox{\hyperlink{competence_8h_ad6827934fec2a2d3d83245559f7a2754}{BIG\_IMPROVE}}, \mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}}, \mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}}, \mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}}\}, NULL, 1, NULL, 1, NULL, NULL,2, 2\},}
+\DoxyCodeLine{    \{\mbox{\hyperlink{competence_8h_ac094ad5c96abb76aa1317fa1edfbff69ae33ca14066e60a500c0d3adb157f33cb}{non\_acquis}}, \textcolor{stringliteral}{"{}Arc d'Ether"{}}, \textcolor{stringliteral}{"{}L'arc de l'Archer s'améliore en l'Arc d'Ether, léger et facile à manier. Effet : Augmente la vitesse de déplacement et la vitesse d'attaque."{}}, \{\mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}}, \mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}}, \mbox{\hyperlink{competence_8h_ae83d55abd2e7d05e1928f00789979dcb}{MIDDLE\_IMPROVE}}, \mbox{\hyperlink{competence_8h_ae83d55abd2e7d05e1928f00789979dcb}{MIDDLE\_IMPROVE}}, \mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}}\}, NULL, 1, NULL, 2, NULL, NULL,2, 2\},}
+\DoxyCodeLine{    \{\mbox{\hyperlink{competence_8h_ac094ad5c96abb76aa1317fa1edfbff69ae33ca14066e60a500c0d3adb157f33cb}{non\_acquis}}, \textcolor{stringliteral}{"{}Arc du Vide"{}}, \textcolor{stringliteral}{"{}Arc sinistre obtenu dans le tombeau du pharaon Ramsès II. Effet : Augmente énormement les dégats."{}}, \{\mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}}, \mbox{\hyperlink{competence_8h_a6df15e4152f39819d8b50c2190d7837f}{ULTRA\_IMPROVE}}, \mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}}, \mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}}, \mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}}\}, NULL, 1, NULL, 1, NULL, NULL, 2, 2\},}
 \DoxyCodeLine{    }
-\DoxyCodeLine{    \{non\_acquis, \textcolor{stringliteral}{"{}Manteau de la Nuit"{}}, \textcolor{stringliteral}{"{}Vêtement de l'archer permettant de réduire la distance de détection des mobs. Effet : Réduit grandement le périmètre de détection des mobs"{}}, \{NO\_IMPROVE, NO\_IMPROVE, NO\_IMPROVE, NO\_IMPROVE, BIG\_IMPROVE\}, NULL, 2, NULL, 2, NULL, NULL,3, 3\},}
-\DoxyCodeLine{    \{non\_acquis, \textcolor{stringliteral}{"{}Sandales d'Hermes"{}}, \textcolor{stringliteral}{"{}Ces sandales accordent au jours une vitesse déplacement remarquable. Effet : Augmente grandement la vitesse de déplacement."{}}, \{NO\_IMPROVE, NO\_IMPROVE, NO\_IMPROVE, BIG\_IMPROVE, NO\_IMPROVE\}, NULL, 2, NULL, 2, NULL, NULL,3, 3\},}
+\DoxyCodeLine{    \{\mbox{\hyperlink{competence_8h_ac094ad5c96abb76aa1317fa1edfbff69ae33ca14066e60a500c0d3adb157f33cb}{non\_acquis}}, \textcolor{stringliteral}{"{}Manteau de la Nuit"{}}, \textcolor{stringliteral}{"{}Vêtement de l'archer permettant de réduire la distance de détection des mobs. Effet : Réduit grandement le périmètre de détection des mobs"{}}, \{\mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}}, \mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}}, \mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}}, \mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}}, \mbox{\hyperlink{competence_8h_ad6827934fec2a2d3d83245559f7a2754}{BIG\_IMPROVE}}\}, NULL, 2, NULL, 2, NULL, NULL,3, 3\},}
+\DoxyCodeLine{    \{\mbox{\hyperlink{competence_8h_ac094ad5c96abb76aa1317fa1edfbff69ae33ca14066e60a500c0d3adb157f33cb}{non\_acquis}}, \textcolor{stringliteral}{"{}Sandales d'Hermes"{}}, \textcolor{stringliteral}{"{}Ces sandales accordent au jours une vitesse déplacement remarquable. Effet : Augmente grandement la vitesse de déplacement."{}}, \{\mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}}, \mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}}, \mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}}, \mbox{\hyperlink{competence_8h_ad6827934fec2a2d3d83245559f7a2754}{BIG\_IMPROVE}}, \mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}}\}, NULL, 2, NULL, 2, NULL, NULL,3, 3\},}
 \DoxyCodeLine{    }
-\DoxyCodeLine{    \{non\_acquis, \textcolor{stringliteral}{"{}Flèches Perforantes"{}}, \textcolor{stringliteral}{"{}Les flèches sont affutées pour atteindre plus facilement les ennemis et les transpercer. Effet : Augmente les dégats et légèrement la vitesse de déplacement."{}}, \{NO\_IMPROVE, MIDDLE\_IMPROVE, NO\_IMPROVE, SMALL\_IMPROVE, NO\_IMPROVE\}, NULL, 1, NULL, 1, NULL, NULL,3, 4\},}
-\DoxyCodeLine{    \{non\_acquis, \textcolor{stringliteral}{"{}Flèche de Gungnir"{}}, \textcolor{stringliteral}{"{}Flèches forgées à partir de la lance d'Odin : Gungnir. Effet : Augmente grandement la vitesse d'attaque"{}}, \{NO\_IMPROVE, NO\_IMPROVE, BIG\_IMPROVE, NO\_IMPROVE, NO\_IMPROVE\}, NULL, 2, NULL, 1, NULL, NULL,3, 4\},}
-\DoxyCodeLine{    \{non\_acquis, \textcolor{stringliteral}{"{}Flèche Vorace"{}}, \textcolor{stringliteral}{"{}Flèches absorbant la vie de la cible. Effet : Augmente les dégats et légèrement les points de vie."{}},\{SMALL\_IMPROVE, MIDDLE\_IMPROVE, NO\_IMPROVE, NO\_IMPROVE, NO\_IMPROVE\}, NULL, 1, NULL, 1, NULL, NULL,3, 4\},}
+\DoxyCodeLine{    \{\mbox{\hyperlink{competence_8h_ac094ad5c96abb76aa1317fa1edfbff69ae33ca14066e60a500c0d3adb157f33cb}{non\_acquis}}, \textcolor{stringliteral}{"{}Flèches Perforantes"{}}, \textcolor{stringliteral}{"{}Les flèches sont affutées pour atteindre plus facilement les ennemis et les transpercer. Effet : Augmente les dégats et légèrement la vitesse de déplacement."{}}, \{\mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}}, \mbox{\hyperlink{competence_8h_ae83d55abd2e7d05e1928f00789979dcb}{MIDDLE\_IMPROVE}}, \mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}}, \mbox{\hyperlink{competence_8h_a3b42f784c4bb79ce91a0c303bd805c53}{SMALL\_IMPROVE}}, \mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}}\}, NULL, 1, NULL, 1, NULL, NULL,3, 4\},}
+\DoxyCodeLine{    \{\mbox{\hyperlink{competence_8h_ac094ad5c96abb76aa1317fa1edfbff69ae33ca14066e60a500c0d3adb157f33cb}{non\_acquis}}, \textcolor{stringliteral}{"{}Flèche de Gungnir"{}}, \textcolor{stringliteral}{"{}Flèches forgées à partir de la lance d'Odin : Gungnir. Effet : Augmente grandement la vitesse d'attaque"{}}, \{\mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}}, \mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}}, \mbox{\hyperlink{competence_8h_ad6827934fec2a2d3d83245559f7a2754}{BIG\_IMPROVE}}, \mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}}, \mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}}\}, NULL, 2, NULL, 1, NULL, NULL,3, 4\},}
+\DoxyCodeLine{    \{\mbox{\hyperlink{competence_8h_ac094ad5c96abb76aa1317fa1edfbff69ae33ca14066e60a500c0d3adb157f33cb}{non\_acquis}}, \textcolor{stringliteral}{"{}Flèche Vorace"{}}, \textcolor{stringliteral}{"{}Flèches absorbant la vie de la cible. Effet : Augmente les dégats et légèrement les points de vie."{}},\{\mbox{\hyperlink{competence_8h_a3b42f784c4bb79ce91a0c303bd805c53}{SMALL\_IMPROVE}}, \mbox{\hyperlink{competence_8h_ae83d55abd2e7d05e1928f00789979dcb}{MIDDLE\_IMPROVE}}, \mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}}, \mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}}, \mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}}\}, NULL, 1, NULL, 1, NULL, NULL,3, 4\},}
 \DoxyCodeLine{    }
-\DoxyCodeLine{    \{non\_acquis, \textcolor{stringliteral}{"{}Salve Ultime"{}}, \textcolor{stringliteral}{"{}L'archer débloque son plein potentiel pour rendre ses flèches plus meurtrières. Effet : Augmente énormement la vitesse d'attaque et de déplacement."{}}, \{NO\_IMPROVE, NO\_IMPROVE, ULTRA\_IMPROVE, ULTRA\_IMPROVE, NO\_IMPROVE\}, NULL, 3, NULL, 0, NULL, NULL,3, 5\},}
+\DoxyCodeLine{    \{\mbox{\hyperlink{competence_8h_ac094ad5c96abb76aa1317fa1edfbff69ae33ca14066e60a500c0d3adb157f33cb}{non\_acquis}}, \textcolor{stringliteral}{"{}Salve Ultime"{}}, \textcolor{stringliteral}{"{}L'archer débloque son plein potentiel pour rendre ses flèches plus meurtrières. Effet : Augmente énormement la vitesse d'attaque et de déplacement."{}}, \{\mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}}, \mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}}, \mbox{\hyperlink{competence_8h_a6df15e4152f39819d8b50c2190d7837f}{ULTRA\_IMPROVE}}, \mbox{\hyperlink{competence_8h_a6df15e4152f39819d8b50c2190d7837f}{ULTRA\_IMPROVE}}, \mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}}\}, NULL, 3, NULL, 0, NULL, NULL,3, 5\},}
 \DoxyCodeLine{\}}
 
 \end{DoxyCode}
@@ -172,26 +230,26 @@ Met le nom des compétences à \char`\"{}bloqué\char`\"{} (l=lock)
 \index{competence.c@{competence.c}!cpt\_assassin@{cpt\_assassin}}
 \index{cpt\_assassin@{cpt\_assassin}!competence.c@{competence.c}}
 \doxysubsubsection{\texorpdfstring{cpt\_assassin}{cpt\_assassin}}
-{\footnotesize\ttfamily t\+\_\+competence cpt\+\_\+assassin\mbox{[}NB\+\_\+\+CPT\mbox{]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{competence_8h_a774ce31da3950a40e34239f9fa8b8fb1}{t\+\_\+competence}} cpt\+\_\+assassin\mbox{[}\mbox{\hyperlink{competence_8h_a8e67f772cc7b97f1a02211a20bad0c30}{NB\+\_\+\+CPT}}\mbox{]}}
 
 {\bfseries Valeur initiale \+:}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{=\{}
 \DoxyCodeLine{    }
-\DoxyCodeLine{    \{non\_acquis, \textcolor{stringliteral}{"{}Frappe Rapide"{}}, \textcolor{stringliteral}{"{}Cette compétence se concentre sur la rapidité d'attaque pour neutraliser rapidement la cible. Effet : Augmente la vitesse d'attaque."{}}, \{NO\_IMPROVE, NO\_IMPROVE, MIDDLE\_IMPROVE, NO\_IMPROVE, NO\_IMPROVE\}, NULL, 0, NULL, 2, NULL,NULL,1, 1\},}
+\DoxyCodeLine{    \{\mbox{\hyperlink{competence_8h_ac094ad5c96abb76aa1317fa1edfbff69ae33ca14066e60a500c0d3adb157f33cb}{non\_acquis}}, \textcolor{stringliteral}{"{}Frappe Rapide"{}}, \textcolor{stringliteral}{"{}Cette compétence se concentre sur la rapidité d'attaque pour neutraliser rapidement la cible. Effet : Augmente la vitesse d'attaque."{}}, \{\mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}}, \mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}}, \mbox{\hyperlink{competence_8h_ae83d55abd2e7d05e1928f00789979dcb}{MIDDLE\_IMPROVE}}, \mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}}, \mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}}\}, NULL, 0, NULL, 2, NULL,NULL,1, 1\},}
 \DoxyCodeLine{    }
-\DoxyCodeLine{    \{non\_acquis, \textcolor{stringliteral}{"{}Cotte de Maille"{}}, \textcolor{stringliteral}{"{}Armure protégeant des petits dégats. Effet : Augmente les points de vie et légèrement la vitesse d'attaque."{}},  \{MIDDLE\_IMPROVE, NO\_IMPROVE, SMALL\_IMPROVE, NO\_IMPROVE, NO\_IMPROVE\}, NULL, 1, NULL, 2, NULL, NULL, 2, 2\},}
-\DoxyCodeLine{    \{non\_acquis, \textcolor{stringliteral}{"{}Cape d'Invisibilité"{}},\textcolor{stringliteral}{"{}L'assassin possède à présent une cape lui permettant d'améliorer sa discrétion. Effet : Réduit grandement le périmètre de détection des mobs."{}},\{NO\_IMPROVE, NO\_IMPROVE, NO\_IMPROVE, NO\_IMPROVE, BIG\_IMPROVE\}, NULL, 1, NULL, 2, NULL, NULL, 2, 2\},}
+\DoxyCodeLine{    \{\mbox{\hyperlink{competence_8h_ac094ad5c96abb76aa1317fa1edfbff69ae33ca14066e60a500c0d3adb157f33cb}{non\_acquis}}, \textcolor{stringliteral}{"{}Cotte de Maille"{}}, \textcolor{stringliteral}{"{}Armure protégeant des petits dégats. Effet : Augmente les points de vie et légèrement la vitesse d'attaque."{}},  \{\mbox{\hyperlink{competence_8h_ae83d55abd2e7d05e1928f00789979dcb}{MIDDLE\_IMPROVE}}, \mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}}, \mbox{\hyperlink{competence_8h_a3b42f784c4bb79ce91a0c303bd805c53}{SMALL\_IMPROVE}}, \mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}}, \mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}}\}, NULL, 1, NULL, 2, NULL, NULL, 2, 2\},}
+\DoxyCodeLine{    \{\mbox{\hyperlink{competence_8h_ac094ad5c96abb76aa1317fa1edfbff69ae33ca14066e60a500c0d3adb157f33cb}{non\_acquis}}, \textcolor{stringliteral}{"{}Cape d'Invisibilité"{}},\textcolor{stringliteral}{"{}L'assassin possède à présent une cape lui permettant d'améliorer sa discrétion. Effet : Réduit grandement le périmètre de détection des mobs."{}},\{\mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}}, \mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}}, \mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}}, \mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}}, \mbox{\hyperlink{competence_8h_ad6827934fec2a2d3d83245559f7a2754}{BIG\_IMPROVE}}\}, NULL, 1, NULL, 2, NULL, NULL, 2, 2\},}
 \DoxyCodeLine{    }
-\DoxyCodeLine{    \{non\_acquis, \textcolor{stringliteral}{"{}Coup Perçant"{}},\textcolor{stringliteral}{"{}L'assassin concentre son énergie dans la pointe de son arme pour assainer des dégats et aspirer de la vie à sa cible. Effet : Augmente les dégats, grandement la vitesse d'attaque et les points de vie."{}}, \{MIDDLE\_IMPROVE, MIDDLE\_IMPROVE, BIG\_IMPROVE, NO\_IMPROVE, NO\_IMPROVE\}, NULL, 1, NULL, 1, NULL, NULL,3, 3\},}
-\DoxyCodeLine{    \{non\_acquis, \textcolor{stringliteral}{"{}Entaille Profonde"{}},\textcolor{stringliteral}{"{}Cette compétence permet à l'assassin d'asséner des coup plus profond infligeant de gros dégats. Effet : Augmente grandement les dégats et la vitesse d'attaque."{}}, \{NO\_IMPROVE, BIG\_IMPROVE, BIG\_IMPROVE, NO\_IMPROVE, NO\_IMPROVE\}, NULL, 1, NULL, 1, NULL, NULL,3, 3\},}
-\DoxyCodeLine{    \{non\_acquis, \textcolor{stringliteral}{"{}Silence Mortel"{}}, \textcolor{stringliteral}{"{}Cette compétence améliore la capacité de l'assassin à se cacher ou à se dissimuler pour passer inaperçu. Effet : Réduit grandement le périmètre de détection des mobs, Augmente la vitesse de déplacement et légèrement la vitesse d'attaque."{}}, \{NO\_IMPROVE,NO\_IMPROVE,SMALL\_IMPROVE,MIDDLE\_IMPROVE,BIG\_IMPROVE\}, NULL, 1, NULL, 1, NULL, NULL,3, 3\},}
-\DoxyCodeLine{    \{non\_acquis, \textcolor{stringliteral}{"{}Marche de l'Ombre"{}}, \textcolor{stringliteral}{"{}Cette compétence permet à l'assassin de se déplacer plus discrètement. Effet : Réduit grandement le périmètre de détection des mobs, Augmente la vitesse d'attaque et légèrement la vitesse de déplacement"{}}, \{NO\_IMPROVE,NO\_IMPROVE,MIDDLE\_IMPROVE,SMALL\_IMPROVE,BIG\_IMPROVE\}, NULL, 1, NULL, 1, NULL, NULL, 3, 3\},}
+\DoxyCodeLine{    \{\mbox{\hyperlink{competence_8h_ac094ad5c96abb76aa1317fa1edfbff69ae33ca14066e60a500c0d3adb157f33cb}{non\_acquis}}, \textcolor{stringliteral}{"{}Coup Perçant"{}},\textcolor{stringliteral}{"{}L'assassin concentre son énergie dans la pointe de son arme pour assainer des dégats et aspirer de la vie à sa cible. Effet : Augmente les dégats, grandement la vitesse d'attaque et les points de vie."{}}, \{\mbox{\hyperlink{competence_8h_ae83d55abd2e7d05e1928f00789979dcb}{MIDDLE\_IMPROVE}}, \mbox{\hyperlink{competence_8h_ae83d55abd2e7d05e1928f00789979dcb}{MIDDLE\_IMPROVE}}, \mbox{\hyperlink{competence_8h_ad6827934fec2a2d3d83245559f7a2754}{BIG\_IMPROVE}}, \mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}}, \mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}}\}, NULL, 1, NULL, 1, NULL, NULL,3, 3\},}
+\DoxyCodeLine{    \{\mbox{\hyperlink{competence_8h_ac094ad5c96abb76aa1317fa1edfbff69ae33ca14066e60a500c0d3adb157f33cb}{non\_acquis}}, \textcolor{stringliteral}{"{}Entaille Profonde"{}},\textcolor{stringliteral}{"{}Cette compétence permet à l'assassin d'asséner des coup plus profond infligeant de gros dégats. Effet : Augmente grandement les dégats et la vitesse d'attaque."{}}, \{\mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}}, \mbox{\hyperlink{competence_8h_ad6827934fec2a2d3d83245559f7a2754}{BIG\_IMPROVE}}, \mbox{\hyperlink{competence_8h_ad6827934fec2a2d3d83245559f7a2754}{BIG\_IMPROVE}}, \mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}}, \mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}}\}, NULL, 1, NULL, 1, NULL, NULL,3, 3\},}
+\DoxyCodeLine{    \{\mbox{\hyperlink{competence_8h_ac094ad5c96abb76aa1317fa1edfbff69ae33ca14066e60a500c0d3adb157f33cb}{non\_acquis}}, \textcolor{stringliteral}{"{}Silence Mortel"{}}, \textcolor{stringliteral}{"{}Cette compétence améliore la capacité de l'assassin à se cacher ou à se dissimuler pour passer inaperçu. Effet : Réduit grandement le périmètre de détection des mobs, Augmente la vitesse de déplacement et légèrement la vitesse d'attaque."{}}, \{\mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}},\mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}},\mbox{\hyperlink{competence_8h_a3b42f784c4bb79ce91a0c303bd805c53}{SMALL\_IMPROVE}},\mbox{\hyperlink{competence_8h_ae83d55abd2e7d05e1928f00789979dcb}{MIDDLE\_IMPROVE}},\mbox{\hyperlink{competence_8h_ad6827934fec2a2d3d83245559f7a2754}{BIG\_IMPROVE}}\}, NULL, 1, NULL, 1, NULL, NULL,3, 3\},}
+\DoxyCodeLine{    \{\mbox{\hyperlink{competence_8h_ac094ad5c96abb76aa1317fa1edfbff69ae33ca14066e60a500c0d3adb157f33cb}{non\_acquis}}, \textcolor{stringliteral}{"{}Marche de l'Ombre"{}}, \textcolor{stringliteral}{"{}Cette compétence permet à l'assassin de se déplacer plus discrètement. Effet : Réduit grandement le périmètre de détection des mobs, Augmente la vitesse d'attaque et légèrement la vitesse de déplacement"{}}, \{\mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}},\mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}},\mbox{\hyperlink{competence_8h_ae83d55abd2e7d05e1928f00789979dcb}{MIDDLE\_IMPROVE}},\mbox{\hyperlink{competence_8h_a3b42f784c4bb79ce91a0c303bd805c53}{SMALL\_IMPROVE}},\mbox{\hyperlink{competence_8h_ad6827934fec2a2d3d83245559f7a2754}{BIG\_IMPROVE}}\}, NULL, 1, NULL, 1, NULL, NULL, 3, 3\},}
 \DoxyCodeLine{    }
-\DoxyCodeLine{    \{non\_acquis, \textcolor{stringliteral}{"{}Bottes de Célérité"{}},\textcolor{stringliteral}{"{}Cette compétence garantit à l'assassin une vitesse de déplacement supérieure. Effet : Augmente grandement la vitesse d'attaque et grandement la vitesse de déplacement."{}}, \{NO\_IMPROVE, NO\_IMPROVE, BIG\_IMPROVE, BIG\_IMPROVE, NO\_IMPROVE\}, NULL, 2, NULL, 1, NULL, NULL,3, 4\},}
-\DoxyCodeLine{    \{non\_acquis, \textcolor{stringliteral}{"{}Bottes de Furtivité"{}},\textcolor{stringliteral}{"{}L'assassin se chausse de bottes masquant le bruit de ses pas. Effet : Réduit énormement le périmètre de détection des mobs et Augmente la vitesse de déplacement."{}},\{NO\_IMPROVE, NO\_IMPROVE, NO\_IMPROVE, MIDDLE\_IMPROVE, ULTRA\_IMPROVE\}, NULL, 2, NULL, 1, NULL, NULL,3, 4\},}
+\DoxyCodeLine{    \{\mbox{\hyperlink{competence_8h_ac094ad5c96abb76aa1317fa1edfbff69ae33ca14066e60a500c0d3adb157f33cb}{non\_acquis}}, \textcolor{stringliteral}{"{}Bottes de Célérité"{}},\textcolor{stringliteral}{"{}Cette compétence garantit à l'assassin une vitesse de déplacement supérieure. Effet : Augmente grandement la vitesse d'attaque et grandement la vitesse de déplacement."{}}, \{\mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}}, \mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}}, \mbox{\hyperlink{competence_8h_ad6827934fec2a2d3d83245559f7a2754}{BIG\_IMPROVE}}, \mbox{\hyperlink{competence_8h_ad6827934fec2a2d3d83245559f7a2754}{BIG\_IMPROVE}}, \mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}}\}, NULL, 2, NULL, 1, NULL, NULL,3, 4\},}
+\DoxyCodeLine{    \{\mbox{\hyperlink{competence_8h_ac094ad5c96abb76aa1317fa1edfbff69ae33ca14066e60a500c0d3adb157f33cb}{non\_acquis}}, \textcolor{stringliteral}{"{}Bottes de Furtivité"{}},\textcolor{stringliteral}{"{}L'assassin se chausse de bottes masquant le bruit de ses pas. Effet : Réduit énormement le périmètre de détection des mobs et Augmente la vitesse de déplacement."{}},\{\mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}}, \mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}}, \mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}}, \mbox{\hyperlink{competence_8h_ae83d55abd2e7d05e1928f00789979dcb}{MIDDLE\_IMPROVE}}, \mbox{\hyperlink{competence_8h_a6df15e4152f39819d8b50c2190d7837f}{ULTRA\_IMPROVE}}\}, NULL, 2, NULL, 1, NULL, NULL,3, 4\},}
 \DoxyCodeLine{    }
-\DoxyCodeLine{    \{non\_acquis, \textcolor{stringliteral}{"{}Chatiment Fatal"{}},\textcolor{stringliteral}{"{}L'assassin concentre toute son énergie dans son arme pour rendre chaque coup fatal. Effet : Augmente enormément les dégats, Augmente la furtivité et la vitesse d'attaque."{}},\{NO\_IMPROVE, ULTRA\_IMPROVE, MIDDLE\_IMPROVE, NO\_IMPROVE, MIDDLE\_IMPROVE\}, NULL, 2, NULL, 0, NULL, NULL,3, 5\},}
+\DoxyCodeLine{    \{\mbox{\hyperlink{competence_8h_ac094ad5c96abb76aa1317fa1edfbff69ae33ca14066e60a500c0d3adb157f33cb}{non\_acquis}}, \textcolor{stringliteral}{"{}Chatiment Fatal"{}},\textcolor{stringliteral}{"{}L'assassin concentre toute son énergie dans son arme pour rendre chaque coup fatal. Effet : Augmente enormément les dégats, Augmente la furtivité et la vitesse d'attaque."{}},\{\mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}}, \mbox{\hyperlink{competence_8h_a6df15e4152f39819d8b50c2190d7837f}{ULTRA\_IMPROVE}}, \mbox{\hyperlink{competence_8h_ae83d55abd2e7d05e1928f00789979dcb}{MIDDLE\_IMPROVE}}, \mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}}, \mbox{\hyperlink{competence_8h_ae83d55abd2e7d05e1928f00789979dcb}{MIDDLE\_IMPROVE}}\}, NULL, 2, NULL, 0, NULL, NULL,3, 5\},}
 \DoxyCodeLine{\}}
 
 \end{DoxyCode}
@@ -199,26 +257,26 @@ Met le nom des compétences à \char`\"{}bloqué\char`\"{} (l=lock)
 \index{competence.c@{competence.c}!cpt\_guerrier@{cpt\_guerrier}}
 \index{cpt\_guerrier@{cpt\_guerrier}!competence.c@{competence.c}}
 \doxysubsubsection{\texorpdfstring{cpt\_guerrier}{cpt\_guerrier}}
-{\footnotesize\ttfamily t\+\_\+competence cpt\+\_\+guerrier\mbox{[}NB\+\_\+\+CPT\mbox{]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{competence_8h_a774ce31da3950a40e34239f9fa8b8fb1}{t\+\_\+competence}} cpt\+\_\+guerrier\mbox{[}\mbox{\hyperlink{competence_8h_a8e67f772cc7b97f1a02211a20bad0c30}{NB\+\_\+\+CPT}}\mbox{]}}
 
 {\bfseries Valeur initiale \+:}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{=\{}
 \DoxyCodeLine{    }
-\DoxyCodeLine{    \{non\_acquis, \textcolor{stringliteral}{"{}Renforcement du Guerrier"{}}, \textcolor{stringliteral}{"{}Cette compétence durcit le corps du Guerrier le redant impénétrable. Effet : Augmente grandement les points de vie."{}}, \{BIG\_IMPROVE, NO\_IMPROVE, NO\_IMPROVE, NO\_IMPROVE, NO\_IMPROVE\}, NULL, 0, NULL, 4, NULL, NULL, 1, 1\},}
+\DoxyCodeLine{    \{\mbox{\hyperlink{competence_8h_ac094ad5c96abb76aa1317fa1edfbff69ae33ca14066e60a500c0d3adb157f33cb}{non\_acquis}}, \textcolor{stringliteral}{"{}Renforcement du Guerrier"{}}, \textcolor{stringliteral}{"{}Cette compétence durcit le corps du Guerrier le redant impénétrable. Effet : Augmente grandement les points de vie."{}}, \{\mbox{\hyperlink{competence_8h_ad6827934fec2a2d3d83245559f7a2754}{BIG\_IMPROVE}}, \mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}}, \mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}}, \mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}}, \mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}}\}, NULL, 0, NULL, 4, NULL, NULL, 1, 1\},}
 \DoxyCodeLine{    }
-\DoxyCodeLine{    \{non\_acquis, \textcolor{stringliteral}{"{}Katana"{}},\textcolor{stringliteral}{"{}Le guerrier échange son épée de base contre un Katana. Effet : Augmente légèrement les dégats et grandement la vitesse d'attaque."{}}, \{NO\_IMPROVE, SMALL\_IMPROVE, BIG\_IMPROVE, NO\_IMPROVE, NO\_IMPROVE\}, NULL, 1, NULL, 1, NULL, NULL, 2, 2\},}
-\DoxyCodeLine{    \{non\_acquis, \textcolor{stringliteral}{"{}Glaive et Bouclier"{}},\textcolor{stringliteral}{"{}Le guerrier échange son épée de base contre un glaive et une petit bouclier. Effet : Augmente les points de vie et les dégats."{}}, \{MIDDLE\_IMPROVE, MIDDLE\_IMPROVE, NO\_IMPROVE, NO\_IMPROVE, NO\_IMPROVE\}, NULL, 1, NULL, 1, NULL, NULL, 2, 2\},}
-\DoxyCodeLine{    \{non\_acquis, \textcolor{stringliteral}{"{}Epée à 2 Mains"{}},\textcolor{stringliteral}{"{}Le guerrier échange son épée de base contre une epée à 2 main. Effet : Augmente énormément les dégats."{}}, \{NO\_IMPROVE, ULTRA\_IMPROVE, NO\_IMPROVE, NO\_IMPROVE, NO\_IMPROVE\}, NULL, 1, NULL, 1, NULL, NULL, 2, 2\},}
-\DoxyCodeLine{    \{non\_acquis, \textcolor{stringliteral}{"{}Hache"{}},\textcolor{stringliteral}{"{}Le guerrier échange son épée de base contre une Hache. Effet : Augmente légèrement la vitesse d'attaque et grandement les dégats."{}}, \{NO\_IMPROVE, BIG\_IMPROVE, SMALL\_IMPROVE, NO\_IMPROVE, NO\_IMPROVE\}, NULL, 1, NULL, 1, NULL, NULL, 2, 2\},}
+\DoxyCodeLine{    \{\mbox{\hyperlink{competence_8h_ac094ad5c96abb76aa1317fa1edfbff69ae33ca14066e60a500c0d3adb157f33cb}{non\_acquis}}, \textcolor{stringliteral}{"{}Katana"{}},\textcolor{stringliteral}{"{}Le guerrier échange son épée de base contre un Katana. Effet : Augmente légèrement les dégats et grandement la vitesse d'attaque."{}}, \{\mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}}, \mbox{\hyperlink{competence_8h_a3b42f784c4bb79ce91a0c303bd805c53}{SMALL\_IMPROVE}}, \mbox{\hyperlink{competence_8h_ad6827934fec2a2d3d83245559f7a2754}{BIG\_IMPROVE}}, \mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}}, \mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}}\}, NULL, 1, NULL, 1, NULL, NULL, 2, 2\},}
+\DoxyCodeLine{    \{\mbox{\hyperlink{competence_8h_ac094ad5c96abb76aa1317fa1edfbff69ae33ca14066e60a500c0d3adb157f33cb}{non\_acquis}}, \textcolor{stringliteral}{"{}Glaive et Bouclier"{}},\textcolor{stringliteral}{"{}Le guerrier échange son épée de base contre un glaive et une petit bouclier. Effet : Augmente les points de vie et les dégats."{}}, \{\mbox{\hyperlink{competence_8h_ae83d55abd2e7d05e1928f00789979dcb}{MIDDLE\_IMPROVE}}, \mbox{\hyperlink{competence_8h_ae83d55abd2e7d05e1928f00789979dcb}{MIDDLE\_IMPROVE}}, \mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}}, \mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}}, \mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}}\}, NULL, 1, NULL, 1, NULL, NULL, 2, 2\},}
+\DoxyCodeLine{    \{\mbox{\hyperlink{competence_8h_ac094ad5c96abb76aa1317fa1edfbff69ae33ca14066e60a500c0d3adb157f33cb}{non\_acquis}}, \textcolor{stringliteral}{"{}Epée à 2 Mains"{}},\textcolor{stringliteral}{"{}Le guerrier échange son épée de base contre une epée à 2 main. Effet : Augmente énormément les dégats."{}}, \{\mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}}, \mbox{\hyperlink{competence_8h_a6df15e4152f39819d8b50c2190d7837f}{ULTRA\_IMPROVE}}, \mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}}, \mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}}, \mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}}\}, NULL, 1, NULL, 1, NULL, NULL, 2, 2\},}
+\DoxyCodeLine{    \{\mbox{\hyperlink{competence_8h_ac094ad5c96abb76aa1317fa1edfbff69ae33ca14066e60a500c0d3adb157f33cb}{non\_acquis}}, \textcolor{stringliteral}{"{}Hache"{}},\textcolor{stringliteral}{"{}Le guerrier échange son épée de base contre une Hache. Effet : Augmente légèrement la vitesse d'attaque et grandement les dégats."{}}, \{\mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}}, \mbox{\hyperlink{competence_8h_ad6827934fec2a2d3d83245559f7a2754}{BIG\_IMPROVE}}, \mbox{\hyperlink{competence_8h_a3b42f784c4bb79ce91a0c303bd805c53}{SMALL\_IMPROVE}}, \mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}}, \mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}}\}, NULL, 1, NULL, 1, NULL, NULL, 2, 2\},}
 \DoxyCodeLine{    }
-\DoxyCodeLine{    \{non\_acquis, \textcolor{stringliteral}{"{}Bénédiction de Neptune"{}},\textcolor{stringliteral}{"{}Le dieu marin Neptune accorde sa bénédiction au Guerrier pour sa bravoure. Effet : Augmente les points de vies et légèrement la vitesse de déplacement"{}}, \{MIDDLE\_IMPROVE, NO\_IMPROVE, NO\_IMPROVE, SMALL\_IMPROVE, NO\_IMPROVE\}, NULL, 2, NULL, 2, NULL, NULL,3, 3\},}
-\DoxyCodeLine{    \{non\_acquis, \textcolor{stringliteral}{"{}Armure d'Hadès"{}},\textcolor{stringliteral}{"{}Après avoir vaincu le dieu des Enfers, le Guerrier a conservé son armure. Effet : Augmente grandement les points de vies"{}}, \{BIG\_IMPROVE, NO\_IMPROVE, NO\_IMPROVE, NO\_IMPROVE, NO\_IMPROVE\}, NULL, 2, NULL, 2, NULL, NULL,3, 3\},}
+\DoxyCodeLine{    \{\mbox{\hyperlink{competence_8h_ac094ad5c96abb76aa1317fa1edfbff69ae33ca14066e60a500c0d3adb157f33cb}{non\_acquis}}, \textcolor{stringliteral}{"{}Bénédiction de Neptune"{}},\textcolor{stringliteral}{"{}Le dieu marin Neptune accorde sa bénédiction au Guerrier pour sa bravoure. Effet : Augmente les points de vies et légèrement la vitesse de déplacement"{}}, \{\mbox{\hyperlink{competence_8h_ae83d55abd2e7d05e1928f00789979dcb}{MIDDLE\_IMPROVE}}, \mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}}, \mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}}, \mbox{\hyperlink{competence_8h_a3b42f784c4bb79ce91a0c303bd805c53}{SMALL\_IMPROVE}}, \mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}}\}, NULL, 2, NULL, 2, NULL, NULL,3, 3\},}
+\DoxyCodeLine{    \{\mbox{\hyperlink{competence_8h_ac094ad5c96abb76aa1317fa1edfbff69ae33ca14066e60a500c0d3adb157f33cb}{non\_acquis}}, \textcolor{stringliteral}{"{}Armure d'Hadès"{}},\textcolor{stringliteral}{"{}Après avoir vaincu le dieu des Enfers, le Guerrier a conservé son armure. Effet : Augmente grandement les points de vies"{}}, \{\mbox{\hyperlink{competence_8h_ad6827934fec2a2d3d83245559f7a2754}{BIG\_IMPROVE}}, \mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}}, \mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}}, \mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}}, \mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}}\}, NULL, 2, NULL, 2, NULL, NULL,3, 3\},}
 \DoxyCodeLine{    }
-\DoxyCodeLine{    \{non\_acquis, \textcolor{stringliteral}{"{}Bottes des Géants"{}}, \textcolor{stringliteral}{"{}Le guerrier s'équipe a présent de bottes donné en cadeau par des Géants au guerrier. Effet : Augmente grandement la vitesse de déplacement et Augmente légèrement les points de vie."{}}, \{SMALL\_IMPROVE, NO\_IMPROVE, NO\_IMPROVE, BIG\_IMPROVE, NO\_IMPROVE\}, NULL, 2, NULL, 1, NULL, NULL,3, 4\},}
-\DoxyCodeLine{    \{non\_acquis, \textcolor{stringliteral}{"{}Bottes de Sept Lieues"{}}, \textcolor{stringliteral}{"{}Le guerrier s'équipe a présent de bottes donné en cadeau par les Postillons au guerrier. Effet : Augmente grandement la vitesse de déplacement et Réduit légèrement le périmètre de détection des mobs."{}}, \{NO\_IMPROVE, NO\_IMPROVE, NO\_IMPROVE, BIG\_IMPROVE, SMALL\_IMPROVE\}, NULL, 2, NULL, 1, NULL, NULL,3, 4\},}
+\DoxyCodeLine{    \{\mbox{\hyperlink{competence_8h_ac094ad5c96abb76aa1317fa1edfbff69ae33ca14066e60a500c0d3adb157f33cb}{non\_acquis}}, \textcolor{stringliteral}{"{}Bottes des Géants"{}}, \textcolor{stringliteral}{"{}Le guerrier s'équipe a présent de bottes donné en cadeau par des Géants au guerrier. Effet : Augmente grandement la vitesse de déplacement et Augmente légèrement les points de vie."{}}, \{\mbox{\hyperlink{competence_8h_a3b42f784c4bb79ce91a0c303bd805c53}{SMALL\_IMPROVE}}, \mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}}, \mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}}, \mbox{\hyperlink{competence_8h_ad6827934fec2a2d3d83245559f7a2754}{BIG\_IMPROVE}}, \mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}}\}, NULL, 2, NULL, 1, NULL, NULL,3, 4\},}
+\DoxyCodeLine{    \{\mbox{\hyperlink{competence_8h_ac094ad5c96abb76aa1317fa1edfbff69ae33ca14066e60a500c0d3adb157f33cb}{non\_acquis}}, \textcolor{stringliteral}{"{}Bottes de Sept Lieues"{}}, \textcolor{stringliteral}{"{}Le guerrier s'équipe a présent de bottes donné en cadeau par les Postillons au guerrier. Effet : Augmente grandement la vitesse de déplacement et Réduit légèrement le périmètre de détection des mobs."{}}, \{\mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}}, \mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}}, \mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}}, \mbox{\hyperlink{competence_8h_ad6827934fec2a2d3d83245559f7a2754}{BIG\_IMPROVE}}, \mbox{\hyperlink{competence_8h_a3b42f784c4bb79ce91a0c303bd805c53}{SMALL\_IMPROVE}}\}, NULL, 2, NULL, 1, NULL, NULL,3, 4\},}
 \DoxyCodeLine{    }
-\DoxyCodeLine{    \{non\_acquis, \textcolor{stringliteral}{"{}Rage du Berzerk"{}}, \textcolor{stringliteral}{"{}Le guerrier debloque entièrement sa puissance pour détruire ses adversaire. Effet : Augmente énormémment la vitesse d'attaque, Augmente les dégats et la vitesse de déplacement."{}}, \{NO\_IMPROVE, MIDDLE\_IMPROVE, BIG\_IMPROVE, MIDDLE\_IMPROVE, NO\_IMPROVE\}, NULL, 2, NULL, 0, NULL, NULL,3, 5\}}
+\DoxyCodeLine{    \{\mbox{\hyperlink{competence_8h_ac094ad5c96abb76aa1317fa1edfbff69ae33ca14066e60a500c0d3adb157f33cb}{non\_acquis}}, \textcolor{stringliteral}{"{}Rage du Berzerk"{}}, \textcolor{stringliteral}{"{}Le guerrier debloque entièrement sa puissance pour détruire ses adversaire. Effet : Augmente énormémment la vitesse d'attaque, Augmente les dégats et la vitesse de déplacement."{}}, \{\mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}}, \mbox{\hyperlink{competence_8h_ae83d55abd2e7d05e1928f00789979dcb}{MIDDLE\_IMPROVE}}, \mbox{\hyperlink{competence_8h_ad6827934fec2a2d3d83245559f7a2754}{BIG\_IMPROVE}}, \mbox{\hyperlink{competence_8h_ae83d55abd2e7d05e1928f00789979dcb}{MIDDLE\_IMPROVE}}, \mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}}\}, NULL, 2, NULL, 0, NULL, NULL,3, 5\}}
 \DoxyCodeLine{\}}
 
 \end{DoxyCode}
@@ -226,26 +284,26 @@ Met le nom des compétences à \char`\"{}bloqué\char`\"{} (l=lock)
 \index{competence.c@{competence.c}!cpt\_mage@{cpt\_mage}}
 \index{cpt\_mage@{cpt\_mage}!competence.c@{competence.c}}
 \doxysubsubsection{\texorpdfstring{cpt\_mage}{cpt\_mage}}
-{\footnotesize\ttfamily t\+\_\+competence cpt\+\_\+mage\mbox{[}NB\+\_\+\+CPT\mbox{]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{competence_8h_a774ce31da3950a40e34239f9fa8b8fb1}{t\+\_\+competence}} cpt\+\_\+mage\mbox{[}\mbox{\hyperlink{competence_8h_a8e67f772cc7b97f1a02211a20bad0c30}{NB\+\_\+\+CPT}}\mbox{]}}
 
 {\bfseries Valeur initiale \+:}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{=\{}
 \DoxyCodeLine{    }
-\DoxyCodeLine{    \{non\_acquis, \textcolor{stringliteral}{"{}Bâton de Magie Supérieure"{}}, \textcolor{stringliteral}{"{}Le mage possède à présent un bâton de magie améliorant ses pouvoirs. Effet : Augmente les dégats, Augmente légèrement la vitesse d'attaque."{}}, \{NO\_IMPROVE, MIDDLE\_IMPROVE, SMALL\_IMPROVE, NO\_IMPROVE, NO\_IMPROVE\}, NULL, 0, NULL, 2, NULL, NULL,1, 1\},}
+\DoxyCodeLine{    \{\mbox{\hyperlink{competence_8h_ac094ad5c96abb76aa1317fa1edfbff69ae33ca14066e60a500c0d3adb157f33cb}{non\_acquis}}, \textcolor{stringliteral}{"{}Bâton de Magie Supérieure"{}}, \textcolor{stringliteral}{"{}Le mage possède à présent un bâton de magie améliorant ses pouvoirs. Effet : Augmente les dégats, Augmente légèrement la vitesse d'attaque."{}}, \{\mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}}, \mbox{\hyperlink{competence_8h_ae83d55abd2e7d05e1928f00789979dcb}{MIDDLE\_IMPROVE}}, \mbox{\hyperlink{competence_8h_a3b42f784c4bb79ce91a0c303bd805c53}{SMALL\_IMPROVE}}, \mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}}, \mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}}\}, NULL, 0, NULL, 2, NULL, NULL,1, 1\},}
 \DoxyCodeLine{    }
-\DoxyCodeLine{    \{non\_acquis, \textcolor{stringliteral}{"{}Grand Grimoire"{}}, \textcolor{stringliteral}{"{}Aussi appelé Dragon rouge, c'est un grimoire de magie noire, qui aurait été écrit par un certain Antonio Venitiana del Rabina en 1522 à partir de sources plus anciennes qui remonteraient au roi des Juifs Salomon. Effet : Améliore énormément la vitesse d'attaque"{}}, \{NO\_IMPROVE, NO\_IMPROVE, ULTRA\_IMPROVE, NO\_IMPROVE, NO\_IMPROVE\}, NULL, 1, NULL, 1, NULL, NULL,2, 2\},}
-\DoxyCodeLine{    \{non\_acquis, \textcolor{stringliteral}{"{}Bâton Céleste"{}}, \textcolor{stringliteral}{"{}Le mage est équipé de l'illustre bâton des cieux. Effet : Augmente énormément les dégats."{}}, \{NO\_IMPROVE, ULTRA\_IMPROVE, NO\_IMPROVE, NO\_IMPROVE, NO\_IMPROVE\}, NULL, 1, NULL, 1, NULL, NULL, 2, 2\},}
+\DoxyCodeLine{    \{\mbox{\hyperlink{competence_8h_ac094ad5c96abb76aa1317fa1edfbff69ae33ca14066e60a500c0d3adb157f33cb}{non\_acquis}}, \textcolor{stringliteral}{"{}Grand Grimoire"{}}, \textcolor{stringliteral}{"{}Aussi appelé Dragon rouge, c'est un grimoire de magie noire, qui aurait été écrit par un certain Antonio Venitiana del Rabina en 1522 à partir de sources plus anciennes qui remonteraient au roi des Juifs Salomon. Effet : Améliore énormément la vitesse d'attaque"{}}, \{\mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}}, \mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}}, \mbox{\hyperlink{competence_8h_a6df15e4152f39819d8b50c2190d7837f}{ULTRA\_IMPROVE}}, \mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}}, \mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}}\}, NULL, 1, NULL, 1, NULL, NULL,2, 2\},}
+\DoxyCodeLine{    \{\mbox{\hyperlink{competence_8h_ac094ad5c96abb76aa1317fa1edfbff69ae33ca14066e60a500c0d3adb157f33cb}{non\_acquis}}, \textcolor{stringliteral}{"{}Bâton Céleste"{}}, \textcolor{stringliteral}{"{}Le mage est équipé de l'illustre bâton des cieux. Effet : Augmente énormément les dégats."{}}, \{\mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}}, \mbox{\hyperlink{competence_8h_a6df15e4152f39819d8b50c2190d7837f}{ULTRA\_IMPROVE}}, \mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}}, \mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}}, \mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}}\}, NULL, 1, NULL, 1, NULL, NULL, 2, 2\},}
 \DoxyCodeLine{    }
-\DoxyCodeLine{    \{non\_acquis, \textcolor{stringliteral}{"{}Bénédiction de l'Archange"{}},\textcolor{stringliteral}{"{}Le personnage reçoit la bénédiction de l'Archange Gabriel. Effet : Augmente les points vie."{}},\{MIDDLE\_IMPROVE, NO\_IMPROVE, NO\_IMPROVE, NO\_IMPROVE, NO\_IMPROVE\}, NULL, 2, NULL, 5, NULL, NULL, 3, 3\},}
+\DoxyCodeLine{    \{\mbox{\hyperlink{competence_8h_ac094ad5c96abb76aa1317fa1edfbff69ae33ca14066e60a500c0d3adb157f33cb}{non\_acquis}}, \textcolor{stringliteral}{"{}Bénédiction de l'Archange"{}},\textcolor{stringliteral}{"{}Le personnage reçoit la bénédiction de l'Archange Gabriel. Effet : Augmente les points vie."{}},\{\mbox{\hyperlink{competence_8h_ae83d55abd2e7d05e1928f00789979dcb}{MIDDLE\_IMPROVE}}, \mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}}, \mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}}, \mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}}, \mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}}\}, NULL, 2, NULL, 5, NULL, NULL, 3, 3\},}
 \DoxyCodeLine{    }
-\DoxyCodeLine{    \{non\_acquis, \textcolor{stringliteral}{"{}Magie du Feu"{}},\textcolor{stringliteral}{"{}Le mage transforme sa magie de base en une magie de feu. Effet : Augmente grandement les dégats."{}},\{NO\_IMPROVE, BIG\_IMPROVE, NO\_IMPROVE, NO\_IMPROVE, NO\_IMPROVE\}, NULL, 1, NULL, 1, NULL, NULL,3, 4\},}
-\DoxyCodeLine{    \{non\_acquis, \textcolor{stringliteral}{"{}Magie de l'Eau"{}},\textcolor{stringliteral}{"{}Le mage transforme sa magie de base en une magie de l'eau. Effet : Augmente grandement les dégats."{}},\{NO\_IMPROVE, BIG\_IMPROVE, NO\_IMPROVE, NO\_IMPROVE, NO\_IMPROVE\}, NULL, 1, NULL, 1, NULL, NULL,3, 4\},}
-\DoxyCodeLine{    \{non\_acquis, \textcolor{stringliteral}{"{}Magie Terrestre"{}},\textcolor{stringliteral}{"{}Le mage transforme sa magie de base en une magie de terre. Effet : Augmente grandement les dégats."{}},\{NO\_IMPROVE, BIG\_IMPROVE, NO\_IMPROVE, NO\_IMPROVE, NO\_IMPROVE\}, NULL, 1, NULL, 1, NULL, NULL,3, 4\},}
-\DoxyCodeLine{    \{non\_acquis, \textcolor{stringliteral}{"{}Magie Noire"{}},\textcolor{stringliteral}{"{}Le mage transforme sa magie de base en une magie lugubre. Effet : Augmente grandement les dégats."{}},\{NO\_IMPROVE, BIG\_IMPROVE, NO\_IMPROVE, NO\_IMPROVE, NO\_IMPROVE\}, NULL, 1, NULL, 1, NULL, NULL,3, 4\},}
-\DoxyCodeLine{    \{non\_acquis, \textcolor{stringliteral}{"{}Magie Céleste"{}},\textcolor{stringliteral}{"{}Le mage transforme sa magie de base en une magie céleste. Effet : Augmente grandement les dégats."{}},\{NO\_IMPROVE, BIG\_IMPROVE, NO\_IMPROVE, NO\_IMPROVE, NO\_IMPROVE\}, NULL, 1, NULL, 1, NULL, NULL,3, 4\},}
+\DoxyCodeLine{    \{\mbox{\hyperlink{competence_8h_ac094ad5c96abb76aa1317fa1edfbff69ae33ca14066e60a500c0d3adb157f33cb}{non\_acquis}}, \textcolor{stringliteral}{"{}Magie du Feu"{}},\textcolor{stringliteral}{"{}Le mage transforme sa magie de base en une magie de feu. Effet : Augmente grandement les dégats."{}},\{\mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}}, \mbox{\hyperlink{competence_8h_ad6827934fec2a2d3d83245559f7a2754}{BIG\_IMPROVE}}, \mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}}, \mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}}, \mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}}\}, NULL, 1, NULL, 1, NULL, NULL,3, 4\},}
+\DoxyCodeLine{    \{\mbox{\hyperlink{competence_8h_ac094ad5c96abb76aa1317fa1edfbff69ae33ca14066e60a500c0d3adb157f33cb}{non\_acquis}}, \textcolor{stringliteral}{"{}Magie de l'Eau"{}},\textcolor{stringliteral}{"{}Le mage transforme sa magie de base en une magie de l'eau. Effet : Augmente grandement les dégats."{}},\{\mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}}, \mbox{\hyperlink{competence_8h_ad6827934fec2a2d3d83245559f7a2754}{BIG\_IMPROVE}}, \mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}}, \mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}}, \mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}}\}, NULL, 1, NULL, 1, NULL, NULL,3, 4\},}
+\DoxyCodeLine{    \{\mbox{\hyperlink{competence_8h_ac094ad5c96abb76aa1317fa1edfbff69ae33ca14066e60a500c0d3adb157f33cb}{non\_acquis}}, \textcolor{stringliteral}{"{}Magie Terrestre"{}},\textcolor{stringliteral}{"{}Le mage transforme sa magie de base en une magie de terre. Effet : Augmente grandement les dégats."{}},\{\mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}}, \mbox{\hyperlink{competence_8h_ad6827934fec2a2d3d83245559f7a2754}{BIG\_IMPROVE}}, \mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}}, \mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}}, \mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}}\}, NULL, 1, NULL, 1, NULL, NULL,3, 4\},}
+\DoxyCodeLine{    \{\mbox{\hyperlink{competence_8h_ac094ad5c96abb76aa1317fa1edfbff69ae33ca14066e60a500c0d3adb157f33cb}{non\_acquis}}, \textcolor{stringliteral}{"{}Magie Noire"{}},\textcolor{stringliteral}{"{}Le mage transforme sa magie de base en une magie lugubre. Effet : Augmente grandement les dégats."{}},\{\mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}}, \mbox{\hyperlink{competence_8h_ad6827934fec2a2d3d83245559f7a2754}{BIG\_IMPROVE}}, \mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}}, \mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}}, \mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}}\}, NULL, 1, NULL, 1, NULL, NULL,3, 4\},}
+\DoxyCodeLine{    \{\mbox{\hyperlink{competence_8h_ac094ad5c96abb76aa1317fa1edfbff69ae33ca14066e60a500c0d3adb157f33cb}{non\_acquis}}, \textcolor{stringliteral}{"{}Magie Céleste"{}},\textcolor{stringliteral}{"{}Le mage transforme sa magie de base en une magie céleste. Effet : Augmente grandement les dégats."{}},\{\mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}}, \mbox{\hyperlink{competence_8h_ad6827934fec2a2d3d83245559f7a2754}{BIG\_IMPROVE}}, \mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}}, \mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}}, \mbox{\hyperlink{competence_8h_a8fc406f97003efd6cb26ce0bbfe80912}{NO\_IMPROVE}}\}, NULL, 1, NULL, 1, NULL, NULL,3, 4\},}
 \DoxyCodeLine{    }
-\DoxyCodeLine{    \{non\_acquis, \textcolor{stringliteral}{"{}Artéfact du Merlin"{}}, \textcolor{stringliteral}{"{}Cette compétence permet au personnage d'obtenir un artéfact magique augmentant toutes les stats. Effet : Améliore toutes les statistiques"{}}, \{MIDDLE\_IMPROVE, MIDDLE\_IMPROVE, MIDDLE\_IMPROVE, MIDDLE\_IMPROVE, MIDDLE\_IMPROVE\}, NULL, 5, NULL, 0, NULL, NULL,3, 5\}}
+\DoxyCodeLine{    \{\mbox{\hyperlink{competence_8h_ac094ad5c96abb76aa1317fa1edfbff69ae33ca14066e60a500c0d3adb157f33cb}{non\_acquis}}, \textcolor{stringliteral}{"{}Artéfact du Merlin"{}}, \textcolor{stringliteral}{"{}Cette compétence permet au personnage d'obtenir un artéfact magique augmentant toutes les stats. Effet : Améliore toutes les statistiques"{}}, \{\mbox{\hyperlink{competence_8h_ae83d55abd2e7d05e1928f00789979dcb}{MIDDLE\_IMPROVE}}, \mbox{\hyperlink{competence_8h_ae83d55abd2e7d05e1928f00789979dcb}{MIDDLE\_IMPROVE}}, \mbox{\hyperlink{competence_8h_ae83d55abd2e7d05e1928f00789979dcb}{MIDDLE\_IMPROVE}}, \mbox{\hyperlink{competence_8h_ae83d55abd2e7d05e1928f00789979dcb}{MIDDLE\_IMPROVE}}, \mbox{\hyperlink{competence_8h_ae83d55abd2e7d05e1928f00789979dcb}{MIDDLE\_IMPROVE}}\}, NULL, 5, NULL, 0, NULL, NULL,3, 5\}}
 \DoxyCodeLine{\}}
 
 \end{DoxyCode}

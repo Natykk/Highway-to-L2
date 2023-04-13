@@ -1,36 +1,60 @@
-\hypertarget{sauvegarde_8c}{}\doxysection{Référence du fichier /mnt/c/\+Users/natik/\+Projet\+L2/src/sauvegarde.c}
-\label{sauvegarde_8c}\index{/mnt/c/Users/natik/ProjetL2/src/sauvegarde.c@{/mnt/c/Users/natik/ProjetL2/src/sauvegarde.c}}
-
-
-Fichier contenant les fonctions pour la sauvegarde.  
-
-
+\hypertarget{sauvegarde_8c}{}\doxysection{Référence du fichier /mnt/c/\+Projet\+L2/src/sauvegarde.c}
+\label{sauvegarde_8c}\index{/mnt/c/ProjetL2/src/sauvegarde.c@{/mnt/c/ProjetL2/src/sauvegarde.c}}
 {\ttfamily \#include $<$stdio.\+h$>$}\newline
 {\ttfamily \#include $<$stdlib.\+h$>$}\newline
 {\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$openssl/aes.\+h$>$}\newline
+{\ttfamily \#include $<$openssl/sha.\+h$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
 {\ttfamily \#include \char`\"{}../head/sauvegarde.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}../head/arbre.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}../head/inventaire.\+h\char`\"{}}\newline
 Graphe des dépendances par inclusion de sauvegarde.\+c\+:
-% FIG 0
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{sauvegarde_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{sauvegarde_8c_ad51ded0bbd705f02f73fc60c0b721ced}{BLOCK\+\_\+\+SIZE}}~16
+\item 
+\#define \mbox{\hyperlink{sauvegarde_8c_aa9cf0abf87b30c4c63e9c7e89c590579}{SHA256\+\_\+\+DIGEST\+\_\+\+LENGTH}}~32
+\end{DoxyCompactItemize}
 \doxysubsection*{Fonctions}
 \begin{DoxyCompactItemize}
 \item 
-int \mbox{\hyperlink{sauvegarde_8c_a10265b931c965f42694dc5743712eb54}{one\+\_\+next\+\_\+cpt\+\_\+unlock}} (t\+\_\+competence $\ast$competence)
-\begin{DoxyCompactList}\small\item\em Renvoie l\textquotesingle{}indice de la première compétence suivante qui n\textquotesingle{}est pas acquise. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{sauvegarde_8c_a9841b00b6648bbb1bc4dda9d95349f36}{cpt\+\_\+aquise}} (FILE $\ast$sauv, t\+\_\+arbre $\ast$arbre)
-\begin{DoxyCompactList}\small\item\em Sauvegarde les compétences acquises dans le fichier sauvegarde.\+txt. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{sauvegarde_8c_a83e5857ba2ca95d3f7082d0aa33bf4df}\label{sauvegarde_8c_a83e5857ba2ca95d3f7082d0aa33bf4df}} 
-int {\bfseries sauvegarde} (entite\+\_\+t $\ast$personnage, int num\+\_\+etage)
+int \mbox{\hyperlink{sauvegarde_8c_a8e940f5ad6c1dc16f7cce218662aa925}{sha256\+\_\+file}} (const char $\ast$path, char $\ast$hash)
+\begin{DoxyCompactList}\small\item\em Fonction de hashage. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{sauvegarde_8c_add36d55147c19b274301bdf4dffe715a}{de\+\_\+chiffre\+\_\+fichier\+\_\+\+AES}} (const char $\ast$clef, const char $\ast$fichier\+\_\+entree, const char $\ast$fichier\+\_\+sortie, int mode)
 \item 
-int \mbox{\hyperlink{sauvegarde_8c_a96490affbaf34a840d718f28dec3bd0d}{appliquer}} (entite\+\_\+t $\ast$personnage, t\+\_\+competence $\ast$competence)
+int \mbox{\hyperlink{sauvegarde_8c_a10265b931c965f42694dc5743712eb54}{one\+\_\+next\+\_\+cpt\+\_\+unlock}} (\mbox{\hyperlink{competence_8h_a774ce31da3950a40e34239f9fa8b8fb1}{t\+\_\+competence}} $\ast$\mbox{\hyperlink{structcompetence}{competence}})
+\begin{DoxyCompactList}\small\item\em Renvoie l\textquotesingle{}indice de la première compétence suivante qui n\textquotesingle{}est pas acquise. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{sauvegarde_8c_a9841b00b6648bbb1bc4dda9d95349f36}{cpt\+\_\+aquise}} (FILE $\ast$sauv, \mbox{\hyperlink{structt__arbre}{t\+\_\+arbre}} $\ast$\mbox{\hyperlink{structarbre}{arbre}})
+\begin{DoxyCompactList}\small\item\em Sauvegarde les compétences acquises dans le fichier sauvegarde.\+txt. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{sauvegarde_8c_adca7ba05f48119c3da7e11985eda855b}{sauvegarde}} (\mbox{\hyperlink{structentite__t}{entite\+\_\+t}} $\ast$personnage, int num\+\_\+etage, unsigned char $\ast$key)
+\begin{DoxyCompactList}\small\item\em Fonction de sauvegarde. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{sauvegarde_8c_a96490affbaf34a840d718f28dec3bd0d}{appliquer}} (\mbox{\hyperlink{structentite__t}{entite\+\_\+t}} $\ast$personnage, \mbox{\hyperlink{competence_8h_a774ce31da3950a40e34239f9fa8b8fb1}{t\+\_\+competence}} $\ast$\mbox{\hyperlink{structcompetence}{competence}})
 \begin{DoxyCompactList}\small\item\em Applique les effets d\textquotesingle{}une compétence sur un personnage. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{sauvegarde_8c_adc26325d7dcd1c6236e39cc9bd52ca0d}{chargement}} (entite\+\_\+t $\ast$$\ast$personnage)
-\begin{DoxyCompactList}\small\item\em Charge les données d\textquotesingle{}une sauvegarde dans un personnage. \end{DoxyCompactList}\end{DoxyCompactItemize}
+int \mbox{\hyperlink{sauvegarde_8c_aba8d79fd1197aba1777c17235e41360c}{chargement}} (\mbox{\hyperlink{structentite__t}{entite\+\_\+t}} $\ast$$\ast$personnage, unsigned char $\ast$key)
+\begin{DoxyCompactList}\small\item\em Fonction de chargement. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
-\doxysubsection{Description détaillée}
-Fichier contenant les fonctions pour la sauvegarde. 
+\doxysubsection{Documentation des macros}
+\mbox{\Hypertarget{sauvegarde_8c_ad51ded0bbd705f02f73fc60c0b721ced}\label{sauvegarde_8c_ad51ded0bbd705f02f73fc60c0b721ced}} 
+\index{sauvegarde.c@{sauvegarde.c}!BLOCK\_SIZE@{BLOCK\_SIZE}}
+\index{BLOCK\_SIZE@{BLOCK\_SIZE}!sauvegarde.c@{sauvegarde.c}}
+\doxysubsubsection{\texorpdfstring{BLOCK\_SIZE}{BLOCK\_SIZE}}
+{\footnotesize\ttfamily \#define BLOCK\+\_\+\+SIZE~16}
+
+\mbox{\Hypertarget{sauvegarde_8c_aa9cf0abf87b30c4c63e9c7e89c590579}\label{sauvegarde_8c_aa9cf0abf87b30c4c63e9c7e89c590579}} 
+\index{sauvegarde.c@{sauvegarde.c}!SHA256\_DIGEST\_LENGTH@{SHA256\_DIGEST\_LENGTH}}
+\index{SHA256\_DIGEST\_LENGTH@{SHA256\_DIGEST\_LENGTH}!sauvegarde.c@{sauvegarde.c}}
+\doxysubsubsection{\texorpdfstring{SHA256\_DIGEST\_LENGTH}{SHA256\_DIGEST\_LENGTH}}
+{\footnotesize\ttfamily \#define SHA256\+\_\+\+DIGEST\+\_\+\+LENGTH~32}
 
 
 
@@ -39,7 +63,7 @@ Fichier contenant les fonctions pour la sauvegarde.
 \index{sauvegarde.c@{sauvegarde.c}!appliquer@{appliquer}}
 \index{appliquer@{appliquer}!sauvegarde.c@{sauvegarde.c}}
 \doxysubsubsection{\texorpdfstring{appliquer()}{appliquer()}}
-{\footnotesize\ttfamily int appliquer (\begin{DoxyParamCaption}\item[{entite\+\_\+t $\ast$}]{personnage,  }\item[{t\+\_\+competence $\ast$}]{competence }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily int appliquer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structentite__t}{entite\+\_\+t}} $\ast$}]{personnage,  }\item[{\mbox{\hyperlink{competence_8h_a774ce31da3950a40e34239f9fa8b8fb1}{t\+\_\+competence}} $\ast$}]{competence }\end{DoxyParamCaption})}
 
 
 
@@ -55,29 +79,31 @@ Applique les effets d\textquotesingle{}une compétence sur un personnage.
 \begin{DoxyReturn}{Renvoie}
 1 si l\textquotesingle{}application s\textquotesingle{}est bien déroulée, 0 sinon 
 \end{DoxyReturn}
-\mbox{\Hypertarget{sauvegarde_8c_adc26325d7dcd1c6236e39cc9bd52ca0d}\label{sauvegarde_8c_adc26325d7dcd1c6236e39cc9bd52ca0d}} 
+\mbox{\Hypertarget{sauvegarde_8c_aba8d79fd1197aba1777c17235e41360c}\label{sauvegarde_8c_aba8d79fd1197aba1777c17235e41360c}} 
 \index{sauvegarde.c@{sauvegarde.c}!chargement@{chargement}}
 \index{chargement@{chargement}!sauvegarde.c@{sauvegarde.c}}
 \doxysubsubsection{\texorpdfstring{chargement()}{chargement()}}
-{\footnotesize\ttfamily int chargement (\begin{DoxyParamCaption}\item[{entite\+\_\+t $\ast$$\ast$}]{personnage }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily int chargement (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structentite__t}{entite\+\_\+t}} $\ast$$\ast$}]{personnage,  }\item[{unsigned char $\ast$}]{key }\end{DoxyParamCaption})}
 
 
 
-Charge les données d\textquotesingle{}une sauvegarde dans un personnage. 
+Fonction de chargement. 
 
 
 \begin{DoxyParams}{Paramètres}
-{\em personnage} & le personnage \\
+{\em personnage} & Pointeur sur le pointeur de l\textquotesingle{}entité du joueur \\
+\hline
+{\em key} & Clé de chiffrement \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}
-1 si le chargement s\textquotesingle{}est bien déroulé, 0 sinon 
+0 si le chargement s\textquotesingle{}est bien passé, -\/1 sinon 
 \end{DoxyReturn}
 \mbox{\Hypertarget{sauvegarde_8c_a9841b00b6648bbb1bc4dda9d95349f36}\label{sauvegarde_8c_a9841b00b6648bbb1bc4dda9d95349f36}} 
 \index{sauvegarde.c@{sauvegarde.c}!cpt\_aquise@{cpt\_aquise}}
 \index{cpt\_aquise@{cpt\_aquise}!sauvegarde.c@{sauvegarde.c}}
 \doxysubsubsection{\texorpdfstring{cpt\_aquise()}{cpt\_aquise()}}
-{\footnotesize\ttfamily int cpt\+\_\+aquise (\begin{DoxyParamCaption}\item[{FILE $\ast$}]{sauv,  }\item[{t\+\_\+arbre $\ast$}]{arbre }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily int cpt\+\_\+aquise (\begin{DoxyParamCaption}\item[{FILE $\ast$}]{sauv,  }\item[{\mbox{\hyperlink{structt__arbre}{t\+\_\+arbre}} $\ast$}]{arbre }\end{DoxyParamCaption})}
 
 
 
@@ -93,11 +119,17 @@ Sauvegarde les compétences acquises dans le fichier sauvegarde.\+txt.
 \begin{DoxyReturn}{Renvoie}
 1 si la sauvegarde s\textquotesingle{}est bien déroulée, 0 sinon 
 \end{DoxyReturn}
+\mbox{\Hypertarget{sauvegarde_8c_add36d55147c19b274301bdf4dffe715a}\label{sauvegarde_8c_add36d55147c19b274301bdf4dffe715a}} 
+\index{sauvegarde.c@{sauvegarde.c}!de\_chiffre\_fichier\_AES@{de\_chiffre\_fichier\_AES}}
+\index{de\_chiffre\_fichier\_AES@{de\_chiffre\_fichier\_AES}!sauvegarde.c@{sauvegarde.c}}
+\doxysubsubsection{\texorpdfstring{de\_chiffre\_fichier\_AES()}{de\_chiffre\_fichier\_AES()}}
+{\footnotesize\ttfamily int de\+\_\+chiffre\+\_\+fichier\+\_\+\+AES (\begin{DoxyParamCaption}\item[{const char $\ast$}]{clef,  }\item[{const char $\ast$}]{fichier\+\_\+entree,  }\item[{const char $\ast$}]{fichier\+\_\+sortie,  }\item[{int}]{mode }\end{DoxyParamCaption})}
+
 \mbox{\Hypertarget{sauvegarde_8c_a10265b931c965f42694dc5743712eb54}\label{sauvegarde_8c_a10265b931c965f42694dc5743712eb54}} 
 \index{sauvegarde.c@{sauvegarde.c}!one\_next\_cpt\_unlock@{one\_next\_cpt\_unlock}}
 \index{one\_next\_cpt\_unlock@{one\_next\_cpt\_unlock}!sauvegarde.c@{sauvegarde.c}}
 \doxysubsubsection{\texorpdfstring{one\_next\_cpt\_unlock()}{one\_next\_cpt\_unlock()}}
-{\footnotesize\ttfamily int one\+\_\+next\+\_\+cpt\+\_\+unlock (\begin{DoxyParamCaption}\item[{t\+\_\+competence $\ast$}]{competence }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily int one\+\_\+next\+\_\+cpt\+\_\+unlock (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{competence_8h_a774ce31da3950a40e34239f9fa8b8fb1}{t\+\_\+competence}} $\ast$}]{competence }\end{DoxyParamCaption})}
 
 
 
@@ -111,3 +143,42 @@ Renvoie l\textquotesingle{}indice de la première compétence suivante qui n\tex
 \begin{DoxyReturn}{Renvoie}
 l\textquotesingle{}indice de la première compétence suivante qui n\textquotesingle{}est pas acquise 
 \end{DoxyReturn}
+\mbox{\Hypertarget{sauvegarde_8c_adca7ba05f48119c3da7e11985eda855b}\label{sauvegarde_8c_adca7ba05f48119c3da7e11985eda855b}} 
+\index{sauvegarde.c@{sauvegarde.c}!sauvegarde@{sauvegarde}}
+\index{sauvegarde@{sauvegarde}!sauvegarde.c@{sauvegarde.c}}
+\doxysubsubsection{\texorpdfstring{sauvegarde()}{sauvegarde()}}
+{\footnotesize\ttfamily int sauvegarde (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structentite__t}{entite\+\_\+t}} $\ast$}]{personnage,  }\item[{int}]{num\+\_\+etage,  }\item[{unsigned char $\ast$}]{key }\end{DoxyParamCaption})}
+
+
+
+Fonction de sauvegarde. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em personnage} & Pointeur sur l\textquotesingle{}entité du joueur \\
+\hline
+{\em num\+\_\+etage} & Numéro de l\textquotesingle{}étage actuel \\
+\hline
+{\em key} & Clé de chiffrement \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0 si la sauvegarde s\textquotesingle{}est bien passée, -\/1 sinon 
+\end{DoxyReturn}
+\mbox{\Hypertarget{sauvegarde_8c_a8e940f5ad6c1dc16f7cce218662aa925}\label{sauvegarde_8c_a8e940f5ad6c1dc16f7cce218662aa925}} 
+\index{sauvegarde.c@{sauvegarde.c}!sha256\_file@{sha256\_file}}
+\index{sha256\_file@{sha256\_file}!sauvegarde.c@{sauvegarde.c}}
+\doxysubsubsection{\texorpdfstring{sha256\_file()}{sha256\_file()}}
+{\footnotesize\ttfamily int sha256\+\_\+file (\begin{DoxyParamCaption}\item[{const char $\ast$}]{path,  }\item[{char $\ast$}]{hash }\end{DoxyParamCaption})}
+
+
+
+Fonction de hashage. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em path} & Chemin du fichier à hasher \\
+\hline
+{\em hash} & Pointeur sur le tableau de caractères contenant le hash \\
+\hline
+\end{DoxyParams}

@@ -5,37 +5,37 @@
 #include "entite.h"
 #include "objet.h"
 
-#define VIDE 0
-#define MUR 1
-#define PORTE 2
-#define OBSTACLE 3
-#define PILIER 4
-#define PERSO 5
+#define VIDE 0 //<! Case vide
+#define MUR 1 //<! Case Mur
+#define PORTE 2 //<! Case Porte
+#define OBSTACLE 3 //<! Case Obstacle
+#define PILIER 4 //<! Case Piliers
+#define PERSO 5 //<! Case Personnage
 // Mob entre 10 et 21
-#define MARCHAND 31
-#define BOSS 69 
-#define PROJ_FLECHE_H 70
-#define PROJ_FLECHE_D 71
-#define PROJ_FLECHE_B 72
-#define PROJ_FLECHE_G 73
-#define PROJ_BOULE_H 80
-#define PROJ_BOULE_D 81
-#define PROJ_BOULE_B 82
-#define PROJ_BOULE_G 83
+#define MARCHAND 31 //<! Case Marchand
+#define BOSS 69  //<! Case Boss
+#define PROJ_FLECHE_H 70 //<! Case Projectile fleche vers le haut
+#define PROJ_FLECHE_D 71 //<! Case Projectile fleche vers la droite
+#define PROJ_FLECHE_B 72 //<! Case Projectile fleche vers le bas
+#define PROJ_FLECHE_G 73 //<! Case Projectile fleche vers la gauche
+#define PROJ_BOULE_H 80 //<! Case Projectile boule vers le haut
+#define PROJ_BOULE_D 81  //<! Case Projectile boule vers la droite
+#define PROJ_BOULE_B 82 //<! Case Projectile boule vers le bas
+#define PROJ_BOULE_G 83 //<! Case Projectile boule vers la gauche
 
-#define DIM_ETAGE 5
-#define DIM_SALLE 25
+#define DIM_ETAGE 5 //<! Dimension d'un étage
+#define DIM_SALLE 25 //<! Dimension d'une salle
+ 
+#define LARG_SALLE_BOSS 35 //<! Largeur d'une salle de boss
+#define LONG_SALLE_BOSS 25 //<! Longueur d'une salle de boss
 
-#define LARG_SALLE_BOSS 35
-#define LONG_SALLE_BOSS 25
+#define LONG_MARCHAND 8 //<! Longueur d'une salle de marchand
+#define LARG_MARCHAND 12 //<! Largeur d'une salle de marchand
 
-#define LONG_MARCHAND 8
-#define LARG_MARCHAND 12
+#define LARG_COULOIR 7 //<! Largeur d'un couloir
+#define LONG_COULOIR 15 //<! Longueur d'un couloir
 
-#define LARG_COULOIR 7
-#define LONG_COULOIR 15
-
-#define MOB_MAX 10
+#define MOB_MAX 10 //<! Nombre de mob maximum dans une salle
 extern int NumEtage;
 
 /**
@@ -113,25 +113,97 @@ typedef struct niveau {
 
 
 /* Fonctions  */
-
+/**
+ * \fn void afficher_salle(t_salle salle)
+ * \brief Affiche une salle
+ * \param salle Salle à afficher
+ * 
+*/
 void afficher_salle(t_salle salle);
-
+/**
+ * \fn int salle_disponible(int x, int y, t_salle etage[DIM_ETAGE][DIM_ETAGE])
+ * \brief Vérifie si une salle est disponible
+ * \param x Coordonnée x de la salle
+ * \param y Coordonnée y de la salle
+ * \param etage Etage dans lequel se trouve la salle
+ * \return 1 si la salle est disponible, 0 sinon
+*/
 int salle_disponible(int x, int y, t_salle etage[DIM_ETAGE][DIM_ETAGE]);
-
+/**
+ * \fn t_pos trouverSalle(int num_salle, t_etage * etage)
+ * \brief Trouve une salle dans un étage
+ * \param num_salle Numéro de la salle à trouver
+ * \param etage Etage dans lequel se trouve la salle
+ * 
+ * \return Position de la salle trouvée 
+*/
 t_pos trouverSalle(int num_salle, t_etage * etage);
-
+/**
+ * \fn int nb_lieu_libre(int x, int y, t_salle etage[DIM_ETAGE][DIM_ETAGE])
+ * \brief Compte le nombre de salle libre autour des coordonnées x et y
+ * 
+ * \param x Coordonnée x
+ * \param y Coordonnée y 
+ * \param etage Etage dans lequel chercher
+ * 
+ * \return Nombre de salle libre autour des coordonnées x et y
+*/
 int nb_lieu_libre(int x, int y, t_salle etage[DIM_ETAGE][DIM_ETAGE]);
-
+/**
+ * \fn int nbVoisin(int x, int y, t_etage * etage)
+ * \brief Compte le nombre de voisins d'une salle
+ * \param x Coordonnée x
+ * \param y Coordonnée y
+ * \param etage Etage dans lequel chercher
+ * 
+ * \return Nombre de voisins de la salle
+*/
 int nbVoisin(int x, int y, t_etage * etage);
 
+/**
+ * \fn int genererSalle(int x_salle, int y_salle, t_etage * etage)
+ * \brief Génère une salle
+ * \param x_salle Coordonnée x de la salle
+ * \param y_salle Coordonnée y de la salle
+ * \param etage Etage dans lequel se trouve la salle
+ * 
+ * \return 1 si la génération s'est bien passée, 0 sinon
+*/
 int genererSalle(int x_salle, int y_salle, t_etage * etage);
 
+/**
+ * \fn int genererCouloir(int x_salle, int y_salle, t_etage * etage)
+ * \brief Génère un couloir
+ * \param x_salle Coordonnée x de la salle
+ * \param y_salle Coordonnée y de la salle
+ * \param etage Etage dans lequel se trouve la salle
+ * 
+ * \return 1 si la génération s'est bien passée, 0 sinon
+*/
 int etageConforme(t_etage * etage);
 
+/**
+ * \fn int genererEtage(t_etage * etage)
+ * \brief Génère un étage
+ * \param etage Etage à générer
+ * \return 1 si la génération s'est bien passée, 0 sinon
+*/
 int genererEtage(t_etage * etage);
 
+/**
+ * \fn int genererNiv(t_niv * niveau)
+ * \brief Génère un niveau
+ * \param niveau Niveau à générer
+ * \return 1 si la génération s'est bien passée, 0 sinon
+*/
 int genererNiv(t_niv * niveau);
 
+/**
+ * \fn int detruireNiv(t_niv ** niveau)
+ * \brief Détruit un niveau
+ * \param niveau Niveau à détruire
+ * \return 1 si la destruction s'est bien passée, 0 sinon
+*/
 int detruireNiv(t_niv ** niveau);
 
 

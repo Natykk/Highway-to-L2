@@ -1,5 +1,5 @@
-\hypertarget{menu__cpt_8c}{}\doxysection{Référence du fichier /mnt/c/\+Users/natik/\+Projet\+L2/src/menu\+\_\+cpt.c}
-\label{menu__cpt_8c}\index{/mnt/c/Users/natik/ProjetL2/src/menu\_cpt.c@{/mnt/c/Users/natik/ProjetL2/src/menu\_cpt.c}}
+\hypertarget{menu__cpt_8c}{}\doxysection{Référence du fichier /mnt/c/\+Projet\+L2/src/menu\+\_\+cpt.c}
+\label{menu__cpt_8c}\index{/mnt/c/ProjetL2/src/menu\_cpt.c@{/mnt/c/ProjetL2/src/menu\_cpt.c}}
 
 
 Fichier contenant les fonctions pour le menu des compétences.  
@@ -15,46 +15,41 @@ Fichier contenant les fonctions pour le menu des compétences.
 {\ttfamily \#include \char`\"{}../head/menu\+\_\+cpt.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}../head/itoa.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}../head/inventaire.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../head/competence.\+h\char`\"{}}\newline
 Graphe des dépendances par inclusion de menu\+\_\+cpt.\+c\+:
-% FIG 0
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menu__cpt_8c__incl}
+\end{center}
+\end{figure}
 \doxysubsection*{Fonctions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{menu__cpt_8c_a60a9f40cc43024feb9dc831db209c5fd}\label{menu__cpt_8c_a60a9f40cc43024feb9dc831db209c5fd}} 
-void {\bfseries construire\+\_\+chaine\+\_\+objets} (char $\ast$result, int nb\+\_\+obj, int nb\+\_\+obj\+\_\+requis, char $\ast$nom\+\_\+obj)
+void \mbox{\hyperlink{menu__cpt_8c_a60a9f40cc43024feb9dc831db209c5fd}{construire\+\_\+chaine\+\_\+objets}} (char $\ast$result, int nb\+\_\+obj, int nb\+\_\+obj\+\_\+requis, char $\ast$nom\+\_\+obj)
+\begin{DoxyCompactList}\small\item\em Fonction qui construit la chaine de caractère qui sera affichée dans le menu de l\textquotesingle{}inventaire. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{menu__cpt_8c_a7f41e03806da48e5ad550664092223df}{construire\+\_\+chaine\+\_\+buff}} (char $\ast$result, int i, int buff)
+\begin{DoxyCompactList}\small\item\em Fonction qui construit la chaine de caractère qui sera affichée dans le menu de l\textquotesingle{}inventaire. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{menu__cpt_8c_a63e2fa8cf0ae1a8c2259a85f15708f1d}{check\+\_\+valid\+\_\+cpt}} (SDL\+\_\+\+Renderer $\ast$renderer, TTF\+\_\+\+Font $\ast$font, SDL\+\_\+\+Color color, SDL\+\_\+\+Rect rect, int check)
 \item 
-\mbox{\Hypertarget{menu__cpt_8c_a7f41e03806da48e5ad550664092223df}\label{menu__cpt_8c_a7f41e03806da48e5ad550664092223df}} 
-int {\bfseries construire\+\_\+chaine\+\_\+buff} (char $\ast$result, int i, int buff)
+int \mbox{\hyperlink{menu__cpt_8c_ac308721bc2f50d1c8cf65fd239736306}{in\+\_\+rect}} (int x, int y, struct SDL\+\_\+\+Rect $\ast$r)
+\begin{DoxyCompactList}\small\item\em Fonction qui vérifie si un point est dans un rectangle. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{menu__cpt_8c_a833ff54f7bbf068c611a7363e742acd3}{afficher\+\_\+comp}} (char $\ast$path, SDL\+\_\+\+Renderer $\ast$renderer, SDL\+\_\+\+Rect rect)
+\begin{DoxyCompactList}\small\item\em Fonction qui affiche une compétence. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{menu__cpt_8c_a33ba0123629a327c56b09f57b5b9b1dd}{afficher\+\_\+background}} (SDL\+\_\+\+Window $\ast$window, SDL\+\_\+\+Renderer $\ast$renderer)
+\begin{DoxyCompactList}\small\item\em Fonction qui affiche le fond d\textquotesingle{}écran. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{menu__cpt_8c_a2903f5ba7c56dfa8ad350152f74f60af}{afficher\+\_\+arbre\+\_\+assassin}} (SDL\+\_\+\+Window $\ast$window, SDL\+\_\+\+Renderer $\ast$renderer, \mbox{\hyperlink{structentite__t}{entite\+\_\+t}} $\ast$entite, \mbox{\hyperlink{structt__arbre}{t\+\_\+arbre}} $\ast$assassin, TTF\+\_\+\+Font $\ast$font)
 \item 
-\mbox{\Hypertarget{menu__cpt_8c_a63e2fa8cf0ae1a8c2259a85f15708f1d}\label{menu__cpt_8c_a63e2fa8cf0ae1a8c2259a85f15708f1d}} 
-int {\bfseries check\+\_\+valid\+\_\+cpt} (SDL\+\_\+\+Renderer $\ast$renderer, TTF\+\_\+\+Font $\ast$font, SDL\+\_\+\+Color color, SDL\+\_\+\+Rect rect, int check)
+int \mbox{\hyperlink{menu__cpt_8c_af0f9fae62dda27778175bf1300535a9f}{afficher\+\_\+arbre\+\_\+guerrier}} (SDL\+\_\+\+Window $\ast$window, SDL\+\_\+\+Renderer $\ast$renderer, \mbox{\hyperlink{structentite__t}{entite\+\_\+t}} $\ast$entite, \mbox{\hyperlink{structt__arbre}{t\+\_\+arbre}} $\ast$guerrier, TTF\+\_\+\+Font $\ast$font)
 \item 
-\mbox{\Hypertarget{menu__cpt_8c_ac308721bc2f50d1c8cf65fd239736306}\label{menu__cpt_8c_ac308721bc2f50d1c8cf65fd239736306}} 
-int {\bfseries in\+\_\+rect} (int x, int y, struct SDL\+\_\+\+Rect $\ast$r)
+int \mbox{\hyperlink{menu__cpt_8c_a37321cd94d433ca2d4f9285209c0fa9e}{afficher\+\_\+arbre\+\_\+mage}} (SDL\+\_\+\+Window $\ast$window, SDL\+\_\+\+Renderer $\ast$renderer, \mbox{\hyperlink{structentite__t}{entite\+\_\+t}} $\ast$entite, \mbox{\hyperlink{structt__arbre}{t\+\_\+arbre}} $\ast$mage, TTF\+\_\+\+Font $\ast$font)
 \item 
-\mbox{\Hypertarget{menu__cpt_8c_a833ff54f7bbf068c611a7363e742acd3}\label{menu__cpt_8c_a833ff54f7bbf068c611a7363e742acd3}} 
-void {\bfseries afficher\+\_\+comp} (char $\ast$path, SDL\+\_\+\+Renderer $\ast$renderer, SDL\+\_\+\+Rect rect)
+int \mbox{\hyperlink{menu__cpt_8c_a1cb59680e5e864b1453d0e726f342af9}{afficher\+\_\+arbre\+\_\+archer}} (SDL\+\_\+\+Window $\ast$window, SDL\+\_\+\+Renderer $\ast$renderer, \mbox{\hyperlink{structentite__t}{entite\+\_\+t}} $\ast$entite, \mbox{\hyperlink{structt__arbre}{t\+\_\+arbre}} $\ast$archer, TTF\+\_\+\+Font $\ast$font)
 \item 
-\mbox{\Hypertarget{menu__cpt_8c_a33ba0123629a327c56b09f57b5b9b1dd}\label{menu__cpt_8c_a33ba0123629a327c56b09f57b5b9b1dd}} 
-void {\bfseries afficher\+\_\+background} (SDL\+\_\+\+Window $\ast$window, SDL\+\_\+\+Renderer $\ast$renderer)
+void \mbox{\hyperlink{menu__cpt_8c_af207cd787a1b5eb4fadf1e81e6a7d054}{afficher\+\_\+menu}} (SDL\+\_\+\+Window $\ast$window, SDL\+\_\+\+Renderer $\ast$renderer, \mbox{\hyperlink{structentite__t}{entite\+\_\+t}} $\ast$entite, TTF\+\_\+\+Font $\ast$font)
 \item 
-\mbox{\Hypertarget{menu__cpt_8c_a2903f5ba7c56dfa8ad350152f74f60af}\label{menu__cpt_8c_a2903f5ba7c56dfa8ad350152f74f60af}} 
-int {\bfseries afficher\+\_\+arbre\+\_\+assassin} (SDL\+\_\+\+Window $\ast$window, SDL\+\_\+\+Renderer $\ast$renderer, entite\+\_\+t $\ast$entite, t\+\_\+arbre $\ast$assassin, TTF\+\_\+\+Font $\ast$font)
-\item 
-\mbox{\Hypertarget{menu__cpt_8c_af0f9fae62dda27778175bf1300535a9f}\label{menu__cpt_8c_af0f9fae62dda27778175bf1300535a9f}} 
-int {\bfseries afficher\+\_\+arbre\+\_\+guerrier} (SDL\+\_\+\+Window $\ast$window, SDL\+\_\+\+Renderer $\ast$renderer, entite\+\_\+t $\ast$entite, t\+\_\+arbre $\ast$guerrier, TTF\+\_\+\+Font $\ast$font)
-\item 
-\mbox{\Hypertarget{menu__cpt_8c_a37321cd94d433ca2d4f9285209c0fa9e}\label{menu__cpt_8c_a37321cd94d433ca2d4f9285209c0fa9e}} 
-int {\bfseries afficher\+\_\+arbre\+\_\+mage} (SDL\+\_\+\+Window $\ast$window, SDL\+\_\+\+Renderer $\ast$renderer, entite\+\_\+t $\ast$entite, t\+\_\+arbre $\ast$mage, TTF\+\_\+\+Font $\ast$font)
-\item 
-\mbox{\Hypertarget{menu__cpt_8c_a1cb59680e5e864b1453d0e726f342af9}\label{menu__cpt_8c_a1cb59680e5e864b1453d0e726f342af9}} 
-int {\bfseries afficher\+\_\+arbre\+\_\+archer} (SDL\+\_\+\+Window $\ast$window, SDL\+\_\+\+Renderer $\ast$renderer, entite\+\_\+t $\ast$entite, t\+\_\+arbre $\ast$archer, TTF\+\_\+\+Font $\ast$font)
-\item 
-\mbox{\Hypertarget{menu__cpt_8c_af207cd787a1b5eb4fadf1e81e6a7d054}\label{menu__cpt_8c_af207cd787a1b5eb4fadf1e81e6a7d054}} 
-void {\bfseries afficher\+\_\+menu} (SDL\+\_\+\+Window $\ast$window, SDL\+\_\+\+Renderer $\ast$renderer, entite\+\_\+t $\ast$entite, TTF\+\_\+\+Font $\ast$font)
-\item 
-\mbox{\Hypertarget{menu__cpt_8c_a47de14e767837ab550fba0dd5a34d5c4}\label{menu__cpt_8c_a47de14e767837ab550fba0dd5a34d5c4}} 
-int {\bfseries afficher\+\_\+competence\+\_\+\+SDL} (SDL\+\_\+\+Window $\ast$window, SDL\+\_\+\+Renderer $\ast$renderer, char $\ast$path\+\_\+comp, entite\+\_\+t $\ast$entite, t\+\_\+competence $\ast$competence, t\+\_\+arbre $\ast$arbre, TTF\+\_\+\+Font $\ast$font)
+int \mbox{\hyperlink{menu__cpt_8c_a47de14e767837ab550fba0dd5a34d5c4}{afficher\+\_\+competence\+\_\+\+SDL}} (SDL\+\_\+\+Window $\ast$window, SDL\+\_\+\+Renderer $\ast$renderer, char $\ast$path\+\_\+comp, \mbox{\hyperlink{structentite__t}{entite\+\_\+t}} $\ast$entite, \mbox{\hyperlink{competence_8h_a774ce31da3950a40e34239f9fa8b8fb1}{t\+\_\+competence}} $\ast$\mbox{\hyperlink{structcompetence}{competence}}, \mbox{\hyperlink{structt__arbre}{t\+\_\+arbre}} $\ast$\mbox{\hyperlink{structarbre}{arbre}}, TTF\+\_\+\+Font $\ast$font)
 \end{DoxyCompactItemize}
 
 
@@ -67,3 +62,149 @@ GEORGET Rémy
 \begin{DoxyDate}{Date}
 2023-\/03-\/24 
 \end{DoxyDate}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{menu__cpt_8c_a1cb59680e5e864b1453d0e726f342af9}\label{menu__cpt_8c_a1cb59680e5e864b1453d0e726f342af9}} 
+\index{menu\_cpt.c@{menu\_cpt.c}!afficher\_arbre\_archer@{afficher\_arbre\_archer}}
+\index{afficher\_arbre\_archer@{afficher\_arbre\_archer}!menu\_cpt.c@{menu\_cpt.c}}
+\doxysubsubsection{\texorpdfstring{afficher\_arbre\_archer()}{afficher\_arbre\_archer()}}
+{\footnotesize\ttfamily int afficher\+\_\+arbre\+\_\+archer (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Window $\ast$}]{window,  }\item[{SDL\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{\mbox{\hyperlink{structentite__t}{entite\+\_\+t}} $\ast$}]{entite,  }\item[{\mbox{\hyperlink{structt__arbre}{t\+\_\+arbre}} $\ast$}]{archer,  }\item[{TTF\+\_\+\+Font $\ast$}]{font }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{menu__cpt_8c_a2903f5ba7c56dfa8ad350152f74f60af}\label{menu__cpt_8c_a2903f5ba7c56dfa8ad350152f74f60af}} 
+\index{menu\_cpt.c@{menu\_cpt.c}!afficher\_arbre\_assassin@{afficher\_arbre\_assassin}}
+\index{afficher\_arbre\_assassin@{afficher\_arbre\_assassin}!menu\_cpt.c@{menu\_cpt.c}}
+\doxysubsubsection{\texorpdfstring{afficher\_arbre\_assassin()}{afficher\_arbre\_assassin()}}
+{\footnotesize\ttfamily int afficher\+\_\+arbre\+\_\+assassin (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Window $\ast$}]{window,  }\item[{SDL\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{\mbox{\hyperlink{structentite__t}{entite\+\_\+t}} $\ast$}]{entite,  }\item[{\mbox{\hyperlink{structt__arbre}{t\+\_\+arbre}} $\ast$}]{assassin,  }\item[{TTF\+\_\+\+Font $\ast$}]{font }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{menu__cpt_8c_af0f9fae62dda27778175bf1300535a9f}\label{menu__cpt_8c_af0f9fae62dda27778175bf1300535a9f}} 
+\index{menu\_cpt.c@{menu\_cpt.c}!afficher\_arbre\_guerrier@{afficher\_arbre\_guerrier}}
+\index{afficher\_arbre\_guerrier@{afficher\_arbre\_guerrier}!menu\_cpt.c@{menu\_cpt.c}}
+\doxysubsubsection{\texorpdfstring{afficher\_arbre\_guerrier()}{afficher\_arbre\_guerrier()}}
+{\footnotesize\ttfamily int afficher\+\_\+arbre\+\_\+guerrier (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Window $\ast$}]{window,  }\item[{SDL\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{\mbox{\hyperlink{structentite__t}{entite\+\_\+t}} $\ast$}]{entite,  }\item[{\mbox{\hyperlink{structt__arbre}{t\+\_\+arbre}} $\ast$}]{guerrier,  }\item[{TTF\+\_\+\+Font $\ast$}]{font }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{menu__cpt_8c_a37321cd94d433ca2d4f9285209c0fa9e}\label{menu__cpt_8c_a37321cd94d433ca2d4f9285209c0fa9e}} 
+\index{menu\_cpt.c@{menu\_cpt.c}!afficher\_arbre\_mage@{afficher\_arbre\_mage}}
+\index{afficher\_arbre\_mage@{afficher\_arbre\_mage}!menu\_cpt.c@{menu\_cpt.c}}
+\doxysubsubsection{\texorpdfstring{afficher\_arbre\_mage()}{afficher\_arbre\_mage()}}
+{\footnotesize\ttfamily int afficher\+\_\+arbre\+\_\+mage (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Window $\ast$}]{window,  }\item[{SDL\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{\mbox{\hyperlink{structentite__t}{entite\+\_\+t}} $\ast$}]{entite,  }\item[{\mbox{\hyperlink{structt__arbre}{t\+\_\+arbre}} $\ast$}]{mage,  }\item[{TTF\+\_\+\+Font $\ast$}]{font }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{menu__cpt_8c_a33ba0123629a327c56b09f57b5b9b1dd}\label{menu__cpt_8c_a33ba0123629a327c56b09f57b5b9b1dd}} 
+\index{menu\_cpt.c@{menu\_cpt.c}!afficher\_background@{afficher\_background}}
+\index{afficher\_background@{afficher\_background}!menu\_cpt.c@{menu\_cpt.c}}
+\doxysubsubsection{\texorpdfstring{afficher\_background()}{afficher\_background()}}
+{\footnotesize\ttfamily void afficher\+\_\+background (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Window $\ast$}]{window,  }\item[{SDL\+\_\+\+Renderer $\ast$}]{renderer }\end{DoxyParamCaption})}
+
+
+
+Fonction qui affiche le fond d\textquotesingle{}écran. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em window} & Pointeur sur la fenêtre \\
+\hline
+{\em renderer} & Pointeur sur le renderer \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{menu__cpt_8c_a833ff54f7bbf068c611a7363e742acd3}\label{menu__cpt_8c_a833ff54f7bbf068c611a7363e742acd3}} 
+\index{menu\_cpt.c@{menu\_cpt.c}!afficher\_comp@{afficher\_comp}}
+\index{afficher\_comp@{afficher\_comp}!menu\_cpt.c@{menu\_cpt.c}}
+\doxysubsubsection{\texorpdfstring{afficher\_comp()}{afficher\_comp()}}
+{\footnotesize\ttfamily void afficher\+\_\+comp (\begin{DoxyParamCaption}\item[{char $\ast$}]{path,  }\item[{SDL\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{SDL\+\_\+\+Rect}]{rect }\end{DoxyParamCaption})}
+
+
+
+Fonction qui affiche une compétence. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em path} & Chemin vers l\textquotesingle{}image de la compétence \\
+\hline
+{\em renderer} & Pointeur sur le renderer \\
+\hline
+{\em rect} & Rectangle dans lequel afficher la compétence \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{menu__cpt_8c_a47de14e767837ab550fba0dd5a34d5c4}\label{menu__cpt_8c_a47de14e767837ab550fba0dd5a34d5c4}} 
+\index{menu\_cpt.c@{menu\_cpt.c}!afficher\_competence\_SDL@{afficher\_competence\_SDL}}
+\index{afficher\_competence\_SDL@{afficher\_competence\_SDL}!menu\_cpt.c@{menu\_cpt.c}}
+\doxysubsubsection{\texorpdfstring{afficher\_competence\_SDL()}{afficher\_competence\_SDL()}}
+{\footnotesize\ttfamily int afficher\+\_\+competence\+\_\+\+SDL (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Window $\ast$}]{window,  }\item[{SDL\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{char $\ast$}]{path\+\_\+comp,  }\item[{\mbox{\hyperlink{structentite__t}{entite\+\_\+t}} $\ast$}]{entite,  }\item[{\mbox{\hyperlink{competence_8h_a774ce31da3950a40e34239f9fa8b8fb1}{t\+\_\+competence}} $\ast$}]{competence,  }\item[{\mbox{\hyperlink{structt__arbre}{t\+\_\+arbre}} $\ast$}]{arbre,  }\item[{TTF\+\_\+\+Font $\ast$}]{font }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{menu__cpt_8c_af207cd787a1b5eb4fadf1e81e6a7d054}\label{menu__cpt_8c_af207cd787a1b5eb4fadf1e81e6a7d054}} 
+\index{menu\_cpt.c@{menu\_cpt.c}!afficher\_menu@{afficher\_menu}}
+\index{afficher\_menu@{afficher\_menu}!menu\_cpt.c@{menu\_cpt.c}}
+\doxysubsubsection{\texorpdfstring{afficher\_menu()}{afficher\_menu()}}
+{\footnotesize\ttfamily void afficher\+\_\+menu (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Window $\ast$}]{window,  }\item[{SDL\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{\mbox{\hyperlink{structentite__t}{entite\+\_\+t}} $\ast$}]{entite,  }\item[{TTF\+\_\+\+Font $\ast$}]{font }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{menu__cpt_8c_a63e2fa8cf0ae1a8c2259a85f15708f1d}\label{menu__cpt_8c_a63e2fa8cf0ae1a8c2259a85f15708f1d}} 
+\index{menu\_cpt.c@{menu\_cpt.c}!check\_valid\_cpt@{check\_valid\_cpt}}
+\index{check\_valid\_cpt@{check\_valid\_cpt}!menu\_cpt.c@{menu\_cpt.c}}
+\doxysubsubsection{\texorpdfstring{check\_valid\_cpt()}{check\_valid\_cpt()}}
+{\footnotesize\ttfamily int check\+\_\+valid\+\_\+cpt (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{TTF\+\_\+\+Font $\ast$}]{font,  }\item[{SDL\+\_\+\+Color}]{color,  }\item[{SDL\+\_\+\+Rect}]{rect,  }\item[{int}]{check }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{menu__cpt_8c_a7f41e03806da48e5ad550664092223df}\label{menu__cpt_8c_a7f41e03806da48e5ad550664092223df}} 
+\index{menu\_cpt.c@{menu\_cpt.c}!construire\_chaine\_buff@{construire\_chaine\_buff}}
+\index{construire\_chaine\_buff@{construire\_chaine\_buff}!menu\_cpt.c@{menu\_cpt.c}}
+\doxysubsubsection{\texorpdfstring{construire\_chaine\_buff()}{construire\_chaine\_buff()}}
+{\footnotesize\ttfamily int construire\+\_\+chaine\+\_\+buff (\begin{DoxyParamCaption}\item[{char $\ast$}]{result,  }\item[{int}]{i,  }\item[{int}]{buff }\end{DoxyParamCaption})}
+
+
+
+Fonction qui construit la chaine de caractère qui sera affichée dans le menu de l\textquotesingle{}inventaire. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em result} & Chaine de caractère qui sera affichée dans le menu de l\textquotesingle{}inventaire \\
+\hline
+{\em i} & Indice de la compétence \\
+\hline
+{\em buff} & Valeur du buff \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0 si la fonction s\textquotesingle{}est bien déroulée, -\/1 sinon 
+\end{DoxyReturn}
+\mbox{\Hypertarget{menu__cpt_8c_a60a9f40cc43024feb9dc831db209c5fd}\label{menu__cpt_8c_a60a9f40cc43024feb9dc831db209c5fd}} 
+\index{menu\_cpt.c@{menu\_cpt.c}!construire\_chaine\_objets@{construire\_chaine\_objets}}
+\index{construire\_chaine\_objets@{construire\_chaine\_objets}!menu\_cpt.c@{menu\_cpt.c}}
+\doxysubsubsection{\texorpdfstring{construire\_chaine\_objets()}{construire\_chaine\_objets()}}
+{\footnotesize\ttfamily void construire\+\_\+chaine\+\_\+objets (\begin{DoxyParamCaption}\item[{char $\ast$}]{result,  }\item[{int}]{nb\+\_\+obj,  }\item[{int}]{nb\+\_\+obj\+\_\+requis,  }\item[{char $\ast$}]{nom\+\_\+obj }\end{DoxyParamCaption})}
+
+
+
+Fonction qui construit la chaine de caractère qui sera affichée dans le menu de l\textquotesingle{}inventaire. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em result} & Chaine de caractère qui sera affichée dans le menu de l\textquotesingle{}inventaire \\
+\hline
+{\em nb\+\_\+obj} & Nombre d\textquotesingle{}objets de ce type que le joueur possède \\
+\hline
+{\em nb\+\_\+obj\+\_\+requis} & Nombre d\textquotesingle{}objets de ce type que le joueur doit posséder pour débloquer la compétence associée \\
+\hline
+{\em nom\+\_\+obj} & Nom de l\textquotesingle{}objet que le joueur doit poseéder \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{menu__cpt_8c_ac308721bc2f50d1c8cf65fd239736306}\label{menu__cpt_8c_ac308721bc2f50d1c8cf65fd239736306}} 
+\index{menu\_cpt.c@{menu\_cpt.c}!in\_rect@{in\_rect}}
+\index{in\_rect@{in\_rect}!menu\_cpt.c@{menu\_cpt.c}}
+\doxysubsubsection{\texorpdfstring{in\_rect()}{in\_rect()}}
+{\footnotesize\ttfamily int in\+\_\+rect (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{struct SDL\+\_\+\+Rect $\ast$}]{r }\end{DoxyParamCaption})}
+
+
+
+Fonction qui vérifie si un point est dans un rectangle. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em x} & Abscisse du point \\
+\hline
+{\em y} & Ordonnée du point \\
+\hline
+{\em r} & Pointeur sur le rectangle \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+1 si le point est dans le rectangle, 0 sinon 
+\end{DoxyReturn}

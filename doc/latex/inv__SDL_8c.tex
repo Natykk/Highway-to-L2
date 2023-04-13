@@ -1,5 +1,5 @@
-\hypertarget{inv__SDL_8c}{}\doxysection{Référence du fichier /mnt/c/\+Users/natik/\+Projet\+L2/src/inv\+\_\+\+SDL.c}
-\label{inv__SDL_8c}\index{/mnt/c/Users/natik/ProjetL2/src/inv\_SDL.c@{/mnt/c/Users/natik/ProjetL2/src/inv\_SDL.c}}
+\hypertarget{inv__SDL_8c}{}\doxysection{Référence du fichier /mnt/c/\+Projet\+L2/src/inv\+\_\+\+SDL.c}
+\label{inv__SDL_8c}\index{/mnt/c/ProjetL2/src/inv\_SDL.c@{/mnt/c/ProjetL2/src/inv\_SDL.c}}
 
 
 Fichier contenant les fonctions pour l\textquotesingle{}inventaire.  
@@ -14,33 +14,62 @@ Fichier contenant les fonctions pour l\textquotesingle{}inventaire.
 {\ttfamily \#include $<$SDL2/\+SDL\+\_\+ttf.\+h$>$}\newline
 {\ttfamily \#include \char`\"{}../head/entite.\+h\char`\"{}}\newline
 Graphe des dépendances par inclusion de inv\+\_\+\+SDL.\+c\+:
-% FIG 0
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{inv__SDL_8c__incl}
+\end{center}
+\end{figure}
 \doxysubsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{inv__SDL_8c_a51f528deaaeb973f417b46a2ec36f850}\label{inv__SDL_8c_a51f528deaaeb973f417b46a2ec36f850}} 
-\#define {\bfseries SDL\+\_\+\+MAIN\+\_\+\+HANDLED}
+\#define \mbox{\hyperlink{inv__SDL_8c_a51f528deaaeb973f417b46a2ec36f850}{SDL\+\_\+\+MAIN\+\_\+\+HANDLED}}
 \item 
-\mbox{\Hypertarget{inv__SDL_8c_a62ecd70800687eb2d625af180c4210d7}\label{inv__SDL_8c_a62ecd70800687eb2d625af180c4210d7}} 
-\#define {\bfseries TILE\+\_\+\+SIZE}~32
+\#define \mbox{\hyperlink{inv__SDL_8c_a62ecd70800687eb2d625af180c4210d7}{TILE\+\_\+\+SIZE}}~32
 \item 
-\mbox{\Hypertarget{inv__SDL_8c_aa037a6d6a4f04d51c7ec1c9ee9054e76}\label{inv__SDL_8c_aa037a6d6a4f04d51c7ec1c9ee9054e76}} 
-\#define {\bfseries MAP\+\_\+\+WIDTH}~25
+\#define \mbox{\hyperlink{inv__SDL_8c_aa037a6d6a4f04d51c7ec1c9ee9054e76}{MAP\+\_\+\+WIDTH}}~25
 \item 
-\mbox{\Hypertarget{inv__SDL_8c_a529d5ebb449edf31d9835d13f4fb9f89}\label{inv__SDL_8c_a529d5ebb449edf31d9835d13f4fb9f89}} 
-\#define {\bfseries MAP\+\_\+\+HEIGHT}~25
+\#define \mbox{\hyperlink{inv__SDL_8c_a529d5ebb449edf31d9835d13f4fb9f89}{MAP\+\_\+\+HEIGHT}}~25
 \end{DoxyCompactItemize}
 \doxysubsection*{Fonctions}
 \begin{DoxyCompactItemize}
 \item 
-void \mbox{\hyperlink{inv__SDL_8c_a70f31d85064c15a50f9bf75f3d0b485c}{affichage}} (SDL\+\_\+\+Renderer $\ast$renderer, SDL\+\_\+\+Window $\ast$window, entite\+\_\+t $\ast$pers, int num\+\_\+rectangles, int rect\+\_\+width, int rect\+\_\+height, int rect\+\_\+spacing, TTF\+\_\+\+Font $\ast$font, int total\+\_\+width, int x\+\_\+start, SDL\+\_\+\+Texture $\ast$tab\+\_\+tex\mbox{[}17\mbox{]})
+void \mbox{\hyperlink{inv__SDL_8c_a70f31d85064c15a50f9bf75f3d0b485c}{affichage}} (SDL\+\_\+\+Renderer $\ast$renderer, SDL\+\_\+\+Window $\ast$window, \mbox{\hyperlink{structentite__t}{entite\+\_\+t}} $\ast$pers, int num\+\_\+rectangles, int rect\+\_\+width, int rect\+\_\+height, int rect\+\_\+spacing, TTF\+\_\+\+Font $\ast$font, int total\+\_\+width, int x\+\_\+start, SDL\+\_\+\+Texture $\ast$\mbox{\hyperlink{map__jeu__entite_8c_a4b2a246e682f26f2730c7f1b1b7756af}{tab\+\_\+tex}}\mbox{[}17\mbox{]})
 \begin{DoxyCompactList}\small\item\em Affiche l\textquotesingle{}inventaire. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{inv__SDL_8c_a59b548898d196c0c423e9218d2b7e891}{inv}} (SDL\+\_\+\+Renderer $\ast$renderer, SDL\+\_\+\+Window $\ast$window, entite\+\_\+t $\ast$pers)
-\begin{DoxyCompactList}\small\item\em Affiche l\textquotesingle{}inventaire. \end{DoxyCompactList}\end{DoxyCompactItemize}
+int \mbox{\hyperlink{inv__SDL_8c_a59b548898d196c0c423e9218d2b7e891}{inv}} (SDL\+\_\+\+Renderer $\ast$renderer, SDL\+\_\+\+Window $\ast$window, \mbox{\hyperlink{structentite__t}{entite\+\_\+t}} $\ast$pers)
+\begin{DoxyCompactList}\small\item\em Fonction qui gère l\textquotesingle{}inventaire. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Description détaillée}
 Fichier contenant les fonctions pour l\textquotesingle{}inventaire. 
+
+
+
+\doxysubsection{Documentation des macros}
+\mbox{\Hypertarget{inv__SDL_8c_a529d5ebb449edf31d9835d13f4fb9f89}\label{inv__SDL_8c_a529d5ebb449edf31d9835d13f4fb9f89}} 
+\index{inv\_SDL.c@{inv\_SDL.c}!MAP\_HEIGHT@{MAP\_HEIGHT}}
+\index{MAP\_HEIGHT@{MAP\_HEIGHT}!inv\_SDL.c@{inv\_SDL.c}}
+\doxysubsubsection{\texorpdfstring{MAP\_HEIGHT}{MAP\_HEIGHT}}
+{\footnotesize\ttfamily \#define MAP\+\_\+\+HEIGHT~25}
+
+\mbox{\Hypertarget{inv__SDL_8c_aa037a6d6a4f04d51c7ec1c9ee9054e76}\label{inv__SDL_8c_aa037a6d6a4f04d51c7ec1c9ee9054e76}} 
+\index{inv\_SDL.c@{inv\_SDL.c}!MAP\_WIDTH@{MAP\_WIDTH}}
+\index{MAP\_WIDTH@{MAP\_WIDTH}!inv\_SDL.c@{inv\_SDL.c}}
+\doxysubsubsection{\texorpdfstring{MAP\_WIDTH}{MAP\_WIDTH}}
+{\footnotesize\ttfamily \#define MAP\+\_\+\+WIDTH~25}
+
+\mbox{\Hypertarget{inv__SDL_8c_a51f528deaaeb973f417b46a2ec36f850}\label{inv__SDL_8c_a51f528deaaeb973f417b46a2ec36f850}} 
+\index{inv\_SDL.c@{inv\_SDL.c}!SDL\_MAIN\_HANDLED@{SDL\_MAIN\_HANDLED}}
+\index{SDL\_MAIN\_HANDLED@{SDL\_MAIN\_HANDLED}!inv\_SDL.c@{inv\_SDL.c}}
+\doxysubsubsection{\texorpdfstring{SDL\_MAIN\_HANDLED}{SDL\_MAIN\_HANDLED}}
+{\footnotesize\ttfamily \#define SDL\+\_\+\+MAIN\+\_\+\+HANDLED}
+
+\mbox{\Hypertarget{inv__SDL_8c_a62ecd70800687eb2d625af180c4210d7}\label{inv__SDL_8c_a62ecd70800687eb2d625af180c4210d7}} 
+\index{inv\_SDL.c@{inv\_SDL.c}!TILE\_SIZE@{TILE\_SIZE}}
+\index{TILE\_SIZE@{TILE\_SIZE}!inv\_SDL.c@{inv\_SDL.c}}
+\doxysubsubsection{\texorpdfstring{TILE\_SIZE}{TILE\_SIZE}}
+{\footnotesize\ttfamily \#define TILE\+\_\+\+SIZE~32}
 
 
 
@@ -49,7 +78,7 @@ Fichier contenant les fonctions pour l\textquotesingle{}inventaire.
 \index{inv\_SDL.c@{inv\_SDL.c}!affichage@{affichage}}
 \index{affichage@{affichage}!inv\_SDL.c@{inv\_SDL.c}}
 \doxysubsubsection{\texorpdfstring{affichage()}{affichage()}}
-{\footnotesize\ttfamily void affichage (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{SDL\+\_\+\+Window $\ast$}]{window,  }\item[{entite\+\_\+t $\ast$}]{pers,  }\item[{int}]{num\+\_\+rectangles,  }\item[{int}]{rect\+\_\+width,  }\item[{int}]{rect\+\_\+height,  }\item[{int}]{rect\+\_\+spacing,  }\item[{TTF\+\_\+\+Font $\ast$}]{font,  }\item[{int}]{total\+\_\+width,  }\item[{int}]{x\+\_\+start,  }\item[{SDL\+\_\+\+Texture $\ast$}]{tab\+\_\+tex\mbox{[}17\mbox{]} }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void affichage (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{SDL\+\_\+\+Window $\ast$}]{window,  }\item[{\mbox{\hyperlink{structentite__t}{entite\+\_\+t}} $\ast$}]{pers,  }\item[{int}]{num\+\_\+rectangles,  }\item[{int}]{rect\+\_\+width,  }\item[{int}]{rect\+\_\+height,  }\item[{int}]{rect\+\_\+spacing,  }\item[{TTF\+\_\+\+Font $\ast$}]{font,  }\item[{int}]{total\+\_\+width,  }\item[{int}]{x\+\_\+start,  }\item[{SDL\+\_\+\+Texture $\ast$}]{tab\+\_\+tex\mbox{[}17\mbox{]} }\end{DoxyParamCaption})}
 
 
 
@@ -84,12 +113,26 @@ Affiche l\textquotesingle{}inventaire.
 \index{inv\_SDL.c@{inv\_SDL.c}!inv@{inv}}
 \index{inv@{inv}!inv\_SDL.c@{inv\_SDL.c}}
 \doxysubsubsection{\texorpdfstring{inv()}{inv()}}
-{\footnotesize\ttfamily int inv (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{SDL\+\_\+\+Window $\ast$}]{window,  }\item[{entite\+\_\+t $\ast$}]{pers }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily int inv (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{SDL\+\_\+\+Window $\ast$}]{window,  }\item[{\mbox{\hyperlink{structentite__t}{entite\+\_\+t}} $\ast$}]{pers }\end{DoxyParamCaption})}
 
 
 
-Affiche l\textquotesingle{}inventaire. 
+Fonction qui gère l\textquotesingle{}inventaire. 
 
+Affiche l\textquotesingle{}inventaire.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em renderer} & Pointeur sur le renderer \\
+\hline
+{\em window} & Pointeur sur la fenêtre \\
+\hline
+{\em pers} & Pointeur sur le personnage \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0 si le joueur a quitté le jeu, 1 sinon
+\end{DoxyReturn}
 
 \begin{DoxyParams}{Paramètres}
 {\em renderer} & le renderer \\

@@ -1,5 +1,5 @@
-\hypertarget{mapBoss_8c}{}\doxysection{Référence du fichier /mnt/c/\+Users/natik/\+Projet\+L2/src/map\+Boss.c}
-\label{mapBoss_8c}\index{/mnt/c/Users/natik/ProjetL2/src/mapBoss.c@{/mnt/c/Users/natik/ProjetL2/src/mapBoss.c}}
+\hypertarget{mapBoss_8c}{}\doxysection{Référence du fichier /mnt/c/\+Projet\+L2/src/map\+Boss.c}
+\label{mapBoss_8c}\index{/mnt/c/ProjetL2/src/mapBoss.c@{/mnt/c/ProjetL2/src/mapBoss.c}}
 
 
 Fichier contenant les fonctions pour la génération de la salle du boss et marchand.  
@@ -9,27 +9,24 @@ Fichier contenant les fonctions pour la génération de la salle du boss et marc
 {\ttfamily \#include $<$stdlib.\+h$>$}\newline
 {\ttfamily \#include \char`\"{}../head/map\+Boss.\+h\char`\"{}}\newline
 Graphe des dépendances par inclusion de map\+Boss.\+c\+:
-% FIG 0
-\doxysubsection*{Macros}
-\begin{DoxyCompactItemize}
-\item 
-\mbox{\Hypertarget{mapBoss_8c_a78a87d092595473bcb2a60d4ac6a622b}\label{mapBoss_8c_a78a87d092595473bcb2a60d4ac6a622b}} 
-\#define {\bfseries BOSS}~10
-\item 
-\mbox{\Hypertarget{mapBoss_8c_a3f8f837db4a27fd717620e61a55f002c}\label{mapBoss_8c_a3f8f837db4a27fd717620e61a55f002c}} 
-\#define {\bfseries SPAWN}~10
-\end{DoxyCompactItemize}
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=327pt]{mapBoss_8c__incl}
+\end{center}
+\end{figure}
 \doxysubsection*{Fonctions}
 \begin{DoxyCompactItemize}
 \item 
-void \mbox{\hyperlink{mapBoss_8c_a0fa7cf9fde304cdab7af1246704aa21c}{afficher\+\_\+salle\+\_\+boss}} (t\+\_\+salle $\ast$salle)
-\begin{DoxyCompactList}\small\item\em Affiche la salle du boss dans la console. \end{DoxyCompactList}\item 
-t\+\_\+salle $\ast$ \mbox{\hyperlink{mapBoss_8c_add7784ed44ac9ae928eab12c23921fd1}{generer\+Salle\+Boss}} (t\+\_\+salle $\ast$salle\+Boss)
-\begin{DoxyCompactList}\small\item\em Génère la salle du boss. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{mapBoss_8c_abfd0635b0d14360ae8af370073291842}{detruire\+Salle\+Boss}} (t\+\_\+salle $\ast$$\ast$salle\+Boss)
-\begin{DoxyCompactList}\small\item\em Détruit la salle du boss. \end{DoxyCompactList}\item 
-t\+\_\+salle $\ast$ \mbox{\hyperlink{mapBoss_8c_ac4f48a881fe0b862c60a9c967becae88}{generer\+Salle\+Marchand}} (t\+\_\+salle $\ast$salle\+Marchand)
-\begin{DoxyCompactList}\small\item\em Génère la salle du marchand. \end{DoxyCompactList}\end{DoxyCompactItemize}
+void \mbox{\hyperlink{mapBoss_8c_a0fa7cf9fde304cdab7af1246704aa21c}{afficher\+\_\+salle\+\_\+boss}} (\mbox{\hyperlink{mapStruct_8h_a7c844facf01c437463294b08dc29f63e}{t\+\_\+salle}} $\ast$\mbox{\hyperlink{structsalle}{salle}})
+\begin{DoxyCompactList}\small\item\em Fonction qui affiche la salle boss. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{mapStruct_8h_a7c844facf01c437463294b08dc29f63e}{t\+\_\+salle}} $\ast$ \mbox{\hyperlink{mapBoss_8c_a9fe7039f8760a263649ffdb2ac1d89e7}{generer\+Salle\+Boss}} (\mbox{\hyperlink{mapStruct_8h_a7c844facf01c437463294b08dc29f63e}{t\+\_\+salle}} $\ast$salle\+Boss)
+\begin{DoxyCompactList}\small\item\em Fonction qui génère une salle boss. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{mapBoss_8c_abfd0635b0d14360ae8af370073291842}{detruire\+Salle\+Boss}} (\mbox{\hyperlink{mapStruct_8h_a7c844facf01c437463294b08dc29f63e}{t\+\_\+salle}} $\ast$$\ast$salle\+Boss)
+\begin{DoxyCompactList}\small\item\em Fonction qui détruit la salle boss. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{mapStruct_8h_a7c844facf01c437463294b08dc29f63e}{t\+\_\+salle}} $\ast$ \mbox{\hyperlink{mapBoss_8c_ad76e9dc8637892f1c8a02ee24adb35e2}{generer\+Salle\+Marchand}} (\mbox{\hyperlink{mapStruct_8h_a7c844facf01c437463294b08dc29f63e}{t\+\_\+salle}} $\ast$salle\+Marchand)
+\begin{DoxyCompactList}\small\item\em Fonction qui génère une salle marchand. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Description détaillée}
@@ -42,14 +39,18 @@ Fichier contenant les fonctions pour la génération de la salle du boss et marc
 \index{mapBoss.c@{mapBoss.c}!afficher\_salle\_boss@{afficher\_salle\_boss}}
 \index{afficher\_salle\_boss@{afficher\_salle\_boss}!mapBoss.c@{mapBoss.c}}
 \doxysubsubsection{\texorpdfstring{afficher\_salle\_boss()}{afficher\_salle\_boss()}}
-{\footnotesize\ttfamily void afficher\+\_\+salle\+\_\+boss (\begin{DoxyParamCaption}\item[{t\+\_\+salle $\ast$}]{salle }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void afficher\+\_\+salle\+\_\+boss (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{mapStruct_8h_a7c844facf01c437463294b08dc29f63e}{t\+\_\+salle}} $\ast$}]{salle }\end{DoxyParamCaption})}
 
 
 
-Affiche la salle du boss dans la console. 
+Fonction qui affiche la salle boss. 
+
+Affiche la salle du boss dans la console.
 
 
 \begin{DoxyParams}{Paramètres}
+{\em salle} & Pointeur sur la salle boss\\
+\hline
 {\em salle} & la salle du boss \\
 \hline
 \end{DoxyParams}
@@ -57,27 +58,41 @@ Affiche la salle du boss dans la console.
 \index{mapBoss.c@{mapBoss.c}!detruireSalleBoss@{detruireSalleBoss}}
 \index{detruireSalleBoss@{detruireSalleBoss}!mapBoss.c@{mapBoss.c}}
 \doxysubsubsection{\texorpdfstring{detruireSalleBoss()}{detruireSalleBoss()}}
-{\footnotesize\ttfamily void detruire\+Salle\+Boss (\begin{DoxyParamCaption}\item[{t\+\_\+salle $\ast$$\ast$}]{salle\+Boss }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void detruire\+Salle\+Boss (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{mapStruct_8h_a7c844facf01c437463294b08dc29f63e}{t\+\_\+salle}} $\ast$$\ast$}]{salle\+Boss }\end{DoxyParamCaption})}
 
 
 
-Détruit la salle du boss. 
+Fonction qui détruit la salle boss. 
+
+Détruit la salle du boss.
 
 
 \begin{DoxyParams}{Paramètres}
+{\em salle\+Boss} & Pointeur sur le pointeur de la salle boss\\
+\hline
 {\em salle\+Boss} & pointeur sur la salle du boss \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{mapBoss_8c_add7784ed44ac9ae928eab12c23921fd1}\label{mapBoss_8c_add7784ed44ac9ae928eab12c23921fd1}} 
+\mbox{\Hypertarget{mapBoss_8c_a9fe7039f8760a263649ffdb2ac1d89e7}\label{mapBoss_8c_a9fe7039f8760a263649ffdb2ac1d89e7}} 
 \index{mapBoss.c@{mapBoss.c}!genererSalleBoss@{genererSalleBoss}}
 \index{genererSalleBoss@{genererSalleBoss}!mapBoss.c@{mapBoss.c}}
 \doxysubsubsection{\texorpdfstring{genererSalleBoss()}{genererSalleBoss()}}
-{\footnotesize\ttfamily t\+\_\+salle $\ast$ generer\+Salle\+Boss (\begin{DoxyParamCaption}\item[{t\+\_\+salle $\ast$}]{salle\+Boss }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{mapStruct_8h_a7c844facf01c437463294b08dc29f63e}{t\+\_\+salle}}$\ast$ generer\+Salle\+Boss (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{mapStruct_8h_a7c844facf01c437463294b08dc29f63e}{t\+\_\+salle}} $\ast$}]{salle\+Boss }\end{DoxyParamCaption})}
 
 
 
-Génère la salle du boss. 
+Fonction qui génère une salle boss. 
 
+Génère la salle du boss.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em salle\+Boss} & Pointeur sur la salle boss \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Pointeur sur la salle boss
+\end{DoxyReturn}
 
 \begin{DoxyParams}{Paramètres}
 {\em salle\+Boss} & la salle du boss \\
@@ -86,16 +101,26 @@ Génère la salle du boss.
 \begin{DoxyReturn}{Renvoie}
 la salle du boss 
 \end{DoxyReturn}
-\mbox{\Hypertarget{mapBoss_8c_ac4f48a881fe0b862c60a9c967becae88}\label{mapBoss_8c_ac4f48a881fe0b862c60a9c967becae88}} 
+\mbox{\Hypertarget{mapBoss_8c_ad76e9dc8637892f1c8a02ee24adb35e2}\label{mapBoss_8c_ad76e9dc8637892f1c8a02ee24adb35e2}} 
 \index{mapBoss.c@{mapBoss.c}!genererSalleMarchand@{genererSalleMarchand}}
 \index{genererSalleMarchand@{genererSalleMarchand}!mapBoss.c@{mapBoss.c}}
 \doxysubsubsection{\texorpdfstring{genererSalleMarchand()}{genererSalleMarchand()}}
-{\footnotesize\ttfamily t\+\_\+salle $\ast$ generer\+Salle\+Marchand (\begin{DoxyParamCaption}\item[{t\+\_\+salle $\ast$}]{salle\+Marchand }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{mapStruct_8h_a7c844facf01c437463294b08dc29f63e}{t\+\_\+salle}}$\ast$ generer\+Salle\+Marchand (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{mapStruct_8h_a7c844facf01c437463294b08dc29f63e}{t\+\_\+salle}} $\ast$}]{salle\+Marchand }\end{DoxyParamCaption})}
 
 
 
-Génère la salle du marchand. 
+Fonction qui génère une salle marchand. 
 
+Génère la salle du marchand.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em salle\+Marchand} & Pointeur sur la salle marchand \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Pointeur sur la salle marchand
+\end{DoxyReturn}
 
 \begin{DoxyParams}{Paramètres}
 {\em salle\+Marchand} & la salle du marchand \\

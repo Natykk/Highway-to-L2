@@ -1,5 +1,5 @@
-\hypertarget{name_8c}{}\doxysection{Référence du fichier /mnt/c/\+Users/natik/\+Projet\+L2/src/name.c}
-\label{name_8c}\index{/mnt/c/Users/natik/ProjetL2/src/name.c@{/mnt/c/Users/natik/ProjetL2/src/name.c}}
+\hypertarget{name_8c}{}\doxysection{Référence du fichier /mnt/c/\+Projet\+L2/src/name.c}
+\label{name_8c}\index{/mnt/c/ProjetL2/src/name.c@{/mnt/c/ProjetL2/src/name.c}}
 
 
 Fichier contenant les fonctions pour la gestion du nom du personnage.  
@@ -13,12 +13,18 @@ Fichier contenant les fonctions pour la gestion du nom du personnage.
 {\ttfamily \#include $<$string.\+h$>$}\newline
 {\ttfamily \#include \char`\"{}../head/name.\+h\char`\"{}}\newline
 Graphe des dépendances par inclusion de name.\+c\+:
-% FIG 0
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{name_8c__incl}
+\end{center}
+\end{figure}
 \doxysubsection*{Fonctions}
 \begin{DoxyCompactItemize}
 \item 
-char $\ast$ \mbox{\hyperlink{name_8c_ae464e8c747bbc0422da7c7cda7d3a9f1}{name}} (SDL\+\_\+\+Window $\ast$win, SDL\+\_\+\+Renderer $\ast$screen, entite\+\_\+t $\ast$personnage)
-\begin{DoxyCompactList}\small\item\em Affiche le menu et gère les interactions textuelle avec celui-\/ci. \end{DoxyCompactList}\end{DoxyCompactItemize}
+char $\ast$ \mbox{\hyperlink{name_8c_aa63d7f278991cd69234bd8864b3cedf6}{name}} (SDL\+\_\+\+Window $\ast$win, SDL\+\_\+\+Renderer $\ast$screen, \mbox{\hyperlink{structentite__t}{entite\+\_\+t}} $\ast$personnage)
+\begin{DoxyCompactList}\small\item\em Fonction qui affiche le nom du joueur. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Description détaillée}
@@ -27,16 +33,30 @@ Fichier contenant les fonctions pour la gestion du nom du personnage.
 
 
 \doxysubsection{Documentation des fonctions}
-\mbox{\Hypertarget{name_8c_ae464e8c747bbc0422da7c7cda7d3a9f1}\label{name_8c_ae464e8c747bbc0422da7c7cda7d3a9f1}} 
+\mbox{\Hypertarget{name_8c_aa63d7f278991cd69234bd8864b3cedf6}\label{name_8c_aa63d7f278991cd69234bd8864b3cedf6}} 
 \index{name.c@{name.c}!name@{name}}
 \index{name@{name}!name.c@{name.c}}
 \doxysubsubsection{\texorpdfstring{name()}{name()}}
-{\footnotesize\ttfamily char $\ast$ name (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Window $\ast$}]{win,  }\item[{SDL\+\_\+\+Renderer $\ast$}]{screen,  }\item[{entite\+\_\+t $\ast$}]{personnage }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily char$\ast$ name (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Window $\ast$}]{win,  }\item[{SDL\+\_\+\+Renderer $\ast$}]{screen,  }\item[{\mbox{\hyperlink{structentite__t}{entite\+\_\+t}} $\ast$}]{personnage }\end{DoxyParamCaption})}
 
 
 
-Affiche le menu et gère les interactions textuelle avec celui-\/ci. 
+Fonction qui affiche le nom du joueur. 
 
+Affiche le menu et gère les interactions textuelle avec celui-\/ci.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em win} & Pointeur sur la fenêtre \\
+\hline
+{\em screen} & Pointeur sur le renderer \\
+\hline
+{\em personnage} & Pointeur sur le personnage \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Le nom du joueur
+\end{DoxyReturn}
 
 \begin{DoxyParams}{Paramètres}
 {\em win} & la fenêtre \\

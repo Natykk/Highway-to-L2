@@ -2,19 +2,59 @@
 \label{structelement}\index{element@{element}}
 
 
-Graphe de collaboration de element\+:
-% FIG 0
-\doxysubsection*{Attributs publics}
+Structure contenant un pointeur sur un projectile et deux pointeurs sur des éléments de la liste.  
+
+
+
+
+{\ttfamily \#include $<$projectile.\+h$>$}
+
+
+
+Graphe de collaboration de element\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=188pt]{structelement__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Champs de données}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{structelement_a5295b267adaa970a3ce3a7609bca2daf}\label{structelement_a5295b267adaa970a3ce3a7609bca2daf}} 
-int {\bfseries nombre}
+\mbox{\hyperlink{projectile_8h_ac903fae6aae2ffb58fecf1ba670e7530}{projectile\+\_\+t}} $\ast$ \mbox{\hyperlink{structelement_aca9aef9b260994a5e658f0d0d6d2df61}{proj}}
 \item 
-\mbox{\Hypertarget{structelement_a4f1534ded1f9373e0843568bf94ea754}\label{structelement_a4f1534ded1f9373e0843568bf94ea754}} 
-struct \mbox{\hyperlink{structelement}{element}} $\ast$ {\bfseries suivant}
+struct \mbox{\hyperlink{structelement}{element}} $\ast$ \mbox{\hyperlink{structelement_a9f9ebee1fa1dce6d05bc325a66478635}{pred}}
+\item 
+struct \mbox{\hyperlink{structelement}{element}} $\ast$ \mbox{\hyperlink{structelement_abe10f441a14a96bd130a004585b475ad}{succ}}
 \end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Structure contenant un pointeur sur un projectile et deux pointeurs sur des éléments de la liste. 
+
+Cette structure est utilisée pour la liste chaînée des projectiles 
+
+\doxysubsection{Documentation des champs}
+\mbox{\Hypertarget{structelement_a9f9ebee1fa1dce6d05bc325a66478635}\label{structelement_a9f9ebee1fa1dce6d05bc325a66478635}} 
+\index{element@{element}!pred@{pred}}
+\index{pred@{pred}!element@{element}}
+\doxysubsubsection{\texorpdfstring{pred}{pred}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{structelement}{element}}$\ast$ element\+::pred}
+
+\mbox{\Hypertarget{structelement_aca9aef9b260994a5e658f0d0d6d2df61}\label{structelement_aca9aef9b260994a5e658f0d0d6d2df61}} 
+\index{element@{element}!proj@{proj}}
+\index{proj@{proj}!element@{element}}
+\doxysubsubsection{\texorpdfstring{proj}{proj}}
+{\footnotesize\ttfamily \mbox{\hyperlink{projectile_8h_ac903fae6aae2ffb58fecf1ba670e7530}{projectile\+\_\+t}}$\ast$ element\+::proj}
+
+\mbox{\Hypertarget{structelement_abe10f441a14a96bd130a004585b475ad}\label{structelement_abe10f441a14a96bd130a004585b475ad}} 
+\index{element@{element}!succ@{succ}}
+\index{succ@{succ}!element@{element}}
+\doxysubsubsection{\texorpdfstring{succ}{succ}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{structelement}{element}}$\ast$ element\+::succ}
+
 
 
 La documentation de cette structure a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
 \item 
-/mnt/c/\+Users/natik/\+Projet\+L2/src/\mbox{\hyperlink{chemin_8c}{chemin.\+c}}\end{DoxyCompactItemize}
+/mnt/c/\+Projet\+L2/head/\mbox{\hyperlink{projectile_8h}{projectile.\+h}}\end{DoxyCompactItemize}

@@ -1,5 +1,5 @@
-\hypertarget{menu_8c}{}\doxysection{Référence du fichier /mnt/c/\+Users/natik/\+Projet\+L2/src/menu.c}
-\label{menu_8c}\index{/mnt/c/Users/natik/ProjetL2/src/menu.c@{/mnt/c/Users/natik/ProjetL2/src/menu.c}}
+\hypertarget{menu_8c}{}\doxysection{Référence du fichier /mnt/c/\+Projet\+L2/src/menu.c}
+\label{menu_8c}\index{/mnt/c/ProjetL2/src/menu.c@{/mnt/c/ProjetL2/src/menu.c}}
 
 
 Fichier contenant les fonctions pour le menu.  
@@ -11,11 +11,23 @@ Fichier contenant les fonctions pour le menu.
 {\ttfamily \#include $<$SDL2/\+SDL\+\_\+ttf.\+h$>$}\newline
 {\ttfamily \#include $<$SDL2/\+SDL\+\_\+image.\+h$>$}\newline
 {\ttfamily \#include $<$SDL2/\+SDL\+\_\+mixer.\+h$>$}\newline
+{\ttfamily \#include $<$openssl/sha.\+h$>$}\newline
 {\ttfamily \#include \char`\"{}../head/name.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}../head/inventaire.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}../head/sauvegarde.\+h\char`\"{}}\newline
 Graphe des dépendances par inclusion de menu.\+c\+:
-% FIG 0
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menu_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{menu_8c_a51f528deaaeb973f417b46a2ec36f850}{SDL\+\_\+\+MAIN\+\_\+\+HANDLED}}
+\end{DoxyCompactItemize}
 \doxysubsection*{Fonctions}
 \begin{DoxyCompactItemize}
 \item 
@@ -23,14 +35,25 @@ int \mbox{\hyperlink{menu_8c_aa3af001ed3be2c14dababfae5142d9ce}{fempty}} (char $
 \begin{DoxyCompactList}\small\item\em Vérifie si un fichier est vide. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{menu_8c_a5b9666821a5ed49aaeca6dc7a271a1b8}{file\+Exists}} (char $\ast$fname)
 \begin{DoxyCompactList}\small\item\em Vérifie si un fichier existe. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{menu_8c_a81d7f9f5ce9f18a0c73c1b00e188122c}{menu\+\_\+interact}} (SDL\+\_\+\+Window $\ast$window, SDL\+\_\+\+Renderer $\ast$renderer, entite\+\_\+t $\ast$personnage)
-\begin{DoxyCompactList}\small\item\em Affiche le menu et gère les interactions avec celui-\/ci. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{menu_8c_a77046073f1845beaba5328572a659247}{menu}} (SDL\+\_\+\+Window $\ast$window, SDL\+\_\+\+Renderer $\ast$renderer, entite\+\_\+t $\ast$personnage)
-\begin{DoxyCompactList}\small\item\em Fonction qui initialise le menu. \end{DoxyCompactList}\end{DoxyCompactItemize}
+int \mbox{\hyperlink{menu_8c_a81d7f9f5ce9f18a0c73c1b00e188122c}{menu\+\_\+interact}} (SDL\+\_\+\+Window $\ast$window, SDL\+\_\+\+Renderer $\ast$renderer, \mbox{\hyperlink{structentite__t}{entite\+\_\+t}} $\ast$personnage)
+\begin{DoxyCompactList}\small\item\em Fonction qui gère les interactions avec le menu. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{menu_8c_a77046073f1845beaba5328572a659247}{menu}} (SDL\+\_\+\+Window $\ast$window, SDL\+\_\+\+Renderer $\ast$renderer, \mbox{\hyperlink{structentite__t}{entite\+\_\+t}} $\ast$personnage)
+\begin{DoxyCompactList}\small\item\em Fonction qui affiche le menu. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{menu_8c_a9fb71cc3114b9c0771038be9610dc95d}{gameover}} (SDL\+\_\+\+Window $\ast$window, SDL\+\_\+\+Renderer $\ast$renderer, \mbox{\hyperlink{structentite__t}{entite\+\_\+t}} $\ast$personnage)
+\begin{DoxyCompactList}\small\item\em Fonction qui gère l\textquotesingle{}écran de fin de partie. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Description détaillée}
 Fichier contenant les fonctions pour le menu. 
+
+
+
+\doxysubsection{Documentation des macros}
+\mbox{\Hypertarget{menu_8c_a51f528deaaeb973f417b46a2ec36f850}\label{menu_8c_a51f528deaaeb973f417b46a2ec36f850}} 
+\index{menu.c@{menu.c}!SDL\_MAIN\_HANDLED@{SDL\_MAIN\_HANDLED}}
+\index{SDL\_MAIN\_HANDLED@{SDL\_MAIN\_HANDLED}!menu.c@{menu.c}}
+\doxysubsubsection{\texorpdfstring{SDL\_MAIN\_HANDLED}{SDL\_MAIN\_HANDLED}}
+{\footnotesize\ttfamily \#define SDL\+\_\+\+MAIN\+\_\+\+HANDLED}
 
 
 
@@ -71,16 +94,52 @@ Vérifie si un fichier existe.
 \begin{DoxyReturn}{Renvoie}
 retourne 1 si le fichier existe, 0 sinon 
 \end{DoxyReturn}
+\mbox{\Hypertarget{menu_8c_a9fb71cc3114b9c0771038be9610dc95d}\label{menu_8c_a9fb71cc3114b9c0771038be9610dc95d}} 
+\index{menu.c@{menu.c}!gameover@{gameover}}
+\index{gameover@{gameover}!menu.c@{menu.c}}
+\doxysubsubsection{\texorpdfstring{gameover()}{gameover()}}
+{\footnotesize\ttfamily int gameover (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Window $\ast$}]{window,  }\item[{SDL\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{\mbox{\hyperlink{structentite__t}{entite\+\_\+t}} $\ast$}]{personnage }\end{DoxyParamCaption})}
+
+
+
+Fonction qui gère l\textquotesingle{}écran de fin de partie. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em window} & Pointeur sur la fenêtre \\
+\hline
+{\em renderer} & Pointeur sur le renderer \\
+\hline
+{\em personnage} & Pointeur sur le personnage \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0 si le joueur a quitté le jeu, 1 sinon 
+\end{DoxyReturn}
 \mbox{\Hypertarget{menu_8c_a77046073f1845beaba5328572a659247}\label{menu_8c_a77046073f1845beaba5328572a659247}} 
 \index{menu.c@{menu.c}!menu@{menu}}
 \index{menu@{menu}!menu.c@{menu.c}}
 \doxysubsubsection{\texorpdfstring{menu()}{menu()}}
-{\footnotesize\ttfamily int menu (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Window $\ast$}]{window,  }\item[{SDL\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{entite\+\_\+t $\ast$}]{personnage }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily int menu (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Window $\ast$}]{window,  }\item[{SDL\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{\mbox{\hyperlink{structentite__t}{entite\+\_\+t}} $\ast$}]{personnage }\end{DoxyParamCaption})}
 
 
 
-Fonction qui initialise le menu. 
+Fonction qui affiche le menu. 
 
+Fonction qui initialise le menu.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em window} & Pointeur sur la fenêtre \\
+\hline
+{\em renderer} & Pointeur sur le renderer \\
+\hline
+{\em personnage} & Pointeur sur le personnage \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0 si le joueur a quitté le jeu, 1 sinon
+\end{DoxyReturn}
 
 \begin{DoxyParams}{Paramètres}
 {\em window} & La fenêtre \\
@@ -97,12 +156,26 @@ Fonction qui initialise le menu.
 \index{menu.c@{menu.c}!menu\_interact@{menu\_interact}}
 \index{menu\_interact@{menu\_interact}!menu.c@{menu.c}}
 \doxysubsubsection{\texorpdfstring{menu\_interact()}{menu\_interact()}}
-{\footnotesize\ttfamily int menu\+\_\+interact (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Window $\ast$}]{window,  }\item[{SDL\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{entite\+\_\+t $\ast$}]{personnage }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily int menu\+\_\+interact (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Window $\ast$}]{window,  }\item[{SDL\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{\mbox{\hyperlink{structentite__t}{entite\+\_\+t}} $\ast$}]{personnage }\end{DoxyParamCaption})}
 
 
 
-Affiche le menu et gère les interactions avec celui-\/ci. 
+Fonction qui gère les interactions avec le menu. 
 
+Affiche le menu et gère les interactions avec celui-\/ci.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em window} & Pointeur sur la fenêtre \\
+\hline
+{\em renderer} & Pointeur sur le renderer \\
+\hline
+{\em personnage} & Pointeur sur le personnage \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0 si le joueur a quitté le jeu, 1 sinon
+\end{DoxyReturn}
 
 \begin{DoxyParams}{Paramètres}
 {\em window} & la fenêtre \\

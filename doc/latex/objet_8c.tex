@@ -1,5 +1,5 @@
-\hypertarget{objet_8c}{}\doxysection{Référence du fichier /mnt/c/\+Users/natik/\+Projet\+L2/src/objet.c}
-\label{objet_8c}\index{/mnt/c/Users/natik/ProjetL2/src/objet.c@{/mnt/c/Users/natik/ProjetL2/src/objet.c}}
+\hypertarget{objet_8c}{}\doxysection{Référence du fichier /mnt/c/\+Projet\+L2/src/objet.c}
+\label{objet_8c}\index{/mnt/c/ProjetL2/src/objet.c@{/mnt/c/ProjetL2/src/objet.c}}
 
 
 Primitives liées aux objets.  
@@ -9,17 +9,22 @@ Primitives liées aux objets.
 {\ttfamily \#include $<$string.\+h$>$}\newline
 {\ttfamily \#include \char`\"{}../head/objet.\+h\char`\"{}}\newline
 Graphe des dépendances par inclusion de objet.\+c\+:
-% FIG 0
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=306pt]{objet_8c__incl}
+\end{center}
+\end{figure}
 \doxysubsection*{Fonctions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{objet_8c_a685a482315542090c7843496aa12913a}\label{objet_8c_a685a482315542090c7843496aa12913a}} 
-int {\bfseries acces\+\_\+obj} (char $\ast$chaine)
-\end{DoxyCompactItemize}
+int \mbox{\hyperlink{objet_8c_a685a482315542090c7843496aa12913a}{acces\+\_\+obj}} (char $\ast$chaine)
+\begin{DoxyCompactList}\small\item\em Fonction qui donne la place d\textquotesingle{}un objet dans le tableau tab\+\_\+objet selon sont nom. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
-objet\+\_\+t \mbox{\hyperlink{objet_8c_ac353188476093b98545b61a3f3aa4925}{tab\+\_\+objet}} \mbox{[}NB\+\_\+\+OBJET\mbox{]}
+\mbox{\hyperlink{structobjet__t}{objet\+\_\+t}} \mbox{\hyperlink{objet_8c_ac353188476093b98545b61a3f3aa4925}{tab\+\_\+objet}} \mbox{[}\mbox{\hyperlink{objet_8h_ad58ba2d6c28c6265844e455c07cc6a00}{NB\+\_\+\+OBJET}}\mbox{]}
 \begin{DoxyCompactList}\small\item\em Tableau qui stocke tout les objets du jeu. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -37,12 +42,33 @@ GEORGET Rémy, GALLAIS Mathéo , GAUTERON Nathan
 \end{DoxyDate}
 
 
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{objet_8c_a685a482315542090c7843496aa12913a}\label{objet_8c_a685a482315542090c7843496aa12913a}} 
+\index{objet.c@{objet.c}!acces\_obj@{acces\_obj}}
+\index{acces\_obj@{acces\_obj}!objet.c@{objet.c}}
+\doxysubsubsection{\texorpdfstring{acces\_obj()}{acces\_obj()}}
+{\footnotesize\ttfamily int acces\+\_\+obj (\begin{DoxyParamCaption}\item[{char $\ast$}]{chaine }\end{DoxyParamCaption})}
+
+
+
+Fonction qui donne la place d\textquotesingle{}un objet dans le tableau tab\+\_\+objet selon sont nom. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em nom} & Nom de l\textquotesingle{}objet \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+La place de l\textquotesingle{}objet dans le tableau tab\+\_\+objet 
+\end{DoxyReturn}
+
+
 \doxysubsection{Documentation des variables}
 \mbox{\Hypertarget{objet_8c_ac353188476093b98545b61a3f3aa4925}\label{objet_8c_ac353188476093b98545b61a3f3aa4925}} 
 \index{objet.c@{objet.c}!tab\_objet@{tab\_objet}}
 \index{tab\_objet@{tab\_objet}!objet.c@{objet.c}}
 \doxysubsubsection{\texorpdfstring{tab\_objet}{tab\_objet}}
-{\footnotesize\ttfamily objet\+\_\+t tab\+\_\+objet\mbox{[}NB\+\_\+\+OBJET\mbox{]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structobjet__t}{objet\+\_\+t}} tab\+\_\+objet\mbox{[}\mbox{\hyperlink{objet_8h_ad58ba2d6c28c6265844e455c07cc6a00}{NB\+\_\+\+OBJET}}\mbox{]}}
 
 {\bfseries Valeur initiale \+:}
 \begin{DoxyCode}{0}
@@ -71,3 +97,4 @@ GEORGET Rémy, GALLAIS Mathéo , GAUTERON Nathan
 
 Tableau qui stocke tout les objets du jeu. 
 
+Tableau qui réference tous les objets du jeu. 

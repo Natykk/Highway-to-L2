@@ -1,5 +1,5 @@
-\hypertarget{itoa_8c}{}\doxysection{Référence du fichier /mnt/c/\+Users/natik/\+Projet\+L2/src/itoa.c}
-\label{itoa_8c}\index{/mnt/c/Users/natik/ProjetL2/src/itoa.c@{/mnt/c/Users/natik/ProjetL2/src/itoa.c}}
+\hypertarget{itoa_8c}{}\doxysection{Référence du fichier /mnt/c/\+Projet\+L2/src/itoa.c}
+\label{itoa_8c}\index{/mnt/c/ProjetL2/src/itoa.c@{/mnt/c/ProjetL2/src/itoa.c}}
 
 
 Fichier contenant les fonctions pour la conversion d\textquotesingle{}un entier en chaine de caractères.  
@@ -7,21 +7,85 @@ Fichier contenant les fonctions pour la conversion d\textquotesingle{}un entier 
 
 {\ttfamily \#include \char`\"{}../head/itoa.\+h\char`\"{}}\newline
 Graphe des dépendances par inclusion de itoa.\+c\+:
-% FIG 0
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=202pt]{itoa_8c__incl}
+\end{center}
+\end{figure}
 \doxysubsection*{Fonctions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{itoa_8c_a5caa2956a259c15d67de63fcddff3e57}\label{itoa_8c_a5caa2956a259c15d67de63fcddff3e57}} 
-void {\bfseries swap} (char $\ast$x, char $\ast$y)
-\item 
-\mbox{\Hypertarget{itoa_8c_ac8a933084935cebe42203f95291c8834}\label{itoa_8c_ac8a933084935cebe42203f95291c8834}} 
-char $\ast$ {\bfseries reverse} (char $\ast$buffer, int i, int j)
-\item 
-\mbox{\Hypertarget{itoa_8c_acfec476f7ef276bf6bc4458b9f76405c}\label{itoa_8c_acfec476f7ef276bf6bc4458b9f76405c}} 
-char $\ast$ {\bfseries itoa} (int value, char $\ast$buffer, int base)
-\end{DoxyCompactItemize}
+void \mbox{\hyperlink{itoa_8c_a5caa2956a259c15d67de63fcddff3e57}{swap}} (char $\ast$x, char $\ast$y)
+\begin{DoxyCompactList}\small\item\em Fonction permettant de permuter deux variables. \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{itoa_8c_ac8a933084935cebe42203f95291c8834}{reverse}} (char $\ast$buffer, int i, int j)
+\begin{DoxyCompactList}\small\item\em Fonction permettant de retourner une chaine de caractère. \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{itoa_8c_acfec476f7ef276bf6bc4458b9f76405c}{itoa}} (int value, char $\ast$buffer, int base)
+\begin{DoxyCompactList}\small\item\em Fonction permettant de convertir un entier en chaine de caractère. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Description détaillée}
 Fichier contenant les fonctions pour la conversion d\textquotesingle{}un entier en chaine de caractères. 
 
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{itoa_8c_acfec476f7ef276bf6bc4458b9f76405c}\label{itoa_8c_acfec476f7ef276bf6bc4458b9f76405c}} 
+\index{itoa.c@{itoa.c}!itoa@{itoa}}
+\index{itoa@{itoa}!itoa.c@{itoa.c}}
+\doxysubsubsection{\texorpdfstring{itoa()}{itoa()}}
+{\footnotesize\ttfamily char$\ast$ itoa (\begin{DoxyParamCaption}\item[{int}]{value,  }\item[{char $\ast$}]{buffer,  }\item[{int}]{base }\end{DoxyParamCaption})}
+
+
+
+Fonction permettant de convertir un entier en chaine de caractère. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em value} & Entier à convertir \\
+\hline
+{\em buffer} & Pointeur sur la chaine de caractère \\
+\hline
+{\em base} & Base de la conversion \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Pointeur sur la chaine de caractère 
+\end{DoxyReturn}
+\mbox{\Hypertarget{itoa_8c_ac8a933084935cebe42203f95291c8834}\label{itoa_8c_ac8a933084935cebe42203f95291c8834}} 
+\index{itoa.c@{itoa.c}!reverse@{reverse}}
+\index{reverse@{reverse}!itoa.c@{itoa.c}}
+\doxysubsubsection{\texorpdfstring{reverse()}{reverse()}}
+{\footnotesize\ttfamily char$\ast$ reverse (\begin{DoxyParamCaption}\item[{char $\ast$}]{buffer,  }\item[{int}]{i,  }\item[{int}]{j }\end{DoxyParamCaption})}
+
+
+
+Fonction permettant de retourner une chaine de caractère. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em buffer} & Pointeur sur la chaine de caractère \\
+\hline
+{\em i} & Indice de début de la chaine \\
+\hline
+{\em j} & Indice de fin de la chaine \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{itoa_8c_a5caa2956a259c15d67de63fcddff3e57}\label{itoa_8c_a5caa2956a259c15d67de63fcddff3e57}} 
+\index{itoa.c@{itoa.c}!swap@{swap}}
+\index{swap@{swap}!itoa.c@{itoa.c}}
+\doxysubsubsection{\texorpdfstring{swap()}{swap()}}
+{\footnotesize\ttfamily void swap (\begin{DoxyParamCaption}\item[{char $\ast$}]{x,  }\item[{char $\ast$}]{y }\end{DoxyParamCaption})}
+
+
+
+Fonction permettant de permuter deux variables. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em x} & Pointeur sur la première variable \\
+\hline
+{\em y} & Pointeur sur la deuxième variable \\
+\hline
+\end{DoxyParams}

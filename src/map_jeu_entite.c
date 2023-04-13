@@ -29,8 +29,8 @@ SDL_Texture *tab_tex[30] = {NULL};
 #define BAR_WIDTH 400
 #define BAR_HEIGHT 10
 
-#define BASE_ATTAQUE_SPEED 1
-#define BASE_MOVE_SPEED 1
+#define BASE_ATTAQUE_SPEED 200
+#define BASE_MOVE_SPEED 150
 
 
 #define SPRITE_FRAMES 4 // Nombre de frames de l'animation
@@ -87,10 +87,12 @@ SDL_Texture *choix_tex_niv(SDL_Renderer *renderer)
         tab_tex[1] = charge_tex(renderer, "../img/foret/floor_grass.png", 0); // Sol
 
         tab_tex[4] = charge_tex(renderer, "../img/foret/souche.png", 0);              // obstacle
+        //----------------------------------------------------
         tab_tex[8] = charge_tex(renderer, "../img/foret/GreenSlime/GrnSheet.png", 0); // Slime
         tab_tex[20]= charge_tex(renderer,"../img/foret/wolf.png",0); // loup
         tab_tex[21]= charge_tex(renderer,"../img/foret/mushroom.png",0); // Champi
         tab_tex[22]= charge_tex(renderer,"../img/foret/pig.png",0); // Cochon
+        //---------------------------------------------------
         tab_tex[23]= charge_tex(renderer,"../img/foret/volibear_north.png",0); // Boss North
         tab_tex[24]= charge_tex(renderer,"../img/foret/volibear_south.png",0); // Boss South
         tab_tex[25]= charge_tex(renderer,"../img/foret/volibear_side.png",0); // Boss Side
@@ -101,27 +103,32 @@ SDL_Texture *choix_tex_niv(SDL_Renderer *renderer)
         tab_tex[0] = charge_tex(renderer, "../img/mines/mur_mine.png", 0); // Mur
         tab_tex[1] = charge_tex(renderer, "../img/mines/sol.jpg", 0);      // Sol
         tab_tex[4] = charge_tex(renderer, "../img/mines/rock.png", 0);     // obstacle
+        //---------------------------------------------------
         tab_tex[8] = charge_tex(renderer, "../img/mines/GreySlime/WhiteSheet.png", 0); // mob 1
         tab_tex[20]= charge_tex(renderer,"../img/mines/Squelette.png",0); // Squelette
         tab_tex[21]= charge_tex(renderer,"../img/mines/Rockmob.png",0); // Caillou
         tab_tex[22]= charge_tex(renderer,"../img/mines/bat.png",0); // ChauveSouris
+        //---------------------------------------------------
         tab_tex[23]= charge_tex(renderer,"../img/mines/darickleft.png",0); // Boss North
         tab_tex[24]= charge_tex(renderer,"../img/mines/darickright.png",0); // Boss South
         tab_tex[25]= tab_tex[24]; // Boss Side
 
-        // 20
     }
     else if (NumEtage == 2)
     {                                                                        // Enfer
         tab_tex[0] = charge_tex(renderer, "../img/enfer/mur_enfer.png", 0);  // Mur
         tab_tex[1] = charge_tex(renderer, "../img/enfer/floor_hell.png", 0); // Sol
         tab_tex[4] = charge_tex(renderer, "../img/enfer/rock.png", 0);       // obstacle
-        tab_tex[8] = charge_tex(renderer, "../img/enfer/RedSlime/GrnSheet.png", 0); // mob 1
+        //---------------------------------------------------
+        tab_tex[8] = charge_tex(renderer, "../img/enfer/RedSlime/RedSheet.png", 0); // mob 1
+        tab_tex[20]= charge_tex(renderer,"../img/enfer/devil_centaurs.png",0); // Centaure
+        tab_tex[21]= charge_tex(renderer,"../img/enfer/littledevil.png",0); // Demon
+        tab_tex[22]= charge_tex(renderer,"../img/enfer/hellbound.png",0); // Demon
 
-
-        tab_tex[23]= charge_tex(renderer,"../img/enfer/RedSlime/satan_north_walk.png",0); // Boss
-        tab_tex[24]= charge_tex(renderer,"../img/enfer/RedSlime/satan_south_walk.png",0); // Boss
-        tab_tex[25]= charge_tex(renderer,"../img/enfer/RedSlime/satan_side_walk.png",0); // Boss
+        //---------------------------------------------------
+        tab_tex[23]= charge_tex(renderer,"../img/enfer/satan_north_walk.png",0); // Boss
+        tab_tex[24]= charge_tex(renderer,"../img/enfer/satan_south_walk.png",0); // Boss
+        tab_tex[25]= charge_tex(renderer,"../img/enfer/satan_side_walk.png",0); // Boss
 
         //20 
     }
@@ -222,7 +229,7 @@ void changement(t_niv *niv, entite_t *perso, t_pos *posSalle, t_salle *map)
         // si tu est au moins a la deuxieme salle
         if (niv->etages[NumEtage].etage[posSalle->x][posSalle->y].statut != START)
         {
-            printf("Sauvegarde de la salle %d\n", niv->etages[NumEtage].etage[posSalle->x][posSalle->y].num_salle);
+            //printf("Sauvegarde de la salle %d\n", niv->etages[NumEtage].etage[posSalle->x][posSalle->y].num_salle);
             sauvegarde_salle(&niv->etages[NumEtage].etage[posSalle->x][posSalle->y], map);
         }
         if (perso->dir == HAUT)
@@ -254,14 +261,39 @@ void changement(t_niv *niv, entite_t *perso, t_pos *posSalle, t_salle *map)
         map->dim[perso->x][perso->y] = PERSO;
         if (niv->etages[NumEtage].boss == 1)
         {
-            printf("Vous avez battu le boss\n");
+            //printf("Vous avez battu le boss\n");
             niv->etages[NumEtage].boss = 0;
             detruireSalleBoss(&niv->etages->Boss);
             niv->etages[NumEtage].marchand = 1;
         }
         else if (map->statut == EXIT)
         {
-            printf("C\'est l'heure du boss\n");
+            //printf("C\'est l'heure du boss\n");
+            // met de la musique suivant le boss
+            Mix_Music *musique=NULL;
+            Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 6, 1024);
+
+            if (NumEtage == 0)
+            {
+                //printf("Musique ours\n");
+                musique = Mix_LoadMUS("../music/music_ours.mp3");
+                if(Mix_PlayMusic(musique, -1) == -1){
+                    printf("Mix_PlayMusic: %s \n", Mix_GetError());
+                }
+            }
+            else if (NumEtage == 1)
+            {
+                //printf("Musique darrick\n");
+                musique = Mix_LoadMUS("../music/music_darrick.mp3");
+                Mix_PlayMusic(musique, -1);
+            }
+            else if (NumEtage == 2)
+            {
+                //printf("Musique satan\n");
+                musique = Mix_LoadMUS("../music/music_satan.mp3");
+                Mix_PlayMusic(musique, -1);
+            }
+            
             // initialise la matrice de la salle Boss
             niv->etages[NumEtage].Boss = genererSalleBoss(niv->etages->Boss);
             transfert(niv->etages[NumEtage].Boss, map, 1);
@@ -273,7 +305,8 @@ void changement(t_niv *niv, entite_t *perso, t_pos *posSalle, t_salle *map)
         }
         if (niv->etages[NumEtage].marchand == 1)
         {
-            printf("C'est l'heure du marchand\n");
+            Mix_HaltMusic();
+            //printf("C'est l'heure du marchand\n");
             // initialise la matrice de la salle Marchand
             niv->etages[NumEtage].Marchand = genererSalleMarchand(niv->etages->Marchand);
             transfert(niv->etages[NumEtage].Marchand, map, 2);
@@ -299,6 +332,15 @@ void mouvement(t_salle *map, entite_t *pers, t_pos *posSalle, t_niv *niv, SDL_Re
 {
     int x = pers->x;
     int y = pers->y;
+    // si le x n'est pas dans la matrice
+    if (x < 0 || x >= LARG_SALLE_BOSS)
+    {
+        return;
+    }
+    if(y < 0 || y >= LARG_SALLE_BOSS)
+    {
+        return;
+    }
     if (pers->dir == HAUT)
     {
         if (map->dim[x][y - 1] == PORTE && pers->persoOuMob == 0)
@@ -422,7 +464,8 @@ void mouvement(t_salle *map, entite_t *pers, t_pos *posSalle, t_niv *niv, SDL_Re
 
 int perso_attack(t_salle *map, int attaque, entite_t *pers, void (*attaque_pers)(proj_t, entite_t *, t_salle *), SDL_Window *window, SDL_Renderer *renderer, TTF_Font *police)
 {
-    printf("perso_attack\n");
+    //printf("perso_attack %d\n",attaque);
+    
     int x = pers->x;
     int y = pers->y;
     proj_t proj = AUCUN_PROJ;
@@ -461,11 +504,11 @@ int enemy_attack(t_salle *map, entite_t *pers)
     if ((map->dim[x][y - 1] >= 10 && map->dim[x][y - 1] <= 21 )|| map->dim[x][y - 1]==BOSS )
     { // si il y a un ennemi sur la case du bas
         if(map->dim[x][y - 1]==BOSS){
-            printf("Vous avez perdu %d points de vie ! avec le boss\n", map->mob[0]->degats);
+            //printf("Vous avez perdu %d points de vie ! avec le boss\n", map->mob[0]->degats);
             pers->vie -= (int)(map->mob[0]->degats);
         }
         else{
-            printf("Vous avez perdu %d points de vie ! avec le mob %s\n", map->mob[(map->dim[x][y - 1]) - 10]->degats, map->mob[(map->dim[x][y - 1]) - 10]->nom);
+            //printf("Vous avez perdu %d points de vie ! avec le mob %s\n", map->mob[(map->dim[x][y - 1]) - 10]->degats, map->mob[(map->dim[x][y - 1]) - 10]->nom);
             pers->vie -= (int)(map->mob[(map->dim[x][y - 1]) - 10]->degats);
         }
         return 1;
@@ -473,11 +516,11 @@ int enemy_attack(t_salle *map, entite_t *pers)
     if ((map->dim[x][y + 1] >= 10 && map->dim[x][y + 1] <= 21) || map->dim[x][y + 1]==BOSS)
     { // si il y a un ennemi sur la case du haut
         if(map->dim[x][y + 1]==BOSS){
-            printf("Vous avez perdu %d points de vie ! avec le boss\n", map->mob[0]->degats);
+            //printf("Vous avez perdu %d points de vie ! avec le boss\n", map->mob[0]->degats);
             pers->vie -= (int)(map->mob[0]->degats);
         }
         else{
-            printf("Vous avez perdu %d points de vie ! avec le mob %s\n", map->mob[(map->dim[x][y + 1]) - 10]->degats, map->mob[(map->dim[x][y + 1]) - 10]->nom);
+            //printf("Vous avez perdu %d points de vie ! avec le mob %s\n", map->mob[(map->dim[x][y + 1]) - 10]->degats, map->mob[(map->dim[x][y + 1]) - 10]->nom);
             pers->vie -= (int)(map->mob[(map->dim[x][y + 1]) - 10]->degats);
         }
         return 1;
@@ -485,11 +528,11 @@ int enemy_attack(t_salle *map, entite_t *pers)
     if ( (map->dim[x - 1][y] >= 10 && map->dim[x - 1][y] <= 21 )|| map->dim[x-1][y] == BOSS )
     { // si il y a un ennemi sur la case de droite
         if(map->dim[x-1][y]==BOSS){
-            printf("Vous avez perdu %d points de vie ! avec le boss\n", map->mob[0]->degats);
+            //printf("Vous avez perdu %d points de vie ! avec le boss\n", map->mob[0]->degats);
             pers->vie -= (int)(map->mob[0]->degats);
         }
         else{
-            printf("Vous avez perdu %d points de vie ! avec le mob %s\n", map->mob[(map->dim[x - 1][y]) - 10]->degats, map->mob[(map->dim[x - 1][y]) - 10]->nom);
+            //printf("Vous avez perdu %d points de vie ! avec le mob %s\n", map->mob[(map->dim[x - 1][y]) - 10]->degats, map->mob[(map->dim[x - 1][y]) - 10]->nom);
             pers->vie -= (int)(map->mob[(map->dim[x - 1][y]) - 10]->degats);
         }
         return 1;
@@ -497,11 +540,11 @@ int enemy_attack(t_salle *map, entite_t *pers)
     if ((map->dim[x + 1][y] >= 10 && map->dim[x + 1][y] <= 21) || map->dim[x + 1][y] == BOSS)
     { // si il y a un ennemi sur la case de gauche
         if(map->dim[x + 1][y]==BOSS){
-            printf("Vous avez perdu %d points de vie ! avec le boss\n", map->mob[0]->degats);
+            //printf("Vous avez perdu %d points de vie ! avec le boss\n", map->mob[0]->degats);
             pers->vie -= (int)(map->mob[0]->degats);
         }
         else{
-            printf("Vous avez perdu %d points de vie ! avec le mob %s\n", map->mob[(map->dim[x + 1][y]) - 10]->degats, map->mob[(map->dim[x + 1][y]) - 10]->nom);
+            //printf("Vous avez perdu %d points de vie ! avec le mob %s\n", map->mob[(map->dim[x + 1][y]) - 10]->degats, map->mob[(map->dim[x + 1][y]) - 10]->nom);
             pers->vie -= (int)(map->mob[(map->dim[x + 1][y]) - 10])->degats;
         }
         return 1;
@@ -595,6 +638,7 @@ void interact(int attaque, t_salle *map, entite_t *pers, Uint32 *lastTime, t_pos
  */
 void rendu(int map[][LONG_SALLE_BOSS], int tailleI, int tailleJ, SDL_Renderer *renderer, SDL_Texture *tab_tex[10], SDL_Rect dstRect, SDL_Rect Door, SDL_Rect srcRect, SDL_Rect PersRect, entite_t *perso, int attaque, int frame,entite_t* mob[])
 {
+    SDL_RenderClear(renderer);
     SDL_Rect MobRect;
     int tailleRenduX = tailleI * TILE_SIZE;
     int tailleRenduY = tailleJ * TILE_SIZE;
@@ -603,6 +647,7 @@ void rendu(int map[][LONG_SALLE_BOSS], int tailleI, int tailleJ, SDL_Renderer *r
     int departY = (hauteur_fenetre - tailleRenduY) / 2;
     SDL_Rect salle = {(largeur_fenetre - tailleRenduX) / 2, (hauteur_fenetre - tailleRenduY) / 2, tailleRenduX, tailleRenduY};
     SDL_RenderCopy(renderer, tab_tex[1], NULL, &salle);
+    //printf("Attaque == %d\n", attaque);
     for (int x = 0; x < tailleI; x++)
     {
         int posX = departX + x * TILE_SIZE;
@@ -636,7 +681,7 @@ void rendu(int map[][LONG_SALLE_BOSS], int tailleI, int tailleJ, SDL_Renderer *r
                 else
                 {
                     // coordonnées de la porte
-                    printf("x : %d y : %d | x==tailleI y==tailleJ\n", x, y);
+                    //printf("x : %d y : %d | x==tailleI y==tailleJ\n", x, y);
                     SDL_RenderCopyEx(renderer, tab_tex[2], &Door, &dstRect, 0, NULL, SDL_FLIP_NONE);
                 }
             }
@@ -654,22 +699,22 @@ void rendu(int map[][LONG_SALLE_BOSS], int tailleI, int tailleJ, SDL_Renderer *r
                 //SDL_RenderCopyEx(renderer, tab_tex[8], &MobRect, &dstRect, 0, NULL, SDL_FLIP_NONE);
                  if (map[x][y] == 10)
                  {
-                    printf("Slime \n");
+
                      SDL_RenderCopyEx(renderer, tab_tex[8], &MobRect, &dstRect, 0, NULL, SDL_FLIP_NONE);
                  }
                  if(map[x][y] == 11)
                  {
-                    printf("Loup \n");
+
                      SDL_RenderCopyEx(renderer,  tab_tex[20], &MobRect, &dstRect, 0, NULL, SDL_FLIP_NONE);
                  }
                  if(map[x][y] == 12)
                  {
-                    printf("Champi \n");
+
                      SDL_RenderCopyEx(renderer,  tab_tex[21], &MobRect, &dstRect, 0, NULL, SDL_FLIP_NONE);
                  }
                  if(map[x][y] == 13)
                  {
-                    printf("Cochon \n");
+
                      SDL_RenderCopyEx(renderer,  tab_tex[22], &MobRect, &dstRect, 0, NULL, SDL_FLIP_NONE);
                  }
             }
@@ -692,20 +737,20 @@ void rendu(int map[][LONG_SALLE_BOSS], int tailleI, int tailleJ, SDL_Renderer *r
                     if (perso->dir == DROITE)
                         SDL_RenderCopyEx(renderer, tab_tex[7], &PersRect, &dstRect, 0, NULL, SDL_FLIP_NONE);
                 }else{
-                    PersRect.x = frame * 20; // Combien de Pixel on doit décaler pour afficher la bonne frame
-                    PersRect.w = 20;         // Largeur de la frame
-                    PersRect.y = 0;
-                    PersRect.h = 24;        // Hauteur de la frame
-                    dstRect.x = posX;       // Position de la frame
-                    dstRect.y = posY;       // Position de la frame
-                    if (perso->dir == HAUT) // On affiche le perso dans la bonne direction
-                        SDL_RenderCopyEx(renderer, tab_tex[9], &PersRect, &dstRect, 0, NULL, SDL_FLIP_NONE);
-                    if (perso->dir == BAS)
-                        SDL_RenderCopyEx(renderer, tab_tex[10], &PersRect, &dstRect, 0, NULL, SDL_FLIP_NONE);
-                    if (perso->dir == GAUCHE)
-                        SDL_RenderCopyEx(renderer, tab_tex[11], &PersRect, &dstRect, 0, NULL, SDL_FLIP_HORIZONTAL);
-                    if (perso->dir == DROITE)
-                        SDL_RenderCopyEx(renderer, tab_tex[11], &PersRect, &dstRect, 0, NULL, SDL_FLIP_NONE);
+                        PersRect.x = frame * 20; // Combien de Pixel on doit décaler pour afficher la bonne frame
+                        PersRect.w = 20;         // Largeur de la frame
+                        PersRect.y = 0;
+                        PersRect.h = 24;        // Hauteur de la frame
+                        dstRect.x = posX;       // Position de la frame
+                        dstRect.y = posY;       // Position de la frame
+                        if (perso->dir == HAUT) // On affiche le perso dans la bonne direction
+                            SDL_RenderCopyEx(renderer, tab_tex[9], &PersRect, &dstRect, 0, NULL, SDL_FLIP_NONE);
+                        if (perso->dir == BAS)
+                            SDL_RenderCopyEx(renderer, tab_tex[10], &PersRect, &dstRect, 0, NULL, SDL_FLIP_NONE);
+                        if (perso->dir == GAUCHE)
+                            SDL_RenderCopyEx(renderer, tab_tex[11], &PersRect, &dstRect, 0, NULL, SDL_FLIP_HORIZONTAL);
+                        if (perso->dir == DROITE)
+                            SDL_RenderCopyEx(renderer, tab_tex[11], &PersRect, &dstRect, 0, NULL, SDL_FLIP_NONE);
                 }
             }
             if (map[x][y] == MUR)
@@ -759,21 +804,21 @@ void rendu(int map[][LONG_SALLE_BOSS], int tailleI, int tailleJ, SDL_Renderer *r
             }
         }
         // printf("\n");
-printf("----------------\n");
 }
 
 
 int main()
 {
-    NumEtage = 0;
-    printf("NumEtage %d\n", NumEtage);
+    Mix_Init(MIX_INIT_MP3);
+    
     SDL_Init(SDL_INIT_EVERYTHING);
     entite_t *perso = NULL;
     perso = creer_personnage(perso);
     perso = init_inventaire_personnage(perso);
     SDL_Window *window = SDL_CreateWindow("Highway to L2", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, largeur_fenetre, hauteur_fenetre, 0); // On crée la fenêtre
     SDL_Renderer *renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);                               // On crée le renderer
-    printf("Bonjour\n");
+    //printf("Bonjour\n");
+    
     if (menu(window, renderer, perso) == 0)
     {
         SDL_DestroyRenderer(renderer);
@@ -789,14 +834,14 @@ int main()
             if(controller){
                 break;
             }else{
-                printf("Pb gamecontroller %i: %s\n", i, SDL_GetError());
+                //printf("Pb gamecontroller %i: %s\n", i, SDL_GetError());
             }
         }
     }
 
     if (!sauvegarde(perso, 0,"0123456789abcdef"))
     {
-        printf("problème lors de la sauvegarde\n");
+        //printf("problème lors de la sauvegarde\n");
         SDL_DestroyRenderer(renderer);
         SDL_DestroyWindow(window);
         SDL_Quit();
@@ -816,7 +861,6 @@ int main()
     SDL_Rect MobRect;
     int frame;
     int attaque = 0;
-    NumEtage = 0;
     choix_tex_niv(renderer);
 
     t_salle map;                    // Matrice de la salle
@@ -838,7 +882,6 @@ int main()
             }
         }
     }
-    NumEtage = 0;
     transfert(&niv->etages[NumEtage].etage[posSalle.x][posSalle.y], &map, 0);
 
     map.dim[perso->x][perso->y] = PERSO;
@@ -901,7 +944,7 @@ int main()
             case SDL_CONTROLLERBUTTONDOWN:
                 switch(event.cbutton.button){
                     case SDL_CONTROLLER_BUTTON_A:
-                    printf("ATTAQUE\n");
+                    //printf("ATTAQUE\n");
                         if (perso->vitesse_att*(SDL_GetTicks() - CooldownAttaque) >= BASE_ATTAQUE_SPEED)
                     {
                         attaque = 1;
@@ -924,6 +967,7 @@ int main()
                             fonc_attaque = attaque_cac;
                         }
                         CooldownAttaque = SDL_GetTicks();
+
                         perso_attack(&map, attaque, perso, fonc_attaque, window, renderer, police);
                         // interact(attaque,&map,perso,lastTimeInteract,&posSalle,niv,renderer);
                         break;
@@ -957,6 +1001,14 @@ int main()
                     }
                     break;
                 }
+                case SDL_KEYUP:
+                switch (event.key.keysym.scancode)
+                {
+                case SDL_SCANCODE_SPACE:
+                    attaque = 0;
+                    break;
+                }
+                break;
             case SDL_KEYDOWN:
                 switch (event.key.keysym.scancode)
                 { // On récupère le code de la touche
@@ -1004,12 +1056,15 @@ int main()
                             switch (perso->arbre->classe)
                             {
                             case MAGE:
+                                //printf("ATTAQUE MAGE\n");
                                 fonc_attaque = attaque_proj;
                                 break;
                             case ARCHER:
+                                //printf("ATTQUE ARCHER\n");
                                 fonc_attaque = attaque_proj;
                                 break;
                             default:
+                                //printf("ATTQUE DEFAULT\n");
                                 fonc_attaque = attaque_cac;
                             }
                         }
@@ -1018,6 +1073,7 @@ int main()
                             fonc_attaque = attaque_cac;
                         }
                         CooldownAttaque = SDL_GetTicks();
+                        attaque=1;
                         perso_attack(&map, attaque, perso, fonc_attaque, window, renderer, police);
                         // interact(attaque,&map,perso,lastTimeInteract,&posSalle,niv,renderer);
                         break;
@@ -1025,7 +1081,7 @@ int main()
                     }
                     else
                     {
-                        attaque = 0;
+                        //attaque = 0;
                         break;
                     }
                     break;
@@ -1037,25 +1093,25 @@ int main()
                     SDL_RenderClear(renderer);
                     break;
                 case SDL_SCANCODE_M:
-                    printf("Touche M appuyée\n");
+                    //printf("Touche M appuyée\n");
                     switch(perso->dir){
                         case HAUT: if (map.dim[(perso->x)][(perso->y)-1] == MARCHAND){
-                                printf("Marchand HAUT\n");
+                                //printf("Marchand HAUT\n");
                                 afficher_menu(window,renderer,perso, police);
                             }
                             break;
                         case BAS: if (map.dim[(perso->x)][(perso->y)+1] == MARCHAND){
-                                printf("Marchand BAS\n");
+                                //printf("Marchand BAS\n");
                                 afficher_menu(window,renderer,perso, police);
                             }
                             break;
                         case GAUCHE: if (map.dim[(perso->x)-1][(perso->y)] == MARCHAND){
-                                printf("Marchand GAUCHE\n");
+                                //printf("Marchand GAUCHE\n");
                                 afficher_menu(window,renderer,perso, police);
                             }
                             break;
                         case DROITE: if (map.dim[(perso->x)+1][(perso->y)] == MARCHAND){
-                                printf("Marchand DROITE\n");
+                                //printf("Marchand DROITE\n");
                                 afficher_menu(window,renderer,perso, police);
                             }
                             break;
@@ -1063,15 +1119,7 @@ int main()
                 break;
                 }
                 
-            case SDL_KEYUP:
-                switch (event.key.keysym.scancode)
-                {
-                case SDL_SCANCODE_SPACE:
-                    attaque = 0;
-                    break;
-                }
 
-                break;
             }
         }
 
@@ -1096,8 +1144,10 @@ int main()
             Door.x = 0; // On prend la porte fermée
         }
         int i, j;
+        
         if (niv->etages[NumEtage].boss == 1)
         {
+            
             rendu(map.dim, LARG_SALLE_BOSS, LONG_SALLE_BOSS, renderer, tab_tex, dstRect, Door, srcRect, PersRect, perso, attaque, frame,map.mob); // on fais le rendu de la salle
         }
         else if (niv->etages[NumEtage].marchand == 1)
@@ -1121,13 +1171,10 @@ int main()
 
         SDL_Rect blackHealthBarRect = {healthBarRect.x + healthBarWidth, healthBarRect.y, healthBarRect.w - healthBarWidth, healthBarRect.h};
         SDL_RenderCopy(renderer, blackHealthBarTexture, NULL, &blackHealthBarRect);
-        SDL_RenderPresent(renderer); // On affiche l'écran
-
+        
+        
         if (SDL_GetTicks() - lastTimeInteract >= 500)
         {   
-            if(niv->etages[NumEtage].boss == 1){
-                printf("boss\n");
-            }
             enemy_attack(&map, perso);
             interact(attaque, &map, perso, &MajMove, &posSalle, niv, renderer);
             // régénaire la vie du joueur
@@ -1140,7 +1187,7 @@ int main()
             }
             lastTimeInteract = SDL_GetTicks();
         }
-
+        SDL_RenderPresent(renderer); // On affiche l'écran
     } // Fin boucle principale
     SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
     SDL_RenderPresent(renderer); // On affiche l'écran
@@ -1157,16 +1204,16 @@ int main()
 
     if (mort == 1)
     {
-        printf("Menu de mort\n");
+        //printf("Menu de mort\n");
         if (gameover(window, renderer, perso))
         { // On affiche le menu de mort et on regarde si on veut recommencer
-            printf("Direction menu\n");
+            //printf("Direction menu\n");
             SDL_DestroyRenderer(renderer); // On détruit le renderer
             SDL_DestroyWindow(window);     // On détruit la fenêtre
             main();
         }
     }
-    printf("Fin du jeu\n");
+    //printf("Fin du jeu\n");
     SDL_DestroyRenderer(renderer); // On détruit le renderer
     SDL_DestroyWindow(window);     // On détruit la fenêtre
     SDL_Quit();                    // On quitte la SDL

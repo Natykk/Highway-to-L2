@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Projet Roguelike: Référence du fichier /mnt/c/Users/natik/ProjetL2/src/inv_SDL.c</title>
+<title>Highway to L2: Référence du fichier /mnt/c/ProjetL2/src/inv_SDL.c</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,7 +21,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">Projet Roguelike
+   <div id="projectname">Highway to L2
    </div>
   </td>
  </tr>
@@ -82,40 +82,106 @@ $(function() {
 <code>#include &lt;SDL2/SDL_image.h&gt;</code><br />
 <code>#include &lt;SDL2/SDL_mixer.h&gt;</code><br />
 <code>#include &lt;SDL2/SDL_ttf.h&gt;</code><br />
-<code>#include &quot;../head/entite.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="entite_8h_source.html">../head/entite.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Graphe des dépendances par inclusion de inv_SDL.c:</div>
 <div class="dyncontent">
-<div class="center"><img src="inv__SDL_8c__incl.png" border="0" usemap="#a_2mnt_2c_2Users_2natik_2ProjetL2_2src_2inv__SDL_8c" alt=""/></div>
+<div class="center"><img src="inv__SDL_8c__incl.png" border="0" usemap="#a_2mnt_2c_2ProjetL2_2src_2inv__SDL_8c" alt=""/></div>
+<map name="a_2mnt_2c_2ProjetL2_2src_2inv__SDL_8c" id="a_2mnt_2c_2ProjetL2_2src_2inv__SDL_8c">
+<area shape="rect" title="Fichier contenant les fonctions pour l&#39;inventaire." alt="" coords="403,5,546,47"/>
+<area shape="rect" title=" " alt="" coords="5,95,72,121"/>
+<area shape="rect" title=" " alt="" coords="96,95,179,121"/>
+<area shape="rect" title=" " alt="" coords="203,95,299,121"/>
+<area shape="rect" title=" " alt="" coords="323,95,461,121"/>
+<area shape="rect" title=" " alt="" coords="485,95,629,121"/>
+<area shape="rect" title=" " alt="" coords="653,95,792,121"/>
+<area shape="rect" title=" " alt="" coords="816,95,933,121"/>
+<area shape="rect" href="entite_8h.html" title="Fichier d&#39;en&#45;tete pour les primitives liées aux entites." alt="" coords="957,95,1077,121"/>
+<area shape="rect" href="objet_8h.html" title="Fichier contenant toutes les structutes de données liées aux objets." alt="" coords="984,169,1051,196"/>
+<area shape="rect" href="objet__inv_8h.html" title=" " alt="" coords="971,244,1064,271"/>
+</map>
 </div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:a51f528deaaeb973f417b46a2ec36f850"><td class="memItemLeft" align="right" valign="top"><a id="a51f528deaaeb973f417b46a2ec36f850"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>SDL_MAIN_HANDLED</b></td></tr>
+<tr class="memitem:a51f528deaaeb973f417b46a2ec36f850"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="inv__SDL_8c.html#a51f528deaaeb973f417b46a2ec36f850">SDL_MAIN_HANDLED</a></td></tr>
 <tr class="separator:a51f528deaaeb973f417b46a2ec36f850"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a62ecd70800687eb2d625af180c4210d7"><td class="memItemLeft" align="right" valign="top"><a id="a62ecd70800687eb2d625af180c4210d7"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>TILE_SIZE</b>&#160;&#160;&#160;32</td></tr>
+<tr class="memitem:a62ecd70800687eb2d625af180c4210d7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="inv__SDL_8c.html#a62ecd70800687eb2d625af180c4210d7">TILE_SIZE</a>&#160;&#160;&#160;32</td></tr>
 <tr class="separator:a62ecd70800687eb2d625af180c4210d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa037a6d6a4f04d51c7ec1c9ee9054e76"><td class="memItemLeft" align="right" valign="top"><a id="aa037a6d6a4f04d51c7ec1c9ee9054e76"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>MAP_WIDTH</b>&#160;&#160;&#160;25</td></tr>
+<tr class="memitem:aa037a6d6a4f04d51c7ec1c9ee9054e76"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="inv__SDL_8c.html#aa037a6d6a4f04d51c7ec1c9ee9054e76">MAP_WIDTH</a>&#160;&#160;&#160;25</td></tr>
 <tr class="separator:aa037a6d6a4f04d51c7ec1c9ee9054e76"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a529d5ebb449edf31d9835d13f4fb9f89"><td class="memItemLeft" align="right" valign="top"><a id="a529d5ebb449edf31d9835d13f4fb9f89"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>MAP_HEIGHT</b>&#160;&#160;&#160;25</td></tr>
+<tr class="memitem:a529d5ebb449edf31d9835d13f4fb9f89"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="inv__SDL_8c.html#a529d5ebb449edf31d9835d13f4fb9f89">MAP_HEIGHT</a>&#160;&#160;&#160;25</td></tr>
 <tr class="separator:a529d5ebb449edf31d9835d13f4fb9f89"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Fonctions</h2></td></tr>
-<tr class="memitem:a70f31d85064c15a50f9bf75f3d0b485c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="inv__SDL_8c.html#a70f31d85064c15a50f9bf75f3d0b485c">affichage</a> (SDL_Renderer *renderer, SDL_Window *window, entite_t *pers, int num_rectangles, int rect_width, int rect_height, int rect_spacing, TTF_Font *font, int total_width, int x_start, SDL_Texture *tab_tex[17])</td></tr>
+<tr class="memitem:a70f31d85064c15a50f9bf75f3d0b485c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="inv__SDL_8c.html#a70f31d85064c15a50f9bf75f3d0b485c">affichage</a> (SDL_Renderer *renderer, SDL_Window *window, <a class="el" href="structentite__t.html">entite_t</a> *pers, int num_rectangles, int rect_width, int rect_height, int rect_spacing, TTF_Font *font, int total_width, int x_start, SDL_Texture *<a class="el" href="map__jeu__entite_8c.html#a4b2a246e682f26f2730c7f1b1b7756af">tab_tex</a>[17])</td></tr>
 <tr class="memdesc:a70f31d85064c15a50f9bf75f3d0b485c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affiche l'inventaire.  <a href="inv__SDL_8c.html#a70f31d85064c15a50f9bf75f3d0b485c">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a70f31d85064c15a50f9bf75f3d0b485c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a59b548898d196c0c423e9218d2b7e891"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="inv__SDL_8c.html#a59b548898d196c0c423e9218d2b7e891">inv</a> (SDL_Renderer *renderer, SDL_Window *window, entite_t *pers)</td></tr>
-<tr class="memdesc:a59b548898d196c0c423e9218d2b7e891"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affiche l'inventaire.  <a href="inv__SDL_8c.html#a59b548898d196c0c423e9218d2b7e891">Plus de détails...</a><br /></td></tr>
+<tr class="memitem:a59b548898d196c0c423e9218d2b7e891"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="inv__SDL_8c.html#a59b548898d196c0c423e9218d2b7e891">inv</a> (SDL_Renderer *renderer, SDL_Window *window, <a class="el" href="structentite__t.html">entite_t</a> *pers)</td></tr>
+<tr class="memdesc:a59b548898d196c0c423e9218d2b7e891"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction qui gère l'inventaire.  <a href="inv__SDL_8c.html#a59b548898d196c0c423e9218d2b7e891">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a59b548898d196c0c423e9218d2b7e891"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
 <div class="textblock"><p>Fichier contenant les fonctions pour l'inventaire. </p>
-</div><h2 class="groupheader">Documentation des fonctions</h2>
+</div><h2 class="groupheader">Documentation des macros</h2>
+<a id="a529d5ebb449edf31d9835d13f4fb9f89"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a529d5ebb449edf31d9835d13f4fb9f89">&#9670;&nbsp;</a></span>MAP_HEIGHT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MAP_HEIGHT&#160;&#160;&#160;25</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa037a6d6a4f04d51c7ec1c9ee9054e76"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa037a6d6a4f04d51c7ec1c9ee9054e76">&#9670;&nbsp;</a></span>MAP_WIDTH</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MAP_WIDTH&#160;&#160;&#160;25</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a51f528deaaeb973f417b46a2ec36f850"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a51f528deaaeb973f417b46a2ec36f850">&#9670;&nbsp;</a></span>SDL_MAIN_HANDLED</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SDL_MAIN_HANDLED</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a62ecd70800687eb2d625af180c4210d7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a62ecd70800687eb2d625af180c4210d7">&#9670;&nbsp;</a></span>TILE_SIZE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TILE_SIZE&#160;&#160;&#160;32</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des fonctions</h2>
 <a id="a70f31d85064c15a50f9bf75f3d0b485c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a70f31d85064c15a50f9bf75f3d0b485c">&#9670;&nbsp;</a></span>affichage()</h2>
 
@@ -137,7 +203,7 @@ Fonctions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">entite_t *&#160;</td>
+          <td class="paramtype"><a class="el" href="structentite__t.html">entite_t</a> *&#160;</td>
           <td class="paramname"><em>pers</em>, </td>
         </tr>
         <tr>
@@ -237,7 +303,7 @@ Fonctions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">entite_t *&#160;</td>
+          <td class="paramtype"><a class="el" href="structentite__t.html">entite_t</a> *&#160;</td>
           <td class="paramname"><em>pers</em>&#160;</td>
         </tr>
         <tr>
@@ -248,7 +314,17 @@ Fonctions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Affiche l'inventaire. </p>
+<p>Fonction qui gère l'inventaire. </p>
+<p>Affiche l'inventaire.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">renderer</td><td>Pointeur sur le renderer </td></tr>
+    <tr><td class="paramname">window</td><td>Pointeur sur la fenêtre </td></tr>
+    <tr><td class="paramname">pers</td><td>Pointeur sur le personnage </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>0 si le joueur a quitté le jeu, 1 sinon</dd></dl>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
     <tr><td class="paramname">renderer</td><td>le renderer </td></tr>

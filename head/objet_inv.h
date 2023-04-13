@@ -8,8 +8,8 @@
  * - Description
  */
 typedef struct objet_s{
-    char nom[20];
-    char description[400];
+    char nom[20]; //<! Nom de l'objet
+    char description[400]; //<! Description de l'objet
 } objet_t;
 
 /**
@@ -21,8 +21,8 @@ typedef struct objet_s{
  * - l'objet peut etre empilé avec d'autre de memes types nb > 1
  */
 typedef struct objet_inv_s{
-    objet_t *objet;
-    int *nb;
+    objet_t *objet; //<! Pointeur sur l'objet
+    int *nb; //<! Nombre d'objet
 } objet_inv_t;
 
 #endif

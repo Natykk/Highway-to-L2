@@ -45,16 +45,42 @@ void aff_classe(t_arbre * arbre);
 */
 int detruire_arbre(t_arbre ** arbre);
 
-
+/**
+ * \fn int one_preced_cpt_debloq(t_competence * competence)
+ * \brief Fonction permettant de savoir si une compétence a au moins une compétence précédente débloquée
+ * \param competence Pointeur sur la compétence à tester
+ * \return 0 si la compétence n'a pas de compétence précédente débloquée, 1 sinon
+*/
 int one_preced_cpt_debloq(t_competence * competence);
 
-
+/**
+ * \fn int cpt_in_arbre_joueur(entite_t * personnage, t_competence * competence)
+ * \brief Fonction permettant de savoir si une compétence est dans l'arbre de compétences du joueur
+ * \param personnage Pointeur sur l'entité du joueur
+ * \param competence Pointeur sur la compétence à tester
+ * \return 0 si la compétence n'est pas dans l'arbre de compétences du joueur, 1 sinon
+*/
 int cpt_in_arbre_joueur(entite_t * personnage, t_competence * competence);
 
-
+/**
+ * \fn int peut_deploquer_cpt(entite_t * personnage, t_competence * competence, t_arbre * arbre_cpt)
+ * \brief Fonction permettant de savoir si une compétence peut être débloquée
+ * \param personnage Pointeur sur l'entité du joueur
+ * \param competence Pointeur sur la compétence à tester
+ * \param arbre_cpt Pointeur sur l'arbre de compétences du joueur
+ * \return 0 si la compétence ne peut pas être débloquée, 1 sinon
+*/
 int peut_deploquer_cpt(entite_t * personnage, t_competence * competence, t_arbre * arbre_cpt);
 
 
+/**
+ * \fn int competence_debloquer(entite_t * personnage, t_competence * competence, t_arbre * arbre_cpt)
+ * \brief Fonction permettant de débloquer une compétence
+ * \param personnage Pointeur sur l'entité du joueur
+ * \param competence Pointeur sur la compétence à débloquer
+ * \param arbre_cpt Pointeur sur l'arbre de compétences du joueur
+ * \return 0 si la compétence ne peut pas être débloquée, 1 sinon
+*/
 int competence_debloquer(entite_t * personnage, t_competence * competence, t_arbre * arbre_cpt);
 
 #endif

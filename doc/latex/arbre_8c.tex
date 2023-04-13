@@ -1,5 +1,5 @@
-\hypertarget{arbre_8c}{}\doxysection{Référence du fichier /mnt/c/\+Users/natik/\+Projet\+L2/src/arbre.c}
-\label{arbre_8c}\index{/mnt/c/Users/natik/ProjetL2/src/arbre.c@{/mnt/c/Users/natik/ProjetL2/src/arbre.c}}
+\hypertarget{arbre_8c}{}\doxysection{Référence du fichier /mnt/c/\+Projet\+L2/src/arbre.c}
+\label{arbre_8c}\index{/mnt/c/ProjetL2/src/arbre.c@{/mnt/c/ProjetL2/src/arbre.c}}
 
 
 Fichier contenant les fonctions de gestion des arbres de compétences.  
@@ -11,3 +11,239 @@ Fichier contenant les fonctions de gestion des arbres de compétences.
 {\ttfamily \#include \char`\"{}../head/arbre.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}../head/inventaire.\+h\char`\"{}}\newline
 Graphe des dépendances par inclusion de arbre.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{arbre_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{arbre_8c_a3a71170ff2fb9be2d233b107783d37b5}{aff\+\_\+classe}} (\mbox{\hyperlink{structt__arbre}{t\+\_\+arbre}} $\ast$\mbox{\hyperlink{structarbre}{arbre}})
+\begin{DoxyCompactList}\small\item\em Fonction permettant d\textquotesingle{}afficher les compétences d\textquotesingle{}un arbre de compétences. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{arbre_8c_a778aebda9beaa67e2e9b9186781456c8}{detruire\+\_\+arbre}} (\mbox{\hyperlink{structt__arbre}{t\+\_\+arbre}} $\ast$$\ast$\mbox{\hyperlink{structarbre}{arbre}})
+\begin{DoxyCompactList}\small\item\em Fonction permettant de détruire un arbre de compétences. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{arbre_8c_a060a4a1d38d78b7500c812d7aaa329b9}{init\+\_\+arbre}} (\mbox{\hyperlink{structt__arbre}{t\+\_\+arbre}} $\ast$$\ast$\mbox{\hyperlink{structarbre}{arbre}}, \mbox{\hyperlink{competence_8h_a774ce31da3950a40e34239f9fa8b8fb1}{t\+\_\+competence}} $\ast$competences, \mbox{\hyperlink{competence_8h_a853cf4e56ef5ad960bf764a4fafe7e77}{t\+\_\+classe}} type\+Classe)
+\begin{DoxyCompactList}\small\item\em Fonction permettant d\textquotesingle{}initialiser un arbre de compétences. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{arbre_8c_ab7c6efe2b8a57e940052c82859d4f34d}{one\+\_\+preced\+\_\+cpt\+\_\+debloq}} (\mbox{\hyperlink{competence_8h_a774ce31da3950a40e34239f9fa8b8fb1}{t\+\_\+competence}} $\ast$\mbox{\hyperlink{structcompetence}{competence}})
+\begin{DoxyCompactList}\small\item\em Fonction permettant de savoir si une compétence a au moins une compétence précédente débloquée. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{arbre_8c_ab84bf13e67fba7473fee541f8af4039b}{cpt\+\_\+in\+\_\+arbre\+\_\+joueur}} (\mbox{\hyperlink{structentite__t}{entite\+\_\+t}} $\ast$personnage, \mbox{\hyperlink{competence_8h_a774ce31da3950a40e34239f9fa8b8fb1}{t\+\_\+competence}} $\ast$\mbox{\hyperlink{structcompetence}{competence}})
+\begin{DoxyCompactList}\small\item\em Fonction permettant de savoir si une compétence est dans l\textquotesingle{}arbre de compétences du joueur. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{arbre_8c_a04cf9f32ea63cdcd86f536ae0db1e576}{peut\+\_\+deploquer\+\_\+cpt}} (\mbox{\hyperlink{structentite__t}{entite\+\_\+t}} $\ast$personnage, \mbox{\hyperlink{competence_8h_a774ce31da3950a40e34239f9fa8b8fb1}{t\+\_\+competence}} $\ast$\mbox{\hyperlink{structcompetence}{competence}}, \mbox{\hyperlink{structt__arbre}{t\+\_\+arbre}} $\ast$arbre\+\_\+cpt)
+\begin{DoxyCompactList}\small\item\em Fonction permettant de savoir si une compétence peut être débloquée. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{arbre_8c_a4f21c3bb6dd0888c652d3863241501e1}{competence\+\_\+debloquer}} (\mbox{\hyperlink{structentite__t}{entite\+\_\+t}} $\ast$personnage, \mbox{\hyperlink{competence_8h_a774ce31da3950a40e34239f9fa8b8fb1}{t\+\_\+competence}} $\ast$\mbox{\hyperlink{structcompetence}{competence}}, \mbox{\hyperlink{structt__arbre}{t\+\_\+arbre}} $\ast$arbre\+\_\+cpt)
+\begin{DoxyCompactList}\small\item\em Fonction permettant de débloquer une compétence. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Fichier contenant les fonctions de gestion des arbres de compétences. 
+
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{arbre_8c_a3a71170ff2fb9be2d233b107783d37b5}\label{arbre_8c_a3a71170ff2fb9be2d233b107783d37b5}} 
+\index{arbre.c@{arbre.c}!aff\_classe@{aff\_classe}}
+\index{aff\_classe@{aff\_classe}!arbre.c@{arbre.c}}
+\doxysubsubsection{\texorpdfstring{aff\_classe()}{aff\_classe()}}
+{\footnotesize\ttfamily void aff\+\_\+classe (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__arbre}{t\+\_\+arbre}} $\ast$}]{arbre }\end{DoxyParamCaption})}
+
+
+
+Fonction permettant d\textquotesingle{}afficher les compétences d\textquotesingle{}un arbre de compétences. 
+
+Affiche la classe de l\textquotesingle{}arbre.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em arbre} & Pointeur sur l\textquotesingle{}arbre de compétences à afficher\\
+\hline
+{\em arbre} & \+: arbre dont on veut afficher la classe \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{arbre_8c_a4f21c3bb6dd0888c652d3863241501e1}\label{arbre_8c_a4f21c3bb6dd0888c652d3863241501e1}} 
+\index{arbre.c@{arbre.c}!competence\_debloquer@{competence\_debloquer}}
+\index{competence\_debloquer@{competence\_debloquer}!arbre.c@{arbre.c}}
+\doxysubsubsection{\texorpdfstring{competence\_debloquer()}{competence\_debloquer()}}
+{\footnotesize\ttfamily int competence\+\_\+debloquer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structentite__t}{entite\+\_\+t}} $\ast$}]{personnage,  }\item[{\mbox{\hyperlink{competence_8h_a774ce31da3950a40e34239f9fa8b8fb1}{t\+\_\+competence}} $\ast$}]{competence,  }\item[{\mbox{\hyperlink{structt__arbre}{t\+\_\+arbre}} $\ast$}]{arbre\+\_\+cpt }\end{DoxyParamCaption})}
+
+
+
+Fonction permettant de débloquer une compétence. 
+
+Débloque une compétence.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em personnage} & Pointeur sur l\textquotesingle{}entité du joueur \\
+\hline
+{\em competence} & Pointeur sur la compétence à débloquer \\
+\hline
+{\em arbre\+\_\+cpt} & Pointeur sur l\textquotesingle{}arbre de compétences du joueur \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0 si la compétence ne peut pas être débloquée, 1 sinon
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Paramètres}
+{\em personnage} & \+: personnage dont on veut débloquer la compétence \\
+\hline
+{\em competence} & \+: compétence à débloquer \\
+\hline
+{\em arbre\+\_\+cpt} & \+: arbre de compétences du joueur \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0 si la compétence a été débloquée, -\/1 si la compétence n\textquotesingle{}a pas pu être débloquée (aucune compétence précédente n\textquotesingle{}est acquise), -\/2 si la compétence n\textquotesingle{}a pas pu être débloquée (pas assez de ressources dans l\textquotesingle{}inventaire), -\/3 si la compétence n\textquotesingle{}a pas pu être débloquée (compétence d\textquotesingle{}un autre arbre), -\/4 si la compétence n\textquotesingle{}a pas pu être débloquée (autre raison), -\/5 si la compétence n\textquotesingle{}a pas pu être débloquée (étage déjà débloqué) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{arbre_8c_ab84bf13e67fba7473fee541f8af4039b}\label{arbre_8c_ab84bf13e67fba7473fee541f8af4039b}} 
+\index{arbre.c@{arbre.c}!cpt\_in\_arbre\_joueur@{cpt\_in\_arbre\_joueur}}
+\index{cpt\_in\_arbre\_joueur@{cpt\_in\_arbre\_joueur}!arbre.c@{arbre.c}}
+\doxysubsubsection{\texorpdfstring{cpt\_in\_arbre\_joueur()}{cpt\_in\_arbre\_joueur()}}
+{\footnotesize\ttfamily int cpt\+\_\+in\+\_\+arbre\+\_\+joueur (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structentite__t}{entite\+\_\+t}} $\ast$}]{personnage,  }\item[{\mbox{\hyperlink{competence_8h_a774ce31da3950a40e34239f9fa8b8fb1}{t\+\_\+competence}} $\ast$}]{competence }\end{DoxyParamCaption})}
+
+
+
+Fonction permettant de savoir si une compétence est dans l\textquotesingle{}arbre de compétences du joueur. 
+
+Vérifie si une compétence est dans l\textquotesingle{}arbre du joueur.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em personnage} & Pointeur sur l\textquotesingle{}entité du joueur \\
+\hline
+{\em competence} & Pointeur sur la compétence à tester \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0 si la compétence n\textquotesingle{}est pas dans l\textquotesingle{}arbre de compétences du joueur, 1 sinon
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Paramètres}
+{\em personnage} & \+: personnage dont on veut vérifier l\textquotesingle{}arbre \\
+\hline
+{\em competence} & \+: compétence dont on veut vérifier l\textquotesingle{}appartenance à l\textquotesingle{}arbre \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+1 si la compétence est dans l\textquotesingle{}arbre du joueur, 0 sinon 
+\end{DoxyReturn}
+\mbox{\Hypertarget{arbre_8c_a778aebda9beaa67e2e9b9186781456c8}\label{arbre_8c_a778aebda9beaa67e2e9b9186781456c8}} 
+\index{arbre.c@{arbre.c}!detruire\_arbre@{detruire\_arbre}}
+\index{detruire\_arbre@{detruire\_arbre}!arbre.c@{arbre.c}}
+\doxysubsubsection{\texorpdfstring{detruire\_arbre()}{detruire\_arbre()}}
+{\footnotesize\ttfamily int detruire\+\_\+arbre (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__arbre}{t\+\_\+arbre}} $\ast$$\ast$}]{arbre }\end{DoxyParamCaption})}
+
+
+
+Fonction permettant de détruire un arbre de compétences. 
+
+Désalloue la mémoire de l\textquotesingle{}arbre.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em arbre} & Pointeur de Pointeur sur l\textquotesingle{}arbre de compétences à détruire \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0 si tout s\textquotesingle{}est bien passé, -\/1 sinon
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Paramètres}
+{\em arbre} & \+: arbre dont on veut désallouer la mémoire \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0 si tout s\textquotesingle{}est bien passé, 1 sinon 
+\end{DoxyReturn}
+\mbox{\Hypertarget{arbre_8c_a060a4a1d38d78b7500c812d7aaa329b9}\label{arbre_8c_a060a4a1d38d78b7500c812d7aaa329b9}} 
+\index{arbre.c@{arbre.c}!init\_arbre@{init\_arbre}}
+\index{init\_arbre@{init\_arbre}!arbre.c@{arbre.c}}
+\doxysubsubsection{\texorpdfstring{init\_arbre()}{init\_arbre()}}
+{\footnotesize\ttfamily int init\+\_\+arbre (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__arbre}{t\+\_\+arbre}} $\ast$$\ast$}]{arbre,  }\item[{\mbox{\hyperlink{competence_8h_a774ce31da3950a40e34239f9fa8b8fb1}{t\+\_\+competence}} $\ast$}]{competences,  }\item[{\mbox{\hyperlink{competence_8h_a853cf4e56ef5ad960bf764a4fafe7e77}{t\+\_\+classe}}}]{type\+Classe }\end{DoxyParamCaption})}
+
+
+
+Fonction permettant d\textquotesingle{}initialiser un arbre de compétences. 
+
+Initialise l\textquotesingle{}arbre de compétences.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em arbre} & Pointeur sur l\textquotesingle{}arbre de compétences à initialiser \\
+\hline
+{\em competences} & Tableau de compétences \\
+\hline
+{\em type\+Classe} & Type de classe \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0 si tout s\textquotesingle{}est bien passé, -\/1 sinon
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Paramètres}
+{\em arbre} & \+: arbre à initialiser \\
+\hline
+{\em competences} & \+: tableau de compétences \\
+\hline
+{\em type\+Classe} & \+: type de classe de l\textquotesingle{}arbre \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0 si tout s\textquotesingle{}est bien passé, 1 sinon 
+\end{DoxyReturn}
+\mbox{\Hypertarget{arbre_8c_ab7c6efe2b8a57e940052c82859d4f34d}\label{arbre_8c_ab7c6efe2b8a57e940052c82859d4f34d}} 
+\index{arbre.c@{arbre.c}!one\_preced\_cpt\_debloq@{one\_preced\_cpt\_debloq}}
+\index{one\_preced\_cpt\_debloq@{one\_preced\_cpt\_debloq}!arbre.c@{arbre.c}}
+\doxysubsubsection{\texorpdfstring{one\_preced\_cpt\_debloq()}{one\_preced\_cpt\_debloq()}}
+{\footnotesize\ttfamily int one\+\_\+preced\+\_\+cpt\+\_\+debloq (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{competence_8h_a774ce31da3950a40e34239f9fa8b8fb1}{t\+\_\+competence}} $\ast$}]{competence }\end{DoxyParamCaption})}
+
+
+
+Fonction permettant de savoir si une compétence a au moins une compétence précédente débloquée. 
+
+Vérifie si une compétence a au moins une compétence précédente débloquée.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em competence} & Pointeur sur la compétence à tester \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0 si la compétence n\textquotesingle{}a pas de compétence précédente débloquée, 1 sinon
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Paramètres}
+{\em competence} & \+: compétence dont on veut vérifier les précédentes \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+1 si au moins une compétence précédente est débloquée, 0 sinon 
+\end{DoxyReturn}
+\mbox{\Hypertarget{arbre_8c_a04cf9f32ea63cdcd86f536ae0db1e576}\label{arbre_8c_a04cf9f32ea63cdcd86f536ae0db1e576}} 
+\index{arbre.c@{arbre.c}!peut\_deploquer\_cpt@{peut\_deploquer\_cpt}}
+\index{peut\_deploquer\_cpt@{peut\_deploquer\_cpt}!arbre.c@{arbre.c}}
+\doxysubsubsection{\texorpdfstring{peut\_deploquer\_cpt()}{peut\_deploquer\_cpt()}}
+{\footnotesize\ttfamily int peut\+\_\+deploquer\+\_\+cpt (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structentite__t}{entite\+\_\+t}} $\ast$}]{personnage,  }\item[{\mbox{\hyperlink{competence_8h_a774ce31da3950a40e34239f9fa8b8fb1}{t\+\_\+competence}} $\ast$}]{competence,  }\item[{\mbox{\hyperlink{structt__arbre}{t\+\_\+arbre}} $\ast$}]{arbre\+\_\+cpt }\end{DoxyParamCaption})}
+
+
+
+Fonction permettant de savoir si une compétence peut être débloquée. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em personnage} & Pointeur sur l\textquotesingle{}entité du joueur \\
+\hline
+{\em competence} & Pointeur sur la compétence à tester \\
+\hline
+{\em arbre\+\_\+cpt} & Pointeur sur l\textquotesingle{}arbre de compétences du joueur \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0 si la compétence ne peut pas être débloquée, 1 sinon 
+\end{DoxyReturn}
