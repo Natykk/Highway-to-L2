@@ -87,10 +87,10 @@ extern void afficher_entite(entite_t *entite)
     {
         printf("Aucune classe\n");
     }
-    printf(" - Vie : %.2f\n", entite->vie);
-    printf(" - Dégats : %.2f\n", entite->degats);
-    printf(" - Vitesse d'attaque : %.2f\n", entite->vitesse_att);
-    printf(" - Vitesse de déplacement : %.2f\n", entite->vitesse_depl);
+    printf(" - Vie : %d\n", entite->vie);
+    printf(" - Dégats : %d\n", entite->degats);
+    printf(" - Vitesse d'attaque : %d\n", entite->vitesse_att);
+    printf(" - Vitesse de déplacement : %d\n", entite->vitesse_depl);
     switch (entite->persoOuMob)
     {
     case 0:
