@@ -1,8 +1,6 @@
 # project name (generate executable with this name)
 TARGETS  = map_jeu_entite
 
-
-
 ifeq ($(OS),Windows_NT)
 	CFLAGS   = -I.
 	SDLROUTE = -I$(HOME)/SDL2/include -L$(HOME)/SDL2/lib
@@ -15,13 +13,12 @@ else
 		SDLROUTE = -I$(HOME)/SDL2/include -L$(HOME)/SDL2/lib
 		LIBS = -lm -lssl -lcrypto -lSDL2main -lSDL2 -lSDL2_image -lSDL2_ttf -lSDL2_mixer 
 		del = rm -f
-	endif
-	ifeq ($(UNAME_S),Darwin)
-		SDLROUTE = ""
-		CFLAGS   = -I. -Wall -Wextra -I/usr/local/mac-dev-env/openssl-1.1.1a/include
-		LFLAGS   = -I. -lm -L/usr/local/mac-dev-env/openssl-1.1.1a/lib -lssl -lcrypto
-		LIBS = -lm -lSDL2main -lSDL2 -lSDL2_image -lSDL2_ttf -lSDL2_mixer 
-		del = rm -f
+	else
+		SDLROUTE = -I$(HOME)/SDL2/include -L$(HOME)/SDL2/lib
+		CFLAGS	= -I. -Wall -Wextra -I/usr/local/mac-dev-env/openssl-1.1.1a/include
+		LFLAGS  = -I. -lm -L/usr/local/mac-dev-env/openssl-1.1.1a/lib -lssl -lcrypto
+		LIBS 	= -lm -lSDL2main -lSDL2 -lSDL2_image -lSDL2_ttf -lSDL2_mixer 
+		del 	= rm -f
 	endif
 endif
 
@@ -32,7 +29,6 @@ CC       = gcc -g3
 
 LINKER   = gcc -g3
 # linking flags here
-LFLAGS   = -I. -lm
 
 # change these to proper directories where each file should be
 SRCDIR   = src
