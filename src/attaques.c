@@ -116,6 +116,7 @@ bool degats(int degats, int id_mob, t_salle *map)
     else
     {
         (map->mob[id_mob - 10]->vie) -= degats;
+        printf("vie restante : %d", map->mob[id_mob - 10]->vie);
         if ((map->mob[id_mob - 10]->vie) <= 0)
         {
             return true;
