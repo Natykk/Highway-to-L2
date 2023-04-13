@@ -1,0 +1,11 @@
+<map id="/mnt/c/ProjetL2/src/competence.c" name="/mnt/c/ProjetL2/src/competence.c">
+<area shape="rect" id="node1" title="Fichier contenant les fonctions pour les compétences." alt="" coords="77,5,219,47"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,169,72,196"/>
+<area shape="rect" id="node3" title=" " alt="" coords="97,169,167,196"/>
+<area shape="rect" id="node4" title=" " alt="" coords="314,95,385,121"/>
+<area shape="rect" id="node5" href="$competence_8h.html" title="Fichier contenant les structures et prototypes de fonctions pour la gestion des compétences." alt="" coords="127,95,289,121"/>
+<area shape="rect" id="node6" href="$objet_8h.html" title="Fichier contenant toutes les structutes de données liées aux objets." alt="" coords="208,319,275,345"/>
+<area shape="rect" id="node8" href="$arbre_8h.html" title="Fichier contenant les structure et prototype de fonction pour la gestion des arbres de compétences." alt="" coords="243,169,311,196"/>
+<area shape="rect" id="node7" href="$objet__inv_8h.html" title=" " alt="" coords="195,393,288,420"/>
+<area shape="rect" id="node9" href="$entite_8h.html" title="Fichier d&#39;en&#45;tete pour les primitives liées aux entites." alt="" coords="243,244,315,271"/>
+</map>

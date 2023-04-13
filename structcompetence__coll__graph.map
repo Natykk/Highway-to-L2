@@ -1,0 +1,5 @@
+<map id="competence" name="competence">
+<area shape="rect" id="node1" title="Structure contenant les informations d&#39;une compétence." alt="" coords="35,96,138,123"/>
+<area shape="rect" id="node2" href="$structbuff__s.html" title="Structure contenant les différents buffs d&#39;une compétence." alt="" coords="5,5,67,32"/>
+<area shape="rect" id="node3" href="$structobjet__inv__t.html" title="Type union objet contenu dans l&#39;inventaire:" alt="" coords="91,5,186,32"/>
+</map>

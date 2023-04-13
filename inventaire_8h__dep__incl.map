@@ -1,0 +1,13 @@
+<map id="/mnt/c/ProjetL2/head/inventaire.h" name="/mnt/c/ProjetL2/head/inventaire.h">
+<area shape="rect" id="node1" title="Fichier contenant les prototypes de fonctions pour la gestion des inventaires." alt="" coords="608,5,764,47"/>
+<area shape="rect" id="node2" href="$attaques_8h.html" title=" " alt="" coords="49,95,205,136"/>
+<area shape="rect" id="node4" href="$map__jeu__entite_8c.html" title="Fichier contenant les fonctions principal du jeu." alt="" coords="172,184,315,225"/>
+<area shape="rect" id="node5" href="$arbre_8c.html" title="Fichier contenant les fonctions de gestion des arbres de compétences." alt="" coords="281,95,424,136"/>
+<area shape="rect" id="node6" href="$inventaire_8c.html" title="Fichier d&#39;en&#45;tete pour les primitives liées aux entites." alt="" coords="448,95,591,136"/>
+<area shape="rect" id="node7" href="$mapStruct_8c.html" title="Fichier contenant les fonctions de gestion de la map." alt="" coords="615,95,757,136"/>
+<area shape="rect" id="node8" href="$menu_8c.html" title="Fichier contenant les fonctions pour le menu." alt="" coords="781,95,924,136"/>
+<area shape="rect" id="node9" href="$menu__cpt_8c.html" title="Fichier contenant les fonctions pour le menu des compétences." alt="" coords="948,95,1091,136"/>
+<area shape="rect" id="node10" href="$sauvegarde_8c.html" title=" " alt="" coords="1115,95,1257,136"/>
+<area shape="rect" id="node11" href="$test__inventaire_8c.html" title=" " alt="" coords="1281,95,1424,136"/>
+<area shape="rect" id="node3" href="$attaques_8c.html" title=" " alt="" coords="5,184,148,225"/>
+</map>

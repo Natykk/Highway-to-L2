@@ -1,0 +1,8 @@
+<map id="/mnt/c/ProjetL2/head/menu_cpt.h" name="/mnt/c/ProjetL2/head/menu_cpt.h">
+<area shape="rect" id="node1" title=" " alt="" coords="152,5,308,47"/>
+<area shape="rect" id="node2" href="$name_8h.html" title=" " alt="" coords="152,95,308,136"/>
+<area shape="rect" id="node3" href="$map__jeu__entite_8c.html" title="Fichier contenant les fonctions principal du jeu." alt="" coords="5,184,148,225"/>
+<area shape="rect" id="node6" href="$menu__cpt_8c.html" title="Fichier contenant les fonctions pour le menu des compétences." alt="" coords="332,95,475,136"/>
+<area shape="rect" id="node4" href="$menu_8c.html" title="Fichier contenant les fonctions pour le menu." alt="" coords="172,184,315,225"/>
+<area shape="rect" id="node5" href="$name_8c.html" title="Fichier contenant les fonctions pour la gestion du nom du personnage." alt="" coords="339,184,481,225"/>
+</map>

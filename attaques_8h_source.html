@@ -1,0 +1,103 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Highway to L2:  Fichier source de /mnt/c/ProjetL2/head/attaques.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Highway to L2
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_06b090c849413a2743cf102ffb0713d3.html">head</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">attaques.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="attaques_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef ATTAQUE_H</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define ATTAQUE_H</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;../head/mapStruct.h&quot;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;../head/inventaire.h&quot;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;../head/projectile.h&quot;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;../head/arbre.h&quot;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code" href="attaques_8h.html#ad44dadfd3439b433128f8b20e9242a04">maj_proj</a>(<a class="code" href="structentite__t.html">entite_t</a> * posPers, <a class="code" href="structsalle.html">t_salle</a> * map);</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code" href="attaques_8h.html#a1fee41bc2fe0f7e0c1f59c7157daf2ee">attaque_proj</a>(<a class="code" href="projectile_8h.html#acc7c0caaacece8c622810596502a1733">proj_t</a> typeproj, <a class="code" href="structentite__t.html">entite_t</a> * posPers, <a class="code" href="structsalle.html">t_salle</a> * map);</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">bool</span> <a class="code" href="attaques_8h.html#a053f024ee6a91b8b5e1a83ca3b03fc80">degats</a>(<span class="keywordtype">int</span> <a class="code" href="attaques_8h.html#a053f024ee6a91b8b5e1a83ca3b03fc80">degats</a>, <span class="keywordtype">int</span> id_mob, <a class="code" href="structsalle.html">t_salle</a> * map);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code" href="attaques_8h.html#a562b907179ea479cb779443431335d04">attaque_cac</a>(<a class="code" href="projectile_8h.html#acc7c0caaacece8c622810596502a1733">proj_t</a> typeproj, <a class="code" href="structentite__t.html">entite_t</a> * posPers, <a class="code" href="structsalle.html">t_salle</a> * map);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aattaques_8h_html_a053f024ee6a91b8b5e1a83ca3b03fc80"><div class="ttname"><a href="attaques_8h.html#a053f024ee6a91b8b5e1a83ca3b03fc80">degats</a></div><div class="ttdeci">bool degats(int degats, int id_mob, t_salle *map)</div><div class="ttdoc">Fonction permettant de faire des dégats à un mob.</div><div class="ttdef"><b>Definition:</b> attaques.c:121</div></div>
+<div class="ttc" id="aattaques_8h_html_a1fee41bc2fe0f7e0c1f59c7157daf2ee"><div class="ttname"><a href="attaques_8h.html#a1fee41bc2fe0f7e0c1f59c7157daf2ee">attaque_proj</a></div><div class="ttdeci">void attaque_proj(proj_t typeproj, entite_t *posPers, t_salle *map)</div><div class="ttdoc">Fonction permettant d'attaquer avec un projectile.</div><div class="ttdef"><b>Definition:</b> attaques.c:100</div></div>
+<div class="ttc" id="aattaques_8h_html_a562b907179ea479cb779443431335d04"><div class="ttname"><a href="attaques_8h.html#a562b907179ea479cb779443431335d04">attaque_cac</a></div><div class="ttdeci">void attaque_cac(proj_t typeproj, entite_t *posPers, t_salle *map)</div><div class="ttdoc">Fonction permettant d'attaquer au corps à corps.</div><div class="ttdef"><b>Definition:</b> attaques.c:155</div></div>
+<div class="ttc" id="aattaques_8h_html_ad44dadfd3439b433128f8b20e9242a04"><div class="ttname"><a href="attaques_8h.html#ad44dadfd3439b433128f8b20e9242a04">maj_proj</a></div><div class="ttdeci">void maj_proj(entite_t *posPers, t_salle *map)</div><div class="ttdoc">Fonction permettant de mettre à jour les projectiles.</div><div class="ttdef"><b>Definition:</b> attaques.c:10</div></div>
+<div class="ttc" id="aprojectile_8h_html_acc7c0caaacece8c622810596502a1733"><div class="ttname"><a href="projectile_8h.html#acc7c0caaacece8c622810596502a1733">proj_t</a></div><div class="ttdeci">enum proj_s proj_t</div></div>
+<div class="ttc" id="astructentite__t_html"><div class="ttname"><a href="structentite__t.html">entite_t</a></div><div class="ttdoc">Structure qui genere les entitées Caracteristiques :</div></div>
+<div class="ttc" id="astructsalle_html"><div class="ttname"><a href="structsalle.html">salle</a></div><div class="ttdoc">Définition d'une salle avec ses dimensions, son numéro, son nombre de portes et de mobs et son statut...</div><div class="ttdef"><b>Definition:</b> mapStruct.h:71</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>

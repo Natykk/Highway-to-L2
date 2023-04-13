@@ -1,0 +1,499 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Highway to L2: Référence du fichier /mnt/c/ProjetL2/src/entite.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Highway to L2
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Fonctions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
+  <div class="headertitle">
+<div class="title">Référence du fichier entite.c</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Primitives liées aux entites.  
+<a href="#details">Plus de détails...</a></p>
+<div class="textblock"><code>#include &quot;<a class="el" href="entite_8h_source.html">../head/entite.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="arbre_8h_source.html">../head/arbre.h</a>&quot;</code><br />
+<code>#include &lt;string.h&gt;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Graphe des dépendances par inclusion de entite.c:</div>
+<div class="dyncontent">
+<div class="center"><img src="entite_8c__incl.png" border="0" usemap="#a_2mnt_2c_2ProjetL2_2src_2entite_8c" alt=""/></div>
+<map name="a_2mnt_2c_2ProjetL2_2src_2entite_8c" id="a_2mnt_2c_2ProjetL2_2src_2entite_8c">
+<area shape="rect" title="Primitives liées aux entites." alt="" coords="123,5,266,47"/>
+<area shape="rect" href="entite_8h.html" title="Fichier d&#39;en&#45;tete pour les primitives liées aux entites." alt="" coords="5,169,125,196"/>
+<area shape="rect" href="arbre_8h.html" title="Fichier contenant les structure et prototype de fonction pour la gestion des arbres de compétences." alt="" coords="137,95,253,121"/>
+<area shape="rect" title=" " alt="" coords="277,95,347,121"/>
+<area shape="rect" href="objet_8h.html" title="Fichier contenant toutes les structutes de données liées aux objets." alt="" coords="57,244,124,271"/>
+<area shape="rect" href="objet__inv_8h.html" title=" " alt="" coords="44,319,137,345"/>
+<area shape="rect" href="competence_8h.html" title="Fichier contenant les structures et prototypes de fonctions pour la gestion des compétences." alt="" coords="149,169,264,196"/>
+<area shape="rect" title=" " alt="" coords="160,244,227,271"/>
+<area shape="rect" title=" " alt="" coords="251,244,322,271"/>
+</map>
+</div>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:a6f20a22d9678a19173f1771836951b8b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="entite_8c.html#a6f20a22d9678a19173f1771836951b8b">afficher_entite</a> (<a class="el" href="structentite__t.html">entite_t</a> *entite)</td></tr>
+<tr class="memdesc:a6f20a22d9678a19173f1771836951b8b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction qui affiche les informations d'une entite.  <a href="entite_8c.html#a6f20a22d9678a19173f1771836951b8b">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a6f20a22d9678a19173f1771836951b8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6281f85c3c26ebd87b9c182d7deee9a5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="entite_8c.html#a6281f85c3c26ebd87b9c182d7deee9a5">associer_entite</a> (<a class="el" href="structentite__t.html">entite_t</a> *source, <a class="el" href="structentite__t.html">entite_t</a> *destination)</td></tr>
+<tr class="separator:a6281f85c3c26ebd87b9c182d7deee9a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a87ba579bb75dd4df19b1026c64cb0e50"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="entite_8c.html#a87ba579bb75dd4df19b1026c64cb0e50">acces_mob</a> (char *chaine)</td></tr>
+<tr class="memdesc:a87ba579bb75dd4df19b1026c64cb0e50"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction qui donne la place d'un mob dans le tableau tab_mob selon sont nom.  <a href="entite_8c.html#a87ba579bb75dd4df19b1026c64cb0e50">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a87ba579bb75dd4df19b1026c64cb0e50"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aecdaa513897e975de2fe5256db0ce50c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="entite_8c.html#aecdaa513897e975de2fe5256db0ce50c">acces_boss</a> (char *chaine)</td></tr>
+<tr class="memdesc:aecdaa513897e975de2fe5256db0ce50c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction qui donne la place d'un boss dans le tableau tab_boss selon sont nom.  <a href="entite_8c.html#aecdaa513897e975de2fe5256db0ce50c">Plus de détails...</a><br /></td></tr>
+<tr class="separator:aecdaa513897e975de2fe5256db0ce50c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa6a9c845929e4ab11aadc9e914a4ce62"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structentite__t.html">entite_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="entite_8c.html#aa6a9c845929e4ab11aadc9e914a4ce62">creer_personnage</a> (<a class="el" href="structentite__t.html">entite_t</a> *entite)</td></tr>
+<tr class="separator:aa6a9c845929e4ab11aadc9e914a4ce62"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aed3ed510f67c2cc47ac11e476499a066"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structentite__t.html">entite_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="entite_8c.html#aed3ed510f67c2cc47ac11e476499a066">creer_monstre</a> (<a class="el" href="structentite__t.html">entite_t</a> *entite, char *nom)</td></tr>
+<tr class="memdesc:aed3ed510f67c2cc47ac11e476499a066"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction qui crée un mob.  <a href="entite_8c.html#aed3ed510f67c2cc47ac11e476499a066">Plus de détails...</a><br /></td></tr>
+<tr class="separator:aed3ed510f67c2cc47ac11e476499a066"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad609d7bba18a6fedd04070e7f704eabe"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structentite__t.html">entite_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="entite_8c.html#ad609d7bba18a6fedd04070e7f704eabe">creer_boss</a> (<a class="el" href="structentite__t.html">entite_t</a> *entite, char *nom)</td></tr>
+<tr class="memdesc:ad609d7bba18a6fedd04070e7f704eabe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction qui crée un boss.  <a href="entite_8c.html#ad609d7bba18a6fedd04070e7f704eabe">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ad609d7bba18a6fedd04070e7f704eabe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2ed6c7ce22c5482cf6a33bf4ec285ec7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="entite_8c.html#a2ed6c7ce22c5482cf6a33bf4ec285ec7">detruire_entitee</a> (<a class="el" href="structentite__t.html">entite_t</a> **entite)</td></tr>
+<tr class="separator:a2ed6c7ce22c5482cf6a33bf4ec285ec7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a467a9d69502a2a8279caa001489fa230"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="entite_8c.html#a467a9d69502a2a8279caa001489fa230">detruire_personnage</a> (<a class="el" href="structentite__t.html">entite_t</a> **personnage)</td></tr>
+<tr class="memdesc:a467a9d69502a2a8279caa001489fa230"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction qui detruit un personnage.  <a href="entite_8c.html#a467a9d69502a2a8279caa001489fa230">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a467a9d69502a2a8279caa001489fa230"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a698a2516ea30aedba8f48a1a63c69f4b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="entite_8c.html#a698a2516ea30aedba8f48a1a63c69f4b">detruire_mob</a> (<a class="el" href="structentite__t.html">entite_t</a> **mob)</td></tr>
+<tr class="memdesc:a698a2516ea30aedba8f48a1a63c69f4b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction qui detruit un mob.  <a href="entite_8c.html#a698a2516ea30aedba8f48a1a63c69f4b">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a698a2516ea30aedba8f48a1a63c69f4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6fd83f1f50b736bec55bbadfad7a9776"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="entite_8c.html#a6fd83f1f50b736bec55bbadfad7a9776">detruire_boss</a> (<a class="el" href="structentite__t.html">entite_t</a> **boss)</td></tr>
+<tr class="memdesc:a6fd83f1f50b736bec55bbadfad7a9776"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction qui detruit un boss.  <a href="entite_8c.html#a6fd83f1f50b736bec55bbadfad7a9776">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a6fd83f1f50b736bec55bbadfad7a9776"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a9de48f40123e9967bd7131738bfe518b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structentite__t.html">entite_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="entite_8c.html#a9de48f40123e9967bd7131738bfe518b">tab_mob</a> [<a class="el" href="entite_8h.html#a08d32be6e738ffd66c0b5c1353d5b0e2">NB_MOBS</a>]</td></tr>
+<tr class="memdesc:a9de48f40123e9967bd7131738bfe518b"><td class="mdescLeft">&#160;</td><td class="mdescRight">tableau qui stocke tout les mobs présents dans le jeu  <a href="entite_8c.html#a9de48f40123e9967bd7131738bfe518b">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a9de48f40123e9967bd7131738bfe518b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a817603511beeb70beacaae71fc17397e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structentite__t.html">entite_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="entite_8c.html#a817603511beeb70beacaae71fc17397e">tab_boss</a> [<a class="el" href="entite_8h.html#a01f1dc2b5c76b586a947178374d83577">NB_BOSS</a>]</td></tr>
+<tr class="separator:a817603511beeb70beacaae71fc17397e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Primitives liées aux entites. </p>
+<dl class="section author"><dt>Auteur</dt><dd>GEORGET Rémy, GALLAIS Mathéo , GAUTERON Nathan </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>1.0 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>31/01/2023 </dd></dl>
+</div><h2 class="groupheader">Documentation des fonctions</h2>
+<a id="aecdaa513897e975de2fe5256db0ce50c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aecdaa513897e975de2fe5256db0ce50c">&#9670;&nbsp;</a></span>acces_boss()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int acces_boss </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>chaine</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fonction qui donne la place d'un boss dans le tableau tab_boss selon sont nom. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">nom</td><td>Nom du boss </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>La place du boss dans le tableau tab_boss </dd></dl>
+
+</div>
+</div>
+<a id="a87ba579bb75dd4df19b1026c64cb0e50"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a87ba579bb75dd4df19b1026c64cb0e50">&#9670;&nbsp;</a></span>acces_mob()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int acces_mob </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>chaine</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fonction qui donne la place d'un mob dans le tableau tab_mob selon sont nom. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">nom</td><td>Nom du mob </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>La place du mob dans le tableau tab_mob </dd></dl>
+
+</div>
+</div>
+<a id="a6f20a22d9678a19173f1771836951b8b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6f20a22d9678a19173f1771836951b8b">&#9670;&nbsp;</a></span>afficher_entite()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void afficher_entite </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structentite__t.html">entite_t</a> *&#160;</td>
+          <td class="paramname"><em>entite</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fonction qui affiche les informations d'une entite. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">entite</td><td>Pointeur sur l'entite à afficher </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a6281f85c3c26ebd87b9c182d7deee9a5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6281f85c3c26ebd87b9c182d7deee9a5">&#9670;&nbsp;</a></span>associer_entite()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void associer_entite </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structentite__t.html">entite_t</a> *&#160;</td>
+          <td class="paramname"><em>source</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structentite__t.html">entite_t</a> *&#160;</td>
+          <td class="paramname"><em>destination</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad609d7bba18a6fedd04070e7f704eabe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad609d7bba18a6fedd04070e7f704eabe">&#9670;&nbsp;</a></span>creer_boss()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structentite__t.html">entite_t</a>* creer_boss </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structentite__t.html">entite_t</a> *&#160;</td>
+          <td class="paramname"><em>entite</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>nom</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fonction qui crée un boss. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">entite</td><td>Pointeur sur l'entite qui va devenir le boss </td></tr>
+    <tr><td class="paramname">nom</td><td>Nom du boss </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Pointeur sur l'entite qui est devenue le boss </dd></dl>
+
+</div>
+</div>
+<a id="aed3ed510f67c2cc47ac11e476499a066"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aed3ed510f67c2cc47ac11e476499a066">&#9670;&nbsp;</a></span>creer_monstre()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structentite__t.html">entite_t</a>* creer_monstre </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structentite__t.html">entite_t</a> *&#160;</td>
+          <td class="paramname"><em>entite</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>nom</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fonction qui crée un mob. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">entite</td><td>Pointeur sur l'entite qui va devenir le mob </td></tr>
+    <tr><td class="paramname">nom</td><td>Nom du mob </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Pointeur sur l'entite qui est devenue le mob </dd></dl>
+
+</div>
+</div>
+<a id="aa6a9c845929e4ab11aadc9e914a4ce62"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa6a9c845929e4ab11aadc9e914a4ce62">&#9670;&nbsp;</a></span>creer_personnage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structentite__t.html">entite_t</a>* creer_personnage </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structentite__t.html">entite_t</a> *&#160;</td>
+          <td class="paramname"><em>entite</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6fd83f1f50b736bec55bbadfad7a9776"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6fd83f1f50b736bec55bbadfad7a9776">&#9670;&nbsp;</a></span>detruire_boss()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void detruire_boss </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structentite__t.html">entite_t</a> **&#160;</td>
+          <td class="paramname"><em>boss</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fonction qui detruit un boss. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">entite</td><td>Pointeur sur le pointeur sur le boss à detruire </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a2ed6c7ce22c5482cf6a33bf4ec285ec7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2ed6c7ce22c5482cf6a33bf4ec285ec7">&#9670;&nbsp;</a></span>detruire_entitee()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void detruire_entitee </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structentite__t.html">entite_t</a> **&#160;</td>
+          <td class="paramname"><em>entite</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a698a2516ea30aedba8f48a1a63c69f4b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a698a2516ea30aedba8f48a1a63c69f4b">&#9670;&nbsp;</a></span>detruire_mob()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void detruire_mob </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structentite__t.html">entite_t</a> **&#160;</td>
+          <td class="paramname"><em>mob</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fonction qui detruit un mob. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">entite</td><td>Pointeur sur le pointeur sur le mob à detruire </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a467a9d69502a2a8279caa001489fa230"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a467a9d69502a2a8279caa001489fa230">&#9670;&nbsp;</a></span>detruire_personnage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void detruire_personnage </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structentite__t.html">entite_t</a> **&#160;</td>
+          <td class="paramname"><em>personnage</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fonction qui detruit un personnage. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">entite</td><td>Pointeur sur le pointeur sur le personnage à detruire </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des variables</h2>
+<a id="a817603511beeb70beacaae71fc17397e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a817603511beeb70beacaae71fc17397e">&#9670;&nbsp;</a></span>tab_boss</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structentite__t.html">entite_t</a> tab_boss[<a class="el" href="entite_8h.html#a01f1dc2b5c76b586a947178374d83577">NB_BOSS</a>]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Valeur initiale :</b><div class="fragment"><div class="line">= {</div>
+<div class="line">    {<span class="stringliteral">&quot;Volibeer&quot;</span>, 400, 25, 0.5, 1, 10, 0, 0, NULL, NULL, 0, 1, <a class="code" href="entite_8h.html#abd0fa4d9430cb5d9e720b04378de1e2fa5c97701a87d36c8f2c0de80c5865b8e2">HAUT</a>},</div>
+<div class="line">    {<span class="stringliteral">&quot;Darick&quot;</span>, 800, 40, 1, 0.25, 15, 0, 0, NULL, NULL, 0, 1, <a class="code" href="entite_8h.html#abd0fa4d9430cb5d9e720b04378de1e2fa5c97701a87d36c8f2c0de80c5865b8e2">HAUT</a>},</div>
+<div class="line">    {<span class="stringliteral">&quot;Satan&quot;</span>, 1500, 150, 2, 2, 15, 0, 0, NULL, NULL, 0, 1, <a class="code" href="entite_8h.html#abd0fa4d9430cb5d9e720b04378de1e2fa5c97701a87d36c8f2c0de80c5865b8e2">HAUT</a>}}</div>
+<div class="ttc" id="aentite_8h_html_abd0fa4d9430cb5d9e720b04378de1e2fa5c97701a87d36c8f2c0de80c5865b8e2"><div class="ttname"><a href="entite_8h.html#abd0fa4d9430cb5d9e720b04378de1e2fa5c97701a87d36c8f2c0de80c5865b8e2">HAUT</a></div><div class="ttdeci">@ HAUT</div><div class="ttdoc">Haut.</div><div class="ttdef"><b>Definition:</b> entite.h:27</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a9de48f40123e9967bd7131738bfe518b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9de48f40123e9967bd7131738bfe518b">&#9670;&nbsp;</a></span>tab_mob</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structentite__t.html">entite_t</a> tab_mob[<a class="el" href="entite_8h.html#a08d32be6e738ffd66c0b5c1353d5b0e2">NB_MOBS</a>]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Valeur initiale :</b><div class="fragment"><div class="line">= {</div>
+<div class="line">    {<span class="stringliteral">&quot;Slime_Vert&quot;</span>, 2, 1, 0.75, 0.40, 6, 0, 0, NULL, NULL, 1, 1, <a class="code" href="entite_8h.html#abd0fa4d9430cb5d9e720b04378de1e2fa5c97701a87d36c8f2c0de80c5865b8e2">HAUT</a>},</div>
+<div class="line">    {<span class="stringliteral">&quot;Loup&quot;</span>, 10, 4, 1.0, 1.2, 8, 0, 0, NULL, NULL, 2, 1, <a class="code" href="entite_8h.html#abd0fa4d9430cb5d9e720b04378de1e2fa5c97701a87d36c8f2c0de80c5865b8e2">HAUT</a>},</div>
+<div class="line">    {<span class="stringliteral">&quot;Sanglier&quot;</span>, 20, 6, 0.9, 1.1, 7, 0, 0, NULL, NULL, 1, 1, <a class="code" href="entite_8h.html#abd0fa4d9430cb5d9e720b04378de1e2fa5c97701a87d36c8f2c0de80c5865b8e2">HAUT</a>},</div>
+<div class="line">    {<span class="stringliteral">&quot;Champi&quot;</span>, 12, 12, 0.8, 1, 9, 0, 0, NULL, NULL, 2, 1, <a class="code" href="entite_8h.html#abd0fa4d9430cb5d9e720b04378de1e2fa5c97701a87d36c8f2c0de80c5865b8e2">HAUT</a>},</div>
+<div class="line">    {<span class="stringliteral">&quot;Slime_Gris&quot;</span>, 10, 5, 0.75, 0.40, 6, 0, 0, NULL, NULL, 1, 1, <a class="code" href="entite_8h.html#abd0fa4d9430cb5d9e720b04378de1e2fa5c97701a87d36c8f2c0de80c5865b8e2">HAUT</a>},</div>
+<div class="line">    {<span class="stringliteral">&quot;Nain&quot;</span>, 30, 8, 0.75, 0.40, 5, 0, 0, NULL, NULL, 2, 1, <a class="code" href="entite_8h.html#abd0fa4d9430cb5d9e720b04378de1e2fa5c97701a87d36c8f2c0de80c5865b8e2">HAUT</a>},</div>
+<div class="line">    {<span class="stringliteral">&quot;Nain_Rider&quot;</span>, 20, 5, 1.5, 1.2, 10, 0, 0, NULL, NULL, 3, 1, <a class="code" href="entite_8h.html#abd0fa4d9430cb5d9e720b04378de1e2fa5c97701a87d36c8f2c0de80c5865b8e2">HAUT</a>},</div>
+<div class="line">    {<span class="stringliteral">&quot;Orc&quot;</span>, 80, 20, 0.10, 0.20, 8, 0, 0, NULL, NULL, 2, 1, <a class="code" href="entite_8h.html#abd0fa4d9430cb5d9e720b04378de1e2fa5c97701a87d36c8f2c0de80c5865b8e2">HAUT</a>},</div>
+<div class="line">    {<span class="stringliteral">&quot;Slime_Rouge&quot;</span>, 50, 25, 0.75, 0.40, 6, 0, 0, NULL, NULL, 1, 1, <a class="code" href="entite_8h.html#abd0fa4d9430cb5d9e720b04378de1e2fa5c97701a87d36c8f2c0de80c5865b8e2">HAUT</a>},</div>
+<div class="line">    {<span class="stringliteral">&quot;Diablotin&quot;</span>, 40, 40, 1.4, 1.0, 5, 0, 0, NULL, NULL, 3, 1, <a class="code" href="entite_8h.html#abd0fa4d9430cb5d9e720b04378de1e2fa5c97701a87d36c8f2c0de80c5865b8e2">HAUT</a>},</div>
+<div class="line">    {<span class="stringliteral">&quot;Diable&quot;</span>, 80, 80, 0.8, 1.2, 10, 0, 0, NULL, NULL, 2, 1, <a class="code" href="entite_8h.html#abd0fa4d9430cb5d9e720b04378de1e2fa5c97701a87d36c8f2c0de80c5865b8e2">HAUT</a>},</div>
+<div class="line">    {<span class="stringliteral">&quot;Cerbere&quot;</span>, 200, 100, 1.8, 0.7, 12, 0, 0, NULL, NULL, 2, 1, <a class="code" href="entite_8h.html#abd0fa4d9430cb5d9e720b04378de1e2fa5c97701a87d36c8f2c0de80c5865b8e2">HAUT</a>}}</div>
+</div><!-- fragment -->
+<p>tableau qui stocke tout les mobs présents dans le jeu </p>
+<p>Tableau qui réference tout les mobs du jeu avec leurs stats de base. </p>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>

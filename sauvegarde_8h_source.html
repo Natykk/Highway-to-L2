@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Highway to L2:  Fichier source de /mnt/c/ProjetL2/head/sauvegarde.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Highway to L2
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_06b090c849413a2743cf102ffb0713d3.html">head</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">sauvegarde.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="sauvegarde_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef __SAUV__</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define __SAUV__</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="entite_8h.html">entite.h</a>&quot;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keywordtype">int</span> <a class="code" href="sauvegarde_8h.html#adca7ba05f48119c3da7e11985eda855b">sauvegarde</a>(<a class="code" href="structentite__t.html">entite_t</a> *personnage, <span class="keywordtype">int</span> num_etage, <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> *key);</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keywordtype">int</span> <a class="code" href="sauvegarde_8h.html#aba8d79fd1197aba1777c17235e41360c">chargement</a>(<a class="code" href="structentite__t.html">entite_t</a> **personnage, <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> *key);</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keywordtype">int</span> <a class="code" href="sauvegarde_8h.html#a8e940f5ad6c1dc16f7cce218662aa925">sha256_file</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *path, <span class="keywordtype">char</span> *hash);</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aentite_8h_html"><div class="ttname"><a href="entite_8h.html">entite.h</a></div><div class="ttdoc">Fichier d'en-tete pour les primitives liées aux entites.</div></div>
+<div class="ttc" id="asauvegarde_8h_html_a8e940f5ad6c1dc16f7cce218662aa925"><div class="ttname"><a href="sauvegarde_8h.html#a8e940f5ad6c1dc16f7cce218662aa925">sha256_file</a></div><div class="ttdeci">int sha256_file(const char *path, char *hash)</div><div class="ttdoc">Fonction de hashage.</div><div class="ttdef"><b>Definition:</b> sauvegarde.c:18</div></div>
+<div class="ttc" id="asauvegarde_8h_html_aba8d79fd1197aba1777c17235e41360c"><div class="ttname"><a href="sauvegarde_8h.html#aba8d79fd1197aba1777c17235e41360c">chargement</a></div><div class="ttdeci">int chargement(entite_t **personnage, unsigned char *key)</div><div class="ttdoc">Fonction de chargement.</div><div class="ttdef"><b>Definition:</b> sauvegarde.c:273</div></div>
+<div class="ttc" id="asauvegarde_8h_html_adca7ba05f48119c3da7e11985eda855b"><div class="ttname"><a href="sauvegarde_8h.html#adca7ba05f48119c3da7e11985eda855b">sauvegarde</a></div><div class="ttdeci">int sauvegarde(entite_t *personnage, int num_etage, unsigned char *key)</div><div class="ttdoc">Fonction de sauvegarde.</div><div class="ttdef"><b>Definition:</b> sauvegarde.c:148</div></div>
+<div class="ttc" id="astructentite__t_html"><div class="ttname"><a href="structentite__t.html">entite_t</a></div><div class="ttdoc">Structure qui genere les entitées Caracteristiques :</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>

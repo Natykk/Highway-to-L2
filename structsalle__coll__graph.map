@@ -1,0 +1,4 @@
+<map id="salle" name="salle">
+<area shape="rect" id="node1" title="Définition d&#39;une salle avec ses dimensions, son numéro, son nombre de portes et de mobs et son statut..." alt="" coords="15,95,68,121"/>
+<area shape="rect" id="node2" href="$structentite__t.html" title="Structure qui genere les entitées Caracteristiques :" alt="" coords="5,5,77,32"/>
+</map>

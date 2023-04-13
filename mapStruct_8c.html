@@ -1,0 +1,648 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Highway to L2: Référence du fichier /mnt/c/ProjetL2/src/mapStruct.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Highway to L2
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Fonctions</a>  </div>
+  <div class="headertitle">
+<div class="title">Référence du fichier mapStruct.c</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Fichier contenant les fonctions de gestion de la map.  
+<a href="#details">Plus de détails...</a></p>
+<div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
+<code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &lt;time.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="entite_8h_source.html">../head/entite.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="mapStruct_8h_source.html">../head/mapStruct.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="inventaire_8h_source.html">../head/inventaire.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Graphe des dépendances par inclusion de mapStruct.c:</div>
+<div class="dyncontent">
+<div class="center"><img src="mapStruct_8c__incl.png" border="0" usemap="#a_2mnt_2c_2ProjetL2_2src_2mapStruct_8c" alt=""/></div>
+<map name="a_2mnt_2c_2ProjetL2_2src_2mapStruct_8c" id="a_2mnt_2c_2ProjetL2_2src_2mapStruct_8c">
+<area shape="rect" title="Fichier contenant les fonctions de gestion de la map." alt="" coords="187,5,330,47"/>
+<area shape="rect" title=" " alt="" coords="5,95,72,121"/>
+<area shape="rect" title=" " alt="" coords="97,95,167,121"/>
+<area shape="rect" title=" " alt="" coords="192,95,256,121"/>
+<area shape="rect" href="entite_8h.html" title="Fichier d&#39;en&#45;tete pour les primitives liées aux entites." alt="" coords="383,169,503,196"/>
+<area shape="rect" href="mapStruct_8h.html" title="Définition des structures de données pour la map." alt="" coords="504,95,653,121"/>
+<area shape="rect" href="inventaire_8h.html" title="Fichier contenant les prototypes de fonctions pour la gestion des inventaires." alt="" coords="331,95,479,121"/>
+<area shape="rect" href="objet_8h.html" title="Fichier contenant toutes les structutes de données liées aux objets." alt="" coords="457,244,524,271"/>
+<area shape="rect" href="objet__inv_8h.html" title=" " alt="" coords="444,319,537,345"/>
+</map>
+</div>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:a0149926ba35c2d29df64eeb56eb7eda5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mapStruct_8c.html#a0149926ba35c2d29df64eeb56eb7eda5">afficher_num_salle</a> (<a class="el" href="mapStruct_8h.html#a0265ab253cc34fe6c953217a62a111c1">t_etage</a> *<a class="el" href="structetage.html">etage</a>)</td></tr>
+<tr class="separator:a0149926ba35c2d29df64eeb56eb7eda5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2f1febbd79366c9aff9a97a441f4bc41"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mapStruct_8c.html#a2f1febbd79366c9aff9a97a441f4bc41">afficher_salle</a> (<a class="el" href="mapStruct_8h.html#a7c844facf01c437463294b08dc29f63e">t_salle</a> <a class="el" href="structsalle.html">salle</a>)</td></tr>
+<tr class="memdesc:a2f1febbd79366c9aff9a97a441f4bc41"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affiche une salle.  <a href="mapStruct_8c.html#a2f1febbd79366c9aff9a97a441f4bc41">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a2f1febbd79366c9aff9a97a441f4bc41"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a54bfa06eb9e7ca49ab3ebbb97afe556e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mapStruct_8c.html#a54bfa06eb9e7ca49ab3ebbb97afe556e">afficher_salle_etage</a> (<a class="el" href="mapStruct_8h.html#a0265ab253cc34fe6c953217a62a111c1">t_etage</a> *<a class="el" href="structetage.html">etage</a>)</td></tr>
+<tr class="memdesc:a54bfa06eb9e7ca49ab3ebbb97afe556e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction d'affichage des salles d'un étage.  <a href="mapStruct_8c.html#a54bfa06eb9e7ca49ab3ebbb97afe556e">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a54bfa06eb9e7ca49ab3ebbb97afe556e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a146abc237b72ec926c52dbae5463d1b1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mapStruct_8c.html#a146abc237b72ec926c52dbae5463d1b1">afficher_etage</a> (<a class="el" href="mapStruct_8h.html#a0265ab253cc34fe6c953217a62a111c1">t_etage</a> *<a class="el" href="structetage.html">etage</a>)</td></tr>
+<tr class="memdesc:a146abc237b72ec926c52dbae5463d1b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction d'affichage d'un étage.  <a href="mapStruct_8c.html#a146abc237b72ec926c52dbae5463d1b1">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a146abc237b72ec926c52dbae5463d1b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adaeb5e85b347484e969eb8fb98c125e3"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mapStruct_8c.html#adaeb5e85b347484e969eb8fb98c125e3">salle_disponible</a> (int x, int y, <a class="el" href="mapStruct_8h.html#a7c844facf01c437463294b08dc29f63e">t_salle</a> <a class="el" href="structetage.html">etage</a>[<a class="el" href="mapStruct_8h.html#a3a15d5affbf0a7462bf6d1140dca64c4">DIM_ETAGE</a>][<a class="el" href="mapStruct_8h.html#a3a15d5affbf0a7462bf6d1140dca64c4">DIM_ETAGE</a>])</td></tr>
+<tr class="memdesc:adaeb5e85b347484e969eb8fb98c125e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vérifie si une salle est disponible.  <a href="mapStruct_8c.html#adaeb5e85b347484e969eb8fb98c125e3">Plus de détails...</a><br /></td></tr>
+<tr class="separator:adaeb5e85b347484e969eb8fb98c125e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a80faee18802b8fc331b5e0afeee6d905"><td class="memItemLeft" align="right" valign="top"><a class="el" href="mapStruct_8h.html#a0f4c78eac877d4f5006588143b68ca98">t_pos</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mapStruct_8c.html#a80faee18802b8fc331b5e0afeee6d905">trouverSalle</a> (int num_salle, <a class="el" href="mapStruct_8h.html#a0265ab253cc34fe6c953217a62a111c1">t_etage</a> *<a class="el" href="structetage.html">etage</a>)</td></tr>
+<tr class="memdesc:a80faee18802b8fc331b5e0afeee6d905"><td class="mdescLeft">&#160;</td><td class="mdescRight">Trouve une salle dans un étage.  <a href="mapStruct_8c.html#a80faee18802b8fc331b5e0afeee6d905">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a80faee18802b8fc331b5e0afeee6d905"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a16b20add9ce5b441983d0a9e3ba7d4f3"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mapStruct_8c.html#a16b20add9ce5b441983d0a9e3ba7d4f3">nb_lieu_libre</a> (int x, int y, <a class="el" href="mapStruct_8h.html#a7c844facf01c437463294b08dc29f63e">t_salle</a> <a class="el" href="structetage.html">etage</a>[<a class="el" href="mapStruct_8h.html#a3a15d5affbf0a7462bf6d1140dca64c4">DIM_ETAGE</a>][<a class="el" href="mapStruct_8h.html#a3a15d5affbf0a7462bf6d1140dca64c4">DIM_ETAGE</a>])</td></tr>
+<tr class="memdesc:a16b20add9ce5b441983d0a9e3ba7d4f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compte le nombre de salle libre autour des coordonnées x et y.  <a href="mapStruct_8c.html#a16b20add9ce5b441983d0a9e3ba7d4f3">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a16b20add9ce5b441983d0a9e3ba7d4f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaab20996fabaa4053eeb03e8f3cca8a3"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mapStruct_8c.html#aaab20996fabaa4053eeb03e8f3cca8a3">nbVoisin</a> (int x, int y, <a class="el" href="mapStruct_8h.html#a0265ab253cc34fe6c953217a62a111c1">t_etage</a> *<a class="el" href="structetage.html">etage</a>)</td></tr>
+<tr class="memdesc:aaab20996fabaa4053eeb03e8f3cca8a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compte le nombre de voisins d'une salle.  <a href="mapStruct_8c.html#aaab20996fabaa4053eeb03e8f3cca8a3">Plus de détails...</a><br /></td></tr>
+<tr class="separator:aaab20996fabaa4053eeb03e8f3cca8a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad4331729658e1ef94d5d116066ed93b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mapStruct_8c.html#aad4331729658e1ef94d5d116066ed93b">genererSalle</a> (int x_salle, int y_salle, <a class="el" href="mapStruct_8h.html#a0265ab253cc34fe6c953217a62a111c1">t_etage</a> *<a class="el" href="structetage.html">etage</a>)</td></tr>
+<tr class="memdesc:aad4331729658e1ef94d5d116066ed93b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Génère une salle.  <a href="mapStruct_8c.html#aad4331729658e1ef94d5d116066ed93b">Plus de détails...</a><br /></td></tr>
+<tr class="separator:aad4331729658e1ef94d5d116066ed93b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9a5bf290348ed8be152d12b485cb158b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mapStruct_8c.html#a9a5bf290348ed8be152d12b485cb158b">etageConforme</a> (<a class="el" href="mapStruct_8h.html#a0265ab253cc34fe6c953217a62a111c1">t_etage</a> *<a class="el" href="structetage.html">etage</a>)</td></tr>
+<tr class="memdesc:a9a5bf290348ed8be152d12b485cb158b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction vérifiant si l'étage possède autant de salles que etage-&gt;nb_salle et verifie la numerotation des chaque pièce.  <a href="mapStruct_8c.html#a9a5bf290348ed8be152d12b485cb158b">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a9a5bf290348ed8be152d12b485cb158b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a91c63ca06caf5f57dade8fc286355a6c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mapStruct_8c.html#a91c63ca06caf5f57dade8fc286355a6c">genererEtage</a> (<a class="el" href="mapStruct_8h.html#a0265ab253cc34fe6c953217a62a111c1">t_etage</a> *<a class="el" href="structetage.html">etage</a>)</td></tr>
+<tr class="memdesc:a91c63ca06caf5f57dade8fc286355a6c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Génère un étage.  <a href="mapStruct_8c.html#a91c63ca06caf5f57dade8fc286355a6c">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a91c63ca06caf5f57dade8fc286355a6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f14fa313aa17d3aa8440e257dd343e1"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mapStruct_8c.html#a0f14fa313aa17d3aa8440e257dd343e1">genererNiv</a> (<a class="el" href="mapStruct_8h.html#aff0c2b92d4865492cce64de3c0e374d8">t_niv</a> *<a class="el" href="structniveau.html">niveau</a>)</td></tr>
+<tr class="memdesc:a0f14fa313aa17d3aa8440e257dd343e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Génère un niveau.  <a href="mapStruct_8c.html#a0f14fa313aa17d3aa8440e257dd343e1">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a0f14fa313aa17d3aa8440e257dd343e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8013f79c433af3f20b98df2fecbdb765"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mapStruct_8c.html#a8013f79c433af3f20b98df2fecbdb765">detruireNiv</a> (<a class="el" href="mapStruct_8h.html#aff0c2b92d4865492cce64de3c0e374d8">t_niv</a> **<a class="el" href="structniveau.html">niveau</a>)</td></tr>
+<tr class="memdesc:a8013f79c433af3f20b98df2fecbdb765"><td class="mdescLeft">&#160;</td><td class="mdescRight">Détruit un niveau.  <a href="mapStruct_8c.html#a8013f79c433af3f20b98df2fecbdb765">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a8013f79c433af3f20b98df2fecbdb765"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Fichier contenant les fonctions de gestion de la map. </p>
+<dl class="section version"><dt>Version</dt><dd>1.0 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>28/01/2023 </dd></dl>
+</div><h2 class="groupheader">Documentation des fonctions</h2>
+<a id="a146abc237b72ec926c52dbae5463d1b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a146abc237b72ec926c52dbae5463d1b1">&#9670;&nbsp;</a></span>afficher_etage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void afficher_etage </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="mapStruct_8h.html#a0265ab253cc34fe6c953217a62a111c1">t_etage</a> *&#160;</td>
+          <td class="paramname"><em>etage</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fonction d'affichage d'un étage. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">etage</td><td>l'étage à afficher </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a0149926ba35c2d29df64eeb56eb7eda5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0149926ba35c2d29df64eeb56eb7eda5">&#9670;&nbsp;</a></span>afficher_num_salle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void afficher_num_salle </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="mapStruct_8h.html#a0265ab253cc34fe6c953217a62a111c1">t_etage</a> *&#160;</td>
+          <td class="paramname"><em>etage</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2f1febbd79366c9aff9a97a441f4bc41"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2f1febbd79366c9aff9a97a441f4bc41">&#9670;&nbsp;</a></span>afficher_salle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void afficher_salle </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="mapStruct_8h.html#a7c844facf01c437463294b08dc29f63e">t_salle</a>&#160;</td>
+          <td class="paramname"><em>salle</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Affiche une salle. </p>
+<p>Fonction d'affichage d'une salle.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">salle</td><td>Salle à afficher</td></tr>
+    <tr><td class="paramname">salle</td><td>la salle à afficher </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a54bfa06eb9e7ca49ab3ebbb97afe556e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a54bfa06eb9e7ca49ab3ebbb97afe556e">&#9670;&nbsp;</a></span>afficher_salle_etage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void afficher_salle_etage </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="mapStruct_8h.html#a0265ab253cc34fe6c953217a62a111c1">t_etage</a> *&#160;</td>
+          <td class="paramname"><em>etage</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fonction d'affichage des salles d'un étage. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">etage</td><td>l'étage à afficher </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a8013f79c433af3f20b98df2fecbdb765"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8013f79c433af3f20b98df2fecbdb765">&#9670;&nbsp;</a></span>detruireNiv()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int detruireNiv </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="mapStruct_8h.html#aff0c2b92d4865492cce64de3c0e374d8">t_niv</a> **&#160;</td>
+          <td class="paramname"><em>niveau</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Détruit un niveau. </p>
+<p>Fonction de destruction d'un niveau.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">niveau</td><td>Niveau à détruire </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>1 si la destruction s'est bien passée, 0 sinon</dd></dl>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">niveau</td><td>pointeur sur le niveau à détruire </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>0 si la map a bien été détruite </dd></dl>
+
+</div>
+</div>
+<a id="a9a5bf290348ed8be152d12b485cb158b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9a5bf290348ed8be152d12b485cb158b">&#9670;&nbsp;</a></span>etageConforme()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int etageConforme </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="mapStruct_8h.html#a0265ab253cc34fe6c953217a62a111c1">t_etage</a> *&#160;</td>
+          <td class="paramname"><em>etage</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fonction vérifiant si l'étage possède autant de salles que etage-&gt;nb_salle et verifie la numerotation des chaque pièce. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">etage</td><td>pointeur sur l'étage à vérifier </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>0 si l'étage n'est pas complet ou si il manque des salles (ex : 3-4-6-7), sinon si tout va bien retourne 1 </dd></dl>
+
+</div>
+</div>
+<a id="a91c63ca06caf5f57dade8fc286355a6c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a91c63ca06caf5f57dade8fc286355a6c">&#9670;&nbsp;</a></span>genererEtage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int genererEtage </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="mapStruct_8h.html#a0265ab253cc34fe6c953217a62a111c1">t_etage</a> *&#160;</td>
+          <td class="paramname"><em>etage</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Génère un étage. </p>
+<p>La fonction commence par initialiser un tableau pour représenter l'étage et mettre toutes les pièces de l'étage dans un état inutilisé.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">etage</td><td>Etage à générer </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>1 si la génération s'est bien passée, 0 sinon</dd></dl>
+<p>Ensuite, elle choisit aléatoirement une pièce de départ et, à l'aide d'une boucle while, elle ajoute des pièces à l'étage une par une. La boucle while continue jusqu'à ce que toutes les pièces aient été ajoutées. La fonction utilise un générateur de nombres aléatoires pour déterminer l'emplacement de chaque nouvelle pièce, et vérifie s'il existe des pièces inutilisées adjacentes à la pièce actuelle. Si c'est le cas, elle ajoute la nouvelle pièce à l'étage et met à jour la pièce actuelle en fonction de la nouvelle pièce. S'il n'y a pas de pièces inutilisées adjacentes à la pièce actuelle, il marque la pièce actuelle comme étant la pièce de sortie, trouve une nouvelle pièce de départ et continue à ajouter des pièces à partir de cette nouvelle pièce de départ. <br  />
+ </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">etage</td><td>pointeur sur l'étage à créer </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>0 si la map a bien été créée sinon renvoie 100 </dd></dl>
+
+</div>
+</div>
+<a id="a0f14fa313aa17d3aa8440e257dd343e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0f14fa313aa17d3aa8440e257dd343e1">&#9670;&nbsp;</a></span>genererNiv()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int genererNiv </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="mapStruct_8h.html#aff0c2b92d4865492cce64de3c0e374d8">t_niv</a> *&#160;</td>
+          <td class="paramname"><em>niveau</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Génère un niveau. </p>
+<p>Fonction de création d'un niveau.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">niveau</td><td>Niveau à générer </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>1 si la génération s'est bien passée, 0 sinon</dd></dl>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">niveau</td><td>pointeur sur le niveau à créer </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>0 si la map a bien été créée sinon renvoie 100 </dd></dl>
+
+</div>
+</div>
+<a id="aad4331729658e1ef94d5d116066ed93b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aad4331729658e1ef94d5d116066ed93b">&#9670;&nbsp;</a></span>genererSalle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int genererSalle </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>x_salle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>y_salle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="mapStruct_8h.html#a0265ab253cc34fe6c953217a62a111c1">t_etage</a> *&#160;</td>
+          <td class="paramname"><em>etage</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Génère une salle. </p>
+<p>La fonction sert à générer une salle aléatoirement dans un étage en spécifiant les coordonnées x et y. Elle modifie les données de l'étage en ajoutant une nouvelle salle aux coordonnées spécifiées, avec un nombre de murs, de portes et d'espaces vides aléatoires.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x_salle</td><td>Coordonnée x de la salle </td></tr>
+    <tr><td class="paramname">y_salle</td><td>Coordonnée y de la salle </td></tr>
+    <tr><td class="paramname">etage</td><td>Etage dans lequel se trouve la salle</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>1 si la génération s'est bien passée, 0 sinon</dd></dl>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x_salle</td><td>coordonnée x de la salle </td></tr>
+    <tr><td class="paramname">y_salle</td><td>coordonnée y de la salle </td></tr>
+    <tr><td class="paramname">etage</td><td>l'étage dans lequel sont générer les salles </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>1 si la génération s'est bien passée, 0 sinon </dd></dl>
+
+</div>
+</div>
+<a id="a16b20add9ce5b441983d0a9e3ba7d4f3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a16b20add9ce5b441983d0a9e3ba7d4f3">&#9670;&nbsp;</a></span>nb_lieu_libre()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int nb_lieu_libre </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="mapStruct_8h.html#a7c844facf01c437463294b08dc29f63e">t_salle</a>&#160;</td>
+          <td class="paramname"><em>etage</em>[DIM_ETAGE][DIM_ETAGE]&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Compte le nombre de salle libre autour des coordonnées x et y. </p>
+<p>Fonction de vérification du nombre d'endroit libre autour d'une salle.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>Coordonnée x </td></tr>
+    <tr><td class="paramname">y</td><td>Coordonnée y </td></tr>
+    <tr><td class="paramname">etage</td><td>Etage dans lequel chercher</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Nombre de salle libre autour des coordonnées x et y</dd></dl>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>coordonnée x de la salle </td></tr>
+    <tr><td class="paramname">y</td><td>coordonnée y de la salle </td></tr>
+    <tr><td class="paramname">etage</td><td>l'étage à vérifier </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aaab20996fabaa4053eeb03e8f3cca8a3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaab20996fabaa4053eeb03e8f3cca8a3">&#9670;&nbsp;</a></span>nbVoisin()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int nbVoisin </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="mapStruct_8h.html#a0265ab253cc34fe6c953217a62a111c1">t_etage</a> *&#160;</td>
+          <td class="paramname"><em>etage</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Compte le nombre de voisins d'une salle. </p>
+<p>Fonction de vérification du nombre de salle autour d'une salle.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>Coordonnée x </td></tr>
+    <tr><td class="paramname">y</td><td>Coordonnée y </td></tr>
+    <tr><td class="paramname">etage</td><td>Etage dans lequel chercher</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Nombre de voisins de la salle</dd></dl>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>coordonnée x de la salle </td></tr>
+    <tr><td class="paramname">y</td><td>coordonnée y de la salle </td></tr>
+    <tr><td class="paramname">etage</td><td>l'étage à vérifier </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>le nombre de salle autour de la salle </dd></dl>
+
+</div>
+</div>
+<a id="adaeb5e85b347484e969eb8fb98c125e3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adaeb5e85b347484e969eb8fb98c125e3">&#9670;&nbsp;</a></span>salle_disponible()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int salle_disponible </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="mapStruct_8h.html#a7c844facf01c437463294b08dc29f63e">t_salle</a>&#160;</td>
+          <td class="paramname"><em>etage</em>[DIM_ETAGE][DIM_ETAGE]&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Vérifie si une salle est disponible. </p>
+<p>Fonction de vérification de la disponibilité d'une salle.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>Coordonnée x de la salle </td></tr>
+    <tr><td class="paramname">y</td><td>Coordonnée y de la salle </td></tr>
+    <tr><td class="paramname">etage</td><td>Etage dans lequel se trouve la salle </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>1 si la salle est disponible, 0 sinon</dd></dl>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>coordonnée x de la salle </td></tr>
+    <tr><td class="paramname">y</td><td>coordonnée y de la salle </td></tr>
+    <tr><td class="paramname">etage</td><td>l'étage à vérifier </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a80faee18802b8fc331b5e0afeee6d905"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a80faee18802b8fc331b5e0afeee6d905">&#9670;&nbsp;</a></span>trouverSalle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="mapStruct_8h.html#a0f4c78eac877d4f5006588143b68ca98">t_pos</a> trouverSalle </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>num_salle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="mapStruct_8h.html#a0265ab253cc34fe6c953217a62a111c1">t_etage</a> *&#160;</td>
+          <td class="paramname"><em>etage</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Trouve une salle dans un étage. </p>
+<p>Fonction de recherche d'une salle dans un étage.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">num_salle</td><td>Numéro de la salle à trouver </td></tr>
+    <tr><td class="paramname">etage</td><td>Etage dans lequel se trouve la salle</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Position de la salle trouvée</dd></dl>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">num_salle</td><td>le numéro de la salle à trouver </td></tr>
+    <tr><td class="paramname">etage</td><td>l'étage dans lequel chercher </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>la position de la salle dans l'étage </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>

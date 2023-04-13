@@ -1,0 +1,6 @@
+<map id="niveau" name="niveau">
+<area shape="rect" id="node1" title="Définition d&#39;un niveau avec ses étages." alt="" coords="8,303,75,329"/>
+<area shape="rect" id="node2" href="$structetage.html" title="Définition d&#39;un étage avec son nombre de salles et ses salles." alt="" coords="12,213,71,240"/>
+<area shape="rect" id="node3" href="$structsalle.html" title="Définition d&#39;une salle avec ses dimensions, son numéro, son nombre de portes et de mobs et son statut..." alt="" coords="15,95,68,121"/>
+<area shape="rect" id="node4" href="$structentite__t.html" title="Structure qui genere les entitées Caracteristiques :" alt="" coords="5,5,77,32"/>
+</map>

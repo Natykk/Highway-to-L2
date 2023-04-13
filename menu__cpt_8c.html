@@ -1,0 +1,706 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Highway to L2: Référence du fichier /mnt/c/ProjetL2/src/menu_cpt.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Highway to L2
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Fonctions</a>  </div>
+  <div class="headertitle">
+<div class="title">Référence du fichier menu_cpt.c</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Fichier contenant les fonctions pour le menu des compétences.  
+<a href="#details">Plus de détails...</a></p>
+<div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
+<code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &lt;stdbool.h&gt;</code><br />
+<code>#include &lt;string.h&gt;</code><br />
+<code>#include &lt;SDL2/SDL_ttf.h&gt;</code><br />
+<code>#include &lt;SDL2/SDL_mixer.h&gt;</code><br />
+<code>#include &lt;SDL2/SDL_image.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="menu__cpt_8h_source.html">../head/menu_cpt.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="itoa_8h_source.html">../head/itoa.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="inventaire_8h_source.html">../head/inventaire.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="competence_8h_source.html">../head/competence.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Graphe des dépendances par inclusion de menu_cpt.c:</div>
+<div class="dyncontent">
+<div class="center"><img src="menu__cpt_8c__incl.png" border="0" usemap="#a_2mnt_2c_2ProjetL2_2src_2menu__cpt_8c" alt=""/></div>
+<map name="a_2mnt_2c_2ProjetL2_2src_2menu__cpt_8c" id="a_2mnt_2c_2ProjetL2_2src_2menu__cpt_8c">
+<area shape="rect" title="Fichier contenant les fonctions pour le menu des compétences." alt="" coords="484,5,627,47"/>
+<area shape="rect" title=" " alt="" coords="369,319,435,345"/>
+<area shape="rect" title=" " alt="" coords="460,319,531,345"/>
+<area shape="rect" title=" " alt="" coords="593,95,675,121"/>
+<area shape="rect" title=" " alt="" coords="700,95,771,121"/>
+<area shape="rect" title=" " alt="" coords="795,95,913,121"/>
+<area shape="rect" title=" " alt="" coords="937,95,1075,121"/>
+<area shape="rect" title=" " alt="" coords="1099,95,1243,121"/>
+<area shape="rect" href="menu__cpt_8h.html" title=" " alt="" coords="219,95,366,121"/>
+<area shape="rect" href="competence_8h.html" title="Fichier contenant les structures et prototypes de fonctions pour la gestion des compétences." alt="" coords="251,244,366,271"/>
+<area shape="rect" href="itoa_8h.html" title="Fichier contenant les prototypes de fonctions pour la gestion des conversions de type." alt="" coords="441,244,547,271"/>
+<area shape="rect" href="inventaire_8h.html" title="Fichier contenant les prototypes de fonctions pour la gestion des inventaires." alt="" coords="5,169,153,196"/>
+<area shape="rect" title=" " alt="" coords="270,169,366,196"/>
+<area shape="rect" href="arbre_8h.html" title="Fichier contenant les structure et prototype de fonction pour la gestion des arbres de compétences." alt="" coords="177,169,245,196"/>
+<area shape="rect" href="entite_8h.html" title="Fichier d&#39;en&#45;tete pour les primitives liées aux entites." alt="" coords="155,244,227,271"/>
+<area shape="rect" href="objet_8h.html" title="Fichier contenant toutes les structutes de données liées aux objets." alt="" coords="217,319,283,345"/>
+<area shape="rect" href="objet__inv_8h.html" title=" " alt="" coords="203,393,297,420"/>
+</map>
+</div>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:a60a9f40cc43024feb9dc831db209c5fd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="menu__cpt_8c.html#a60a9f40cc43024feb9dc831db209c5fd">construire_chaine_objets</a> (char *result, int nb_obj, int nb_obj_requis, char *nom_obj)</td></tr>
+<tr class="memdesc:a60a9f40cc43024feb9dc831db209c5fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction qui construit la chaine de caractère qui sera affichée dans le menu de l'inventaire.  <a href="menu__cpt_8c.html#a60a9f40cc43024feb9dc831db209c5fd">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a60a9f40cc43024feb9dc831db209c5fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f41e03806da48e5ad550664092223df"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="menu__cpt_8c.html#a7f41e03806da48e5ad550664092223df">construire_chaine_buff</a> (char *result, int i, int buff)</td></tr>
+<tr class="memdesc:a7f41e03806da48e5ad550664092223df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction qui construit la chaine de caractère qui sera affichée dans le menu de l'inventaire.  <a href="menu__cpt_8c.html#a7f41e03806da48e5ad550664092223df">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a7f41e03806da48e5ad550664092223df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a63e2fa8cf0ae1a8c2259a85f15708f1d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="menu__cpt_8c.html#a63e2fa8cf0ae1a8c2259a85f15708f1d">check_valid_cpt</a> (SDL_Renderer *renderer, TTF_Font *font, SDL_Color color, SDL_Rect rect, int check)</td></tr>
+<tr class="separator:a63e2fa8cf0ae1a8c2259a85f15708f1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac308721bc2f50d1c8cf65fd239736306"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="menu__cpt_8c.html#ac308721bc2f50d1c8cf65fd239736306">in_rect</a> (int x, int y, struct SDL_Rect *r)</td></tr>
+<tr class="memdesc:ac308721bc2f50d1c8cf65fd239736306"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction qui vérifie si un point est dans un rectangle.  <a href="menu__cpt_8c.html#ac308721bc2f50d1c8cf65fd239736306">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ac308721bc2f50d1c8cf65fd239736306"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a833ff54f7bbf068c611a7363e742acd3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="menu__cpt_8c.html#a833ff54f7bbf068c611a7363e742acd3">afficher_comp</a> (char *path, SDL_Renderer *renderer, SDL_Rect rect)</td></tr>
+<tr class="memdesc:a833ff54f7bbf068c611a7363e742acd3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction qui affiche une compétence.  <a href="menu__cpt_8c.html#a833ff54f7bbf068c611a7363e742acd3">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a833ff54f7bbf068c611a7363e742acd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a33ba0123629a327c56b09f57b5b9b1dd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="menu__cpt_8c.html#a33ba0123629a327c56b09f57b5b9b1dd">afficher_background</a> (SDL_Window *window, SDL_Renderer *renderer)</td></tr>
+<tr class="memdesc:a33ba0123629a327c56b09f57b5b9b1dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction qui affiche le fond d'écran.  <a href="menu__cpt_8c.html#a33ba0123629a327c56b09f57b5b9b1dd">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a33ba0123629a327c56b09f57b5b9b1dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2903f5ba7c56dfa8ad350152f74f60af"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="menu__cpt_8c.html#a2903f5ba7c56dfa8ad350152f74f60af">afficher_arbre_assassin</a> (SDL_Window *window, SDL_Renderer *renderer, <a class="el" href="structentite__t.html">entite_t</a> *entite, <a class="el" href="structt__arbre.html">t_arbre</a> *assassin, TTF_Font *font)</td></tr>
+<tr class="separator:a2903f5ba7c56dfa8ad350152f74f60af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af0f9fae62dda27778175bf1300535a9f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="menu__cpt_8c.html#af0f9fae62dda27778175bf1300535a9f">afficher_arbre_guerrier</a> (SDL_Window *window, SDL_Renderer *renderer, <a class="el" href="structentite__t.html">entite_t</a> *entite, <a class="el" href="structt__arbre.html">t_arbre</a> *guerrier, TTF_Font *font)</td></tr>
+<tr class="separator:af0f9fae62dda27778175bf1300535a9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a37321cd94d433ca2d4f9285209c0fa9e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="menu__cpt_8c.html#a37321cd94d433ca2d4f9285209c0fa9e">afficher_arbre_mage</a> (SDL_Window *window, SDL_Renderer *renderer, <a class="el" href="structentite__t.html">entite_t</a> *entite, <a class="el" href="structt__arbre.html">t_arbre</a> *mage, TTF_Font *font)</td></tr>
+<tr class="separator:a37321cd94d433ca2d4f9285209c0fa9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1cb59680e5e864b1453d0e726f342af9"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="menu__cpt_8c.html#a1cb59680e5e864b1453d0e726f342af9">afficher_arbre_archer</a> (SDL_Window *window, SDL_Renderer *renderer, <a class="el" href="structentite__t.html">entite_t</a> *entite, <a class="el" href="structt__arbre.html">t_arbre</a> *archer, TTF_Font *font)</td></tr>
+<tr class="separator:a1cb59680e5e864b1453d0e726f342af9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af207cd787a1b5eb4fadf1e81e6a7d054"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="menu__cpt_8c.html#af207cd787a1b5eb4fadf1e81e6a7d054">afficher_menu</a> (SDL_Window *window, SDL_Renderer *renderer, <a class="el" href="structentite__t.html">entite_t</a> *entite, TTF_Font *font)</td></tr>
+<tr class="separator:af207cd787a1b5eb4fadf1e81e6a7d054"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a47de14e767837ab550fba0dd5a34d5c4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="menu__cpt_8c.html#a47de14e767837ab550fba0dd5a34d5c4">afficher_competence_SDL</a> (SDL_Window *window, SDL_Renderer *renderer, char *path_comp, <a class="el" href="structentite__t.html">entite_t</a> *entite, <a class="el" href="competence_8h.html#a774ce31da3950a40e34239f9fa8b8fb1">t_competence</a> *<a class="el" href="structcompetence.html">competence</a>, <a class="el" href="structt__arbre.html">t_arbre</a> *<a class="el" href="structarbre.html">arbre</a>, TTF_Font *font)</td></tr>
+<tr class="separator:a47de14e767837ab550fba0dd5a34d5c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Fichier contenant les fonctions pour le menu des compétences. </p>
+<dl class="section author"><dt>Auteur</dt><dd>GEORGET Rémy </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>2023-03-24 </dd></dl>
+</div><h2 class="groupheader">Documentation des fonctions</h2>
+<a id="a1cb59680e5e864b1453d0e726f342af9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1cb59680e5e864b1453d0e726f342af9">&#9670;&nbsp;</a></span>afficher_arbre_archer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int afficher_arbre_archer </td>
+          <td>(</td>
+          <td class="paramtype">SDL_Window *&#160;</td>
+          <td class="paramname"><em>window</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Renderer *&#160;</td>
+          <td class="paramname"><em>renderer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structentite__t.html">entite_t</a> *&#160;</td>
+          <td class="paramname"><em>entite</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structt__arbre.html">t_arbre</a> *&#160;</td>
+          <td class="paramname"><em>archer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TTF_Font *&#160;</td>
+          <td class="paramname"><em>font</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2903f5ba7c56dfa8ad350152f74f60af"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2903f5ba7c56dfa8ad350152f74f60af">&#9670;&nbsp;</a></span>afficher_arbre_assassin()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int afficher_arbre_assassin </td>
+          <td>(</td>
+          <td class="paramtype">SDL_Window *&#160;</td>
+          <td class="paramname"><em>window</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Renderer *&#160;</td>
+          <td class="paramname"><em>renderer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structentite__t.html">entite_t</a> *&#160;</td>
+          <td class="paramname"><em>entite</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structt__arbre.html">t_arbre</a> *&#160;</td>
+          <td class="paramname"><em>assassin</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TTF_Font *&#160;</td>
+          <td class="paramname"><em>font</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af0f9fae62dda27778175bf1300535a9f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af0f9fae62dda27778175bf1300535a9f">&#9670;&nbsp;</a></span>afficher_arbre_guerrier()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int afficher_arbre_guerrier </td>
+          <td>(</td>
+          <td class="paramtype">SDL_Window *&#160;</td>
+          <td class="paramname"><em>window</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Renderer *&#160;</td>
+          <td class="paramname"><em>renderer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structentite__t.html">entite_t</a> *&#160;</td>
+          <td class="paramname"><em>entite</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structt__arbre.html">t_arbre</a> *&#160;</td>
+          <td class="paramname"><em>guerrier</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TTF_Font *&#160;</td>
+          <td class="paramname"><em>font</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a37321cd94d433ca2d4f9285209c0fa9e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a37321cd94d433ca2d4f9285209c0fa9e">&#9670;&nbsp;</a></span>afficher_arbre_mage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int afficher_arbre_mage </td>
+          <td>(</td>
+          <td class="paramtype">SDL_Window *&#160;</td>
+          <td class="paramname"><em>window</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Renderer *&#160;</td>
+          <td class="paramname"><em>renderer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structentite__t.html">entite_t</a> *&#160;</td>
+          <td class="paramname"><em>entite</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structt__arbre.html">t_arbre</a> *&#160;</td>
+          <td class="paramname"><em>mage</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TTF_Font *&#160;</td>
+          <td class="paramname"><em>font</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a33ba0123629a327c56b09f57b5b9b1dd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a33ba0123629a327c56b09f57b5b9b1dd">&#9670;&nbsp;</a></span>afficher_background()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void afficher_background </td>
+          <td>(</td>
+          <td class="paramtype">SDL_Window *&#160;</td>
+          <td class="paramname"><em>window</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Renderer *&#160;</td>
+          <td class="paramname"><em>renderer</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fonction qui affiche le fond d'écran. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">window</td><td>Pointeur sur la fenêtre </td></tr>
+    <tr><td class="paramname">renderer</td><td>Pointeur sur le renderer </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a833ff54f7bbf068c611a7363e742acd3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a833ff54f7bbf068c611a7363e742acd3">&#9670;&nbsp;</a></span>afficher_comp()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void afficher_comp </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>path</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Renderer *&#160;</td>
+          <td class="paramname"><em>renderer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Rect&#160;</td>
+          <td class="paramname"><em>rect</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fonction qui affiche une compétence. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">path</td><td>Chemin vers l'image de la compétence </td></tr>
+    <tr><td class="paramname">renderer</td><td>Pointeur sur le renderer </td></tr>
+    <tr><td class="paramname">rect</td><td>Rectangle dans lequel afficher la compétence </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a47de14e767837ab550fba0dd5a34d5c4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a47de14e767837ab550fba0dd5a34d5c4">&#9670;&nbsp;</a></span>afficher_competence_SDL()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int afficher_competence_SDL </td>
+          <td>(</td>
+          <td class="paramtype">SDL_Window *&#160;</td>
+          <td class="paramname"><em>window</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Renderer *&#160;</td>
+          <td class="paramname"><em>renderer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>path_comp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structentite__t.html">entite_t</a> *&#160;</td>
+          <td class="paramname"><em>entite</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="competence_8h.html#a774ce31da3950a40e34239f9fa8b8fb1">t_competence</a> *&#160;</td>
+          <td class="paramname"><em>competence</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structt__arbre.html">t_arbre</a> *&#160;</td>
+          <td class="paramname"><em>arbre</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TTF_Font *&#160;</td>
+          <td class="paramname"><em>font</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af207cd787a1b5eb4fadf1e81e6a7d054"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af207cd787a1b5eb4fadf1e81e6a7d054">&#9670;&nbsp;</a></span>afficher_menu()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void afficher_menu </td>
+          <td>(</td>
+          <td class="paramtype">SDL_Window *&#160;</td>
+          <td class="paramname"><em>window</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Renderer *&#160;</td>
+          <td class="paramname"><em>renderer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structentite__t.html">entite_t</a> *&#160;</td>
+          <td class="paramname"><em>entite</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TTF_Font *&#160;</td>
+          <td class="paramname"><em>font</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a63e2fa8cf0ae1a8c2259a85f15708f1d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a63e2fa8cf0ae1a8c2259a85f15708f1d">&#9670;&nbsp;</a></span>check_valid_cpt()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int check_valid_cpt </td>
+          <td>(</td>
+          <td class="paramtype">SDL_Renderer *&#160;</td>
+          <td class="paramname"><em>renderer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TTF_Font *&#160;</td>
+          <td class="paramname"><em>font</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Color&#160;</td>
+          <td class="paramname"><em>color</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Rect&#160;</td>
+          <td class="paramname"><em>rect</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>check</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7f41e03806da48e5ad550664092223df"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7f41e03806da48e5ad550664092223df">&#9670;&nbsp;</a></span>construire_chaine_buff()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int construire_chaine_buff </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>result</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>i</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>buff</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fonction qui construit la chaine de caractère qui sera affichée dans le menu de l'inventaire. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">result</td><td>Chaine de caractère qui sera affichée dans le menu de l'inventaire </td></tr>
+    <tr><td class="paramname">i</td><td>Indice de la compétence </td></tr>
+    <tr><td class="paramname">buff</td><td>Valeur du buff </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>0 si la fonction s'est bien déroulée, -1 sinon </dd></dl>
+
+</div>
+</div>
+<a id="a60a9f40cc43024feb9dc831db209c5fd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a60a9f40cc43024feb9dc831db209c5fd">&#9670;&nbsp;</a></span>construire_chaine_objets()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void construire_chaine_objets </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>result</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nb_obj</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nb_obj_requis</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>nom_obj</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fonction qui construit la chaine de caractère qui sera affichée dans le menu de l'inventaire. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">result</td><td>Chaine de caractère qui sera affichée dans le menu de l'inventaire </td></tr>
+    <tr><td class="paramname">nb_obj</td><td>Nombre d'objets de ce type que le joueur possède </td></tr>
+    <tr><td class="paramname">nb_obj_requis</td><td>Nombre d'objets de ce type que le joueur doit posséder pour débloquer la compétence associée </td></tr>
+    <tr><td class="paramname">nom_obj</td><td>Nom de l'objet que le joueur doit poseéder </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ac308721bc2f50d1c8cf65fd239736306"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac308721bc2f50d1c8cf65fd239736306">&#9670;&nbsp;</a></span>in_rect()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int in_rect </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">struct SDL_Rect *&#160;</td>
+          <td class="paramname"><em>r</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fonction qui vérifie si un point est dans un rectangle. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>Abscisse du point </td></tr>
+    <tr><td class="paramname">y</td><td>Ordonnée du point </td></tr>
+    <tr><td class="paramname">r</td><td>Pointeur sur le rectangle </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>1 si le point est dans le rectangle, 0 sinon </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>

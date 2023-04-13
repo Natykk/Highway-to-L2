@@ -1,0 +1,11 @@
+<map id="/mnt/c/ProjetL2/src/mapStruct.c" name="/mnt/c/ProjetL2/src/mapStruct.c">
+<area shape="rect" id="node1" title="Fichier contenant les fonctions de gestion de la map." alt="" coords="187,5,330,47"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,95,72,121"/>
+<area shape="rect" id="node3" title=" " alt="" coords="97,95,167,121"/>
+<area shape="rect" id="node4" title=" " alt="" coords="192,95,256,121"/>
+<area shape="rect" id="node5" href="$entite_8h.html" title="Fichier d&#39;en&#45;tete pour les primitives liées aux entites." alt="" coords="383,169,503,196"/>
+<area shape="rect" id="node8" href="$mapStruct_8h.html" title="Définition des structures de données pour la map." alt="" coords="504,95,653,121"/>
+<area shape="rect" id="node9" href="$inventaire_8h.html" title="Fichier contenant les prototypes de fonctions pour la gestion des inventaires." alt="" coords="331,95,479,121"/>
+<area shape="rect" id="node6" href="$objet_8h.html" title="Fichier contenant toutes les structutes de données liées aux objets." alt="" coords="457,244,524,271"/>
+<area shape="rect" id="node7" href="$objet__inv_8h.html" title=" " alt="" coords="444,319,537,345"/>
+</map>

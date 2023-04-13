@@ -1,0 +1,16 @@
+<map id="/mnt/c/ProjetL2/head/competence.h" name="/mnt/c/ProjetL2/head/competence.h">
+<area shape="rect" id="node1" title="Fichier contenant les structures et prototypes de fonctions pour la gestion des compétences." alt="" coords="704,5,860,47"/>
+<area shape="rect" id="node2" href="$arbre_8h.html" title="Fichier contenant les structure et prototype de fonction pour la gestion des arbres de compétences." alt="" coords="567,95,723,136"/>
+<area shape="rect" id="node10" href="$menu__cpt_8c.html" title="Fichier contenant les fonctions pour le menu des compétences." alt="" coords="652,273,795,315"/>
+<area shape="rect" id="node14" href="$competence_8c.html" title="Fichier contenant les fonctions pour les compétences." alt="" coords="959,95,1101,136"/>
+<area shape="rect" id="node3" href="$attaques_8h.html" title=" " alt="" coords="47,184,203,225"/>
+<area shape="rect" id="node6" href="$menu__cpt_8h.html" title=" " alt="" coords="227,184,383,225"/>
+<area shape="rect" id="node11" href="$arbre_8c.html" title="Fichier contenant les fonctions de gestion des arbres de compétences." alt="" coords="407,184,549,225"/>
+<area shape="rect" id="node12" href="$entite_8c.html" title="Primitives liées aux entites." alt="" coords="573,184,716,225"/>
+<area shape="rect" id="node13" href="$sauvegarde_8c.html" title=" " alt="" coords="740,184,883,225"/>
+<area shape="rect" id="node4" href="$attaques_8c.html" title=" " alt="" coords="5,273,148,315"/>
+<area shape="rect" id="node5" href="$map__jeu__entite_8c.html" title="Fichier contenant les fonctions principal du jeu." alt="" coords="115,363,257,404"/>
+<area shape="rect" id="node7" href="$name_8h.html" title=" " alt="" coords="275,273,431,315"/>
+<area shape="rect" id="node8" href="$menu_8c.html" title="Fichier contenant les fonctions pour le menu." alt="" coords="281,363,424,404"/>
+<area shape="rect" id="node9" href="$name_8c.html" title="Fichier contenant les fonctions pour la gestion du nom du personnage." alt="" coords="448,363,591,404"/>
+</map>

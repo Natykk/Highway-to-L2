@@ -1,0 +1,184 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Highway to L2:  Fichier source de /mnt/c/ProjetL2/head/projectile.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Highway to L2
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_06b090c849413a2743cf102ffb0713d3.html">head</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">projectile.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="projectile_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef PROJ_H</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define PROJ_H</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;stdbool.h&gt;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;../head/entite.h&quot;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="structprojectile__s.html">   20</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structprojectile__s.html">projectile_s</a></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;{</div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="structprojectile__s.html#a3acedd56a8d53547c8a64df750df1ddf">   22</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="structprojectile__s.html#a3acedd56a8d53547c8a64df750df1ddf">vitesse_depl</a>; <span class="comment">//&lt;! Vitesse de déplacement du projectile</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="structprojectile__s.html#a6878958ebf176febfdef5884c4322978">   23</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="structprojectile__s.html#a6878958ebf176febfdef5884c4322978">portee</a>; <span class="comment">//&lt;! Portée du projectile</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="structprojectile__s.html#ae032caa89cf93d6a07cfdddac93d3ec3">   24</a></span>&#160;    <span class="keywordtype">float</span> <a class="code" href="structprojectile__s.html#ae032caa89cf93d6a07cfdddac93d3ec3">degats</a>; <span class="comment">//&lt;! Dégâts du projectile</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="structprojectile__s.html#ae1e0068a52a47001ef5736053b9cc115">   25</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="structprojectile__s.html#ae1e0068a52a47001ef5736053b9cc115">touche</a>; <span class="comment">//&lt;! Indique si le projectile a touché une cible</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="structprojectile__s.html#a9c2f25799005bb3d03a4cfdbd903a820">   26</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="structprojectile__s.html#a9c2f25799005bb3d03a4cfdbd903a820">xp</a>; <span class="comment">//&lt;! Position x du projectile</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="structprojectile__s.html#a7ac670f7ef3c91c93d28010b18fc21b4">   27</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="structprojectile__s.html#a7ac670f7ef3c91c93d28010b18fc21b4">yp</a>; <span class="comment">//&lt;! Position y du projectile</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="structprojectile__s.html#ad4e29a9806f6af3dbfa3c9a0e4987bec">   28</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="structprojectile__s.html#ad4e29a9806f6af3dbfa3c9a0e4987bec">x</a>; <span class="comment">//&lt;! Position x du tireur</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="structprojectile__s.html#a8621e8ca2c0b09db664724f1c392fe98">   29</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="structprojectile__s.html#a8621e8ca2c0b09db664724f1c392fe98">y</a>; <span class="comment">//&lt;! Position y du tireur</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="structprojectile__s.html#ac54f30cbb82faff0ac01f126851b53e0">   30</a></span>&#160;    <a class="code" href="entite_8h.html#abd0fa4d9430cb5d9e720b04378de1e2f">t_dir</a> <a class="code" href="structprojectile__s.html#ac54f30cbb82faff0ac01f126851b53e0">dir</a>; <span class="comment">//&lt;! Direction du projectile</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="projectile_8h.html#ac903fae6aae2ffb58fecf1ba670e7530">   31</a></span>&#160;} <a class="code" href="projectile_8h.html#ac903fae6aae2ffb58fecf1ba670e7530">projectile_t</a>;</div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="structelement.html">   38</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structelement.html">element</a></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;{</div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="structelement.html#aca9aef9b260994a5e658f0d0d6d2df61">   40</a></span>&#160;    <a class="code" href="structprojectile__s.html">projectile_t</a> *<a class="code" href="structelement.html#aca9aef9b260994a5e658f0d0d6d2df61">proj</a>; <span class="comment">//&lt;! Pointeur sur le projectile</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="structelement.html#a9f9ebee1fa1dce6d05bc325a66478635">   41</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="structelement.html">element</a> *<a class="code" href="structelement.html#a9f9ebee1fa1dce6d05bc325a66478635">pred</a>; <span class="comment">//&lt;! Pointeur sur l&#39;élément précédent</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="structelement.html#abe10f441a14a96bd130a004585b475ad">   42</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="structelement.html">element</a> *<a class="code" href="structelement.html#abe10f441a14a96bd130a004585b475ad">succ</a>; <span class="comment">//&lt;! Pointeur sur l&#39;élément suivant</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="projectile_8h.html#aaa9f09bf55fb32a9090e2dc051b75a6a">   43</a></span>&#160;} <a class="code" href="projectile_8h.html#aaa9f09bf55fb32a9090e2dc051b75a6a">t_element</a>;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="keyword">extern</span> <a class="code" href="structelement.html">t_element</a> * <a class="code" href="projectile_8h.html#a0c3bc65023967a457d3f8427649fb965">drapeau</a>; <span class="comment">//&lt;! Pointeur sur le drapeau de la liste</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keyword">extern</span> <a class="code" href="structelement.html">t_element</a> * <a class="code" href="projectile_8h.html#a33528e825c99db5ca765f2d8c9b1340e">ec</a>;     <span class="comment">//&lt;! Pointeur sur l&#39;élément courant de la liste</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="projectile_8h.html#afb7bb65ea955179641b4846450abd703">   53</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">enum</span> <a class="code" href="projectile_8h.html#afb7bb65ea955179641b4846450abd703">proj_s</a></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;{</div>
+<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="projectile_8h.html#afb7bb65ea955179641b4846450abd703a472b639753082ddf454d19d3c4324b69">   55</a></span>&#160;    <a class="code" href="projectile_8h.html#afb7bb65ea955179641b4846450abd703a472b639753082ddf454d19d3c4324b69">AUCUN_PROJ</a> = -1, <span class="comment">//&lt;! Aucun projectile</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="projectile_8h.html#afb7bb65ea955179641b4846450abd703a2984c611e9964f24ac74b0a91fb5cb45">   56</a></span>&#160;    <a class="code" href="projectile_8h.html#afb7bb65ea955179641b4846450abd703a2984c611e9964f24ac74b0a91fb5cb45">FLECHE</a>, <span class="comment">//&lt;! Projectile de type flèche</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <a class="code" href="projectile_8h.html#afb7bb65ea955179641b4846450abd703a8cb066d03f7bdbaecdd03014f1ccbf29">BOULE</a> <span class="comment">//&lt;! Projectile de type boule </span></div>
+<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="projectile_8h.html#afb7bb65ea955179641b4846450abd703a8cb066d03f7bdbaecdd03014f1ccbf29">   58</a></span>&#160;} <a class="code" href="projectile_8h.html#acc7c0caaacece8c622810596502a1733">proj_t</a>;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
+<div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="structstat__proj__s.html">   66</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structstat__proj__s.html">stat_proj_s</a></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;{</div>
+<div class="line"><a name="l00068"></a><span class="lineno"><a class="line" href="structstat__proj__s.html#a513013cc777327b02909d1ce8f36bb2f">   68</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="structstat__proj__s.html#a513013cc777327b02909d1ce8f36bb2f">vitesse_depl</a>; <span class="comment">//&lt;! Vitesse de déplacement du projectile</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno"><a class="line" href="structstat__proj__s.html#a98cb637f52d2f82481e16e6198b339d6">   69</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="structstat__proj__s.html#a98cb637f52d2f82481e16e6198b339d6">porte</a>; <span class="comment">//&lt;! Portée du projectile</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="projectile_8h.html#a87493e35cb7a0fcfde878e02e553effa">   70</a></span>&#160;} <a class="code" href="projectile_8h.html#a87493e35cb7a0fcfde878e02e553effa">stat_proj_t</a>;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="keywordtype">void</span> <a class="code" href="projectile_8h.html#a4c6611cf398799cf0a9bb9333b80d872">init_liste_proj</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="keywordtype">int</span> <a class="code" href="projectile_8h.html#a232b85cc89be6542369240137abf3122">liste_vide_proj</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="keywordtype">int</span> <a class="code" href="projectile_8h.html#aa5c9cd21860ffdaf32877f8d12f100aa">hors_liste_proj</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="keywordtype">void</span> <a class="code" href="projectile_8h.html#aa3b5bedfea7e34815d44e56edf622e38">en_tete_proj</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;<span class="keywordtype">void</span> <a class="code" href="projectile_8h.html#a2ab272c879b71f30046ef6334e26e3dc">en_queue_proj</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;<span class="keywordtype">void</span> <a class="code" href="projectile_8h.html#aada67e5cdb512df26c1a934370c60bec">precedent_proj</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;<span class="keywordtype">void</span> <a class="code" href="projectile_8h.html#a7bd588e2ca95130ee415e3ca66967503">suivant_proj</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;<span class="keywordtype">void</span> <a class="code" href="projectile_8h.html#a093c57c1c9cd8762ae2f05a3d0c923f5">valeur_elt_proj</a>(<a class="code" href="structprojectile__s.html">projectile_t</a> **);</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;<span class="keywordtype">void</span> <a class="code" href="projectile_8h.html#a46c38e19578971d8bfa5934e04f5902f">modif_elt_proj</a>(<a class="code" href="structprojectile__s.html">projectile_t</a> *);</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;<span class="keywordtype">void</span> <a class="code" href="projectile_8h.html#ad196d52b49c0dc79a003052c42231ef6">oter_elt_proj</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;<span class="keywordtype">void</span> <a class="code" href="projectile_8h.html#abd584d655a5deb37ba2940ce65bee27d">ajout_droit_proj</a>(<a class="code" href="structprojectile__s.html">projectile_t</a> *);</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;<span class="keywordtype">void</span> <a class="code" href="projectile_8h.html#a8e39220eedd04282ad3a617345138782">ajout_gauche_proj</a>(<a class="code" href="structprojectile__s.html">projectile_t</a> *);</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;<span class="keywordtype">int</span> <a class="code" href="projectile_8h.html#af249ba5abdd1c250499a0cf84db60c9b">valide</a>(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y);</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;<a class="code" href="structprojectile__s.html">projectile_t</a> *<a class="code" href="projectile_8h.html#a7f4bf494705a264eb2cbb8975579c039">creer_projectiles</a>(<a class="code" href="projectile_8h.html#acc7c0caaacece8c622810596502a1733">proj_t</a> type);</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;<span class="keywordtype">void</span> <a class="code" href="projectile_8h.html#ad6596985f633ba71a0b5fc33ddb2ceae">detruire_projectiles</a>(<a class="code" href="structprojectile__s.html">projectile_t</a> **proj);</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;<span class="keywordtype">void</span> <a class="code" href="projectile_8h.html#abf926f493118d886b2fada06be5c5c4a">calcul_position</a>(<a class="code" href="structprojectile__s.html">projectile_t</a> *proj);</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160; </div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aentite_8h_html_abd0fa4d9430cb5d9e720b04378de1e2f"><div class="ttname"><a href="entite_8h.html#abd0fa4d9430cb5d9e720b04378de1e2f">t_dir</a></div><div class="ttdeci">t_dir</div><div class="ttdoc">Définition des directions.</div><div class="ttdef"><b>Definition:</b> entite.h:26</div></div>
+<div class="ttc" id="aprojectile_8h_html_a093c57c1c9cd8762ae2f05a3d0c923f5"><div class="ttname"><a href="projectile_8h.html#a093c57c1c9cd8762ae2f05a3d0c923f5">valeur_elt_proj</a></div><div class="ttdeci">void valeur_elt_proj(projectile_t **)</div><div class="ttdoc">Fonction de récupération de l'élément courant de la liste chaînée des projectiles.</div><div class="ttdef"><b>Definition:</b> projectile.c:45</div></div>
+<div class="ttc" id="aprojectile_8h_html_a0c3bc65023967a457d3f8427649fb965"><div class="ttname"><a href="projectile_8h.html#a0c3bc65023967a457d3f8427649fb965">drapeau</a></div><div class="ttdeci">t_element * drapeau</div><div class="ttdef"><b>Definition:</b> projectile.c:6</div></div>
+<div class="ttc" id="aprojectile_8h_html_a232b85cc89be6542369240137abf3122"><div class="ttname"><a href="projectile_8h.html#a232b85cc89be6542369240137abf3122">liste_vide_proj</a></div><div class="ttdeci">int liste_vide_proj(void)</div><div class="ttdoc">Fonction de vérification de la liste chaînée des projectiles.</div><div class="ttdef"><b>Definition:</b> projectile.c:17</div></div>
+<div class="ttc" id="aprojectile_8h_html_a2ab272c879b71f30046ef6334e26e3dc"><div class="ttname"><a href="projectile_8h.html#a2ab272c879b71f30046ef6334e26e3dc">en_queue_proj</a></div><div class="ttdeci">void en_queue_proj(void)</div><div class="ttdoc">Fonction de déplacement de l'élément courant de la liste chaînée des projectiles.</div><div class="ttdef"><b>Definition:</b> projectile.c:30</div></div>
+<div class="ttc" id="aprojectile_8h_html_a33528e825c99db5ca765f2d8c9b1340e"><div class="ttname"><a href="projectile_8h.html#a33528e825c99db5ca765f2d8c9b1340e">ec</a></div><div class="ttdeci">t_element * ec</div><div class="ttdef"><b>Definition:</b> projectile.c:7</div></div>
+<div class="ttc" id="aprojectile_8h_html_a46c38e19578971d8bfa5934e04f5902f"><div class="ttname"><a href="projectile_8h.html#a46c38e19578971d8bfa5934e04f5902f">modif_elt_proj</a></div><div class="ttdeci">void modif_elt_proj(projectile_t *)</div><div class="ttdoc">Fonction de modification de l'élément courant de la liste chaînée des projectiles.</div><div class="ttdef"><b>Definition:</b> projectile.c:50</div></div>
+<div class="ttc" id="aprojectile_8h_html_a4c6611cf398799cf0a9bb9333b80d872"><div class="ttname"><a href="projectile_8h.html#a4c6611cf398799cf0a9bb9333b80d872">init_liste_proj</a></div><div class="ttdeci">void init_liste_proj(void)</div><div class="ttdoc">Fonction d'initialisation de la liste chaînée des projectiles.</div><div class="ttdef"><b>Definition:</b> projectile.c:9</div></div>
+<div class="ttc" id="aprojectile_8h_html_a7bd588e2ca95130ee415e3ca66967503"><div class="ttname"><a href="projectile_8h.html#a7bd588e2ca95130ee415e3ca66967503">suivant_proj</a></div><div class="ttdeci">void suivant_proj(void)</div><div class="ttdoc">Fonction de déplacement de l'élément courant de la liste chaînée des projectiles.</div><div class="ttdef"><b>Definition:</b> projectile.c:40</div></div>
+<div class="ttc" id="aprojectile_8h_html_a7f4bf494705a264eb2cbb8975579c039"><div class="ttname"><a href="projectile_8h.html#a7f4bf494705a264eb2cbb8975579c039">creer_projectiles</a></div><div class="ttdeci">projectile_t * creer_projectiles(proj_t type)</div><div class="ttdoc">Fonction de création d'un projectile.</div><div class="ttdef"><b>Definition:</b> projectile.c:116</div></div>
+<div class="ttc" id="aprojectile_8h_html_a87493e35cb7a0fcfde878e02e553effa"><div class="ttname"><a href="projectile_8h.html#a87493e35cb7a0fcfde878e02e553effa">stat_proj_t</a></div><div class="ttdeci">struct stat_proj_s stat_proj_t</div></div>
+<div class="ttc" id="aprojectile_8h_html_a8e39220eedd04282ad3a617345138782"><div class="ttname"><a href="projectile_8h.html#a8e39220eedd04282ad3a617345138782">ajout_gauche_proj</a></div><div class="ttdeci">void ajout_gauche_proj(projectile_t *)</div><div class="ttdoc">Fonction d'ajout d'un élément à gauche de l'élément courant de la liste chaînée des projectiles.</div><div class="ttdef"><b>Definition:</b> projectile.c:86</div></div>
+<div class="ttc" id="aprojectile_8h_html_aa3b5bedfea7e34815d44e56edf622e38"><div class="ttname"><a href="projectile_8h.html#aa3b5bedfea7e34815d44e56edf622e38">en_tete_proj</a></div><div class="ttdeci">void en_tete_proj(void)</div><div class="ttdoc">Fonction de déplacement de l'élément courant de la liste chaînée des projectiles.</div><div class="ttdef"><b>Definition:</b> projectile.c:25</div></div>
+<div class="ttc" id="aprojectile_8h_html_aa5c9cd21860ffdaf32877f8d12f100aa"><div class="ttname"><a href="projectile_8h.html#aa5c9cd21860ffdaf32877f8d12f100aa">hors_liste_proj</a></div><div class="ttdeci">int hors_liste_proj(void)</div><div class="ttdoc">Fonction de vérification de la liste chaînée des projectiles.</div><div class="ttdef"><b>Definition:</b> projectile.c:21</div></div>
+<div class="ttc" id="aprojectile_8h_html_aaa9f09bf55fb32a9090e2dc051b75a6a"><div class="ttname"><a href="projectile_8h.html#aaa9f09bf55fb32a9090e2dc051b75a6a">t_element</a></div><div class="ttdeci">struct element t_element</div></div>
+<div class="ttc" id="aprojectile_8h_html_aada67e5cdb512df26c1a934370c60bec"><div class="ttname"><a href="projectile_8h.html#aada67e5cdb512df26c1a934370c60bec">precedent_proj</a></div><div class="ttdeci">void precedent_proj(void)</div><div class="ttdoc">Fonction de déplacement de l'élément courant de la liste chaînée des projectiles.</div><div class="ttdef"><b>Definition:</b> projectile.c:35</div></div>
+<div class="ttc" id="aprojectile_8h_html_abd584d655a5deb37ba2940ce65bee27d"><div class="ttname"><a href="projectile_8h.html#abd584d655a5deb37ba2940ce65bee27d">ajout_droit_proj</a></div><div class="ttdeci">void ajout_droit_proj(projectile_t *)</div><div class="ttdoc">Fonction d'ajout d'un élément à droite de l'élément courant de la liste chaînée des projectiles.</div><div class="ttdef"><b>Definition:</b> projectile.c:69</div></div>
+<div class="ttc" id="aprojectile_8h_html_abf926f493118d886b2fada06be5c5c4a"><div class="ttname"><a href="projectile_8h.html#abf926f493118d886b2fada06be5c5c4a">calcul_position</a></div><div class="ttdeci">void calcul_position(projectile_t *proj)</div><div class="ttdoc">Fonction de calcul de la position d'un projectile.</div><div class="ttdef"><b>Definition:</b> projectile.c:136</div></div>
+<div class="ttc" id="aprojectile_8h_html_ac903fae6aae2ffb58fecf1ba670e7530"><div class="ttname"><a href="projectile_8h.html#ac903fae6aae2ffb58fecf1ba670e7530">projectile_t</a></div><div class="ttdeci">struct projectile_s projectile_t</div></div>
+<div class="ttc" id="aprojectile_8h_html_acc7c0caaacece8c622810596502a1733"><div class="ttname"><a href="projectile_8h.html#acc7c0caaacece8c622810596502a1733">proj_t</a></div><div class="ttdeci">enum proj_s proj_t</div></div>
+<div class="ttc" id="aprojectile_8h_html_ad196d52b49c0dc79a003052c42231ef6"><div class="ttname"><a href="projectile_8h.html#ad196d52b49c0dc79a003052c42231ef6">oter_elt_proj</a></div><div class="ttdeci">void oter_elt_proj(void)</div><div class="ttdoc">Fonction de suppression de l'élément courant de la liste chaînée des projectiles.</div><div class="ttdef"><b>Definition:</b> projectile.c:55</div></div>
+<div class="ttc" id="aprojectile_8h_html_ad6596985f633ba71a0b5fc33ddb2ceae"><div class="ttname"><a href="projectile_8h.html#ad6596985f633ba71a0b5fc33ddb2ceae">detruire_projectiles</a></div><div class="ttdeci">void detruire_projectiles(projectile_t **proj)</div><div class="ttdoc">Fonction de destruction d'un projectile.</div><div class="ttdef"><b>Definition:</b> projectile.c:131</div></div>
+<div class="ttc" id="aprojectile_8h_html_af249ba5abdd1c250499a0cf84db60c9b"><div class="ttname"><a href="projectile_8h.html#af249ba5abdd1c250499a0cf84db60c9b">valide</a></div><div class="ttdeci">int valide(int x, int y)</div><div class="ttdef"><b>Definition:</b> projectile.c:112</div></div>
+<div class="ttc" id="aprojectile_8h_html_afb7bb65ea955179641b4846450abd703"><div class="ttname"><a href="projectile_8h.html#afb7bb65ea955179641b4846450abd703">proj_s</a></div><div class="ttdeci">proj_s</div><div class="ttdoc">Enumération contenant les différents types de projectiles.</div><div class="ttdef"><b>Definition:</b> projectile.h:54</div></div>
+<div class="ttc" id="aprojectile_8h_html_afb7bb65ea955179641b4846450abd703a2984c611e9964f24ac74b0a91fb5cb45"><div class="ttname"><a href="projectile_8h.html#afb7bb65ea955179641b4846450abd703a2984c611e9964f24ac74b0a91fb5cb45">FLECHE</a></div><div class="ttdeci">@ FLECHE</div><div class="ttdef"><b>Definition:</b> projectile.h:56</div></div>
+<div class="ttc" id="aprojectile_8h_html_afb7bb65ea955179641b4846450abd703a472b639753082ddf454d19d3c4324b69"><div class="ttname"><a href="projectile_8h.html#afb7bb65ea955179641b4846450abd703a472b639753082ddf454d19d3c4324b69">AUCUN_PROJ</a></div><div class="ttdeci">@ AUCUN_PROJ</div><div class="ttdef"><b>Definition:</b> projectile.h:55</div></div>
+<div class="ttc" id="aprojectile_8h_html_afb7bb65ea955179641b4846450abd703a8cb066d03f7bdbaecdd03014f1ccbf29"><div class="ttname"><a href="projectile_8h.html#afb7bb65ea955179641b4846450abd703a8cb066d03f7bdbaecdd03014f1ccbf29">BOULE</a></div><div class="ttdeci">@ BOULE</div><div class="ttdef"><b>Definition:</b> projectile.h:57</div></div>
+<div class="ttc" id="astructelement_html"><div class="ttname"><a href="structelement.html">element</a></div><div class="ttdoc">Structure contenant un pointeur sur un projectile et deux pointeurs sur des éléments de la liste.</div><div class="ttdef"><b>Definition:</b> projectile.h:39</div></div>
+<div class="ttc" id="astructelement_html_a9f9ebee1fa1dce6d05bc325a66478635"><div class="ttname"><a href="structelement.html#a9f9ebee1fa1dce6d05bc325a66478635">element::pred</a></div><div class="ttdeci">struct element * pred</div><div class="ttdef"><b>Definition:</b> projectile.h:41</div></div>
+<div class="ttc" id="astructelement_html_abe10f441a14a96bd130a004585b475ad"><div class="ttname"><a href="structelement.html#abe10f441a14a96bd130a004585b475ad">element::succ</a></div><div class="ttdeci">struct element * succ</div><div class="ttdef"><b>Definition:</b> projectile.h:42</div></div>
+<div class="ttc" id="astructelement_html_aca9aef9b260994a5e658f0d0d6d2df61"><div class="ttname"><a href="structelement.html#aca9aef9b260994a5e658f0d0d6d2df61">element::proj</a></div><div class="ttdeci">projectile_t * proj</div><div class="ttdef"><b>Definition:</b> projectile.h:40</div></div>
+<div class="ttc" id="astructprojectile__s_html"><div class="ttname"><a href="structprojectile__s.html">projectile_s</a></div><div class="ttdoc">Structure contenant les informations d'un projectile.</div><div class="ttdef"><b>Definition:</b> projectile.h:21</div></div>
+<div class="ttc" id="astructprojectile__s_html_a3acedd56a8d53547c8a64df750df1ddf"><div class="ttname"><a href="structprojectile__s.html#a3acedd56a8d53547c8a64df750df1ddf">projectile_s::vitesse_depl</a></div><div class="ttdeci">int vitesse_depl</div><div class="ttdef"><b>Definition:</b> projectile.h:22</div></div>
+<div class="ttc" id="astructprojectile__s_html_a6878958ebf176febfdef5884c4322978"><div class="ttname"><a href="structprojectile__s.html#a6878958ebf176febfdef5884c4322978">projectile_s::portee</a></div><div class="ttdeci">int portee</div><div class="ttdef"><b>Definition:</b> projectile.h:23</div></div>
+<div class="ttc" id="astructprojectile__s_html_a7ac670f7ef3c91c93d28010b18fc21b4"><div class="ttname"><a href="structprojectile__s.html#a7ac670f7ef3c91c93d28010b18fc21b4">projectile_s::yp</a></div><div class="ttdeci">int yp</div><div class="ttdef"><b>Definition:</b> projectile.h:27</div></div>
+<div class="ttc" id="astructprojectile__s_html_a8621e8ca2c0b09db664724f1c392fe98"><div class="ttname"><a href="structprojectile__s.html#a8621e8ca2c0b09db664724f1c392fe98">projectile_s::y</a></div><div class="ttdeci">int y</div><div class="ttdef"><b>Definition:</b> projectile.h:29</div></div>
+<div class="ttc" id="astructprojectile__s_html_a9c2f25799005bb3d03a4cfdbd903a820"><div class="ttname"><a href="structprojectile__s.html#a9c2f25799005bb3d03a4cfdbd903a820">projectile_s::xp</a></div><div class="ttdeci">int xp</div><div class="ttdef"><b>Definition:</b> projectile.h:26</div></div>
+<div class="ttc" id="astructprojectile__s_html_ac54f30cbb82faff0ac01f126851b53e0"><div class="ttname"><a href="structprojectile__s.html#ac54f30cbb82faff0ac01f126851b53e0">projectile_s::dir</a></div><div class="ttdeci">t_dir dir</div><div class="ttdef"><b>Definition:</b> projectile.h:30</div></div>
+<div class="ttc" id="astructprojectile__s_html_ad4e29a9806f6af3dbfa3c9a0e4987bec"><div class="ttname"><a href="structprojectile__s.html#ad4e29a9806f6af3dbfa3c9a0e4987bec">projectile_s::x</a></div><div class="ttdeci">int x</div><div class="ttdef"><b>Definition:</b> projectile.h:28</div></div>
+<div class="ttc" id="astructprojectile__s_html_ae032caa89cf93d6a07cfdddac93d3ec3"><div class="ttname"><a href="structprojectile__s.html#ae032caa89cf93d6a07cfdddac93d3ec3">projectile_s::degats</a></div><div class="ttdeci">float degats</div><div class="ttdef"><b>Definition:</b> projectile.h:24</div></div>
+<div class="ttc" id="astructprojectile__s_html_ae1e0068a52a47001ef5736053b9cc115"><div class="ttname"><a href="structprojectile__s.html#ae1e0068a52a47001ef5736053b9cc115">projectile_s::touche</a></div><div class="ttdeci">bool touche</div><div class="ttdef"><b>Definition:</b> projectile.h:25</div></div>
+<div class="ttc" id="astructstat__proj__s_html"><div class="ttname"><a href="structstat__proj__s.html">stat_proj_s</a></div><div class="ttdoc">Structure contenant les statistiques des projectiles.</div><div class="ttdef"><b>Definition:</b> projectile.h:67</div></div>
+<div class="ttc" id="astructstat__proj__s_html_a513013cc777327b02909d1ce8f36bb2f"><div class="ttname"><a href="structstat__proj__s.html#a513013cc777327b02909d1ce8f36bb2f">stat_proj_s::vitesse_depl</a></div><div class="ttdeci">int vitesse_depl</div><div class="ttdef"><b>Definition:</b> projectile.h:68</div></div>
+<div class="ttc" id="astructstat__proj__s_html_a98cb637f52d2f82481e16e6198b339d6"><div class="ttname"><a href="structstat__proj__s.html#a98cb637f52d2f82481e16e6198b339d6">stat_proj_s::porte</a></div><div class="ttdeci">int porte</div><div class="ttdef"><b>Definition:</b> projectile.h:69</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>

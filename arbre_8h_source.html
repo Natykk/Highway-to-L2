@@ -1,0 +1,126 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Highway to L2:  Fichier source de /mnt/c/ProjetL2/head/arbre.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Highway to L2
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_06b090c849413a2743cf102ffb0713d3.html">head</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">arbre.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="arbre_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef __ARBRE__</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define __ARBRE__</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="competence_8h.html">competence.h</a>&quot;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="entite_8h.html">entite.h</a>&quot;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="structarbre.html">   15</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structarbre.html">arbre</a>{</div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="structarbre.html#a259e7e21db2408bc92c108fa5fec3bc8">   16</a></span>&#160;    <a class="code" href="competence_8h.html#a853cf4e56ef5ad960bf764a4fafe7e77">t_classe</a> <a class="code" href="structarbre.html#a259e7e21db2408bc92c108fa5fec3bc8">classe</a>; </div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="structarbre.html#a27d8c0eb1230e7203c05d938d5816252">   17</a></span>&#160;    <a class="code" href="structcompetence.html">t_competence</a> **<a class="code" href="structarbre.html#a27d8c0eb1230e7203c05d938d5816252">competence</a>; </div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="structarbre.html#af7ba1299901b0455b3ae18b07eb2316e">   18</a></span>&#160;    <a class="code" href="competence_8h.html#ac094ad5c96abb76aa1317fa1edfbff69">t_acquis</a> <a class="code" href="structarbre.html#af7ba1299901b0455b3ae18b07eb2316e">etages</a>[5]; </div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="arbre_8h.html#a78643cdad4d6339afdeddb9421092afe">   19</a></span>&#160;} <a class="code" href="arbre_8h.html#a78643cdad4d6339afdeddb9421092afe">t_arbre</a>;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="entite_8h.html">entite.h</a>&quot;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keywordtype">int</span> <a class="code" href="arbre_8h.html#a6498dbfdc3ce192dc5059e55bc218cd8">init_arbre</a>(<a class="code" href="structt__arbre.html">t_arbre</a> ** <a class="code" href="structarbre.html">arbre</a>, <a class="code" href="structcompetence.html">t_competence</a> *competences, <a class="code" href="competence_8h.html#a853cf4e56ef5ad960bf764a4fafe7e77">t_classe</a> typeClasse);</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keywordtype">void</span> <a class="code" href="arbre_8h.html#a3a71170ff2fb9be2d233b107783d37b5">aff_classe</a>(<a class="code" href="structt__arbre.html">t_arbre</a> * <a class="code" href="structarbre.html">arbre</a>);</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keywordtype">int</span> <a class="code" href="arbre_8h.html#a778aebda9beaa67e2e9b9186781456c8">detruire_arbre</a>(<a class="code" href="structt__arbre.html">t_arbre</a> ** <a class="code" href="structarbre.html">arbre</a>);</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="keywordtype">int</span> <a class="code" href="arbre_8h.html#ab7c6efe2b8a57e940052c82859d4f34d">one_preced_cpt_debloq</a>(<a class="code" href="structcompetence.html">t_competence</a> * <a class="code" href="structcompetence.html">competence</a>);</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="keywordtype">int</span> <a class="code" href="arbre_8h.html#ab84bf13e67fba7473fee541f8af4039b">cpt_in_arbre_joueur</a>(<a class="code" href="structentite__t.html">entite_t</a> * personnage, <a class="code" href="structcompetence.html">t_competence</a> * <a class="code" href="structcompetence.html">competence</a>);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="keywordtype">int</span> <a class="code" href="arbre_8h.html#a04cf9f32ea63cdcd86f536ae0db1e576">peut_deploquer_cpt</a>(<a class="code" href="structentite__t.html">entite_t</a> * personnage, <a class="code" href="structcompetence.html">t_competence</a> * <a class="code" href="structcompetence.html">competence</a>, <a class="code" href="structt__arbre.html">t_arbre</a> * arbre_cpt);</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="keywordtype">int</span> <a class="code" href="arbre_8h.html#a4f21c3bb6dd0888c652d3863241501e1">competence_debloquer</a>(<a class="code" href="structentite__t.html">entite_t</a> * personnage, <a class="code" href="structcompetence.html">t_competence</a> * <a class="code" href="structcompetence.html">competence</a>, <a class="code" href="structt__arbre.html">t_arbre</a> * arbre_cpt);</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aarbre_8h_html_a04cf9f32ea63cdcd86f536ae0db1e576"><div class="ttname"><a href="arbre_8h.html#a04cf9f32ea63cdcd86f536ae0db1e576">peut_deploquer_cpt</a></div><div class="ttdeci">int peut_deploquer_cpt(entite_t *personnage, t_competence *competence, t_arbre *arbre_cpt)</div><div class="ttdoc">Fonction permettant de savoir si une compétence peut être débloquée.</div><div class="ttdef"><b>Definition:</b> arbre.c:166</div></div>
+<div class="ttc" id="aarbre_8h_html_a3a71170ff2fb9be2d233b107783d37b5"><div class="ttname"><a href="arbre_8h.html#a3a71170ff2fb9be2d233b107783d37b5">aff_classe</a></div><div class="ttdeci">void aff_classe(t_arbre *arbre)</div><div class="ttdoc">Fonction permettant d'afficher les compétences d'un arbre de compétences.</div><div class="ttdef"><b>Definition:</b> arbre.c:19</div></div>
+<div class="ttc" id="aarbre_8h_html_a4f21c3bb6dd0888c652d3863241501e1"><div class="ttname"><a href="arbre_8h.html#a4f21c3bb6dd0888c652d3863241501e1">competence_debloquer</a></div><div class="ttdeci">int competence_debloquer(entite_t *personnage, t_competence *competence, t_arbre *arbre_cpt)</div><div class="ttdoc">Fonction permettant de débloquer une compétence.</div><div class="ttdef"><b>Definition:</b> arbre.c:204</div></div>
+<div class="ttc" id="aarbre_8h_html_a6498dbfdc3ce192dc5059e55bc218cd8"><div class="ttname"><a href="arbre_8h.html#a6498dbfdc3ce192dc5059e55bc218cd8">init_arbre</a></div><div class="ttdeci">int init_arbre(t_arbre **arbre, t_competence *competences, t_classe typeClasse)</div><div class="ttdoc">Fonction permettant d'initialiser un arbre de compétences.</div><div class="ttdef"><b>Definition:</b> arbre.c:106</div></div>
+<div class="ttc" id="aarbre_8h_html_a778aebda9beaa67e2e9b9186781456c8"><div class="ttname"><a href="arbre_8h.html#a778aebda9beaa67e2e9b9186781456c8">detruire_arbre</a></div><div class="ttdeci">int detruire_arbre(t_arbre **arbre)</div><div class="ttdoc">Fonction permettant de détruire un arbre de compétences.</div><div class="ttdef"><b>Definition:</b> arbre.c:38</div></div>
+<div class="ttc" id="aarbre_8h_html_a78643cdad4d6339afdeddb9421092afe"><div class="ttname"><a href="arbre_8h.html#a78643cdad4d6339afdeddb9421092afe">t_arbre</a></div><div class="ttdeci">struct arbre t_arbre</div></div>
+<div class="ttc" id="aarbre_8h_html_ab7c6efe2b8a57e940052c82859d4f34d"><div class="ttname"><a href="arbre_8h.html#ab7c6efe2b8a57e940052c82859d4f34d">one_preced_cpt_debloq</a></div><div class="ttdeci">int one_preced_cpt_debloq(t_competence *competence)</div><div class="ttdoc">Fonction permettant de savoir si une compétence a au moins une compétence précédente débloquée.</div><div class="ttdef"><b>Definition:</b> arbre.c:128</div></div>
+<div class="ttc" id="aarbre_8h_html_ab84bf13e67fba7473fee541f8af4039b"><div class="ttname"><a href="arbre_8h.html#ab84bf13e67fba7473fee541f8af4039b">cpt_in_arbre_joueur</a></div><div class="ttdeci">int cpt_in_arbre_joueur(entite_t *personnage, t_competence *competence)</div><div class="ttdoc">Fonction permettant de savoir si une compétence est dans l'arbre de compétences du joueur.</div><div class="ttdef"><b>Definition:</b> arbre.c:148</div></div>
+<div class="ttc" id="acompetence_8h_html"><div class="ttname"><a href="competence_8h.html">competence.h</a></div><div class="ttdoc">Fichier contenant les structures et prototypes de fonctions pour la gestion des compétences.</div></div>
+<div class="ttc" id="acompetence_8h_html_a853cf4e56ef5ad960bf764a4fafe7e77"><div class="ttname"><a href="competence_8h.html#a853cf4e56ef5ad960bf764a4fafe7e77">t_classe</a></div><div class="ttdeci">t_classe</div><div class="ttdef"><b>Definition:</b> competence.h:11</div></div>
+<div class="ttc" id="acompetence_8h_html_ac094ad5c96abb76aa1317fa1edfbff69"><div class="ttname"><a href="competence_8h.html#ac094ad5c96abb76aa1317fa1edfbff69">t_acquis</a></div><div class="ttdeci">t_acquis</div><div class="ttdef"><b>Definition:</b> competence.h:10</div></div>
+<div class="ttc" id="aentite_8h_html"><div class="ttname"><a href="entite_8h.html">entite.h</a></div><div class="ttdoc">Fichier d'en-tete pour les primitives liées aux entites.</div></div>
+<div class="ttc" id="astructarbre_html"><div class="ttname"><a href="structarbre.html">arbre</a></div><div class="ttdef"><b>Definition:</b> arbre.h:15</div></div>
+<div class="ttc" id="astructarbre_html_a259e7e21db2408bc92c108fa5fec3bc8"><div class="ttname"><a href="structarbre.html#a259e7e21db2408bc92c108fa5fec3bc8">arbre::classe</a></div><div class="ttdeci">t_classe classe</div><div class="ttdoc">Type de classe.</div><div class="ttdef"><b>Definition:</b> arbre.h:16</div></div>
+<div class="ttc" id="astructarbre_html_a27d8c0eb1230e7203c05d938d5816252"><div class="ttname"><a href="structarbre.html#a27d8c0eb1230e7203c05d938d5816252">arbre::competence</a></div><div class="ttdeci">t_competence ** competence</div><div class="ttdoc">Tableau de pointeur sur les compétences.</div><div class="ttdef"><b>Definition:</b> arbre.h:17</div></div>
+<div class="ttc" id="astructarbre_html_af7ba1299901b0455b3ae18b07eb2316e"><div class="ttname"><a href="structarbre.html#af7ba1299901b0455b3ae18b07eb2316e">arbre::etages</a></div><div class="ttdeci">t_acquis etages[5]</div><div class="ttdoc">Tableau contenant les niveaux d'acquis des compétences.</div><div class="ttdef"><b>Definition:</b> arbre.h:18</div></div>
+<div class="ttc" id="astructcompetence_html"><div class="ttname"><a href="structcompetence.html">competence</a></div><div class="ttdoc">Structure contenant les informations d'une compétence.</div><div class="ttdef"><b>Definition:</b> competence.h:44</div></div>
+<div class="ttc" id="astructentite__t_html"><div class="ttname"><a href="structentite__t.html">entite_t</a></div><div class="ttdoc">Structure qui genere les entitées Caracteristiques :</div></div>
+<div class="ttc" id="astructt__arbre_html"><div class="ttname"><a href="structt__arbre.html">t_arbre</a></div><div class="ttdoc">Structure contenant les informations sur un arbre de compétences et les compétences qu'il contient et...</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>

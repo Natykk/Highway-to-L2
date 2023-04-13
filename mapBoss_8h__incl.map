@@ -1,0 +1,7 @@
+<map id="/mnt/c/ProjetL2/head/mapBoss.h" name="/mnt/c/ProjetL2/head/mapBoss.h">
+<area shape="rect" id="node1" title="Fichier contenant les prototypes de fonctions pour la gestion des salles boss." alt="" coords="5,5,161,47"/>
+<area shape="rect" id="node2" href="$mapStruct_8h.html" title="Définition des structures de données pour la map." alt="" coords="33,95,134,121"/>
+<area shape="rect" id="node3" href="$entite_8h.html" title="Fichier d&#39;en&#45;tete pour les primitives liées aux entites." alt="" coords="11,169,83,196"/>
+<area shape="rect" id="node4" href="$objet_8h.html" title="Fichier contenant toutes les structutes de données liées aux objets." alt="" coords="50,244,117,271"/>
+<area shape="rect" id="node5" href="$objet__inv_8h.html" title=" " alt="" coords="37,319,130,345"/>
+</map>

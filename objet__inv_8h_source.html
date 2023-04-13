@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Highway to L2:  Fichier source de /mnt/c/ProjetL2/head/objet_inv.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Highway to L2
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_06b090c849413a2743cf102ffb0713d3.html">head</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">objet_inv.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="objet__inv_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef __OBJET_INV__</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define __OBJET_INV__</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="structobjet__s.html">   10</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structobjet__s.html">objet_s</a>{</div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="structobjet__s.html#ad13f884c28af87afdab5b9c365ff389a">   11</a></span>&#160;    <span class="keywordtype">char</span> <a class="code" href="structobjet__s.html#ad13f884c28af87afdab5b9c365ff389a">nom</a>[20]; <span class="comment">//&lt;! Nom de l&#39;objet</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="structobjet__s.html#aa8429479d3eb6d1188b1db1665140b05">   12</a></span>&#160;    <span class="keywordtype">char</span> <a class="code" href="structobjet__s.html#aa8429479d3eb6d1188b1db1665140b05">description</a>[400]; <span class="comment">//&lt;! Description de l&#39;objet</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="objet__inv_8h.html#ad0efc27a29533dbf784e717262509caa">   13</a></span>&#160;} <a class="code" href="objet__inv_8h.html#ad0efc27a29533dbf784e717262509caa">objet_t</a>;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="structobjet__inv__s.html">   23</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structobjet__inv__s.html">objet_inv_s</a>{</div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="structobjet__inv__s.html#a704540d6f1845fec80e0ed7212078c0d">   24</a></span>&#160;    <a class="code" href="structobjet__t.html">objet_t</a> *<a class="code" href="structobjet__inv__s.html#a704540d6f1845fec80e0ed7212078c0d">objet</a>; <span class="comment">//&lt;! Pointeur sur l&#39;objet</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="structobjet__inv__s.html#a02cf857afd8212085314500f55ca5c04">   25</a></span>&#160;    <span class="keywordtype">int</span> *<a class="code" href="structobjet__inv__s.html#a02cf857afd8212085314500f55ca5c04">nb</a>; <span class="comment">//&lt;! Nombre d&#39;objet</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="objet__inv_8h.html#a67e394fb8c04c3a2bccf9b9d1ba0b7ab">   26</a></span>&#160;} <a class="code" href="objet__inv_8h.html#a67e394fb8c04c3a2bccf9b9d1ba0b7ab">objet_inv_t</a>;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aobjet__inv_8h_html_a67e394fb8c04c3a2bccf9b9d1ba0b7ab"><div class="ttname"><a href="objet__inv_8h.html#a67e394fb8c04c3a2bccf9b9d1ba0b7ab">objet_inv_t</a></div><div class="ttdeci">struct objet_inv_s objet_inv_t</div></div>
+<div class="ttc" id="aobjet__inv_8h_html_ad0efc27a29533dbf784e717262509caa"><div class="ttname"><a href="objet__inv_8h.html#ad0efc27a29533dbf784e717262509caa">objet_t</a></div><div class="ttdeci">struct objet_s objet_t</div></div>
+<div class="ttc" id="astructobjet__inv__s_html"><div class="ttname"><a href="structobjet__inv__s.html">objet_inv_s</a></div><div class="ttdef"><b>Definition:</b> objet_inv.h:23</div></div>
+<div class="ttc" id="astructobjet__inv__s_html_a02cf857afd8212085314500f55ca5c04"><div class="ttname"><a href="structobjet__inv__s.html#a02cf857afd8212085314500f55ca5c04">objet_inv_s::nb</a></div><div class="ttdeci">int * nb</div><div class="ttdef"><b>Definition:</b> objet_inv.h:25</div></div>
+<div class="ttc" id="astructobjet__inv__s_html_a704540d6f1845fec80e0ed7212078c0d"><div class="ttname"><a href="structobjet__inv__s.html#a704540d6f1845fec80e0ed7212078c0d">objet_inv_s::objet</a></div><div class="ttdeci">objet_t * objet</div><div class="ttdef"><b>Definition:</b> objet_inv.h:24</div></div>
+<div class="ttc" id="astructobjet__s_html"><div class="ttname"><a href="structobjet__s.html">objet_s</a></div><div class="ttdef"><b>Definition:</b> objet_inv.h:10</div></div>
+<div class="ttc" id="astructobjet__s_html_aa8429479d3eb6d1188b1db1665140b05"><div class="ttname"><a href="structobjet__s.html#aa8429479d3eb6d1188b1db1665140b05">objet_s::description</a></div><div class="ttdeci">char description[400]</div><div class="ttdef"><b>Definition:</b> objet_inv.h:12</div></div>
+<div class="ttc" id="astructobjet__s_html_ad13f884c28af87afdab5b9c365ff389a"><div class="ttname"><a href="structobjet__s.html#ad13f884c28af87afdab5b9c365ff389a">objet_s::nom</a></div><div class="ttdeci">char nom[20]</div><div class="ttdef"><b>Definition:</b> objet_inv.h:11</div></div>
+<div class="ttc" id="astructobjet__t_html"><div class="ttname"><a href="structobjet__t.html">objet_t</a></div><div class="ttdoc">Structure Objet Caracteristiques :</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>

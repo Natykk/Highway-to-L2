@@ -1,0 +1,4 @@
+<map id="element" name="element">
+<area shape="rect" id="node1" title="Structure contenant un pointeur sur un projectile et deux pointeurs sur des éléments de la liste." alt="" coords="16,96,92,123"/>
+<area shape="rect" id="node2" href="$structprojectile__s.html" title="Structure contenant les informations d&#39;un projectile." alt="" coords="5,5,103,32"/>
+</map>

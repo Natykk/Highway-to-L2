@@ -1,0 +1,16 @@
+<map id="/mnt/c/ProjetL2/src/sauvegarde.c" name="/mnt/c/ProjetL2/src/sauvegarde.c">
+<area shape="rect" id="node1" title=" " alt="" coords="423,5,566,47"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,244,72,271"/>
+<area shape="rect" id="node3" title=" " alt="" coords="98,244,169,271"/>
+<area shape="rect" id="node4" title=" " alt="" coords="598,95,669,121"/>
+<area shape="rect" id="node5" title=" " alt="" coords="693,95,803,121"/>
+<area shape="rect" id="node6" title=" " alt="" coords="827,95,938,121"/>
+<area shape="rect" id="node7" title=" " alt="" coords="963,95,1037,121"/>
+<area shape="rect" id="node8" href="$sauvegarde_8h.html" title="Fichier contenant les prototypes des fonctions de sauvegarde et de chargement." alt="" coords="415,95,574,121"/>
+<area shape="rect" id="node12" href="$arbre_8h.html" title="Fichier contenant les structure et prototype de fonction pour la gestion des arbres de compétences." alt="" coords="51,95,167,121"/>
+<area shape="rect" id="node14" href="$inventaire_8h.html" title="Fichier contenant les prototypes de fonctions pour la gestion des inventaires." alt="" coords="243,95,391,121"/>
+<area shape="rect" id="node9" href="$entite_8h.html" title="Fichier d&#39;en&#45;tete pour les primitives liées aux entites." alt="" coords="261,169,333,196"/>
+<area shape="rect" id="node10" href="$objet_8h.html" title="Fichier contenant toutes les structutes de données liées aux objets." alt="" coords="240,244,307,271"/>
+<area shape="rect" id="node11" href="$objet__inv_8h.html" title=" " alt="" coords="227,319,320,345"/>
+<area shape="rect" id="node13" href="$competence_8h.html" title="Fichier contenant les structures et prototypes de fonctions pour la gestion des compétences." alt="" coords="52,169,167,196"/>
+</map>

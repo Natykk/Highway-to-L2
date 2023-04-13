@@ -1,0 +1,12 @@
+<map id="/mnt/c/ProjetL2/src/arbre.c" name="/mnt/c/ProjetL2/src/arbre.c">
+<area shape="rect" id="node1" title="Fichier contenant les fonctions de gestion des arbres de compétences." alt="" coords="66,5,209,47"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,244,72,271"/>
+<area shape="rect" id="node3" title=" " alt="" coords="126,244,197,271"/>
+<area shape="rect" id="node4" title=" " alt="" coords="102,95,173,121"/>
+<area shape="rect" id="node5" href="$arbre_8h.html" title="Fichier contenant les structure et prototype de fonction pour la gestion des arbres de compétences." alt="" coords="197,95,313,121"/>
+<area shape="rect" id="node10" href="$inventaire_8h.html" title="Fichier contenant les prototypes de fonctions pour la gestion des inventaires." alt="" coords="337,95,485,121"/>
+<area shape="rect" id="node6" href="$competence_8h.html" title="Fichier contenant les structures et prototypes de fonctions pour la gestion des compétences." alt="" coords="135,169,249,196"/>
+<area shape="rect" id="node9" href="$entite_8h.html" title="Fichier d&#39;en&#45;tete pour les primitives liées aux entites." alt="" coords="273,169,345,196"/>
+<area shape="rect" id="node7" href="$objet_8h.html" title="Fichier contenant toutes les structutes de données liées aux objets." alt="" coords="248,244,315,271"/>
+<area shape="rect" id="node8" href="$objet__inv_8h.html" title=" " alt="" coords="235,319,328,345"/>
+</map>

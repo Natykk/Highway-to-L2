@@ -1,0 +1,5 @@
+<map id="entite_s" name="entite_s">
+<area shape="rect" id="node1" title=" " alt="" coords="54,95,129,121"/>
+<area shape="rect" id="node2" href="$structt__arbre.html" title="Structure contenant les informations sur un arbre de compétences et les compétences qu&#39;il contient et..." alt="" coords="5,5,73,32"/>
+<area shape="rect" id="node3" href="$structobjet__inv__t.html" title="Type union objet contenu dans l&#39;inventaire:" alt="" coords="97,5,192,32"/>
+</map>

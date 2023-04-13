@@ -1,0 +1,6 @@
+<map id="/mnt/c/ProjetL2/head/sauvegarde.h" name="/mnt/c/ProjetL2/head/sauvegarde.h">
+<area shape="rect" id="node1" title="Fichier contenant les prototypes des fonctions de sauvegarde et de chargement." alt="" coords="165,5,321,47"/>
+<area shape="rect" id="node2" href="$map__jeu__entite_8c.html" title="Fichier contenant les fonctions principal du jeu." alt="" coords="5,95,148,136"/>
+<area shape="rect" id="node3" href="$menu_8c.html" title="Fichier contenant les fonctions pour le menu." alt="" coords="172,95,315,136"/>
+<area shape="rect" id="node4" href="$sauvegarde_8c.html" title=" " alt="" coords="339,95,481,136"/>
+</map>

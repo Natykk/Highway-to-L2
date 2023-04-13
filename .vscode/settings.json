@@ -1,0 +1,16 @@
+{
+    "files.associations": {
+        "*.embeddedhtml": "html",
+        "*.c": "c",
+        "attaques.h": "c",
+        "mapboss.h": "c",
+        "mapstruct.h": "c",
+        "entite.h": "c",
+        "objet.h": "c",
+        "inventaire.h": "c",
+        "aes.h": "c",
+        "sauvegarde.h": "c",
+        "chemin.h": "c",
+        "swap.h": "c"
+    }
+}

@@ -1,0 +1,901 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Highway to L2: Référence du fichier /mnt/c/ProjetL2/src/map_jeu_entite.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Highway to L2
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#define-members">Macros</a> &#124;
+<a href="#func-members">Fonctions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
+  <div class="headertitle">
+<div class="title">Référence du fichier map_jeu_entite.c</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Fichier contenant les fonctions principal du jeu.  
+<a href="#details">Plus de détails...</a></p>
+<div class="textblock"><code>#include &lt;stdbool.h&gt;</code><br />
+<code>#include &lt;stdio.h&gt;</code><br />
+<code>#include &lt;SDL2/SDL.h&gt;</code><br />
+<code>#include &lt;math.h&gt;</code><br />
+<code>#include &lt;SDL2/SDL_timer.h&gt;</code><br />
+<code>#include &lt;SDL2/SDL_image.h&gt;</code><br />
+<code>#include &lt;SDL2/SDL_mixer.h&gt;</code><br />
+<code>#include &lt;SDL2/SDL_ttf.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="attaques_8h_source.html">../head/attaques.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="entite_8h_source.html">../head/entite.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="mapBoss_8h_source.html">../head/mapBoss.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="inventaire_8h_source.html">../head/inventaire.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="sauvegarde_8h_source.html">../head/sauvegarde.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="menu__cpt_8h_source.html">../head/menu_cpt.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="name_8h_source.html">../head/name.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Graphe des dépendances par inclusion de map_jeu_entite.c:</div>
+<div class="dyncontent">
+<div class="center"><img src="map__jeu__entite_8c__incl.png" border="0" usemap="#a_2mnt_2c_2ProjetL2_2src_2map__jeu__entite_8c" alt=""/></div>
+<map name="a_2mnt_2c_2ProjetL2_2src_2map__jeu__entite_8c" id="a_2mnt_2c_2ProjetL2_2src_2map__jeu__entite_8c">
+<area shape="rect" title="Fichier contenant les fonctions principal du jeu." alt="" coords="931,5,1074,47"/>
+<area shape="rect" title=" " alt="" coords="95,319,177,345"/>
+<area shape="rect" title=" " alt="" coords="103,393,169,420"/>
+<area shape="rect" title=" " alt="" coords="901,244,997,271"/>
+<area shape="rect" title=" " alt="" coords="1193,95,1261,121"/>
+<area shape="rect" title=" " alt="" coords="1285,95,1422,121"/>
+<area shape="rect" title=" " alt="" coords="1447,95,1591,121"/>
+<area shape="rect" title=" " alt="" coords="1615,95,1753,121"/>
+<area shape="rect" title=" " alt="" coords="848,169,965,196"/>
+<area shape="rect" href="attaques_8h.html" title=" " alt="" coords="363,169,501,196"/>
+<area shape="rect" href="entite_8h.html" title="Fichier d&#39;en&#45;tete pour les primitives liées aux entites." alt="" coords="665,319,737,345"/>
+<area shape="rect" href="inventaire_8h.html" title="Fichier contenant les prototypes de fonctions pour la gestion des inventaires." alt="" coords="678,244,826,271"/>
+<area shape="rect" href="mapBoss_8h.html" title="Fichier contenant les prototypes de fonctions pour la gestion des salles boss." alt="" coords="474,95,617,121"/>
+<area shape="rect" href="sauvegarde_8h.html" title="Fichier contenant les prototypes des fonctions de sauvegarde et de chargement." alt="" coords="1142,169,1301,196"/>
+<area shape="rect" href="menu__cpt_8h.html" title=" " alt="" coords="576,169,723,196"/>
+<area shape="rect" href="name_8h.html" title=" " alt="" coords="701,95,819,121"/>
+<area shape="rect" href="mapStruct_8h.html" title="Définition des structures de données pour la map." alt="" coords="504,244,653,271"/>
+<area shape="rect" href="projectile_8h.html" title=" " alt="" coords="145,244,287,271"/>
+<area shape="rect" href="arbre_8h.html" title="Fichier contenant les structure et prototype de fonction pour la gestion des arbres de compétences." alt="" coords="363,244,479,271"/>
+<area shape="rect" href="objet_8h.html" title="Fichier contenant toutes les structutes de données liées aux objets." alt="" coords="545,393,612,420"/>
+<area shape="rect" href="objet__inv_8h.html" title=" " alt="" coords="532,468,625,495"/>
+<area shape="rect" title=" " alt="" coords="290,393,361,420"/>
+<area shape="rect" href="competence_8h.html" title="Fichier contenant les structures et prototypes de fonctions pour la gestion des compétences." alt="" coords="364,319,479,345"/>
+</map>
+</div>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a51f528deaaeb973f417b46a2ec36f850"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="map__jeu__entite_8c.html#a51f528deaaeb973f417b46a2ec36f850">SDL_MAIN_HANDLED</a></td></tr>
+<tr class="separator:a51f528deaaeb973f417b46a2ec36f850"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a62ecd70800687eb2d625af180c4210d7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="map__jeu__entite_8c.html#a62ecd70800687eb2d625af180c4210d7">TILE_SIZE</a>&#160;&#160;&#160;32</td></tr>
+<tr class="separator:a62ecd70800687eb2d625af180c4210d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9230576da8e0593bbd21f1efa0856bf6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="map__jeu__entite_8c.html#a9230576da8e0593bbd21f1efa0856bf6">DIM_SALLE</a>&#160;&#160;&#160;25</td></tr>
+<tr class="separator:a9230576da8e0593bbd21f1efa0856bf6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9230576da8e0593bbd21f1efa0856bf6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="map__jeu__entite_8c.html#a9230576da8e0593bbd21f1efa0856bf6">DIM_SALLE</a>&#160;&#160;&#160;25</td></tr>
+<tr class="separator:a9230576da8e0593bbd21f1efa0856bf6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa67f5290e4cf518cd55c95c8b644d5f2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="map__jeu__entite_8c.html#aa67f5290e4cf518cd55c95c8b644d5f2">BAR_WIDTH</a>&#160;&#160;&#160;400</td></tr>
+<tr class="separator:aa67f5290e4cf518cd55c95c8b644d5f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af6614c9d6fc4f2ec7e3a70230c05b3f7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="map__jeu__entite_8c.html#af6614c9d6fc4f2ec7e3a70230c05b3f7">BAR_HEIGHT</a>&#160;&#160;&#160;10</td></tr>
+<tr class="separator:af6614c9d6fc4f2ec7e3a70230c05b3f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab0c7850e677e225230b2b6113bedfc38"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="map__jeu__entite_8c.html#ab0c7850e677e225230b2b6113bedfc38">BASE_ATTAQUE_SPEED</a>&#160;&#160;&#160;300</td></tr>
+<tr class="separator:ab0c7850e677e225230b2b6113bedfc38"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a82ce002e5a57d360bffec9c67344c961"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="map__jeu__entite_8c.html#a82ce002e5a57d360bffec9c67344c961">BASE_MOVE_SPEED</a>&#160;&#160;&#160;150</td></tr>
+<tr class="separator:a82ce002e5a57d360bffec9c67344c961"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a28c267c1b6b51ce74b02e057fa6cadb4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="map__jeu__entite_8c.html#a28c267c1b6b51ce74b02e057fa6cadb4">SPRITE_FRAMES</a>&#160;&#160;&#160;4</td></tr>
+<tr class="separator:a28c267c1b6b51ce74b02e057fa6cadb4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:abe120e22a95d4cb1d7428be17e9df30e"><td class="memItemLeft" align="right" valign="top">SDL_Texture *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="map__jeu__entite_8c.html#abe120e22a95d4cb1d7428be17e9df30e">charge_tex</a> (SDL_Renderer *renderer, char *path, int bmp_flag)</td></tr>
+<tr class="memdesc:abe120e22a95d4cb1d7428be17e9df30e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Charge une texture.  <a href="map__jeu__entite_8c.html#abe120e22a95d4cb1d7428be17e9df30e">Plus de détails...</a><br /></td></tr>
+<tr class="separator:abe120e22a95d4cb1d7428be17e9df30e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a293d8a245ac9f6ef2859300921c3a7c1"><td class="memItemLeft" align="right" valign="top">SDL_Texture *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="map__jeu__entite_8c.html#a293d8a245ac9f6ef2859300921c3a7c1">choix_tex_niv</a> (SDL_Renderer *renderer)</td></tr>
+<tr class="separator:a293d8a245ac9f6ef2859300921c3a7c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e1a90047f48d4810c62f3055cf0c6e9"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="map__jeu__entite_8c.html#a4e1a90047f48d4810c62f3055cf0c6e9">distance</a> (<a class="el" href="structentite__t.html">entite_t</a> *entite1, <a class="el" href="structentite__t.html">entite_t</a> *entite2)</td></tr>
+<tr class="memdesc:a4e1a90047f48d4810c62f3055cf0c6e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calcule la distance entre deux entites.  <a href="map__jeu__entite_8c.html#a4e1a90047f48d4810c62f3055cf0c6e9">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a4e1a90047f48d4810c62f3055cf0c6e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad6b966cf635e2b298d712d27e234c0c8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="map__jeu__entite_8c.html#ad6b966cf635e2b298d712d27e234c0c8">sauvegarde_salle</a> (<a class="el" href="mapStruct_8h.html#a7c844facf01c437463294b08dc29f63e">t_salle</a> *<a class="el" href="structsalle.html">salle</a>, <a class="el" href="mapStruct_8h.html#a7c844facf01c437463294b08dc29f63e">t_salle</a> *map)</td></tr>
+<tr class="separator:ad6b966cf635e2b298d712d27e234c0c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4c44749fbbe6f81c1787be7b139e2351"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="map__jeu__entite_8c.html#a4c44749fbbe6f81c1787be7b139e2351">transfert</a> (<a class="el" href="mapStruct_8h.html#a7c844facf01c437463294b08dc29f63e">t_salle</a> *<a class="el" href="structsalle.html">salle</a>, <a class="el" href="mapStruct_8h.html#a7c844facf01c437463294b08dc29f63e">t_salle</a> *map, int type)</td></tr>
+<tr class="separator:a4c44749fbbe6f81c1787be7b139e2351"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae45ca6fffc0666ed994e6846dc881ae1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="map__jeu__entite_8c.html#ae45ca6fffc0666ed994e6846dc881ae1">changement</a> (<a class="el" href="mapStruct_8h.html#aff0c2b92d4865492cce64de3c0e374d8">t_niv</a> *niv, <a class="el" href="structentite__t.html">entite_t</a> *perso, <a class="el" href="mapStruct_8h.html#a0f4c78eac877d4f5006588143b68ca98">t_pos</a> *posSalle, <a class="el" href="mapStruct_8h.html#a7c844facf01c437463294b08dc29f63e">t_salle</a> *map)</td></tr>
+<tr class="memdesc:ae45ca6fffc0666ed994e6846dc881ae1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Change de salle.  <a href="map__jeu__entite_8c.html#ae45ca6fffc0666ed994e6846dc881ae1">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ae45ca6fffc0666ed994e6846dc881ae1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2453bd609d185c2d224bd631c5ef57bb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="map__jeu__entite_8c.html#a2453bd609d185c2d224bd631c5ef57bb">mouvement</a> (<a class="el" href="mapStruct_8h.html#a7c844facf01c437463294b08dc29f63e">t_salle</a> *map, <a class="el" href="structentite__t.html">entite_t</a> *pers, <a class="el" href="mapStruct_8h.html#a0f4c78eac877d4f5006588143b68ca98">t_pos</a> *posSalle, <a class="el" href="mapStruct_8h.html#aff0c2b92d4865492cce64de3c0e374d8">t_niv</a> *niv, SDL_Renderer *renderer)</td></tr>
+<tr class="separator:a2453bd609d185c2d224bd631c5ef57bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a34520ec8925238396a6b4a8805905163"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="map__jeu__entite_8c.html#a34520ec8925238396a6b4a8805905163">perso_attack</a> (<a class="el" href="mapStruct_8h.html#a7c844facf01c437463294b08dc29f63e">t_salle</a> *map, int attaque, <a class="el" href="structentite__t.html">entite_t</a> *pers, void(*attaque_pers)(<a class="el" href="projectile_8h.html#acc7c0caaacece8c622810596502a1733">proj_t</a>, <a class="el" href="structentite__t.html">entite_t</a> *, <a class="el" href="mapStruct_8h.html#a7c844facf01c437463294b08dc29f63e">t_salle</a> *), SDL_Window *window, SDL_Renderer *renderer, TTF_Font *police)</td></tr>
+<tr class="separator:a34520ec8925238396a6b4a8805905163"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad78f93db388d3b97d1887e476de62168"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="map__jeu__entite_8c.html#ad78f93db388d3b97d1887e476de62168">enemy_attack</a> (<a class="el" href="mapStruct_8h.html#a7c844facf01c437463294b08dc29f63e">t_salle</a> *map, <a class="el" href="structentite__t.html">entite_t</a> *pers)</td></tr>
+<tr class="separator:ad78f93db388d3b97d1887e476de62168"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa36041b3e8b97881c157c07c1302e47"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="map__jeu__entite_8c.html#afa36041b3e8b97881c157c07c1302e47">interact</a> (int attaque, <a class="el" href="mapStruct_8h.html#a7c844facf01c437463294b08dc29f63e">t_salle</a> *map, <a class="el" href="structentite__t.html">entite_t</a> *pers, Uint32 *lastTime, <a class="el" href="mapStruct_8h.html#a0f4c78eac877d4f5006588143b68ca98">t_pos</a> *posSalle, <a class="el" href="mapStruct_8h.html#aff0c2b92d4865492cce64de3c0e374d8">t_niv</a> *niv, SDL_Renderer *renderer)</td></tr>
+<tr class="separator:afa36041b3e8b97881c157c07c1302e47"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a48f9d02b1c16f5896ad061090624881c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="map__jeu__entite_8c.html#a48f9d02b1c16f5896ad061090624881c">rendu</a> (int map[][<a class="el" href="mapStruct_8h.html#afc4ee83a7f442bb700925cb042abb95b">LONG_SALLE_BOSS</a>], int tailleI, int tailleJ, SDL_Renderer *renderer, SDL_Texture *<a class="el" href="map__jeu__entite_8c.html#a4b2a246e682f26f2730c7f1b1b7756af">tab_tex</a>[10], SDL_Rect dstRect, SDL_Rect Door, SDL_Rect srcRect, SDL_Rect PersRect, <a class="el" href="structentite__t.html">entite_t</a> *perso, int attaque, int frame, <a class="el" href="structentite__t.html">entite_t</a> *mob[])</td></tr>
+<tr class="separator:a48f9d02b1c16f5896ad061090624881c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a51af30a60f9f02777c6396b8247e356f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="map__jeu__entite_8c.html#a51af30a60f9f02777c6396b8247e356f">main</a> ()</td></tr>
+<tr class="memdesc:a51af30a60f9f02777c6396b8247e356f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction principale qui génère un niveau et le détruit.  <a href="map__jeu__entite_8c.html#a51af30a60f9f02777c6396b8247e356f">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a51af30a60f9f02777c6396b8247e356f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a9cbc24ddfb9309f8b6ddea033f44cc4c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="map__jeu__entite_8c.html#a9cbc24ddfb9309f8b6ddea033f44cc4c">NumEtage</a> = 2</td></tr>
+<tr class="separator:a9cbc24ddfb9309f8b6ddea033f44cc4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b2a246e682f26f2730c7f1b1b7756af"><td class="memItemLeft" align="right" valign="top">SDL_Texture *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="map__jeu__entite_8c.html#a4b2a246e682f26f2730c7f1b1b7756af">tab_tex</a> [30] = {NULL}</td></tr>
+<tr class="separator:a4b2a246e682f26f2730c7f1b1b7756af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc5260da649a38e8af954a50354e7c73"><td class="memItemLeft" align="right" valign="top">const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="map__jeu__entite_8c.html#acc5260da649a38e8af954a50354e7c73">hauteur_fenetre</a> = <a class="el" href="mapStruct_8h.html#afc4ee83a7f442bb700925cb042abb95b">LONG_SALLE_BOSS</a> * <a class="el" href="map__jeu__entite_8c.html#a62ecd70800687eb2d625af180c4210d7">TILE_SIZE</a></td></tr>
+<tr class="separator:acc5260da649a38e8af954a50354e7c73"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a16c2714d646dde3b8bda684d77d18dc0"><td class="memItemLeft" align="right" valign="top">const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="map__jeu__entite_8c.html#a16c2714d646dde3b8bda684d77d18dc0">largeur_fenetre</a> = <a class="el" href="mapStruct_8h.html#af5bab1f143f7b6fd7034d24f8170f48f">LARG_SALLE_BOSS</a> * <a class="el" href="map__jeu__entite_8c.html#a62ecd70800687eb2d625af180c4210d7">TILE_SIZE</a></td></tr>
+<tr class="separator:a16c2714d646dde3b8bda684d77d18dc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Fichier contenant les fonctions principal du jeu. </p>
+</div><h2 class="groupheader">Documentation des macros</h2>
+<a id="af6614c9d6fc4f2ec7e3a70230c05b3f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af6614c9d6fc4f2ec7e3a70230c05b3f7">&#9670;&nbsp;</a></span>BAR_HEIGHT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define BAR_HEIGHT&#160;&#160;&#160;10</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa67f5290e4cf518cd55c95c8b644d5f2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa67f5290e4cf518cd55c95c8b644d5f2">&#9670;&nbsp;</a></span>BAR_WIDTH</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define BAR_WIDTH&#160;&#160;&#160;400</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab0c7850e677e225230b2b6113bedfc38"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab0c7850e677e225230b2b6113bedfc38">&#9670;&nbsp;</a></span>BASE_ATTAQUE_SPEED</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define BASE_ATTAQUE_SPEED&#160;&#160;&#160;300</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a82ce002e5a57d360bffec9c67344c961"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a82ce002e5a57d360bffec9c67344c961">&#9670;&nbsp;</a></span>BASE_MOVE_SPEED</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define BASE_MOVE_SPEED&#160;&#160;&#160;150</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9230576da8e0593bbd21f1efa0856bf6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9230576da8e0593bbd21f1efa0856bf6">&#9670;&nbsp;</a></span>DIM_SALLE <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DIM_SALLE&#160;&#160;&#160;25</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9230576da8e0593bbd21f1efa0856bf6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9230576da8e0593bbd21f1efa0856bf6">&#9670;&nbsp;</a></span>DIM_SALLE <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DIM_SALLE&#160;&#160;&#160;25</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a51f528deaaeb973f417b46a2ec36f850"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a51f528deaaeb973f417b46a2ec36f850">&#9670;&nbsp;</a></span>SDL_MAIN_HANDLED</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SDL_MAIN_HANDLED</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a28c267c1b6b51ce74b02e057fa6cadb4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a28c267c1b6b51ce74b02e057fa6cadb4">&#9670;&nbsp;</a></span>SPRITE_FRAMES</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SPRITE_FRAMES&#160;&#160;&#160;4</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a62ecd70800687eb2d625af180c4210d7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a62ecd70800687eb2d625af180c4210d7">&#9670;&nbsp;</a></span>TILE_SIZE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TILE_SIZE&#160;&#160;&#160;32</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des fonctions</h2>
+<a id="ae45ca6fffc0666ed994e6846dc881ae1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae45ca6fffc0666ed994e6846dc881ae1">&#9670;&nbsp;</a></span>changement()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void changement </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="mapStruct_8h.html#aff0c2b92d4865492cce64de3c0e374d8">t_niv</a> *&#160;</td>
+          <td class="paramname"><em>niv</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structentite__t.html">entite_t</a> *&#160;</td>
+          <td class="paramname"><em>perso</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="mapStruct_8h.html#a0f4c78eac877d4f5006588143b68ca98">t_pos</a> *&#160;</td>
+          <td class="paramname"><em>posSalle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="mapStruct_8h.html#a7c844facf01c437463294b08dc29f63e">t_salle</a> *&#160;</td>
+          <td class="paramname"><em>map</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Change de salle. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">niv</td><td>Le niveau </td></tr>
+    <tr><td class="paramname">perso</td><td>Le personnage </td></tr>
+    <tr><td class="paramname">posSalle</td><td>La position de la salle </td></tr>
+    <tr><td class="paramname">map</td><td>La map </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="abe120e22a95d4cb1d7428be17e9df30e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe120e22a95d4cb1d7428be17e9df30e">&#9670;&nbsp;</a></span>charge_tex()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">charge_tex </td>
+          <td>(</td>
+          <td class="paramtype">SDL_Renderer *&#160;</td>
+          <td class="paramname"><em>renderer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>path</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>bmp_flag</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Charge une texture. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">renderer</td><td>Le renderer </td></tr>
+    <tr><td class="paramname">path</td><td>Le chemin de la texture </td></tr>
+    <tr><td class="paramname">bmp_flag</td><td>Si la texture est au format bmp </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>La texture </dd></dl>
+
+</div>
+</div>
+<a id="a293d8a245ac9f6ef2859300921c3a7c1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a293d8a245ac9f6ef2859300921c3a7c1">&#9670;&nbsp;</a></span>choix_tex_niv()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">SDL_Texture* choix_tex_niv </td>
+          <td>(</td>
+          <td class="paramtype">SDL_Renderer *&#160;</td>
+          <td class="paramname"><em>renderer</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4e1a90047f48d4810c62f3055cf0c6e9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4e1a90047f48d4810c62f3055cf0c6e9">&#9670;&nbsp;</a></span>distance()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float distance </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structentite__t.html">entite_t</a> *&#160;</td>
+          <td class="paramname"><em>entite1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structentite__t.html">entite_t</a> *&#160;</td>
+          <td class="paramname"><em>entite2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Calcule la distance entre deux entites. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">entite1</td><td>L'entite 1 </td></tr>
+    <tr><td class="paramname">entite2</td><td>L'entite 2 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>La distance entre les deux entites </dd></dl>
+
+</div>
+</div>
+<a id="ad78f93db388d3b97d1887e476de62168"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad78f93db388d3b97d1887e476de62168">&#9670;&nbsp;</a></span>enemy_attack()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int enemy_attack </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="mapStruct_8h.html#a7c844facf01c437463294b08dc29f63e">t_salle</a> *&#160;</td>
+          <td class="paramname"><em>map</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structentite__t.html">entite_t</a> *&#160;</td>
+          <td class="paramname"><em>pers</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afa36041b3e8b97881c157c07c1302e47"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afa36041b3e8b97881c157c07c1302e47">&#9670;&nbsp;</a></span>interact()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void interact </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>attaque</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="mapStruct_8h.html#a7c844facf01c437463294b08dc29f63e">t_salle</a> *&#160;</td>
+          <td class="paramname"><em>map</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structentite__t.html">entite_t</a> *&#160;</td>
+          <td class="paramname"><em>pers</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Uint32 *&#160;</td>
+          <td class="paramname"><em>lastTime</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="mapStruct_8h.html#a0f4c78eac877d4f5006588143b68ca98">t_pos</a> *&#160;</td>
+          <td class="paramname"><em>posSalle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="mapStruct_8h.html#aff0c2b92d4865492cce64de3c0e374d8">t_niv</a> *&#160;</td>
+          <td class="paramname"><em>niv</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Renderer *&#160;</td>
+          <td class="paramname"><em>renderer</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a51af30a60f9f02777c6396b8247e356f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a51af30a60f9f02777c6396b8247e356f">&#9670;&nbsp;</a></span>main()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">main </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fonction principale qui génère un niveau et le détruit. </p>
+<p>Le but sera de creer differents mobs et entites afin de les tester.</p>
+<p>Le but sera de faire en sorte de prendre le maximum de cas particuliers</p>
+<dl class="section return"><dt>Renvoie</dt><dd>int </dd></dl>
+
+</div>
+</div>
+<a id="a2453bd609d185c2d224bd631c5ef57bb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2453bd609d185c2d224bd631c5ef57bb">&#9670;&nbsp;</a></span>mouvement()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void mouvement </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="mapStruct_8h.html#a7c844facf01c437463294b08dc29f63e">t_salle</a> *&#160;</td>
+          <td class="paramname"><em>map</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structentite__t.html">entite_t</a> *&#160;</td>
+          <td class="paramname"><em>pers</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="mapStruct_8h.html#a0f4c78eac877d4f5006588143b68ca98">t_pos</a> *&#160;</td>
+          <td class="paramname"><em>posSalle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="mapStruct_8h.html#aff0c2b92d4865492cce64de3c0e374d8">t_niv</a> *&#160;</td>
+          <td class="paramname"><em>niv</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Renderer *&#160;</td>
+          <td class="paramname"><em>renderer</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a34520ec8925238396a6b4a8805905163"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a34520ec8925238396a6b4a8805905163">&#9670;&nbsp;</a></span>perso_attack()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int perso_attack </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="mapStruct_8h.html#a7c844facf01c437463294b08dc29f63e">t_salle</a> *&#160;</td>
+          <td class="paramname"><em>map</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>attaque</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structentite__t.html">entite_t</a> *&#160;</td>
+          <td class="paramname"><em>pers</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void(*)(<a class="el" href="projectile_8h.html#acc7c0caaacece8c622810596502a1733">proj_t</a>, <a class="el" href="structentite__t.html">entite_t</a> *, <a class="el" href="mapStruct_8h.html#a7c844facf01c437463294b08dc29f63e">t_salle</a> *)&#160;</td>
+          <td class="paramname"><em>attaque_pers</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Window *&#160;</td>
+          <td class="paramname"><em>window</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Renderer *&#160;</td>
+          <td class="paramname"><em>renderer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TTF_Font *&#160;</td>
+          <td class="paramname"><em>police</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a48f9d02b1c16f5896ad061090624881c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a48f9d02b1c16f5896ad061090624881c">&#9670;&nbsp;</a></span>rendu()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void rendu </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>map</em>[][LONG_SALLE_BOSS], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>tailleI</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>tailleJ</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Renderer *&#160;</td>
+          <td class="paramname"><em>renderer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Texture *&#160;</td>
+          <td class="paramname"><em>tab_tex</em>[10], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Rect&#160;</td>
+          <td class="paramname"><em>dstRect</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Rect&#160;</td>
+          <td class="paramname"><em>Door</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Rect&#160;</td>
+          <td class="paramname"><em>srcRect</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Rect&#160;</td>
+          <td class="paramname"><em>PersRect</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structentite__t.html">entite_t</a> *&#160;</td>
+          <td class="paramname"><em>perso</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>attaque</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>frame</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structentite__t.html">entite_t</a> *&#160;</td>
+          <td class="paramname"><em>mob</em>[]&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad6b966cf635e2b298d712d27e234c0c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad6b966cf635e2b298d712d27e234c0c8">&#9670;&nbsp;</a></span>sauvegarde_salle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void sauvegarde_salle </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="mapStruct_8h.html#a7c844facf01c437463294b08dc29f63e">t_salle</a> *&#160;</td>
+          <td class="paramname"><em>salle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="mapStruct_8h.html#a7c844facf01c437463294b08dc29f63e">t_salle</a> *&#160;</td>
+          <td class="paramname"><em>map</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4c44749fbbe6f81c1787be7b139e2351"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4c44749fbbe6f81c1787be7b139e2351">&#9670;&nbsp;</a></span>transfert()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void transfert </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="mapStruct_8h.html#a7c844facf01c437463294b08dc29f63e">t_salle</a> *&#160;</td>
+          <td class="paramname"><em>salle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="mapStruct_8h.html#a7c844facf01c437463294b08dc29f63e">t_salle</a> *&#160;</td>
+          <td class="paramname"><em>map</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>type</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des variables</h2>
+<a id="acc5260da649a38e8af954a50354e7c73"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acc5260da649a38e8af954a50354e7c73">&#9670;&nbsp;</a></span>hauteur_fenetre</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const int hauteur_fenetre = <a class="el" href="mapStruct_8h.html#afc4ee83a7f442bb700925cb042abb95b">LONG_SALLE_BOSS</a> * <a class="el" href="map__jeu__entite_8c.html#a62ecd70800687eb2d625af180c4210d7">TILE_SIZE</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a16c2714d646dde3b8bda684d77d18dc0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a16c2714d646dde3b8bda684d77d18dc0">&#9670;&nbsp;</a></span>largeur_fenetre</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const int largeur_fenetre = <a class="el" href="mapStruct_8h.html#af5bab1f143f7b6fd7034d24f8170f48f">LARG_SALLE_BOSS</a> * <a class="el" href="map__jeu__entite_8c.html#a62ecd70800687eb2d625af180c4210d7">TILE_SIZE</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9cbc24ddfb9309f8b6ddea033f44cc4c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9cbc24ddfb9309f8b6ddea033f44cc4c">&#9670;&nbsp;</a></span>NumEtage</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int NumEtage = 2</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4b2a246e682f26f2730c7f1b1b7756af"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4b2a246e682f26f2730c7f1b1b7756af">&#9670;&nbsp;</a></span>tab_tex</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">SDL_Texture* tab_tex[30] = {NULL}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>

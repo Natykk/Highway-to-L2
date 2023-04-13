@@ -1,0 +1,227 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Highway to L2:  Fichier source de /mnt/c/ProjetL2/head/mapStruct.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Highway to L2
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_06b090c849413a2743cf102ffb0713d3.html">head</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">mapStruct.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="mapStruct_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef __MAPSTRUCT__</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define __MAPSTRUCT__</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
+<div class="line"><a name="l00004"></a><span class="lineno"><a class="line" href="mapStruct_8h.html#aa66b4e6c899359595b83fe65aba7e598">    4</a></span>&#160;<span class="preprocessor">#define SALLE_UNUSED -1</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="entite_8h.html">entite.h</a>&quot;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="objet_8h.html">objet.h</a>&quot;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
+<div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="mapStruct_8h.html#a3ee479371002a0a258e5c4111cc6e54f">    8</a></span>&#160;<span class="preprocessor">#define VIDE 0 </span><span class="comment">//&lt;! Case vide</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="mapStruct_8h.html#a528503a3fc17d7c9f3ddfb07899db5c2">    9</a></span>&#160;<span class="preprocessor">#define MUR 1 </span><span class="comment">//&lt;! Case Mur</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="mapStruct_8h.html#a7e2386d3b1084b5b875ae3696f550ba9">   10</a></span>&#160;<span class="preprocessor">#define PORTE 2 </span><span class="comment">//&lt;! Case Porte</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="mapStruct_8h.html#af2ea9daadfc38f4b5b104224552aabcb">   11</a></span>&#160;<span class="preprocessor">#define OBSTACLE 3 </span><span class="comment">//&lt;! Case Obstacle</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="mapStruct_8h.html#a4c98bca5df339d09b0dbb29f9d614360">   12</a></span>&#160;<span class="preprocessor">#define PILIER 4 </span><span class="comment">//&lt;! Case Piliers</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="mapStruct_8h.html#a76e5d06f666d634e30f4278a747569a5">   13</a></span>&#160;<span class="preprocessor">#define PERSO 5 </span><span class="comment">//&lt;! Case Personnage</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">// Mob entre 10 et 21</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="mapStruct_8h.html#a7e2fcfd5107ccffe5586e00bf1572ce0">   15</a></span>&#160;<span class="preprocessor">#define MARCHAND 31 </span><span class="comment">//&lt;! Case Marchand</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="mapStruct_8h.html#a78a87d092595473bcb2a60d4ac6a622b">   16</a></span>&#160;<span class="preprocessor">#define BOSS 69  </span><span class="comment">//&lt;! Case Boss</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="mapStruct_8h.html#a7aeca0b54f1833b505c32006918162f1">   17</a></span>&#160;<span class="preprocessor">#define PROJ_FLECHE_H 70 </span><span class="comment">//&lt;! Case Projectile fleche vers le haut</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="mapStruct_8h.html#a6df955c872fdd3708f0a8e1156858015">   18</a></span>&#160;<span class="preprocessor">#define PROJ_FLECHE_D 71 </span><span class="comment">//&lt;! Case Projectile fleche vers la droite</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="mapStruct_8h.html#a662738978ead3d05010c4379cf0e4071">   19</a></span>&#160;<span class="preprocessor">#define PROJ_FLECHE_B 72 </span><span class="comment">//&lt;! Case Projectile fleche vers le bas</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="mapStruct_8h.html#af4f1e7cfc2a9f153e9886e6936b6f5be">   20</a></span>&#160;<span class="preprocessor">#define PROJ_FLECHE_G 73 </span><span class="comment">//&lt;! Case Projectile fleche vers la gauche</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="mapStruct_8h.html#ac3d014b5cb48c840ebd95c006a2fff50">   21</a></span>&#160;<span class="preprocessor">#define PROJ_BOULE_H 80 </span><span class="comment">//&lt;! Case Projectile boule vers le haut</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="mapStruct_8h.html#a4f2c8a66857662315cff9cbf2c7201b6">   22</a></span>&#160;<span class="preprocessor">#define PROJ_BOULE_D 81  </span><span class="comment">//&lt;! Case Projectile boule vers la droite</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="mapStruct_8h.html#accb767ead894fc07b0b83b40eb16c5c6">   23</a></span>&#160;<span class="preprocessor">#define PROJ_BOULE_B 82 </span><span class="comment">//&lt;! Case Projectile boule vers le bas</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="mapStruct_8h.html#a3a283efdf4e79f412092bc8100a6b6e3">   24</a></span>&#160;<span class="preprocessor">#define PROJ_BOULE_G 83 </span><span class="comment">//&lt;! Case Projectile boule vers la gauche</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="mapStruct_8h.html#a3a15d5affbf0a7462bf6d1140dca64c4">   26</a></span>&#160;<span class="preprocessor">#define DIM_ETAGE 5 </span><span class="comment">//&lt;! Dimension d&#39;un étage</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="mapStruct_8h.html#a9230576da8e0593bbd21f1efa0856bf6">   27</a></span>&#160;<span class="preprocessor">#define DIM_SALLE 25 </span><span class="comment">//&lt;! Dimension d&#39;une salle</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="mapStruct_8h.html#af5bab1f143f7b6fd7034d24f8170f48f">   29</a></span>&#160;<span class="preprocessor">#define LARG_SALLE_BOSS 35 </span><span class="comment">//&lt;! Largeur d&#39;une salle de boss</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="mapStruct_8h.html#afc4ee83a7f442bb700925cb042abb95b">   30</a></span>&#160;<span class="preprocessor">#define LONG_SALLE_BOSS 25 </span><span class="comment">//&lt;! Longueur d&#39;une salle de boss</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="mapStruct_8h.html#aa0c92eb5dea5cb48b6e8389f7012001d">   32</a></span>&#160;<span class="preprocessor">#define LONG_MARCHAND 8 </span><span class="comment">//&lt;! Longueur d&#39;une salle de marchand</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="mapStruct_8h.html#afdbcce4aefd4551a3a6e7a9c1706b03c">   33</a></span>&#160;<span class="preprocessor">#define LARG_MARCHAND 12 </span><span class="comment">//&lt;! Largeur d&#39;une salle de marchand</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="mapStruct_8h.html#ae0847eeaafaa67b519e02bdef59db00b">   35</a></span>&#160;<span class="preprocessor">#define LARG_COULOIR 7 </span><span class="comment">//&lt;! Largeur d&#39;un couloir</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="mapStruct_8h.html#a96022c74221b1bb5fe76221b541864c5">   36</a></span>&#160;<span class="preprocessor">#define LONG_COULOIR 15 </span><span class="comment">//&lt;! Longueur d&#39;un couloir</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="mapStruct_8h.html#a118196e467a2ac04459360a99ccd76c8">   38</a></span>&#160;<span class="preprocessor">#define MOB_MAX 10 </span><span class="comment">//&lt;! Nombre de mob maximum dans une salle</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">int</span> <a class="code" href="mapStruct_8h.html#a9cbc24ddfb9309f8b6ddea033f44cc4c">NumEtage</a>;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="mapStruct_8h.html#adfdb259be8b4125b94abc8c4d5da72faac1e0a2410a3e55b9cd5fa1a1d86f92c2">   52</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">enum</span> {<a class="code" href="mapStruct_8h.html#adfdb259be8b4125b94abc8c4d5da72faac1e0a2410a3e55b9cd5fa1a1d86f92c2">COMMON</a>, </div>
+<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="mapStruct_8h.html#adfdb259be8b4125b94abc8c4d5da72faa13d000b4d7dc70d90239b7430d1eb6b2">   53</a></span>&#160;                <a class="code" href="mapStruct_8h.html#adfdb259be8b4125b94abc8c4d5da72faa13d000b4d7dc70d90239b7430d1eb6b2">START</a>, </div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                <a class="code" href="mapStruct_8h.html#adfdb259be8b4125b94abc8c4d5da72faa7a10b5d68d31711288e1fe0fa17dbf4f">EXIT</a> </div>
+<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="mapStruct_8h.html#adfdb259be8b4125b94abc8c4d5da72faa7a10b5d68d31711288e1fe0fa17dbf4f">   55</a></span>&#160;                } <a class="code" href="mapStruct_8h.html#adfdb259be8b4125b94abc8c4d5da72fa">t_statut</a>; </div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
+<div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="structposition.html">   62</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structposition.html">position</a>{</div>
+<div class="line"><a name="l00063"></a><span class="lineno"><a class="line" href="structposition.html#aad0117268685890818989a6c0112ab8a">   63</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="structposition.html#aad0117268685890818989a6c0112ab8a">x</a>, <a class="code" href="structposition.html#ab7163210f8aa5e8dc68ef434a315792c">y</a>; </div>
+<div class="line"><a name="l00064"></a><span class="lineno"><a class="line" href="mapStruct_8h.html#a0f4c78eac877d4f5006588143b68ca98">   64</a></span>&#160;} <a class="code" href="mapStruct_8h.html#a0f4c78eac877d4f5006588143b68ca98">t_pos</a>;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
+<div class="line"><a name="l00071"></a><span class="lineno"><a class="line" href="structsalle.html">   71</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structsalle.html">salle</a> {</div>
+<div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="structsalle.html#a325ff75c70a5808f7a6fbb9752127ce1">   72</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="structsalle.html#a325ff75c70a5808f7a6fbb9752127ce1">nb_mobs</a>; </div>
+<div class="line"><a name="l00073"></a><span class="lineno"><a class="line" href="structsalle.html#a16e2723378555f58ce4121c20793f380">   73</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="structsalle.html#a16e2723378555f58ce4121c20793f380">num_salle</a>; </div>
+<div class="line"><a name="l00074"></a><span class="lineno"><a class="line" href="structsalle.html#a9b8062397406fbd776a5e0f712a71807">   74</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="structsalle.html#a9b8062397406fbd776a5e0f712a71807">nb_porte</a>; </div>
+<div class="line"><a name="l00075"></a><span class="lineno"><a class="line" href="structsalle.html#a25cea835b7274139309700b30095a690">   75</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="structsalle.html#a25cea835b7274139309700b30095a690">dim</a>[<a class="code" href="mapStruct_8h.html#af5bab1f143f7b6fd7034d24f8170f48f">LARG_SALLE_BOSS</a>][<a class="code" href="mapStruct_8h.html#afc4ee83a7f442bb700925cb042abb95b">LONG_SALLE_BOSS</a>]; </div>
+<div class="line"><a name="l00076"></a><span class="lineno"><a class="line" href="structsalle.html#a1b0d00c5a4bd12f2d3f25bcd9130c8a4">   76</a></span>&#160;    <a class="code" href="mapStruct_8h.html#adfdb259be8b4125b94abc8c4d5da72fa">t_statut</a> <a class="code" href="structsalle.html#a1b0d00c5a4bd12f2d3f25bcd9130c8a4">statut</a>; </div>
+<div class="line"><a name="l00077"></a><span class="lineno"><a class="line" href="structsalle.html#a2218752f4974d4630c3c6ecb42c29eb5">   77</a></span>&#160;    <a class="code" href="structentite__t.html">entite_t</a>* <a class="code" href="structsalle.html#a2218752f4974d4630c3c6ecb42c29eb5">mob</a>[20]; </div>
+<div class="line"><a name="l00078"></a><span class="lineno"><a class="line" href="mapStruct_8h.html#a7c844facf01c437463294b08dc29f63e">   78</a></span>&#160;} <a class="code" href="mapStruct_8h.html#a7c844facf01c437463294b08dc29f63e">t_salle</a>;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
+<div class="line"><a name="l00080"></a><span class="lineno"><a class="line" href="structsalle__boss.html">   80</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structsalle__boss.html">salle_boss</a> {</div>
+<div class="line"><a name="l00081"></a><span class="lineno"><a class="line" href="structsalle__boss.html#a52efc346339f642b823b7ab8687cc728">   81</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="structsalle__boss.html#a52efc346339f642b823b7ab8687cc728">dim</a>[<a class="code" href="mapStruct_8h.html#af5bab1f143f7b6fd7034d24f8170f48f">LARG_SALLE_BOSS</a>][<a class="code" href="mapStruct_8h.html#afc4ee83a7f442bb700925cb042abb95b">LONG_SALLE_BOSS</a>]; </div>
+<div class="line"><a name="l00082"></a><span class="lineno"><a class="line" href="mapStruct_8h.html#a2fb2c733c3fbc939b6e31505d0520457">   82</a></span>&#160;} <a class="code" href="mapStruct_8h.html#a2fb2c733c3fbc939b6e31505d0520457">t_salle_boss</a>;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
+<div class="line"><a name="l00089"></a><span class="lineno"><a class="line" href="structetage.html">   89</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structetage.html">etage</a> {</div>
+<div class="line"><a name="l00090"></a><span class="lineno"><a class="line" href="structetage.html#afaa5e632f1f28a03782a469711b72917">   90</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="structetage.html#afaa5e632f1f28a03782a469711b72917">nb_salle</a>; </div>
+<div class="line"><a name="l00091"></a><span class="lineno"><a class="line" href="structetage.html#ac814dfb5273a0bb4699a515f376ba95f">   91</a></span>&#160;    <a class="code" href="structsalle.html">t_salle</a> <a class="code" href="structetage.html">etage</a>[<a class="code" href="mapStruct_8h.html#a3a15d5affbf0a7462bf6d1140dca64c4">DIM_ETAGE</a>][<a class="code" href="mapStruct_8h.html#a3a15d5affbf0a7462bf6d1140dca64c4">DIM_ETAGE</a>];</div>
+<div class="line"><a name="l00092"></a><span class="lineno"><a class="line" href="structetage.html#af96e5f51fda4e23e6cf7d99990d597e9">   92</a></span>&#160;    <a class="code" href="structsalle.html">t_salle</a>* <a class="code" href="structetage.html#af96e5f51fda4e23e6cf7d99990d597e9">Boss</a>;</div>
+<div class="line"><a name="l00093"></a><span class="lineno"><a class="line" href="structetage.html#ac0c7a5818d151a1a26a2cf5fbce08229">   93</a></span>&#160;    <a class="code" href="structsalle.html">t_salle</a>* <a class="code" href="structetage.html#ac0c7a5818d151a1a26a2cf5fbce08229">Marchand</a>;</div>
+<div class="line"><a name="l00094"></a><span class="lineno"><a class="line" href="structetage.html#aa5b773d1eba4b1cff3200435ac03ce17">   94</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="structetage.html#aa5b773d1eba4b1cff3200435ac03ce17">boss</a>; </div>
+<div class="line"><a name="l00095"></a><span class="lineno"><a class="line" href="structetage.html#ae53d3d09b3fcc8040f766d75f9274dd4">   95</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="structetage.html#ae53d3d09b3fcc8040f766d75f9274dd4">marchand</a>;</div>
+<div class="line"><a name="l00096"></a><span class="lineno"><a class="line" href="mapStruct_8h.html#a0265ab253cc34fe6c953217a62a111c1">   96</a></span>&#160;} <a class="code" href="mapStruct_8h.html#a0265ab253cc34fe6c953217a62a111c1">t_etage</a>;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160; </div>
+<div class="line"><a name="l00103"></a><span class="lineno"><a class="line" href="structniveau.html">  103</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structniveau.html">niveau</a> {</div>
+<div class="line"><a name="l00104"></a><span class="lineno"><a class="line" href="structniveau.html#a136c48076475708e610c25908ce442ae">  104</a></span>&#160;    <a class="code" href="structetage.html">t_etage</a> <a class="code" href="structniveau.html#a136c48076475708e610c25908ce442ae">etages</a>[3];  </div>
+<div class="line"><a name="l00105"></a><span class="lineno"><a class="line" href="mapStruct_8h.html#aff0c2b92d4865492cce64de3c0e374d8">  105</a></span>&#160;} <a class="code" href="mapStruct_8h.html#aff0c2b92d4865492cce64de3c0e374d8">t_niv</a>;</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160; </div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;<span class="comment">/* Erreurs */</span></div>
+<div class="line"><a name="l00108"></a><span class="lineno"><a class="line" href="mapStruct_8h.html#aba51915c87d64af47fb1cc59348961c9">  108</a></span>&#160;<span class="preprocessor">#define OK 0 </span></div>
+<div class="line"><a name="l00109"></a><span class="lineno"><a class="line" href="mapStruct_8h.html#a6e9a97334929197243c74b6ca75a927c">  109</a></span>&#160;<span class="preprocessor">#define ERR_CREA_MAP 100 </span></div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160; </div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160; </div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;<span class="comment">// Structure de données pour les boutons</span></div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160; </div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160; </div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;<span class="comment">/* Fonctions  */</span></div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;<span class="keywordtype">void</span> <a class="code" href="mapStruct_8h.html#a2f1febbd79366c9aff9a97a441f4bc41">afficher_salle</a>(<a class="code" href="structsalle.html">t_salle</a> <a class="code" href="structsalle.html">salle</a>);</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;<span class="keywordtype">int</span> <a class="code" href="mapStruct_8h.html#adaeb5e85b347484e969eb8fb98c125e3">salle_disponible</a>(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y, <a class="code" href="structsalle.html">t_salle</a> <a class="code" href="structetage.html">etage</a>[<a class="code" href="mapStruct_8h.html#a3a15d5affbf0a7462bf6d1140dca64c4">DIM_ETAGE</a>][<a class="code" href="mapStruct_8h.html#a3a15d5affbf0a7462bf6d1140dca64c4">DIM_ETAGE</a>]);</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;<a class="code" href="structposition.html">t_pos</a> <a class="code" href="mapStruct_8h.html#a80faee18802b8fc331b5e0afeee6d905">trouverSalle</a>(<span class="keywordtype">int</span> num_salle, <a class="code" href="structetage.html">t_etage</a> * <a class="code" href="structetage.html">etage</a>);</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;<span class="keywordtype">int</span> <a class="code" href="mapStruct_8h.html#a16b20add9ce5b441983d0a9e3ba7d4f3">nb_lieu_libre</a>(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y, <a class="code" href="structsalle.html">t_salle</a> <a class="code" href="structetage.html">etage</a>[<a class="code" href="mapStruct_8h.html#a3a15d5affbf0a7462bf6d1140dca64c4">DIM_ETAGE</a>][<a class="code" href="mapStruct_8h.html#a3a15d5affbf0a7462bf6d1140dca64c4">DIM_ETAGE</a>]);</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;<span class="keywordtype">int</span> <a class="code" href="mapStruct_8h.html#aaab20996fabaa4053eeb03e8f3cca8a3">nbVoisin</a>(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y, <a class="code" href="structetage.html">t_etage</a> * <a class="code" href="structetage.html">etage</a>);</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160; </div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;<span class="keywordtype">int</span> <a class="code" href="mapStruct_8h.html#aad4331729658e1ef94d5d116066ed93b">genererSalle</a>(<span class="keywordtype">int</span> x_salle, <span class="keywordtype">int</span> y_salle, <a class="code" href="structetage.html">t_etage</a> * <a class="code" href="structetage.html">etage</a>);</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160; </div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;<span class="keywordtype">int</span> <a class="code" href="mapStruct_8h.html#a9a5bf290348ed8be152d12b485cb158b">etageConforme</a>(<a class="code" href="structetage.html">t_etage</a> * <a class="code" href="structetage.html">etage</a>);</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160; </div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;<span class="keywordtype">int</span> <a class="code" href="mapStruct_8h.html#a91c63ca06caf5f57dade8fc286355a6c">genererEtage</a>(<a class="code" href="structetage.html">t_etage</a> * <a class="code" href="structetage.html">etage</a>);</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160; </div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;<span class="keywordtype">int</span> <a class="code" href="mapStruct_8h.html#a0f14fa313aa17d3aa8440e257dd343e1">genererNiv</a>(<a class="code" href="structniveau.html">t_niv</a> * <a class="code" href="structniveau.html">niveau</a>);</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160; </div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;<span class="keywordtype">int</span> <a class="code" href="mapStruct_8h.html#a8013f79c433af3f20b98df2fecbdb765">detruireNiv</a>(<a class="code" href="structniveau.html">t_niv</a> ** <a class="code" href="structniveau.html">niveau</a>);</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160; </div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160; </div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160; </div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aentite_8h_html"><div class="ttname"><a href="entite_8h.html">entite.h</a></div><div class="ttdoc">Fichier d'en-tete pour les primitives liées aux entites.</div></div>
+<div class="ttc" id="amapStruct_8h_html_a0265ab253cc34fe6c953217a62a111c1"><div class="ttname"><a href="mapStruct_8h.html#a0265ab253cc34fe6c953217a62a111c1">t_etage</a></div><div class="ttdeci">struct etage t_etage</div></div>
+<div class="ttc" id="amapStruct_8h_html_a0f14fa313aa17d3aa8440e257dd343e1"><div class="ttname"><a href="mapStruct_8h.html#a0f14fa313aa17d3aa8440e257dd343e1">genererNiv</a></div><div class="ttdeci">int genererNiv(t_niv *niveau)</div><div class="ttdoc">Génère un niveau.</div><div class="ttdef"><b>Definition:</b> mapStruct.c:465</div></div>
+<div class="ttc" id="amapStruct_8h_html_a0f4c78eac877d4f5006588143b68ca98"><div class="ttname"><a href="mapStruct_8h.html#a0f4c78eac877d4f5006588143b68ca98">t_pos</a></div><div class="ttdeci">struct position t_pos</div></div>
+<div class="ttc" id="amapStruct_8h_html_a16b20add9ce5b441983d0a9e3ba7d4f3"><div class="ttname"><a href="mapStruct_8h.html#a16b20add9ce5b441983d0a9e3ba7d4f3">nb_lieu_libre</a></div><div class="ttdeci">int nb_lieu_libre(int x, int y, t_salle etage[DIM_ETAGE][DIM_ETAGE])</div><div class="ttdoc">Compte le nombre de salle libre autour des coordonnées x et y.</div><div class="ttdef"><b>Definition:</b> mapStruct.c:168</div></div>
+<div class="ttc" id="amapStruct_8h_html_a2f1febbd79366c9aff9a97a441f4bc41"><div class="ttname"><a href="mapStruct_8h.html#a2f1febbd79366c9aff9a97a441f4bc41">afficher_salle</a></div><div class="ttdeci">void afficher_salle(t_salle salle)</div><div class="ttdoc">Affiche une salle.</div><div class="ttdef"><b>Definition:</b> mapStruct.c:41</div></div>
+<div class="ttc" id="amapStruct_8h_html_a2fb2c733c3fbc939b6e31505d0520457"><div class="ttname"><a href="mapStruct_8h.html#a2fb2c733c3fbc939b6e31505d0520457">t_salle_boss</a></div><div class="ttdeci">struct salle_boss t_salle_boss</div></div>
+<div class="ttc" id="amapStruct_8h_html_a3a15d5affbf0a7462bf6d1140dca64c4"><div class="ttname"><a href="mapStruct_8h.html#a3a15d5affbf0a7462bf6d1140dca64c4">DIM_ETAGE</a></div><div class="ttdeci">#define DIM_ETAGE</div><div class="ttdef"><b>Definition:</b> mapStruct.h:26</div></div>
+<div class="ttc" id="amapStruct_8h_html_a7c844facf01c437463294b08dc29f63e"><div class="ttname"><a href="mapStruct_8h.html#a7c844facf01c437463294b08dc29f63e">t_salle</a></div><div class="ttdeci">struct salle t_salle</div></div>
+<div class="ttc" id="amapStruct_8h_html_a8013f79c433af3f20b98df2fecbdb765"><div class="ttname"><a href="mapStruct_8h.html#a8013f79c433af3f20b98df2fecbdb765">detruireNiv</a></div><div class="ttdeci">int detruireNiv(t_niv **niveau)</div><div class="ttdoc">Détruit un niveau.</div><div class="ttdef"><b>Definition:</b> mapStruct.c:492</div></div>
+<div class="ttc" id="amapStruct_8h_html_a80faee18802b8fc331b5e0afeee6d905"><div class="ttname"><a href="mapStruct_8h.html#a80faee18802b8fc331b5e0afeee6d905">trouverSalle</a></div><div class="ttdeci">t_pos trouverSalle(int num_salle, t_etage *etage)</div><div class="ttdoc">Trouve une salle dans un étage.</div><div class="ttdef"><b>Definition:</b> mapStruct.c:146</div></div>
+<div class="ttc" id="amapStruct_8h_html_a91c63ca06caf5f57dade8fc286355a6c"><div class="ttname"><a href="mapStruct_8h.html#a91c63ca06caf5f57dade8fc286355a6c">genererEtage</a></div><div class="ttdeci">int genererEtage(t_etage *etage)</div><div class="ttdoc">Génère un étage.</div><div class="ttdef"><b>Definition:</b> mapStruct.c:370</div></div>
+<div class="ttc" id="amapStruct_8h_html_a9a5bf290348ed8be152d12b485cb158b"><div class="ttname"><a href="mapStruct_8h.html#a9a5bf290348ed8be152d12b485cb158b">etageConforme</a></div><div class="ttdeci">int etageConforme(t_etage *etage)</div><div class="ttdoc">Fonction vérifiant si l'étage possède autant de salles que etage-&gt;nb_salle et verifie la numerotation...</div><div class="ttdef"><b>Definition:</b> mapStruct.c:337</div></div>
+<div class="ttc" id="amapStruct_8h_html_a9cbc24ddfb9309f8b6ddea033f44cc4c"><div class="ttname"><a href="mapStruct_8h.html#a9cbc24ddfb9309f8b6ddea033f44cc4c">NumEtage</a></div><div class="ttdeci">int NumEtage</div><div class="ttdef"><b>Definition:</b> map_jeu_entite.c:22</div></div>
+<div class="ttc" id="amapStruct_8h_html_aaab20996fabaa4053eeb03e8f3cca8a3"><div class="ttname"><a href="mapStruct_8h.html#aaab20996fabaa4053eeb03e8f3cca8a3">nbVoisin</a></div><div class="ttdeci">int nbVoisin(int x, int y, t_etage *etage)</div><div class="ttdoc">Compte le nombre de voisins d'une salle.</div><div class="ttdef"><b>Definition:</b> mapStruct.c:186</div></div>
+<div class="ttc" id="amapStruct_8h_html_aad4331729658e1ef94d5d116066ed93b"><div class="ttname"><a href="mapStruct_8h.html#aad4331729658e1ef94d5d116066ed93b">genererSalle</a></div><div class="ttdeci">int genererSalle(int x_salle, int y_salle, t_etage *etage)</div><div class="ttdoc">Génère une salle.</div><div class="ttdef"><b>Definition:</b> mapStruct.c:204</div></div>
+<div class="ttc" id="amapStruct_8h_html_adaeb5e85b347484e969eb8fb98c125e3"><div class="ttname"><a href="mapStruct_8h.html#adaeb5e85b347484e969eb8fb98c125e3">salle_disponible</a></div><div class="ttdeci">int salle_disponible(int x, int y, t_salle etage[DIM_ETAGE][DIM_ETAGE])</div><div class="ttdoc">Vérifie si une salle est disponible.</div><div class="ttdef"><b>Definition:</b> mapStruct.c:125</div></div>
+<div class="ttc" id="amapStruct_8h_html_adfdb259be8b4125b94abc8c4d5da72fa"><div class="ttname"><a href="mapStruct_8h.html#adfdb259be8b4125b94abc8c4d5da72fa">t_statut</a></div><div class="ttdeci">t_statut</div><div class="ttdoc">Définition des différents statuts d'une salle.</div><div class="ttdef"><b>Definition:</b> mapStruct.h:52</div></div>
+<div class="ttc" id="amapStruct_8h_html_adfdb259be8b4125b94abc8c4d5da72faa13d000b4d7dc70d90239b7430d1eb6b2"><div class="ttname"><a href="mapStruct_8h.html#adfdb259be8b4125b94abc8c4d5da72faa13d000b4d7dc70d90239b7430d1eb6b2">START</a></div><div class="ttdeci">@ START</div><div class="ttdoc">Salle de départ.</div><div class="ttdef"><b>Definition:</b> mapStruct.h:53</div></div>
+<div class="ttc" id="amapStruct_8h_html_adfdb259be8b4125b94abc8c4d5da72faa7a10b5d68d31711288e1fe0fa17dbf4f"><div class="ttname"><a href="mapStruct_8h.html#adfdb259be8b4125b94abc8c4d5da72faa7a10b5d68d31711288e1fe0fa17dbf4f">EXIT</a></div><div class="ttdeci">@ EXIT</div><div class="ttdoc">Salle de sortie.</div><div class="ttdef"><b>Definition:</b> mapStruct.h:54</div></div>
+<div class="ttc" id="amapStruct_8h_html_adfdb259be8b4125b94abc8c4d5da72faac1e0a2410a3e55b9cd5fa1a1d86f92c2"><div class="ttname"><a href="mapStruct_8h.html#adfdb259be8b4125b94abc8c4d5da72faac1e0a2410a3e55b9cd5fa1a1d86f92c2">COMMON</a></div><div class="ttdeci">@ COMMON</div><div class="ttdoc">Salle commune.</div><div class="ttdef"><b>Definition:</b> mapStruct.h:52</div></div>
+<div class="ttc" id="amapStruct_8h_html_af5bab1f143f7b6fd7034d24f8170f48f"><div class="ttname"><a href="mapStruct_8h.html#af5bab1f143f7b6fd7034d24f8170f48f">LARG_SALLE_BOSS</a></div><div class="ttdeci">#define LARG_SALLE_BOSS</div><div class="ttdef"><b>Definition:</b> mapStruct.h:29</div></div>
+<div class="ttc" id="amapStruct_8h_html_afc4ee83a7f442bb700925cb042abb95b"><div class="ttname"><a href="mapStruct_8h.html#afc4ee83a7f442bb700925cb042abb95b">LONG_SALLE_BOSS</a></div><div class="ttdeci">#define LONG_SALLE_BOSS</div><div class="ttdef"><b>Definition:</b> mapStruct.h:30</div></div>
+<div class="ttc" id="amapStruct_8h_html_aff0c2b92d4865492cce64de3c0e374d8"><div class="ttname"><a href="mapStruct_8h.html#aff0c2b92d4865492cce64de3c0e374d8">t_niv</a></div><div class="ttdeci">struct niveau t_niv</div></div>
+<div class="ttc" id="aobjet_8h_html"><div class="ttname"><a href="objet_8h.html">objet.h</a></div><div class="ttdoc">Fichier contenant toutes les structutes de données liées aux objets.</div></div>
+<div class="ttc" id="astructentite__t_html"><div class="ttname"><a href="structentite__t.html">entite_t</a></div><div class="ttdoc">Structure qui genere les entitées Caracteristiques :</div></div>
+<div class="ttc" id="astructetage_html"><div class="ttname"><a href="structetage.html">etage</a></div><div class="ttdoc">Définition d'un étage avec son nombre de salles et ses salles.</div><div class="ttdef"><b>Definition:</b> mapStruct.h:89</div></div>
+<div class="ttc" id="astructetage_html_aa5b773d1eba4b1cff3200435ac03ce17"><div class="ttname"><a href="structetage.html#aa5b773d1eba4b1cff3200435ac03ce17">etage::boss</a></div><div class="ttdeci">int boss</div><div class="ttdoc">Salle du boss déverouillée ou pas (1 ou 0)</div><div class="ttdef"><b>Definition:</b> mapStruct.h:94</div></div>
+<div class="ttc" id="astructetage_html_ac0c7a5818d151a1a26a2cf5fbce08229"><div class="ttname"><a href="structetage.html#ac0c7a5818d151a1a26a2cf5fbce08229">etage::Marchand</a></div><div class="ttdeci">t_salle * Marchand</div><div class="ttdef"><b>Definition:</b> mapStruct.h:93</div></div>
+<div class="ttc" id="astructetage_html_ae53d3d09b3fcc8040f766d75f9274dd4"><div class="ttname"><a href="structetage.html#ae53d3d09b3fcc8040f766d75f9274dd4">etage::marchand</a></div><div class="ttdeci">int marchand</div><div class="ttdef"><b>Definition:</b> mapStruct.h:95</div></div>
+<div class="ttc" id="astructetage_html_af96e5f51fda4e23e6cf7d99990d597e9"><div class="ttname"><a href="structetage.html#af96e5f51fda4e23e6cf7d99990d597e9">etage::Boss</a></div><div class="ttdeci">t_salle * Boss</div><div class="ttdef"><b>Definition:</b> mapStruct.h:92</div></div>
+<div class="ttc" id="astructetage_html_afaa5e632f1f28a03782a469711b72917"><div class="ttname"><a href="structetage.html#afaa5e632f1f28a03782a469711b72917">etage::nb_salle</a></div><div class="ttdeci">int nb_salle</div><div class="ttdoc">Nombre de salles dans l'étage.</div><div class="ttdef"><b>Definition:</b> mapStruct.h:90</div></div>
+<div class="ttc" id="astructniveau_html"><div class="ttname"><a href="structniveau.html">niveau</a></div><div class="ttdoc">Définition d'un niveau avec ses étages.</div><div class="ttdef"><b>Definition:</b> mapStruct.h:103</div></div>
+<div class="ttc" id="astructniveau_html_a136c48076475708e610c25908ce442ae"><div class="ttname"><a href="structniveau.html#a136c48076475708e610c25908ce442ae">niveau::etages</a></div><div class="ttdeci">t_etage etages[3]</div><div class="ttdoc">3 etages par niveau</div><div class="ttdef"><b>Definition:</b> mapStruct.h:104</div></div>
+<div class="ttc" id="astructposition_html"><div class="ttname"><a href="structposition.html">position</a></div><div class="ttdoc">Définition d'une position.</div><div class="ttdef"><b>Definition:</b> mapStruct.h:62</div></div>
+<div class="ttc" id="astructposition_html_aad0117268685890818989a6c0112ab8a"><div class="ttname"><a href="structposition.html#aad0117268685890818989a6c0112ab8a">position::x</a></div><div class="ttdeci">int x</div><div class="ttdef"><b>Definition:</b> mapStruct.h:63</div></div>
+<div class="ttc" id="astructposition_html_ab7163210f8aa5e8dc68ef434a315792c"><div class="ttname"><a href="structposition.html#ab7163210f8aa5e8dc68ef434a315792c">position::y</a></div><div class="ttdeci">int y</div><div class="ttdoc">Coordonnées de la position.</div><div class="ttdef"><b>Definition:</b> mapStruct.h:63</div></div>
+<div class="ttc" id="astructsalle__boss_html"><div class="ttname"><a href="structsalle__boss.html">salle_boss</a></div><div class="ttdef"><b>Definition:</b> mapStruct.h:80</div></div>
+<div class="ttc" id="astructsalle__boss_html_a52efc346339f642b823b7ab8687cc728"><div class="ttname"><a href="structsalle__boss.html#a52efc346339f642b823b7ab8687cc728">salle_boss::dim</a></div><div class="ttdeci">int dim[LARG_SALLE_BOSS][LONG_SALLE_BOSS]</div><div class="ttdoc">Tableau de la salle.</div><div class="ttdef"><b>Definition:</b> mapStruct.h:81</div></div>
+<div class="ttc" id="astructsalle_html"><div class="ttname"><a href="structsalle.html">salle</a></div><div class="ttdoc">Définition d'une salle avec ses dimensions, son numéro, son nombre de portes et de mobs et son statut...</div><div class="ttdef"><b>Definition:</b> mapStruct.h:71</div></div>
+<div class="ttc" id="astructsalle_html_a16e2723378555f58ce4121c20793f380"><div class="ttname"><a href="structsalle.html#a16e2723378555f58ce4121c20793f380">salle::num_salle</a></div><div class="ttdeci">int num_salle</div><div class="ttdoc">Numéro de la salle.</div><div class="ttdef"><b>Definition:</b> mapStruct.h:73</div></div>
+<div class="ttc" id="astructsalle_html_a1b0d00c5a4bd12f2d3f25bcd9130c8a4"><div class="ttname"><a href="structsalle.html#a1b0d00c5a4bd12f2d3f25bcd9130c8a4">salle::statut</a></div><div class="ttdeci">t_statut statut</div><div class="ttdoc">Statut de la salle.</div><div class="ttdef"><b>Definition:</b> mapStruct.h:76</div></div>
+<div class="ttc" id="astructsalle_html_a2218752f4974d4630c3c6ecb42c29eb5"><div class="ttname"><a href="structsalle.html#a2218752f4974d4630c3c6ecb42c29eb5">salle::mob</a></div><div class="ttdeci">entite_t * mob[20]</div><div class="ttdoc">Tableau de mobs dans la salle.</div><div class="ttdef"><b>Definition:</b> mapStruct.h:77</div></div>
+<div class="ttc" id="astructsalle_html_a25cea835b7274139309700b30095a690"><div class="ttname"><a href="structsalle.html#a25cea835b7274139309700b30095a690">salle::dim</a></div><div class="ttdeci">int dim[LARG_SALLE_BOSS][LONG_SALLE_BOSS]</div><div class="ttdoc">Tableau de la salle.</div><div class="ttdef"><b>Definition:</b> mapStruct.h:75</div></div>
+<div class="ttc" id="astructsalle_html_a325ff75c70a5808f7a6fbb9752127ce1"><div class="ttname"><a href="structsalle.html#a325ff75c70a5808f7a6fbb9752127ce1">salle::nb_mobs</a></div><div class="ttdeci">int nb_mobs</div><div class="ttdoc">Nombre de mobs dans la salle.</div><div class="ttdef"><b>Definition:</b> mapStruct.h:72</div></div>
+<div class="ttc" id="astructsalle_html_a9b8062397406fbd776a5e0f712a71807"><div class="ttname"><a href="structsalle.html#a9b8062397406fbd776a5e0f712a71807">salle::nb_porte</a></div><div class="ttdeci">int nb_porte</div><div class="ttdoc">Nombre de portes dans la salle.</div><div class="ttdef"><b>Definition:</b> mapStruct.h:74</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>

@@ -1,0 +1,184 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Highway to L2:  Fichier source de /mnt/c/ProjetL2/head/competence.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Highway to L2
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_06b090c849413a2743cf102ffb0713d3.html">head</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">competence.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="competence_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef __COMPETENCE__</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define __COMPETENCE__</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
+<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="competence_8h.html#ac094ad5c96abb76aa1317fa1edfbff69a3cd4b246340bdf3b56728a162787ee2c">   10</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">enum</span> {<a class="code" href="competence_8h.html#ac094ad5c96abb76aa1317fa1edfbff69ae33ca14066e60a500c0d3adb157f33cb">non_acquis</a>, <a class="code" href="competence_8h.html#ac094ad5c96abb76aa1317fa1edfbff69a3cd4b246340bdf3b56728a162787ee2c">acquis</a>} <a class="code" href="competence_8h.html#ac094ad5c96abb76aa1317fa1edfbff69">t_acquis</a>;</div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="competence_8h.html#a853cf4e56ef5ad960bf764a4fafe7e77ac482cec9850564270fde1520e0027024">   11</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">enum</span> {<a class="code" href="competence_8h.html#a853cf4e56ef5ad960bf764a4fafe7e77ac477aa579a54fb071d0b914093f9a444">AUCUNE_CLASSE</a>=-1, <a class="code" href="competence_8h.html#a853cf4e56ef5ad960bf764a4fafe7e77a736f06c3f833a149b33dd391ead84d2a">ASSASSIN</a>, <a class="code" href="competence_8h.html#a853cf4e56ef5ad960bf764a4fafe7e77a9f0ec0dd34ceeb8f08d0fed8679a031c">GUERRIER</a>, <a class="code" href="competence_8h.html#a853cf4e56ef5ad960bf764a4fafe7e77a010931f222a7946e90308d51d6ac283e">MAGE</a>, <a class="code" href="competence_8h.html#a853cf4e56ef5ad960bf764a4fafe7e77ac482cec9850564270fde1520e0027024">ARCHER</a>} <a class="code" href="competence_8h.html#a853cf4e56ef5ad960bf764a4fafe7e77">t_classe</a>;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="objet_8h.html">objet.h</a>&quot;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="competence_8h.html#a33eea7b879c511f1f4f21f4bfb8a7510">   15</a></span>&#160;<span class="preprocessor">#define T_NOM 100 </span><span class="comment">//&lt;! Taille du nom d&#39;une compétence</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="competence_8h.html#a5d27babfdc1e3e4436b0fa5566be67ed">   16</a></span>&#160;<span class="preprocessor">#define T_DESC 300 </span><span class="comment">//&lt;! Taille de la description d&#39;une compétence</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="competence_8h.html#a8e67f772cc7b97f1a02211a20bad0c30">   17</a></span>&#160;<span class="preprocessor">#define NB_CPT 10  </span><span class="comment">//&lt;! Nombre de compétences par classe</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="competence_8h.html#a8fc406f97003efd6cb26ce0bbfe80912">   19</a></span>&#160;<span class="preprocessor">#define NO_IMPROVE 1 </span><span class="comment">//&lt;! Pas d&#39;amélioration</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="competence_8h.html#a3b42f784c4bb79ce91a0c303bd805c53">   20</a></span>&#160;<span class="preprocessor">#define SMALL_IMPROVE 2  </span><span class="comment">//&lt;! Améliore légèrement </span></div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="competence_8h.html#ae83d55abd2e7d05e1928f00789979dcb">   21</a></span>&#160;<span class="preprocessor">#define MIDDLE_IMPROVE 3  </span><span class="comment">//&lt;! ameliore </span></div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="competence_8h.html#ad6827934fec2a2d3d83245559f7a2754">   22</a></span>&#160;<span class="preprocessor">#define BIG_IMPROVE 4     </span><span class="comment">//&lt;!améliore grandement </span></div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="competence_8h.html#a6df15e4152f39819d8b50c2190d7837f">   23</a></span>&#160;<span class="preprocessor">#define ULTRA_IMPROVE 5   </span><span class="comment">//&lt;! améliore énormémément </span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="structbuff__s.html">   31</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structbuff__s.html">buff_s</a>{</div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="structbuff__s.html#a96ec1664a4ba09a357b5666fca6c9d28">   32</a></span>&#160;    <span class="keywordtype">float</span> <a class="code" href="structbuff__s.html#a96ec1664a4ba09a357b5666fca6c9d28">buff_vie</a>; <span class="comment">//&lt;! Buff de vie</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="structbuff__s.html#a6f91418798d9bab2ec047d71f71e3a54">   33</a></span>&#160;    <span class="keywordtype">float</span> <a class="code" href="structbuff__s.html#a6f91418798d9bab2ec047d71f71e3a54">buff_degat</a>; <span class="comment">//&lt;! Buff de dégâts</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="structbuff__s.html#a37d206f540a1ddb2b3a3280e30497f8b">   34</a></span>&#160;    <span class="keywordtype">float</span> <a class="code" href="structbuff__s.html#a37d206f540a1ddb2b3a3280e30497f8b">buff_vit_att</a>; <span class="comment">//&lt;! Buff de vitesse d&#39;attaque</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="structbuff__s.html#a01099fe4c5a62a529a1f99cb0c08c7c8">   35</a></span>&#160;    <span class="keywordtype">float</span> <a class="code" href="structbuff__s.html#a01099fe4c5a62a529a1f99cb0c08c7c8">buff_vit_depl</a>; <span class="comment">//&lt;! Buff de vitesse de déplacement</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="structbuff__s.html#af05e88710de8fe008af3bc8adf81a79b">   36</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="structbuff__s.html#af05e88710de8fe008af3bc8adf81a79b">perim_detect</a>; <span class="comment">//&lt;! Périmetre de détection</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="competence_8h.html#aeead034f4ad58463243b669a3c22ec7a">   37</a></span>&#160;} <a class="code" href="competence_8h.html#aeead034f4ad58463243b669a3c22ec7a">t_buff</a>;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="structcompetence.html">   44</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structcompetence.html">competence</a>{</div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="structcompetence.html#a69c76be8e36aa4235231543212ed1bf3">   45</a></span>&#160;    <a class="code" href="competence_8h.html#ac094ad5c96abb76aa1317fa1edfbff69">t_acquis</a> <a class="code" href="structcompetence.html#a69c76be8e36aa4235231543212ed1bf3">competence_acquise</a>; <span class="comment">//&lt;! Indique si la compétence est acquise ou non</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="structcompetence.html#ae0ec8c73dbbf195cfa7445b95ca64df9">   46</a></span>&#160;    <span class="keywordtype">char</span> <a class="code" href="structcompetence.html#ae0ec8c73dbbf195cfa7445b95ca64df9">nom</a>[<a class="code" href="competence_8h.html#a33eea7b879c511f1f4f21f4bfb8a7510">T_NOM</a>]; <span class="comment">//&lt;! Nom de la compétence</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="structcompetence.html#a504cdb7f3d2cb08a9e722999b5125e78">   47</a></span>&#160;    <span class="keywordtype">char</span> <a class="code" href="structcompetence.html#a504cdb7f3d2cb08a9e722999b5125e78">desc</a>[<a class="code" href="competence_8h.html#a5d27babfdc1e3e4436b0fa5566be67ed">T_DESC</a>]; <span class="comment">//&lt;! Description de la compétence</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="structcompetence.html#a12aa7a329db3e52babfb9c412ec17d51">   48</a></span>&#160;    <a class="code" href="structbuff__s.html">t_buff</a> <a class="code" href="structcompetence.html#a12aa7a329db3e52babfb9c412ec17d51">buff</a>; <span class="comment">//&lt;! Buff de la compétence</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="structcompetence.html#a92f0ea0ed2adb7b681c0526fb62318e4">   49</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="structcompetence.html">competence</a> **<a class="code" href="structcompetence.html#a92f0ea0ed2adb7b681c0526fb62318e4">precedentes</a>; <span class="comment">//&lt;! Pointeur sur la compétence précédente</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="structcompetence.html#a106a7bd730a3519077ffc84920356ae9">   50</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="structcompetence.html#a106a7bd730a3519077ffc84920356ae9">nb_prec</a>; <span class="comment">//&lt;! Nombre de compétences précédentes</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="structcompetence.html#a0b184975b912e7a5cb5bff57598da727">   51</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="structcompetence.html">competence</a> **<a class="code" href="structcompetence.html#a0b184975b912e7a5cb5bff57598da727">suivantes</a>; <span class="comment">//&lt;! Pointeur sur la compétence suivante</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="structcompetence.html#a6bd54294876b3f00b4b5814766227b7a">   52</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="structcompetence.html#a6bd54294876b3f00b4b5814766227b7a">nb_suiv</a>; <span class="comment">//&lt;! Nombre de compétences suivantes</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="structcompetence.html#a74d708e475add176dd4e6141ad1d99c6">   53</a></span>&#160;    <span class="keywordtype">char</span> *<a class="code" href="structcompetence.html#a74d708e475add176dd4e6141ad1d99c6">name_img</a>;      <span class="comment">//&lt;! chemin vers  l&#39;image de la compétence (debloquée ou non).</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="structcompetence.html#a13d4358c2d6b3f3e4a05c83171406370">   54</a></span>&#160;    <a class="code" href="structobjet__inv__t.html">objet_inv_t</a> *<a class="code" href="structcompetence.html#a13d4358c2d6b3f3e4a05c83171406370">obj_necessaires</a>; <span class="comment">//&lt;! Pointeur sur les objets nécessaires pour débloquer la compétence</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="structcompetence.html#adc9100d0cec442692e41ed61c7a25a40">   55</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="structcompetence.html#adc9100d0cec442692e41ed61c7a25a40">taille_tab_obj_nec</a>; <span class="comment">//&lt;! Taille du tableau d&#39;objets nécessaires</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="structcompetence.html#ad0437c1f967e3a94793f2f42b66c5776">   56</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="structcompetence.html#ad0437c1f967e3a94793f2f42b66c5776">etage</a>; <span class="comment">//&lt;! Etage de la compétence</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="competence_8h.html#a774ce31da3950a40e34239f9fa8b8fb1">   57</a></span>&#160;} <a class="code" href="competence_8h.html#a774ce31da3950a40e34239f9fa8b8fb1">t_competence</a>;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="keyword">extern</span> <a class="code" href="structcompetence.html">t_competence</a> <a class="code" href="competence_8h.html#abc9ea3f436e38d5743197aacca0c3846">cpt_assassin</a>[]; <span class="comment">//&lt;! Tableau de Compétence d&#39;assassin</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="keyword">extern</span> <a class="code" href="structcompetence.html">t_competence</a> <a class="code" href="competence_8h.html#a4f4fa9a719a4f284aeed33578b8ac2e2">cpt_guerrier</a>[]; <span class="comment">//&lt;! Tableau de Compétence de guerrier</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="keyword">extern</span> <a class="code" href="structcompetence.html">t_competence</a> <a class="code" href="competence_8h.html#a88e83442fdb0fd8062583e5e804e027c">cpt_archer</a>[]; <span class="comment">//&lt;! Tableau de Compétence d&#39;archer</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="keyword">extern</span> <a class="code" href="structcompetence.html">t_competence</a> <a class="code" href="competence_8h.html#a6ffbc6c4f994180d72eced35b8ab1bd7">cpt_mage</a>[]; <span class="comment">//&lt;! Tableau de Compétence de mage</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="comment">/* Fonctions de competence.c */</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="keywordtype">int</span> <a class="code" href="competence_8h.html#a7288a7a1da3508f80b1ba35c88a8830a">init_obj_necessaires</a>(<a class="code" href="structcompetence.html">t_competence</a>* <a class="code" href="structcompetence.html">competence</a>, <a class="code" href="competence_8h.html#a853cf4e56ef5ad960bf764a4fafe7e77">t_classe</a> typeClasse, <span class="keywordtype">int</span> indice);</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="keywordtype">int</span> <a class="code" href="competence_8h.html#a085615dd1e4ef15aa422ccf901407de1">changer_nomImgCpt</a>(<a class="code" href="structcompetence.html">t_competence</a> * <a class="code" href="structcompetence.html">competence</a>);</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="keywordtype">int</span> <a class="code" href="competence_8h.html#a2fbf26c59ad999c95afdce071d19e145">init_competences</a>(<a class="code" href="structcompetence.html">t_competence</a> **competences, <a class="code" href="competence_8h.html#a853cf4e56ef5ad960bf764a4fafe7e77">t_classe</a> typeClasse);</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="keywordtype">void</span> <a class="code" href="competence_8h.html#abebf07555a61bc16b15d298476859f58">aff_competence</a>(<a class="code" href="structcompetence.html">t_competence</a> <a class="code" href="structcompetence.html">competence</a>);</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="arbre_8h.html">arbre.h</a>&quot;</span></div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="keywordtype">int</span> <a class="code" href="competence_8h.html#a52bc84e43fee23e1b1ad6ceef31a8ffb">remplissage_nomImgCpt</a>(<a class="code" href="structcompetence.html">t_competence</a> **competences, <a class="code" href="competence_8h.html#a853cf4e56ef5ad960bf764a4fafe7e77">t_classe</a> typeClasse);</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160; </div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160; </div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aarbre_8h_html"><div class="ttname"><a href="arbre_8h.html">arbre.h</a></div><div class="ttdoc">Fichier contenant les structure et prototype de fonction pour la gestion des arbres de compétences.</div></div>
+<div class="ttc" id="acompetence_8h_html_a085615dd1e4ef15aa422ccf901407de1"><div class="ttname"><a href="competence_8h.html#a085615dd1e4ef15aa422ccf901407de1">changer_nomImgCpt</a></div><div class="ttdeci">int changer_nomImgCpt(t_competence *competence)</div><div class="ttdoc">Fonction qui change le nom de l'image de la compétence.</div><div class="ttdef"><b>Definition:</b> competence.c:410</div></div>
+<div class="ttc" id="acompetence_8h_html_a2fbf26c59ad999c95afdce071d19e145"><div class="ttname"><a href="competence_8h.html#a2fbf26c59ad999c95afdce071d19e145">init_competences</a></div><div class="ttdeci">int init_competences(t_competence **competences, t_classe typeClasse)</div><div class="ttdoc">Fonction qui initialise les compétences d'une classe.</div><div class="ttdef"><b>Definition:</b> competence.c:462</div></div>
+<div class="ttc" id="acompetence_8h_html_a33eea7b879c511f1f4f21f4bfb8a7510"><div class="ttname"><a href="competence_8h.html#a33eea7b879c511f1f4f21f4bfb8a7510">T_NOM</a></div><div class="ttdeci">#define T_NOM</div><div class="ttdef"><b>Definition:</b> competence.h:15</div></div>
+<div class="ttc" id="acompetence_8h_html_a4f4fa9a719a4f284aeed33578b8ac2e2"><div class="ttname"><a href="competence_8h.html#a4f4fa9a719a4f284aeed33578b8ac2e2">cpt_guerrier</a></div><div class="ttdeci">t_competence cpt_guerrier[]</div><div class="ttdef"><b>Definition:</b> competence.c:48</div></div>
+<div class="ttc" id="acompetence_8h_html_a52bc84e43fee23e1b1ad6ceef31a8ffb"><div class="ttname"><a href="competence_8h.html#a52bc84e43fee23e1b1ad6ceef31a8ffb">remplissage_nomImgCpt</a></div><div class="ttdeci">int remplissage_nomImgCpt(t_competence **competences, t_classe typeClasse)</div><div class="ttdoc">Fonction qui remplit le nom de l'image de la compétence.</div><div class="ttdef"><b>Definition:</b> competence.c:430</div></div>
+<div class="ttc" id="acompetence_8h_html_a5d27babfdc1e3e4436b0fa5566be67ed"><div class="ttname"><a href="competence_8h.html#a5d27babfdc1e3e4436b0fa5566be67ed">T_DESC</a></div><div class="ttdeci">#define T_DESC</div><div class="ttdef"><b>Definition:</b> competence.h:16</div></div>
+<div class="ttc" id="acompetence_8h_html_a6ffbc6c4f994180d72eced35b8ab1bd7"><div class="ttname"><a href="competence_8h.html#a6ffbc6c4f994180d72eced35b8ab1bd7">cpt_mage</a></div><div class="ttdeci">t_competence cpt_mage[]</div><div class="ttdef"><b>Definition:</b> competence.c:29</div></div>
+<div class="ttc" id="acompetence_8h_html_a7288a7a1da3508f80b1ba35c88a8830a"><div class="ttname"><a href="competence_8h.html#a7288a7a1da3508f80b1ba35c88a8830a">init_obj_necessaires</a></div><div class="ttdeci">int init_obj_necessaires(t_competence *competence, t_classe typeClasse, int indice)</div><div class="ttdoc">Fonction qui initialise les objets nécessaires pour débloquer une compétence.</div><div class="ttdef"><b>Definition:</b> competence.c:92</div></div>
+<div class="ttc" id="acompetence_8h_html_a774ce31da3950a40e34239f9fa8b8fb1"><div class="ttname"><a href="competence_8h.html#a774ce31da3950a40e34239f9fa8b8fb1">t_competence</a></div><div class="ttdeci">struct competence t_competence</div></div>
+<div class="ttc" id="acompetence_8h_html_a853cf4e56ef5ad960bf764a4fafe7e77"><div class="ttname"><a href="competence_8h.html#a853cf4e56ef5ad960bf764a4fafe7e77">t_classe</a></div><div class="ttdeci">t_classe</div><div class="ttdef"><b>Definition:</b> competence.h:11</div></div>
+<div class="ttc" id="acompetence_8h_html_a853cf4e56ef5ad960bf764a4fafe7e77a010931f222a7946e90308d51d6ac283e"><div class="ttname"><a href="competence_8h.html#a853cf4e56ef5ad960bf764a4fafe7e77a010931f222a7946e90308d51d6ac283e">MAGE</a></div><div class="ttdeci">@ MAGE</div><div class="ttdef"><b>Definition:</b> competence.h:11</div></div>
+<div class="ttc" id="acompetence_8h_html_a853cf4e56ef5ad960bf764a4fafe7e77a736f06c3f833a149b33dd391ead84d2a"><div class="ttname"><a href="competence_8h.html#a853cf4e56ef5ad960bf764a4fafe7e77a736f06c3f833a149b33dd391ead84d2a">ASSASSIN</a></div><div class="ttdeci">@ ASSASSIN</div><div class="ttdef"><b>Definition:</b> competence.h:11</div></div>
+<div class="ttc" id="acompetence_8h_html_a853cf4e56ef5ad960bf764a4fafe7e77a9f0ec0dd34ceeb8f08d0fed8679a031c"><div class="ttname"><a href="competence_8h.html#a853cf4e56ef5ad960bf764a4fafe7e77a9f0ec0dd34ceeb8f08d0fed8679a031c">GUERRIER</a></div><div class="ttdeci">@ GUERRIER</div><div class="ttdef"><b>Definition:</b> competence.h:11</div></div>
+<div class="ttc" id="acompetence_8h_html_a853cf4e56ef5ad960bf764a4fafe7e77ac477aa579a54fb071d0b914093f9a444"><div class="ttname"><a href="competence_8h.html#a853cf4e56ef5ad960bf764a4fafe7e77ac477aa579a54fb071d0b914093f9a444">AUCUNE_CLASSE</a></div><div class="ttdeci">@ AUCUNE_CLASSE</div><div class="ttdef"><b>Definition:</b> competence.h:11</div></div>
+<div class="ttc" id="acompetence_8h_html_a853cf4e56ef5ad960bf764a4fafe7e77ac482cec9850564270fde1520e0027024"><div class="ttname"><a href="competence_8h.html#a853cf4e56ef5ad960bf764a4fafe7e77ac482cec9850564270fde1520e0027024">ARCHER</a></div><div class="ttdeci">@ ARCHER</div><div class="ttdef"><b>Definition:</b> competence.h:11</div></div>
+<div class="ttc" id="acompetence_8h_html_a88e83442fdb0fd8062583e5e804e027c"><div class="ttname"><a href="competence_8h.html#a88e83442fdb0fd8062583e5e804e027c">cpt_archer</a></div><div class="ttdeci">t_competence cpt_archer[]</div><div class="ttdef"><b>Definition:</b> competence.c:66</div></div>
+<div class="ttc" id="acompetence_8h_html_abc9ea3f436e38d5743197aacca0c3846"><div class="ttname"><a href="competence_8h.html#abc9ea3f436e38d5743197aacca0c3846">cpt_assassin</a></div><div class="ttdeci">t_competence cpt_assassin[]</div><div class="ttdef"><b>Definition:</b> competence.c:10</div></div>
+<div class="ttc" id="acompetence_8h_html_abebf07555a61bc16b15d298476859f58"><div class="ttname"><a href="competence_8h.html#abebf07555a61bc16b15d298476859f58">aff_competence</a></div><div class="ttdeci">void aff_competence(t_competence competence)</div><div class="ttdoc">Fonction qui affiche les informations d'une compétence.</div><div class="ttdef"><b>Definition:</b> competence.c:543</div></div>
+<div class="ttc" id="acompetence_8h_html_ac094ad5c96abb76aa1317fa1edfbff69"><div class="ttname"><a href="competence_8h.html#ac094ad5c96abb76aa1317fa1edfbff69">t_acquis</a></div><div class="ttdeci">t_acquis</div><div class="ttdef"><b>Definition:</b> competence.h:10</div></div>
+<div class="ttc" id="acompetence_8h_html_ac094ad5c96abb76aa1317fa1edfbff69a3cd4b246340bdf3b56728a162787ee2c"><div class="ttname"><a href="competence_8h.html#ac094ad5c96abb76aa1317fa1edfbff69a3cd4b246340bdf3b56728a162787ee2c">acquis</a></div><div class="ttdeci">@ acquis</div><div class="ttdef"><b>Definition:</b> competence.h:10</div></div>
+<div class="ttc" id="acompetence_8h_html_ac094ad5c96abb76aa1317fa1edfbff69ae33ca14066e60a500c0d3adb157f33cb"><div class="ttname"><a href="competence_8h.html#ac094ad5c96abb76aa1317fa1edfbff69ae33ca14066e60a500c0d3adb157f33cb">non_acquis</a></div><div class="ttdeci">@ non_acquis</div><div class="ttdef"><b>Definition:</b> competence.h:10</div></div>
+<div class="ttc" id="acompetence_8h_html_aeead034f4ad58463243b669a3c22ec7a"><div class="ttname"><a href="competence_8h.html#aeead034f4ad58463243b669a3c22ec7a">t_buff</a></div><div class="ttdeci">struct buff_s t_buff</div></div>
+<div class="ttc" id="aobjet_8h_html"><div class="ttname"><a href="objet_8h.html">objet.h</a></div><div class="ttdoc">Fichier contenant toutes les structutes de données liées aux objets.</div></div>
+<div class="ttc" id="astructbuff__s_html"><div class="ttname"><a href="structbuff__s.html">buff_s</a></div><div class="ttdoc">Structure contenant les différents buffs d'une compétence.</div><div class="ttdef"><b>Definition:</b> competence.h:31</div></div>
+<div class="ttc" id="astructbuff__s_html_a01099fe4c5a62a529a1f99cb0c08c7c8"><div class="ttname"><a href="structbuff__s.html#a01099fe4c5a62a529a1f99cb0c08c7c8">buff_s::buff_vit_depl</a></div><div class="ttdeci">float buff_vit_depl</div><div class="ttdef"><b>Definition:</b> competence.h:35</div></div>
+<div class="ttc" id="astructbuff__s_html_a37d206f540a1ddb2b3a3280e30497f8b"><div class="ttname"><a href="structbuff__s.html#a37d206f540a1ddb2b3a3280e30497f8b">buff_s::buff_vit_att</a></div><div class="ttdeci">float buff_vit_att</div><div class="ttdef"><b>Definition:</b> competence.h:34</div></div>
+<div class="ttc" id="astructbuff__s_html_a6f91418798d9bab2ec047d71f71e3a54"><div class="ttname"><a href="structbuff__s.html#a6f91418798d9bab2ec047d71f71e3a54">buff_s::buff_degat</a></div><div class="ttdeci">float buff_degat</div><div class="ttdef"><b>Definition:</b> competence.h:33</div></div>
+<div class="ttc" id="astructbuff__s_html_a96ec1664a4ba09a357b5666fca6c9d28"><div class="ttname"><a href="structbuff__s.html#a96ec1664a4ba09a357b5666fca6c9d28">buff_s::buff_vie</a></div><div class="ttdeci">float buff_vie</div><div class="ttdef"><b>Definition:</b> competence.h:32</div></div>
+<div class="ttc" id="astructbuff__s_html_af05e88710de8fe008af3bc8adf81a79b"><div class="ttname"><a href="structbuff__s.html#af05e88710de8fe008af3bc8adf81a79b">buff_s::perim_detect</a></div><div class="ttdeci">int perim_detect</div><div class="ttdef"><b>Definition:</b> competence.h:36</div></div>
+<div class="ttc" id="astructcompetence_html"><div class="ttname"><a href="structcompetence.html">competence</a></div><div class="ttdoc">Structure contenant les informations d'une compétence.</div><div class="ttdef"><b>Definition:</b> competence.h:44</div></div>
+<div class="ttc" id="astructcompetence_html_a0b184975b912e7a5cb5bff57598da727"><div class="ttname"><a href="structcompetence.html#a0b184975b912e7a5cb5bff57598da727">competence::suivantes</a></div><div class="ttdeci">struct competence ** suivantes</div><div class="ttdef"><b>Definition:</b> competence.h:51</div></div>
+<div class="ttc" id="astructcompetence_html_a106a7bd730a3519077ffc84920356ae9"><div class="ttname"><a href="structcompetence.html#a106a7bd730a3519077ffc84920356ae9">competence::nb_prec</a></div><div class="ttdeci">int nb_prec</div><div class="ttdef"><b>Definition:</b> competence.h:50</div></div>
+<div class="ttc" id="astructcompetence_html_a12aa7a329db3e52babfb9c412ec17d51"><div class="ttname"><a href="structcompetence.html#a12aa7a329db3e52babfb9c412ec17d51">competence::buff</a></div><div class="ttdeci">t_buff buff</div><div class="ttdef"><b>Definition:</b> competence.h:48</div></div>
+<div class="ttc" id="astructcompetence_html_a13d4358c2d6b3f3e4a05c83171406370"><div class="ttname"><a href="structcompetence.html#a13d4358c2d6b3f3e4a05c83171406370">competence::obj_necessaires</a></div><div class="ttdeci">objet_inv_t * obj_necessaires</div><div class="ttdef"><b>Definition:</b> competence.h:54</div></div>
+<div class="ttc" id="astructcompetence_html_a504cdb7f3d2cb08a9e722999b5125e78"><div class="ttname"><a href="structcompetence.html#a504cdb7f3d2cb08a9e722999b5125e78">competence::desc</a></div><div class="ttdeci">char desc[T_DESC]</div><div class="ttdef"><b>Definition:</b> competence.h:47</div></div>
+<div class="ttc" id="astructcompetence_html_a69c76be8e36aa4235231543212ed1bf3"><div class="ttname"><a href="structcompetence.html#a69c76be8e36aa4235231543212ed1bf3">competence::competence_acquise</a></div><div class="ttdeci">t_acquis competence_acquise</div><div class="ttdef"><b>Definition:</b> competence.h:45</div></div>
+<div class="ttc" id="astructcompetence_html_a6bd54294876b3f00b4b5814766227b7a"><div class="ttname"><a href="structcompetence.html#a6bd54294876b3f00b4b5814766227b7a">competence::nb_suiv</a></div><div class="ttdeci">int nb_suiv</div><div class="ttdef"><b>Definition:</b> competence.h:52</div></div>
+<div class="ttc" id="astructcompetence_html_a74d708e475add176dd4e6141ad1d99c6"><div class="ttname"><a href="structcompetence.html#a74d708e475add176dd4e6141ad1d99c6">competence::name_img</a></div><div class="ttdeci">char * name_img</div><div class="ttdef"><b>Definition:</b> competence.h:53</div></div>
+<div class="ttc" id="astructcompetence_html_a92f0ea0ed2adb7b681c0526fb62318e4"><div class="ttname"><a href="structcompetence.html#a92f0ea0ed2adb7b681c0526fb62318e4">competence::precedentes</a></div><div class="ttdeci">struct competence ** precedentes</div><div class="ttdef"><b>Definition:</b> competence.h:49</div></div>
+<div class="ttc" id="astructcompetence_html_ad0437c1f967e3a94793f2f42b66c5776"><div class="ttname"><a href="structcompetence.html#ad0437c1f967e3a94793f2f42b66c5776">competence::etage</a></div><div class="ttdeci">int etage</div><div class="ttdef"><b>Definition:</b> competence.h:56</div></div>
+<div class="ttc" id="astructcompetence_html_adc9100d0cec442692e41ed61c7a25a40"><div class="ttname"><a href="structcompetence.html#adc9100d0cec442692e41ed61c7a25a40">competence::taille_tab_obj_nec</a></div><div class="ttdeci">int taille_tab_obj_nec</div><div class="ttdef"><b>Definition:</b> competence.h:55</div></div>
+<div class="ttc" id="astructcompetence_html_ae0ec8c73dbbf195cfa7445b95ca64df9"><div class="ttname"><a href="structcompetence.html#ae0ec8c73dbbf195cfa7445b95ca64df9">competence::nom</a></div><div class="ttdeci">char nom[T_NOM]</div><div class="ttdef"><b>Definition:</b> competence.h:46</div></div>
+<div class="ttc" id="astructobjet__inv__t_html"><div class="ttname"><a href="structobjet__inv__t.html">objet_inv_t</a></div><div class="ttdoc">Type union objet contenu dans l'inventaire:</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>

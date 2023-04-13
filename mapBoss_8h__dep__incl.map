@@ -1,0 +1,5 @@
+<map id="/mnt/c/ProjetL2/head/mapBoss.h" name="/mnt/c/ProjetL2/head/mapBoss.h">
+<area shape="rect" id="node1" title="Fichier contenant les prototypes de fonctions pour la gestion des salles boss." alt="" coords="81,5,237,47"/>
+<area shape="rect" id="node2" href="$map__jeu__entite_8c.html" title="Fichier contenant les fonctions principal du jeu." alt="" coords="5,95,148,136"/>
+<area shape="rect" id="node3" href="$mapBoss_8c.html" title="Fichier contenant les fonctions pour la génération de la salle du boss et marchand." alt="" coords="172,95,315,136"/>
+</map>

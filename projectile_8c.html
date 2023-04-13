@@ -1,0 +1,610 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Highway to L2: Référence du fichier /mnt/c/ProjetL2/src/projectile.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Highway to L2
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#define-members">Macros</a> &#124;
+<a href="#func-members">Fonctions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
+  <div class="headertitle">
+<div class="title">Référence du fichier projectile.c</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
+<code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="projectile_8h_source.html">../head/projectile.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="mapStruct_8h_source.html">../head/mapStruct.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Graphe des dépendances par inclusion de projectile.c:</div>
+<div class="dyncontent">
+<div class="center"><img src="projectile_8c__incl.png" border="0" usemap="#a_2mnt_2c_2ProjetL2_2src_2projectile_8c" alt=""/></div>
+<map name="a_2mnt_2c_2ProjetL2_2src_2projectile_8c" id="a_2mnt_2c_2ProjetL2_2src_2projectile_8c">
+<area shape="rect" title=" " alt="" coords="98,5,241,47"/>
+<area shape="rect" title=" " alt="" coords="5,169,72,196"/>
+<area shape="rect" title=" " alt="" coords="97,169,167,196"/>
+<area shape="rect" href="projectile_8h.html" title=" " alt="" coords="153,95,295,121"/>
+<area shape="rect" href="mapStruct_8h.html" title="Définition des structures de données pour la map." alt="" coords="320,95,469,121"/>
+<area shape="rect" title=" " alt="" coords="192,169,275,196"/>
+<area shape="rect" href="entite_8h.html" title="Fichier d&#39;en&#45;tete pour les primitives liées aux entites." alt="" coords="299,169,419,196"/>
+<area shape="rect" href="objet_8h.html" title="Fichier contenant toutes les structutes de données liées aux objets." alt="" coords="373,244,440,271"/>
+<area shape="rect" href="objet__inv_8h.html" title=" " alt="" coords="360,319,453,345"/>
+</map>
+</div>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:ac7df6cc26d819137d5b901415ecd2df6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="projectile_8c.html#ac7df6cc26d819137d5b901415ecd2df6">NB_PROJ</a>&#160;&#160;&#160;2</td></tr>
+<tr class="separator:ac7df6cc26d819137d5b901415ecd2df6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:a4c6611cf398799cf0a9bb9333b80d872"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="projectile_8c.html#a4c6611cf398799cf0a9bb9333b80d872">init_liste_proj</a> (void)</td></tr>
+<tr class="memdesc:a4c6611cf398799cf0a9bb9333b80d872"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction d'initialisation de la liste chaînée des projectiles.  <a href="projectile_8c.html#a4c6611cf398799cf0a9bb9333b80d872">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a4c6611cf398799cf0a9bb9333b80d872"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a232b85cc89be6542369240137abf3122"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="projectile_8c.html#a232b85cc89be6542369240137abf3122">liste_vide_proj</a> (void)</td></tr>
+<tr class="memdesc:a232b85cc89be6542369240137abf3122"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction de vérification de la liste chaînée des projectiles.  <a href="projectile_8c.html#a232b85cc89be6542369240137abf3122">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a232b85cc89be6542369240137abf3122"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa5c9cd21860ffdaf32877f8d12f100aa"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="projectile_8c.html#aa5c9cd21860ffdaf32877f8d12f100aa">hors_liste_proj</a> (void)</td></tr>
+<tr class="memdesc:aa5c9cd21860ffdaf32877f8d12f100aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction de vérification de la liste chaînée des projectiles.  <a href="projectile_8c.html#aa5c9cd21860ffdaf32877f8d12f100aa">Plus de détails...</a><br /></td></tr>
+<tr class="separator:aa5c9cd21860ffdaf32877f8d12f100aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa3b5bedfea7e34815d44e56edf622e38"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="projectile_8c.html#aa3b5bedfea7e34815d44e56edf622e38">en_tete_proj</a> (void)</td></tr>
+<tr class="memdesc:aa3b5bedfea7e34815d44e56edf622e38"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction de déplacement de l'élément courant de la liste chaînée des projectiles.  <a href="projectile_8c.html#aa3b5bedfea7e34815d44e56edf622e38">Plus de détails...</a><br /></td></tr>
+<tr class="separator:aa3b5bedfea7e34815d44e56edf622e38"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2ab272c879b71f30046ef6334e26e3dc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="projectile_8c.html#a2ab272c879b71f30046ef6334e26e3dc">en_queue_proj</a> (void)</td></tr>
+<tr class="memdesc:a2ab272c879b71f30046ef6334e26e3dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction de déplacement de l'élément courant de la liste chaînée des projectiles.  <a href="projectile_8c.html#a2ab272c879b71f30046ef6334e26e3dc">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a2ab272c879b71f30046ef6334e26e3dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aada67e5cdb512df26c1a934370c60bec"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="projectile_8c.html#aada67e5cdb512df26c1a934370c60bec">precedent_proj</a> (void)</td></tr>
+<tr class="memdesc:aada67e5cdb512df26c1a934370c60bec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction de déplacement de l'élément courant de la liste chaînée des projectiles.  <a href="projectile_8c.html#aada67e5cdb512df26c1a934370c60bec">Plus de détails...</a><br /></td></tr>
+<tr class="separator:aada67e5cdb512df26c1a934370c60bec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7bd588e2ca95130ee415e3ca66967503"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="projectile_8c.html#a7bd588e2ca95130ee415e3ca66967503">suivant_proj</a> (void)</td></tr>
+<tr class="memdesc:a7bd588e2ca95130ee415e3ca66967503"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction de déplacement de l'élément courant de la liste chaînée des projectiles.  <a href="projectile_8c.html#a7bd588e2ca95130ee415e3ca66967503">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a7bd588e2ca95130ee415e3ca66967503"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b91fc2b6d7c14fd5efc2538965b6697"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="projectile_8c.html#a4b91fc2b6d7c14fd5efc2538965b6697">valeur_elt_proj</a> (<a class="el" href="projectile_8h.html#ac903fae6aae2ffb58fecf1ba670e7530">projectile_t</a> **proj)</td></tr>
+<tr class="memdesc:a4b91fc2b6d7c14fd5efc2538965b6697"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction de récupération de l'élément courant de la liste chaînée des projectiles.  <a href="projectile_8c.html#a4b91fc2b6d7c14fd5efc2538965b6697">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a4b91fc2b6d7c14fd5efc2538965b6697"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a09eef5ca4f1cf8428dbf5db81fffb65e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="projectile_8c.html#a09eef5ca4f1cf8428dbf5db81fffb65e">modif_elt_proj</a> (<a class="el" href="projectile_8h.html#ac903fae6aae2ffb58fecf1ba670e7530">projectile_t</a> *proj)</td></tr>
+<tr class="memdesc:a09eef5ca4f1cf8428dbf5db81fffb65e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction de modification de l'élément courant de la liste chaînée des projectiles.  <a href="projectile_8c.html#a09eef5ca4f1cf8428dbf5db81fffb65e">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a09eef5ca4f1cf8428dbf5db81fffb65e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad196d52b49c0dc79a003052c42231ef6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="projectile_8c.html#ad196d52b49c0dc79a003052c42231ef6">oter_elt_proj</a> (void)</td></tr>
+<tr class="memdesc:ad196d52b49c0dc79a003052c42231ef6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction de suppression de l'élément courant de la liste chaînée des projectiles.  <a href="projectile_8c.html#ad196d52b49c0dc79a003052c42231ef6">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ad196d52b49c0dc79a003052c42231ef6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada2a66be370d0b280a7f7df509b2ccd0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="projectile_8c.html#ada2a66be370d0b280a7f7df509b2ccd0">ajout_droit_proj</a> (<a class="el" href="projectile_8h.html#ac903fae6aae2ffb58fecf1ba670e7530">projectile_t</a> *proj)</td></tr>
+<tr class="memdesc:ada2a66be370d0b280a7f7df509b2ccd0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction d'ajout d'un élément à droite de l'élément courant de la liste chaînée des projectiles.  <a href="projectile_8c.html#ada2a66be370d0b280a7f7df509b2ccd0">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ada2a66be370d0b280a7f7df509b2ccd0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af64b961350360cf1094df6dc8603f0d4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="projectile_8c.html#af64b961350360cf1094df6dc8603f0d4">ajout_gauche_proj</a> (<a class="el" href="projectile_8h.html#ac903fae6aae2ffb58fecf1ba670e7530">projectile_t</a> *proj)</td></tr>
+<tr class="memdesc:af64b961350360cf1094df6dc8603f0d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction d'ajout d'un élément à gauche de l'élément courant de la liste chaînée des projectiles.  <a href="projectile_8c.html#af64b961350360cf1094df6dc8603f0d4">Plus de détails...</a><br /></td></tr>
+<tr class="separator:af64b961350360cf1094df6dc8603f0d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af249ba5abdd1c250499a0cf84db60c9b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="projectile_8c.html#af249ba5abdd1c250499a0cf84db60c9b">valide</a> (int x, int y)</td></tr>
+<tr class="separator:af249ba5abdd1c250499a0cf84db60c9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af0b2e1bfacb8cd958c93f74278f6ffca"><td class="memItemLeft" align="right" valign="top"><a class="el" href="projectile_8h.html#ac903fae6aae2ffb58fecf1ba670e7530">projectile_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="projectile_8c.html#af0b2e1bfacb8cd958c93f74278f6ffca">creer_projectiles</a> (<a class="el" href="projectile_8h.html#acc7c0caaacece8c622810596502a1733">proj_t</a> type)</td></tr>
+<tr class="memdesc:af0b2e1bfacb8cd958c93f74278f6ffca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction de création d'un projectile.  <a href="projectile_8c.html#af0b2e1bfacb8cd958c93f74278f6ffca">Plus de détails...</a><br /></td></tr>
+<tr class="separator:af0b2e1bfacb8cd958c93f74278f6ffca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad6596985f633ba71a0b5fc33ddb2ceae"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="projectile_8c.html#ad6596985f633ba71a0b5fc33ddb2ceae">detruire_projectiles</a> (<a class="el" href="projectile_8h.html#ac903fae6aae2ffb58fecf1ba670e7530">projectile_t</a> **proj)</td></tr>
+<tr class="memdesc:ad6596985f633ba71a0b5fc33ddb2ceae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction de destruction d'un projectile.  <a href="projectile_8c.html#ad6596985f633ba71a0b5fc33ddb2ceae">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ad6596985f633ba71a0b5fc33ddb2ceae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf926f493118d886b2fada06be5c5c4a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="projectile_8c.html#abf926f493118d886b2fada06be5c5c4a">calcul_position</a> (<a class="el" href="projectile_8h.html#ac903fae6aae2ffb58fecf1ba670e7530">projectile_t</a> *proj)</td></tr>
+<tr class="memdesc:abf926f493118d886b2fada06be5c5c4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction de calcul de la position d'un projectile.  <a href="projectile_8c.html#abf926f493118d886b2fada06be5c5c4a">Plus de détails...</a><br /></td></tr>
+<tr class="separator:abf926f493118d886b2fada06be5c5c4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a0c3bc65023967a457d3f8427649fb965"><td class="memItemLeft" align="right" valign="top"><a class="el" href="projectile_8h.html#aaa9f09bf55fb32a9090e2dc051b75a6a">t_element</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="projectile_8c.html#a0c3bc65023967a457d3f8427649fb965">drapeau</a></td></tr>
+<tr class="separator:a0c3bc65023967a457d3f8427649fb965"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a33528e825c99db5ca765f2d8c9b1340e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="projectile_8h.html#aaa9f09bf55fb32a9090e2dc051b75a6a">t_element</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="projectile_8c.html#a33528e825c99db5ca765f2d8c9b1340e">ec</a></td></tr>
+<tr class="separator:a33528e825c99db5ca765f2d8c9b1340e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a860d499838681bc4465697481ae9da68"><td class="memItemLeft" align="right" valign="top"><a class="el" href="projectile_8h.html#a87493e35cb7a0fcfde878e02e553effa">stat_proj_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="projectile_8c.html#a860d499838681bc4465697481ae9da68">tab_stat_proj</a> [<a class="el" href="projectile_8c.html#ac7df6cc26d819137d5b901415ecd2df6">NB_PROJ</a>]</td></tr>
+<tr class="separator:a860d499838681bc4465697481ae9da68"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Documentation des macros</h2>
+<a id="ac7df6cc26d819137d5b901415ecd2df6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac7df6cc26d819137d5b901415ecd2df6">&#9670;&nbsp;</a></span>NB_PROJ</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define NB_PROJ&#160;&#160;&#160;2</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des fonctions</h2>
+<a id="ada2a66be370d0b280a7f7df509b2ccd0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ada2a66be370d0b280a7f7df509b2ccd0">&#9670;&nbsp;</a></span>ajout_droit_proj()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ajout_droit_proj </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="projectile_8h.html#ac903fae6aae2ffb58fecf1ba670e7530">projectile_t</a> *&#160;</td>
+          <td class="paramname"><em>proj</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fonction d'ajout d'un élément à droite de l'élément courant de la liste chaînée des projectiles. </p>
+<p>Cette fonction ajoute un élément à droite de l'élément courant de la liste chaînée des projectiles </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">proj</td><td>Pointeur sur le projectile </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="af64b961350360cf1094df6dc8603f0d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af64b961350360cf1094df6dc8603f0d4">&#9670;&nbsp;</a></span>ajout_gauche_proj()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ajout_gauche_proj </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="projectile_8h.html#ac903fae6aae2ffb58fecf1ba670e7530">projectile_t</a> *&#160;</td>
+          <td class="paramname"><em>proj</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fonction d'ajout d'un élément à gauche de l'élément courant de la liste chaînée des projectiles. </p>
+<p>Cette fonction ajoute un élément à gauche de l'élément courant de la liste chaînée des projectiles </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">proj</td><td>Pointeur sur le projectile </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="abf926f493118d886b2fada06be5c5c4a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abf926f493118d886b2fada06be5c5c4a">&#9670;&nbsp;</a></span>calcul_position()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void calcul_position </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="projectile_8h.html#ac903fae6aae2ffb58fecf1ba670e7530">projectile_t</a> *&#160;</td>
+          <td class="paramname"><em>proj</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fonction de calcul de la position d'un projectile. </p>
+<p>Cette fonction calcule la position d'un projectile </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">proj</td><td>Pointeur sur le projectile </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="af0b2e1bfacb8cd958c93f74278f6ffca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af0b2e1bfacb8cd958c93f74278f6ffca">&#9670;&nbsp;</a></span>creer_projectiles()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="projectile_8h.html#ac903fae6aae2ffb58fecf1ba670e7530">projectile_t</a>* creer_projectiles </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="projectile_8h.html#acc7c0caaacece8c622810596502a1733">proj_t</a>&#160;</td>
+          <td class="paramname"><em>type</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fonction de création d'un projectile. </p>
+<p>Cette fonction crée un projectile selon le type passé en paramètre </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">type</td><td>Type de projectile à créer </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Pointeur sur le projectile créé </dd></dl>
+
+</div>
+</div>
+<a id="ad6596985f633ba71a0b5fc33ddb2ceae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad6596985f633ba71a0b5fc33ddb2ceae">&#9670;&nbsp;</a></span>detruire_projectiles()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void detruire_projectiles </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="projectile_8h.html#ac903fae6aae2ffb58fecf1ba670e7530">projectile_t</a> **&#160;</td>
+          <td class="paramname"><em>proj</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fonction de destruction d'un projectile. </p>
+<p>Cette fonction détruit un projectile </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">proj</td><td>Pointeur de pointeur sur le projectile à détruire </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a2ab272c879b71f30046ef6334e26e3dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2ab272c879b71f30046ef6334e26e3dc">&#9670;&nbsp;</a></span>en_queue_proj()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void en_queue_proj </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fonction de déplacement de l'élément courant de la liste chaînée des projectiles. </p>
+<p>Cette fonction déplace l'élément courant de la liste chaînée des projectiles sur le dernier élément de la liste </p><dl class="section return"><dt>Renvoie</dt><dd>1 si l'élément courant est hors de la liste, 0 sinon </dd></dl>
+
+</div>
+</div>
+<a id="aa3b5bedfea7e34815d44e56edf622e38"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa3b5bedfea7e34815d44e56edf622e38">&#9670;&nbsp;</a></span>en_tete_proj()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void en_tete_proj </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fonction de déplacement de l'élément courant de la liste chaînée des projectiles. </p>
+<p>Cette fonction déplace l'élément courant de la liste chaînée des projectiles sur le premier élément de la liste </p><dl class="section return"><dt>Renvoie</dt><dd>1 si l'élément courant est hors de la liste, 0 sinon </dd></dl>
+
+</div>
+</div>
+<a id="aa5c9cd21860ffdaf32877f8d12f100aa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa5c9cd21860ffdaf32877f8d12f100aa">&#9670;&nbsp;</a></span>hors_liste_proj()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int hors_liste_proj </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fonction de vérification de la liste chaînée des projectiles. </p>
+<p>Cette fonction vérifie si l'élément courant de la liste chaînée des projectiles est hors de la liste </p><dl class="section return"><dt>Renvoie</dt><dd>1 si l'élément courant est hors de la liste, 0 sinon </dd></dl>
+
+</div>
+</div>
+<a id="a4c6611cf398799cf0a9bb9333b80d872"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4c6611cf398799cf0a9bb9333b80d872">&#9670;&nbsp;</a></span>init_liste_proj()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void init_liste_proj </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fonction d'initialisation de la liste chaînée des projectiles. </p>
+<p>Cette fonction initialise la liste chaînée des projectiles </p>
+
+</div>
+</div>
+<a id="a232b85cc89be6542369240137abf3122"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a232b85cc89be6542369240137abf3122">&#9670;&nbsp;</a></span>liste_vide_proj()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int liste_vide_proj </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fonction de vérification de la liste chaînée des projectiles. </p>
+<p>Cette fonction vérifie si la liste chaînée des projectiles est vide </p><dl class="section return"><dt>Renvoie</dt><dd>1 si la liste est vide, 0 sinon </dd></dl>
+
+</div>
+</div>
+<a id="a09eef5ca4f1cf8428dbf5db81fffb65e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a09eef5ca4f1cf8428dbf5db81fffb65e">&#9670;&nbsp;</a></span>modif_elt_proj()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void modif_elt_proj </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="projectile_8h.html#ac903fae6aae2ffb58fecf1ba670e7530">projectile_t</a> *&#160;</td>
+          <td class="paramname"><em>proj</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fonction de modification de l'élément courant de la liste chaînée des projectiles. </p>
+<p>Cette fonction modifie l'élément courant de la liste chaînée des projectiles </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">proj</td><td>Pointeur sur le projectile </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ad196d52b49c0dc79a003052c42231ef6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad196d52b49c0dc79a003052c42231ef6">&#9670;&nbsp;</a></span>oter_elt_proj()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void oter_elt_proj </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fonction de suppression de l'élément courant de la liste chaînée des projectiles. </p>
+<p>Cette fonction supprime l'élément courant de la liste chaînée des projectiles </p>
+
+</div>
+</div>
+<a id="aada67e5cdb512df26c1a934370c60bec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aada67e5cdb512df26c1a934370c60bec">&#9670;&nbsp;</a></span>precedent_proj()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void precedent_proj </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fonction de déplacement de l'élément courant de la liste chaînée des projectiles. </p>
+<p>Cette fonction déplace l'élément courant de la liste chaînée des projectiles sur l'élément précédent </p><dl class="section return"><dt>Renvoie</dt><dd>1 si l'élément courant est hors de la liste, 0 sinon </dd></dl>
+
+</div>
+</div>
+<a id="a7bd588e2ca95130ee415e3ca66967503"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7bd588e2ca95130ee415e3ca66967503">&#9670;&nbsp;</a></span>suivant_proj()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void suivant_proj </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fonction de déplacement de l'élément courant de la liste chaînée des projectiles. </p>
+<p>Cette fonction déplace l'élément courant de la liste chaînée des projectiles sur l'élément suivant </p><dl class="section return"><dt>Renvoie</dt><dd>1 si l'élément courant est hors de la liste, 0 sinon </dd></dl>
+
+</div>
+</div>
+<a id="a4b91fc2b6d7c14fd5efc2538965b6697"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4b91fc2b6d7c14fd5efc2538965b6697">&#9670;&nbsp;</a></span>valeur_elt_proj()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void valeur_elt_proj </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="projectile_8h.html#ac903fae6aae2ffb58fecf1ba670e7530">projectile_t</a> **&#160;</td>
+          <td class="paramname"><em>proj</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fonction de récupération de l'élément courant de la liste chaînée des projectiles. </p>
+<p>Cette fonction récupère l'élément courant de la liste chaînée des projectiles </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">proj</td><td>Pointeur de pointeur sur le projectile </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>1 si l'élément courant est hors de la liste, 0 sinon </dd></dl>
+
+</div>
+</div>
+<a id="af249ba5abdd1c250499a0cf84db60c9b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af249ba5abdd1c250499a0cf84db60c9b">&#9670;&nbsp;</a></span>valide()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int valide </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des variables</h2>
+<a id="a0c3bc65023967a457d3f8427649fb965"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0c3bc65023967a457d3f8427649fb965">&#9670;&nbsp;</a></span>drapeau</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="projectile_8h.html#aaa9f09bf55fb32a9090e2dc051b75a6a">t_element</a>* drapeau</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a33528e825c99db5ca765f2d8c9b1340e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a33528e825c99db5ca765f2d8c9b1340e">&#9670;&nbsp;</a></span>ec</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="projectile_8h.html#aaa9f09bf55fb32a9090e2dc051b75a6a">t_element</a>* ec</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a860d499838681bc4465697481ae9da68"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a860d499838681bc4465697481ae9da68">&#9670;&nbsp;</a></span>tab_stat_proj</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="projectile_8h.html#a87493e35cb7a0fcfde878e02e553effa">stat_proj_t</a> tab_stat_proj[<a class="el" href="projectile_8c.html#ac7df6cc26d819137d5b901415ecd2df6">NB_PROJ</a>]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Valeur initiale :</b><div class="fragment"><div class="line">= {</div>
+<div class="line">    {2, 6}, </div>
+<div class="line">    {2, 8}  </div>
+<div class="line">}</div>
+</div><!-- fragment -->
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>
