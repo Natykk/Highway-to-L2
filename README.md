@@ -1,3 +1,4 @@
+
 # ProjetL2 : Highway to L2
 
 Bienvenue dans le README pour notre projet type roguelike en SDL2 nommé "Highway to L2". 
@@ -44,8 +45,5 @@ La Documentation générée par doxygen peut être trouvée dans le dossier doc 
 ## Contributions
 
 Les contributions à ce projet sont les bienvenues ! Si vous avez des idées d'amélioration ou des bugs à signaler, n'hésitez pas à créer une issue ou une pull request.
-    
-    
-    
     
     

@@ -1,0 +1,113 @@
+\hypertarget{entite_8c}{}\doxysection{Référence du fichier /mnt/c/\+Users/natik/\+Projet\+L2/src/entite.c}
+\label{entite_8c}\index{/mnt/c/Users/natik/ProjetL2/src/entite.c@{/mnt/c/Users/natik/ProjetL2/src/entite.c}}
+
+
+Primitives liées aux entites.  
+
+
+{\ttfamily \#include \char`\"{}../head/entite.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../head/arbre.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+Graphe des dépendances par inclusion de entite.\+c\+:
+% FIG 0
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{entite_8c_a6f20a22d9678a19173f1771836951b8b}\label{entite_8c_a6f20a22d9678a19173f1771836951b8b}} 
+void {\bfseries afficher\+\_\+entite} (entite\+\_\+t $\ast$entite)
+\item 
+\mbox{\Hypertarget{entite_8c_a6281f85c3c26ebd87b9c182d7deee9a5}\label{entite_8c_a6281f85c3c26ebd87b9c182d7deee9a5}} 
+void {\bfseries associer\+\_\+entite} (entite\+\_\+t $\ast$source, entite\+\_\+t $\ast$destination)
+\item 
+\mbox{\Hypertarget{entite_8c_a87ba579bb75dd4df19b1026c64cb0e50}\label{entite_8c_a87ba579bb75dd4df19b1026c64cb0e50}} 
+int {\bfseries acces\+\_\+mob} (char $\ast$chaine)
+\item 
+\mbox{\Hypertarget{entite_8c_aecdaa513897e975de2fe5256db0ce50c}\label{entite_8c_aecdaa513897e975de2fe5256db0ce50c}} 
+int {\bfseries acces\+\_\+boss} (char $\ast$chaine)
+\item 
+\mbox{\Hypertarget{entite_8c_aa6a9c845929e4ab11aadc9e914a4ce62}\label{entite_8c_aa6a9c845929e4ab11aadc9e914a4ce62}} 
+entite\+\_\+t $\ast$ {\bfseries creer\+\_\+personnage} (entite\+\_\+t $\ast$entite)
+\item 
+\mbox{\Hypertarget{entite_8c_aed3ed510f67c2cc47ac11e476499a066}\label{entite_8c_aed3ed510f67c2cc47ac11e476499a066}} 
+entite\+\_\+t $\ast$ {\bfseries creer\+\_\+monstre} (entite\+\_\+t $\ast$entite, char $\ast$nom)
+\item 
+\mbox{\Hypertarget{entite_8c_ad609d7bba18a6fedd04070e7f704eabe}\label{entite_8c_ad609d7bba18a6fedd04070e7f704eabe}} 
+entite\+\_\+t $\ast$ {\bfseries creer\+\_\+boss} (entite\+\_\+t $\ast$entite, char $\ast$nom)
+\item 
+\mbox{\Hypertarget{entite_8c_a2ed6c7ce22c5482cf6a33bf4ec285ec7}\label{entite_8c_a2ed6c7ce22c5482cf6a33bf4ec285ec7}} 
+void {\bfseries detruire\+\_\+entitee} (entite\+\_\+t $\ast$$\ast$entite)
+\item 
+\mbox{\Hypertarget{entite_8c_a467a9d69502a2a8279caa001489fa230}\label{entite_8c_a467a9d69502a2a8279caa001489fa230}} 
+void {\bfseries detruire\+\_\+personnage} (entite\+\_\+t $\ast$$\ast$personnage)
+\item 
+\mbox{\Hypertarget{entite_8c_a698a2516ea30aedba8f48a1a63c69f4b}\label{entite_8c_a698a2516ea30aedba8f48a1a63c69f4b}} 
+void {\bfseries detruire\+\_\+mob} (entite\+\_\+t $\ast$$\ast$mob)
+\item 
+\mbox{\Hypertarget{entite_8c_a6fd83f1f50b736bec55bbadfad7a9776}\label{entite_8c_a6fd83f1f50b736bec55bbadfad7a9776}} 
+void {\bfseries detruire\+\_\+boss} (entite\+\_\+t $\ast$$\ast$boss)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+entite\+\_\+t \mbox{\hyperlink{entite_8c_a9de48f40123e9967bd7131738bfe518b}{tab\+\_\+mob}} \mbox{[}NB\+\_\+\+MOBS\mbox{]}
+\begin{DoxyCompactList}\small\item\em tableau qui stocke tout les mobs présents dans le jeu \end{DoxyCompactList}\item 
+entite\+\_\+t {\bfseries tab\+\_\+boss} \mbox{[}NB\+\_\+\+BOSS\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Primitives liées aux entites. 
+
+\begin{DoxyAuthor}{Auteur}
+GEORGET Rémy, GALLAIS Mathéo , GAUTERON Nathan 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+31/01/2023 
+\end{DoxyDate}
+
+
+\doxysubsection{Documentation des variables}
+\mbox{\Hypertarget{entite_8c_a817603511beeb70beacaae71fc17397e}\label{entite_8c_a817603511beeb70beacaae71fc17397e}} 
+\index{entite.c@{entite.c}!tab\_boss@{tab\_boss}}
+\index{tab\_boss@{tab\_boss}!entite.c@{entite.c}}
+\doxysubsubsection{\texorpdfstring{tab\_boss}{tab\_boss}}
+{\footnotesize\ttfamily entite\+\_\+t tab\+\_\+boss\mbox{[}NB\+\_\+\+BOSS\mbox{]}}
+
+{\bfseries Valeur initiale \+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{}
+\DoxyCodeLine{    \{\textcolor{stringliteral}{"{}Volibeer"{}}, 400, 25, 0.5, 1, 10, 0, 0, NULL, NULL, 0, 1, HAUT\},}
+\DoxyCodeLine{    \{\textcolor{stringliteral}{"{}Darick"{}}, 800, 40, 1, 0.25, 15, 0, 0, NULL, NULL, 0, 1, HAUT\},}
+\DoxyCodeLine{    \{\textcolor{stringliteral}{"{}Satan"{}}, 1500, 150, 2, 2, 15, 0, 0, NULL, NULL, 0, 1, HAUT\}\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{entite_8c_a9de48f40123e9967bd7131738bfe518b}\label{entite_8c_a9de48f40123e9967bd7131738bfe518b}} 
+\index{entite.c@{entite.c}!tab\_mob@{tab\_mob}}
+\index{tab\_mob@{tab\_mob}!entite.c@{entite.c}}
+\doxysubsubsection{\texorpdfstring{tab\_mob}{tab\_mob}}
+{\footnotesize\ttfamily entite\+\_\+t tab\+\_\+mob\mbox{[}NB\+\_\+\+MOBS\mbox{]}}
+
+{\bfseries Valeur initiale \+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{}
+\DoxyCodeLine{    \{\textcolor{stringliteral}{"{}Slime\_Vert"{}}, 2, 1, 0.75, 0.40, 6, 0, 0, NULL, NULL, 1, 1, HAUT\},}
+\DoxyCodeLine{    \{\textcolor{stringliteral}{"{}Loup"{}}, 10, 4, 1.0, 1.2, 8, 0, 0, NULL, NULL, 2, 1, HAUT\},}
+\DoxyCodeLine{    \{\textcolor{stringliteral}{"{}Brigant"{}}, 20, 6, 0.9, 1.1, 7, 0, 0, NULL, NULL, 1, 1, HAUT\},}
+\DoxyCodeLine{    \{\textcolor{stringliteral}{"{}Chaman"{}}, 12, 12, 0.8, 1, 9, 0, 0, NULL, NULL, 2, 1, HAUT\},}
+\DoxyCodeLine{    \{\textcolor{stringliteral}{"{}Slime\_Gris"{}}, 10, 5, 0.75, 0.40, 6, 0, 0, NULL, NULL, 1, 1, HAUT\},}
+\DoxyCodeLine{    \{\textcolor{stringliteral}{"{}Nain"{}}, 30, 8, 0.75, 0.40, 5, 0, 0, NULL, NULL, 2, 1, HAUT\},}
+\DoxyCodeLine{    \{\textcolor{stringliteral}{"{}Nain\_Rider"{}}, 20, 5, 1.5, 1.2, 10, 0, 0, NULL, NULL, 3, 1, HAUT\},}
+\DoxyCodeLine{    \{\textcolor{stringliteral}{"{}Orc"{}}, 80, 20, 0.10, 0.20, 8, 0, 0, NULL, NULL, 2, 1, HAUT\},}
+\DoxyCodeLine{    \{\textcolor{stringliteral}{"{}Slime\_Rouge"{}}, 50, 25, 0.75, 0.40, 6, 0, 0, NULL, NULL, 1, 1, HAUT\},}
+\DoxyCodeLine{    \{\textcolor{stringliteral}{"{}Diablotin"{}}, 40, 40, 1.4, 1.0, 5, 0, 0, NULL, NULL, 3, 1, HAUT\},}
+\DoxyCodeLine{    \{\textcolor{stringliteral}{"{}Diable"{}}, 80, 80, 0.8, 1.2, 10, 0, 0, NULL, NULL, 2, 1, HAUT\},}
+\DoxyCodeLine{    \{\textcolor{stringliteral}{"{}Cerbere"{}}, 200, 100, 1.8, 0.7, 12, 0, 0, NULL, NULL, 2, 1, HAUT\}\}}
+
+\end{DoxyCode}
+
+
+tableau qui stocke tout les mobs présents dans le jeu 
+

@@ -1,0 +1,104 @@
+\hypertarget{inv__SDL_8c}{}\doxysection{Référence du fichier /mnt/c/\+Users/natik/\+Projet\+L2/src/inv\+\_\+\+SDL.c}
+\label{inv__SDL_8c}\index{/mnt/c/Users/natik/ProjetL2/src/inv\_SDL.c@{/mnt/c/Users/natik/ProjetL2/src/inv\_SDL.c}}
+
+
+Fichier contenant les fonctions pour l\textquotesingle{}inventaire.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$SDL2/\+SDL.\+h$>$}\newline
+{\ttfamily \#include $<$SDL2/\+SDL\+\_\+timer.\+h$>$}\newline
+{\ttfamily \#include $<$SDL2/\+SDL\+\_\+image.\+h$>$}\newline
+{\ttfamily \#include $<$SDL2/\+SDL\+\_\+mixer.\+h$>$}\newline
+{\ttfamily \#include $<$SDL2/\+SDL\+\_\+ttf.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}../head/entite.\+h\char`\"{}}\newline
+Graphe des dépendances par inclusion de inv\+\_\+\+SDL.\+c\+:
+% FIG 0
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{inv__SDL_8c_a51f528deaaeb973f417b46a2ec36f850}\label{inv__SDL_8c_a51f528deaaeb973f417b46a2ec36f850}} 
+\#define {\bfseries SDL\+\_\+\+MAIN\+\_\+\+HANDLED}
+\item 
+\mbox{\Hypertarget{inv__SDL_8c_a62ecd70800687eb2d625af180c4210d7}\label{inv__SDL_8c_a62ecd70800687eb2d625af180c4210d7}} 
+\#define {\bfseries TILE\+\_\+\+SIZE}~32
+\item 
+\mbox{\Hypertarget{inv__SDL_8c_aa037a6d6a4f04d51c7ec1c9ee9054e76}\label{inv__SDL_8c_aa037a6d6a4f04d51c7ec1c9ee9054e76}} 
+\#define {\bfseries MAP\+\_\+\+WIDTH}~25
+\item 
+\mbox{\Hypertarget{inv__SDL_8c_a529d5ebb449edf31d9835d13f4fb9f89}\label{inv__SDL_8c_a529d5ebb449edf31d9835d13f4fb9f89}} 
+\#define {\bfseries MAP\+\_\+\+HEIGHT}~25
+\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{inv__SDL_8c_a70f31d85064c15a50f9bf75f3d0b485c}{affichage}} (SDL\+\_\+\+Renderer $\ast$renderer, SDL\+\_\+\+Window $\ast$window, entite\+\_\+t $\ast$pers, int num\+\_\+rectangles, int rect\+\_\+width, int rect\+\_\+height, int rect\+\_\+spacing, TTF\+\_\+\+Font $\ast$font, int total\+\_\+width, int x\+\_\+start, SDL\+\_\+\+Texture $\ast$tab\+\_\+tex\mbox{[}17\mbox{]})
+\begin{DoxyCompactList}\small\item\em Affiche l\textquotesingle{}inventaire. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{inv__SDL_8c_a59b548898d196c0c423e9218d2b7e891}{inv}} (SDL\+\_\+\+Renderer $\ast$renderer, SDL\+\_\+\+Window $\ast$window, entite\+\_\+t $\ast$pers)
+\begin{DoxyCompactList}\small\item\em Affiche l\textquotesingle{}inventaire. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Fichier contenant les fonctions pour l\textquotesingle{}inventaire. 
+
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{inv__SDL_8c_a70f31d85064c15a50f9bf75f3d0b485c}\label{inv__SDL_8c_a70f31d85064c15a50f9bf75f3d0b485c}} 
+\index{inv\_SDL.c@{inv\_SDL.c}!affichage@{affichage}}
+\index{affichage@{affichage}!inv\_SDL.c@{inv\_SDL.c}}
+\doxysubsubsection{\texorpdfstring{affichage()}{affichage()}}
+{\footnotesize\ttfamily void affichage (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{SDL\+\_\+\+Window $\ast$}]{window,  }\item[{entite\+\_\+t $\ast$}]{pers,  }\item[{int}]{num\+\_\+rectangles,  }\item[{int}]{rect\+\_\+width,  }\item[{int}]{rect\+\_\+height,  }\item[{int}]{rect\+\_\+spacing,  }\item[{TTF\+\_\+\+Font $\ast$}]{font,  }\item[{int}]{total\+\_\+width,  }\item[{int}]{x\+\_\+start,  }\item[{SDL\+\_\+\+Texture $\ast$}]{tab\+\_\+tex\mbox{[}17\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Affiche l\textquotesingle{}inventaire. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em renderer} & le renderer \\
+\hline
+{\em window} & la fenetre \\
+\hline
+{\em pers} & le personnage \\
+\hline
+{\em num\+\_\+rectangles} & le nombre d\textquotesingle{}items dans l\textquotesingle{}inventaire \\
+\hline
+{\em rect\+\_\+width} & la largeur des rectangles contenant les items \\
+\hline
+{\em rect\+\_\+height} & la hauteur des rectangles contenant les items \\
+\hline
+{\em rect\+\_\+spacing} & l\textquotesingle{}espace entre les items \\
+\hline
+{\em font} & la police \\
+\hline
+{\em total\+\_\+width} & la largeur totale de l\textquotesingle{}inventaire \\
+\hline
+{\em x\+\_\+start} & la position de départ en x \\
+\hline
+{\em tab\+\_\+tex} & le tableau de textures \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{inv__SDL_8c_a59b548898d196c0c423e9218d2b7e891}\label{inv__SDL_8c_a59b548898d196c0c423e9218d2b7e891}} 
+\index{inv\_SDL.c@{inv\_SDL.c}!inv@{inv}}
+\index{inv@{inv}!inv\_SDL.c@{inv\_SDL.c}}
+\doxysubsubsection{\texorpdfstring{inv()}{inv()}}
+{\footnotesize\ttfamily int inv (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{SDL\+\_\+\+Window $\ast$}]{window,  }\item[{entite\+\_\+t $\ast$}]{pers }\end{DoxyParamCaption})}
+
+
+
+Affiche l\textquotesingle{}inventaire. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em renderer} & le renderer \\
+\hline
+{\em window} & la fenetre \\
+\hline
+{\em pers} & le personnage \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0 si tout s\textquotesingle{}est bien passé 
+\end{DoxyReturn}

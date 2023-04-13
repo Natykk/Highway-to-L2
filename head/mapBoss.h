@@ -1,0 +1,16 @@
+#ifndef __MAPBOSS__
+#define __MAPBOSS__
+
+#include "mapStruct.h"
+/**
+ * \file mapBoss.h
+ * \brief Fichier contenant les prototypes de fonctions pour la gestion des salles boss
+*/
+
+/* Prototype des fonctions */
+t_salle * genererSalleBoss(t_salle * salleBoss);
+void afficher_salle_boss(t_salle * salle);
+void detruireSalleBoss(t_salle ** salleBoss);
+t_salle * genererSalleMarchand(t_salle * salleMarchand);
+
+#endif

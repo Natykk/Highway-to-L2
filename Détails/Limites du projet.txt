@@ -1,3 +1,4 @@
+
 Diagramme de Gantt - https://docs.google.com/spreadsheets/d/1rPNUkicPhAYSG0FYRukwM39FNhrYawlg/edit?usp=sharing&ouid=103603094111502813858&rtpof=true&sd=true
 
 
@@ -62,8 +63,4 @@ Boss :
     -> Piege sur la map qui met des dégats 
   - Stats Abusés
   
-  
-
  
-  
-  
