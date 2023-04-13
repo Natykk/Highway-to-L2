@@ -37,6 +37,10 @@ Le projet comporte les fonctionnalités suivantes :
 - Combat entre le joueur et les ennemis
 - Arbre de compétence avec 4 classes 
 
+## Documentation 
+
+La Documentation générée par doxygen peut être trouvée dans le dossier doc sous format HTML ou LaTex ou bien a l'adresse https://natykk.github.io/Highway-to-L2/
+
 ## Contributions
 
 Les contributions à ce projet sont les bienvenues ! Si vous avez des idées d'amélioration ou des bugs à signaler, n'hésitez pas à créer une issue ou une pull request.
