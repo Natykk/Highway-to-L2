@@ -209,11 +209,13 @@ int sauvegarde(entite_t *personnage, int num_etage,unsigned char *key){
         fprintf(f_sauv, "%d\n", num_etage);
 
         /* Inventaire du personnage */
-
+        /*
         for (int i = 0; i < NB_OBJET; i++)
         {
             fprintf(f_sauv, "%d\n", personnage->inventaire->nb[i]);
         }
+        */ // On copie l'inventaire du personnage dans le fichier de sauvegarde avec memcpy plutot que de faire une boucle
+        memcpy(personnage->inventaire->nb, personnage->inventaire->nb, sizeof(int) * NB_OBJET);
         
         fclose(f_sauv);
         de_chiffre_fichier_AES(key,"../sauv/sauvegarde.txt","../sauv/sauvegarde_crypt.data",AES_ENCRYPT);
@@ -338,11 +340,12 @@ int chargement(entite_t **personnage, unsigned char *key)
         int num_etage;
         fscanf(f_sauv, "%d", &num_etage);
         
-        /* complémentation de l'inventaire */
+        /* complémentation de l'inventaire 
         for (int i = 0; i < NB_OBJET; i++)
         {
             fscanf(f_sauv, "%d", &(*personnage)->inventaire->nb[i]);
-        }
+        }*/ // On copie l'inventaire du personnage dans le fichier de sauvegarde avec memcpy plutot que de faire une boucle
+        memcpy((*personnage)->inventaire->nb, (*personnage)->inventaire->nb, sizeof(int) * NB_OBJET);
         FILE* file = fopen("../sauv/sauvegarde.txt", "w");
         fclose(file);
 

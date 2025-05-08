@@ -55,40 +55,41 @@ SDL_Texture *charge_tex(SDL_Renderer *renderer, char *path, int bmp_flag)
 
 SDL_Texture *choix_tex_niv(SDL_Renderer *renderer)
 {
-    if (tab_tex[0] != NULL)
+    if (tab_tex[0] == NULL)
     {
-        for (int i = 0; i < 20; i++)
+    tab_tex[0] = charge_tex(renderer, "../img/foret/wooden_door.png", 0); // Porte
+    tab_tex[1] = charge_tex(renderer, "../img/personnage/1_north.png", 0); // Perso coté nord
+    tab_tex[2] = charge_tex(renderer, "../img/personnage/1_south.png", 0); // Perso coté sud
+    tab_tex[3] = charge_tex(renderer, "../img/personnage/1_side.png", 0); // Perso sur les cotés (est ou ouest)
+    tab_tex[4] = charge_tex(renderer, "../img/personnage/1_attack_north.png", 0); // Perso coté nord attaque
+    tab_tex[5] = charge_tex(renderer, "../img/personnage/1_attack_south.png", 0); // Perso coté sud attaque
+    tab_tex[6] = charge_tex(renderer, "../img/personnage/1_attack_side.png", 0); // Perso sur les cotés attaque
+    tab_tex[7] = charge_tex(renderer, "../img/personnage/boule_up.png", 0); 
+    tab_tex[8] = charge_tex(renderer, "../img/personnage/boule_down.png", 0); 
+    tab_tex[9] = charge_tex(renderer, "../img/personnage/boule_right.png", 0); 
+    tab_tex[10] = charge_tex(renderer, "../img/personnage/boule_left.png", 0); 
+    tab_tex[11] = charge_tex(renderer, "../img/personnage/fleche_up.png", 0); 
+    tab_tex[12] = charge_tex(renderer, "../img/personnage/fleche_down.png", 0); 
+    tab_tex[13] = charge_tex(renderer, "../img/personnage/fleche_right.png", 0); 
+    tab_tex[14] = charge_tex(renderer, "../img/personnage/fleche_left.png", 0); 
+    tab_tex[15] = charge_tex(renderer, "../img/personnage/marchand.png", 0); // Marchand
+    }
+        for (int i = 16; i < 26; i++)
         {
             if (tab_tex[i] != NULL)
             {
                 SDL_DestroyTexture(tab_tex[i]);
+                tab_tex[i] = NULL;
             }
         }
-    }
-    tab_tex[2] = charge_tex(renderer, "../img/foret/wooden_door.png", 0); // Porte
-    tab_tex[5] = charge_tex(renderer, "../img/personnage/1_north.png", 0); // Perso coté nord
-    tab_tex[6] = charge_tex(renderer, "../img/personnage/1_south.png", 0); // Perso coté sud
-    tab_tex[7] = charge_tex(renderer, "../img/personnage/1_side.png", 0); // Perso sur les cotés (est ou ouest)
-    tab_tex[9] = charge_tex(renderer, "../img/personnage/1_attack_north.png", 0); // Perso coté nord attaque
-    tab_tex[10] = charge_tex(renderer, "../img/personnage/1_attack_south.png", 0); // Perso coté sud attaque
-    tab_tex[11] = charge_tex(renderer, "../img/personnage/1_attack_side.png", 0); // Perso sur les cotés attaque
-    tab_tex[12] = charge_tex(renderer, "../img/personnage/boule_up.png", 0); 
-    tab_tex[13] = charge_tex(renderer, "../img/personnage/boule_down.png", 0); 
-    tab_tex[14] = charge_tex(renderer, "../img/personnage/boule_right.png", 0); 
-    tab_tex[15] = charge_tex(renderer, "../img/personnage/boule_left.png", 0); 
-    tab_tex[16] = charge_tex(renderer, "../img/personnage/fleche_up.png", 0); 
-    tab_tex[17] = charge_tex(renderer, "../img/personnage/fleche_down.png", 0); 
-    tab_tex[18] = charge_tex(renderer, "../img/personnage/fleche_right.png", 0); 
-    tab_tex[19] = charge_tex(renderer, "../img/personnage/fleche_left.png", 0); 
-    tab_tex[3] = charge_tex(renderer, "../img/personnage/marchand.png", 0); // Marchand
+        
     if (NumEtage == 0)
     {                                                                         // Foret
-        tab_tex[0] = charge_tex(renderer, "../img/foret/bush.png", 0);        // Mur
-        tab_tex[1] = charge_tex(renderer, "../img/foret/floor_grass.png", 0); // Sol
-
-        tab_tex[4] = charge_tex(renderer, "../img/foret/souche.png", 0);              // obstacle
+        tab_tex[16] = charge_tex(renderer, "../img/foret/bush.png", 0);        // Mur
+        tab_tex[17] = charge_tex(renderer, "../img/foret/floor_grass.png", 0); // Sol
+        tab_tex[18] = charge_tex(renderer, "../img/foret/souche.png", 0);              // obstacle
         //----------------------------------------------------
-        tab_tex[8] = charge_tex(renderer, "../img/foret/GreenSlime/GrnSheet.png", 0); // Slime
+        tab_tex[19] = charge_tex(renderer, "../img/foret/GreenSlime/GrnSheet.png", 0); // Slime
         tab_tex[20]= charge_tex(renderer,"../img/foret/wolf.png",0); // loup
         tab_tex[21]= charge_tex(renderer,"../img/foret/mushroom.png",0); // Champi
         tab_tex[22]= charge_tex(renderer,"../img/foret/pig.png",0); // Cochon
@@ -100,11 +101,11 @@ SDL_Texture *choix_tex_niv(SDL_Renderer *renderer)
     }
     else if (NumEtage == 1)
     {                                                                      // Mine
-        tab_tex[0] = charge_tex(renderer, "../img/mines/mur_mine.png", 0); // Mur
-        tab_tex[1] = charge_tex(renderer, "../img/mines/sol.jpg", 0);      // Sol
-        tab_tex[4] = charge_tex(renderer, "../img/mines/rock.png", 0);     // obstacle
+        tab_tex[16]= charge_tex(renderer, "../img/mines/mur_mine.png", 0); // Mur
+        tab_tex[17]= charge_tex(renderer, "../img/mines/sol.jpg", 0);      // Sol
+        tab_tex[18]= charge_tex(renderer, "../img/mines/rock.png", 0);     // obstacle
         //---------------------------------------------------
-        tab_tex[8] = charge_tex(renderer, "../img/mines/GreySlime/WhiteSheet.png", 0); // mob 1
+        tab_tex[19]= charge_tex(renderer, "../img/mines/GreySlime/WhiteSheet.png", 0); // mob 1
         tab_tex[20]= charge_tex(renderer,"../img/mines/Squelette.png",0); // Squelette
         tab_tex[21]= charge_tex(renderer,"../img/mines/Rockmob.png",0); // Caillou
         tab_tex[22]= charge_tex(renderer,"../img/mines/bat.png",0); // ChauveSouris
@@ -116,19 +117,18 @@ SDL_Texture *choix_tex_niv(SDL_Renderer *renderer)
     }
     else if (NumEtage == 2)
     {                                                                        // Enfer
-        tab_tex[0] = charge_tex(renderer, "../img/enfer/mur_enfer.png", 0);  // Mur
-        tab_tex[1] = charge_tex(renderer, "../img/enfer/floor_hell.png", 0); // Sol
-        tab_tex[4] = charge_tex(renderer, "../img/enfer/rock.png", 0);       // obstacle
+        tab_tex[16]= charge_tex(renderer, "../img/enfer/mur_enfer.png", 0);  // Mur
+        tab_tex[17]= charge_tex(renderer, "../img/enfer/floor_hell.png", 0); // Sol
+        tab_tex[18]= charge_tex(renderer, "../img/enfer/rock.png", 0);       // obstacle
         //---------------------------------------------------
-        tab_tex[8] = charge_tex(renderer, "../img/enfer/RedSlime/RedSheet.png", 0); // mob 1
+        tab_tex[19]= charge_tex(renderer, "../img/enfer/RedSlime/RedSheet.png", 0); // mob 1
         tab_tex[20]= charge_tex(renderer,"../img/enfer/devil_centaurs.png",0); // Centaure
         tab_tex[21]= charge_tex(renderer,"../img/enfer/littledevil.png",0); // Demon
         tab_tex[22]= charge_tex(renderer,"../img/enfer/hellbound.png",0); // Demon
-
         //---------------------------------------------------
         tab_tex[23]= charge_tex(renderer,"../img/enfer/satan_north_walk.png",0); // Boss
-        tab_tex[24]= charge_tex(renderer,"../img/enfer/satan_south_walk.png",0); // Boss
-        tab_tex[25]= charge_tex(renderer,"../img/enfer/satan_side_walk.png",0); // Boss
+        tab_tex[24]= charge_tex(renderer,"../img/enfer/satan_side_walk.png",0); // Boss
+        tab_tex[25]= charge_tex(renderer,"../img/enfer/satan_south_walk.png",0); // Boss
 
         //20 
     }
@@ -177,6 +177,7 @@ void transfert(t_salle *salle, t_salle *map, int type)
     map->statut = salle->statut;
     if (type == 2)
     {
+        /*
         for (i = 0; i <= LARG_MARCHAND; i++)
         {
             for (j = 0; j <= LONG_MARCHAND; j++)
@@ -184,10 +185,15 @@ void transfert(t_salle *salle, t_salle *map, int type)
                 map->dim[i][j] = salle->dim[i][j];
             }
         }
+            */
+        // Utiliser memcpy pour copier la matrice plutot que de faire une boucle
+        memcpy(map->dim, salle->dim,sizeof(int)*LARG_MARCHAND*LONG_MARCHAND);
     }
     else if (type == 1)
     {
         map->mob[0]=salle->mob[0];
+        /*
+        
         for (i = 0; i < LARG_SALLE_BOSS; i++)
         {
             for (j = 0; j < LONG_SALLE_BOSS; j++)
@@ -195,15 +201,21 @@ void transfert(t_salle *salle, t_salle *map, int type)
                 map->dim[i][j] = salle->dim[i][j];
             }
         }
+        */
+        memcpy(map->dim, salle->dim,sizeof(int)*LARG_SALLE_BOSS*LONG_SALLE_BOSS);
     }
     else
     {
+        /*
         for (i = 0; i < salle->nb_mobs; i++)
         {
             map->mob[i] = salle->mob[i];
 
             // printf("Mob %s -> degats %f\n",map->mob[i]->nom,map->mob[i]->degats);
         }
+        */
+        memcpy(map->mob, salle->mob,sizeof(map->mob));
+        /*
         for (i = 0; i < DIM_SALLE; i++)
         {
             for (j = 0; j < DIM_SALLE; j++)
@@ -211,6 +223,8 @@ void transfert(t_salle *salle, t_salle *map, int type)
                 map->dim[i][j] = salle->dim[i][j];
             }
         }
+        */
+        memcpy(map->dim, salle->dim, sizeof(int)*DIM_SALLE*DIM_SALLE);
     }
 }
 /**
@@ -265,6 +279,10 @@ void changement(t_niv *niv, entite_t *perso, t_pos *posSalle, t_salle *map)
             niv->etages[NumEtage].boss = 0;
             detruireSalleBoss(&niv->etages->Boss);
             niv->etages[NumEtage].marchand = 1;
+            //Clear la musique 
+            Mix_HaltMusic();
+            Mix_FreeMusic(Mix_LoadMUS("../music/music_ours.mp3"));
+
         }
         else if (map->statut == EXIT)
         {
@@ -332,12 +350,8 @@ void mouvement(t_salle *map, entite_t *pers, t_pos *posSalle, t_niv *niv, SDL_Re
 {
     int x = pers->x;
     int y = pers->y;
-    // si le x n'est pas dans la matrice
-    if (x < 0 || x >= LARG_SALLE_BOSS)
-    {
-        return;
-    }
-    if(y < 0 || y >= LARG_SALLE_BOSS)
+    // si le x ou le y n'est pas dans la matrice
+    if(x < 0  || x>= LARG_SALLE_BOSS || y < 0 || y >= LARG_SALLE_BOSS)
     {
         return;
     }
@@ -573,7 +587,7 @@ void interact(int attaque, t_salle *map, entite_t *pers, Uint32 *lastTime, t_pos
         {
             nbNULL++;
         }
-    }
+    }    
     if (nbNULL == map->nb_mobs)
     {
         map->nb_mobs = 0;
@@ -646,7 +660,7 @@ void rendu(int map[][LONG_SALLE_BOSS], int tailleI, int tailleJ, SDL_Renderer *r
     int departX = (largeur_fenetre - tailleRenduX) / 2;
     int departY = (hauteur_fenetre - tailleRenduY) / 2;
     SDL_Rect salle = {(largeur_fenetre - tailleRenduX) / 2, (hauteur_fenetre - tailleRenduY) / 2, tailleRenduX, tailleRenduY};
-    SDL_RenderCopy(renderer, tab_tex[1], NULL, &salle);
+    SDL_RenderCopy(renderer, tab_tex[17], NULL, &salle);
     //printf("Attaque == %d\n", attaque);
     for (int x = 0; x < tailleI; x++)
     {
@@ -656,7 +670,7 @@ void rendu(int map[][LONG_SALLE_BOSS], int tailleI, int tailleJ, SDL_Renderer *r
             int posY = departY + y * TILE_SIZE;
             if (map[x][y] == PORTE)
             { // Porte
-                SDL_Texture *DoorTex = tab_tex[2];
+                SDL_Texture *DoorTex = tab_tex[0];
                 dstRect.x = posX;
                 dstRect.y = posY;
                 Door.w = 16; // Largeur de la frame
@@ -682,7 +696,7 @@ void rendu(int map[][LONG_SALLE_BOSS], int tailleI, int tailleJ, SDL_Renderer *r
                 {
                     // coordonnées de la porte
                     //printf("x : %d y : %d | x==tailleI y==tailleJ\n", x, y);
-                    SDL_RenderCopyEx(renderer, tab_tex[2], &Door, &dstRect, 0, NULL, SDL_FLIP_NONE);
+                    SDL_RenderCopyEx(renderer, tab_tex[0], &Door, &dstRect, 0, NULL, SDL_FLIP_NONE);
                 }
             }
             if (map[x][y] >= 10 && map[x][y] < 22)
@@ -700,7 +714,7 @@ void rendu(int map[][LONG_SALLE_BOSS], int tailleI, int tailleJ, SDL_Renderer *r
                  if (map[x][y] == 10)
                  {
 
-                     SDL_RenderCopyEx(renderer, tab_tex[8], &MobRect, &dstRect, 0, NULL, SDL_FLIP_NONE);
+                     SDL_RenderCopyEx(renderer, tab_tex[19], &MobRect, &dstRect, 0, NULL, SDL_FLIP_NONE);
                  }
                  if(map[x][y] == 11)
                  {
@@ -729,13 +743,13 @@ void rendu(int map[][LONG_SALLE_BOSS], int tailleI, int tailleJ, SDL_Renderer *r
                     dstRect.x = posX;       // Position de la frame
                     dstRect.y = posY;       // Position de la frame
                     if (perso->dir == HAUT) // On affiche le perso dans la bonne direction
-                        SDL_RenderCopyEx(renderer, tab_tex[5], &PersRect, &dstRect, 0, NULL, SDL_FLIP_NONE);
+                        SDL_RenderCopyEx(renderer, tab_tex[1], &PersRect, &dstRect, 0, NULL, SDL_FLIP_NONE);
                     if (perso->dir == BAS)
-                        SDL_RenderCopyEx(renderer, tab_tex[6], &PersRect, &dstRect, 0, NULL, SDL_FLIP_NONE);
+                        SDL_RenderCopyEx(renderer, tab_tex[2], &PersRect, &dstRect, 0, NULL, SDL_FLIP_NONE);
                     if (perso->dir == GAUCHE)
-                        SDL_RenderCopyEx(renderer, tab_tex[7], &PersRect, &dstRect, 0, NULL, SDL_FLIP_HORIZONTAL);
+                        SDL_RenderCopyEx(renderer, tab_tex[3], &PersRect, &dstRect, 0, NULL, SDL_FLIP_HORIZONTAL);
                     if (perso->dir == DROITE)
-                        SDL_RenderCopyEx(renderer, tab_tex[7], &PersRect, &dstRect, 0, NULL, SDL_FLIP_NONE);
+                        SDL_RenderCopyEx(renderer, tab_tex[3], &PersRect, &dstRect, 0, NULL, SDL_FLIP_NONE);
                 }else{
                         PersRect.x = frame * 20; // Combien de Pixel on doit décaler pour afficher la bonne frame
                         PersRect.w = 20;         // Largeur de la frame
@@ -744,26 +758,26 @@ void rendu(int map[][LONG_SALLE_BOSS], int tailleI, int tailleJ, SDL_Renderer *r
                         dstRect.x = posX;       // Position de la frame
                         dstRect.y = posY;       // Position de la frame
                         if (perso->dir == HAUT) // On affiche le perso dans la bonne direction
-                            SDL_RenderCopyEx(renderer, tab_tex[9], &PersRect, &dstRect, 0, NULL, SDL_FLIP_NONE);
+                            SDL_RenderCopyEx(renderer, tab_tex[4], &PersRect, &dstRect, 0, NULL, SDL_FLIP_NONE);
                         if (perso->dir == BAS)
-                            SDL_RenderCopyEx(renderer, tab_tex[10], &PersRect, &dstRect, 0, NULL, SDL_FLIP_NONE);
+                            SDL_RenderCopyEx(renderer, tab_tex[5], &PersRect, &dstRect, 0, NULL, SDL_FLIP_NONE);
                         if (perso->dir == GAUCHE)
-                            SDL_RenderCopyEx(renderer, tab_tex[11], &PersRect, &dstRect, 0, NULL, SDL_FLIP_HORIZONTAL);
+                            SDL_RenderCopyEx(renderer, tab_tex[6], &PersRect, &dstRect, 0, NULL, SDL_FLIP_HORIZONTAL);
                         if (perso->dir == DROITE)
-                            SDL_RenderCopyEx(renderer, tab_tex[11], &PersRect, &dstRect, 0, NULL, SDL_FLIP_NONE);
+                            SDL_RenderCopyEx(renderer, tab_tex[6], &PersRect, &dstRect, 0, NULL, SDL_FLIP_NONE);
                 }
             }
             if (map[x][y] == MUR)
             {                     // Si c'est un mur
                 dstRect.x = posX; // Position du mur
                 dstRect.y = posY;
-                SDL_RenderCopy(renderer, tab_tex[0], &srcRect, &dstRect); // On affiche le mur
+                SDL_RenderCopy(renderer, tab_tex[16], &srcRect, &dstRect); // On affiche le mur
             }
             if (map[x][y] == OBSTACLE)
             {
                 dstRect.x = posX; // Position de l'obstacle
                 dstRect.y = posY;
-                SDL_RenderCopy(renderer, tab_tex[4], NULL, &dstRect); // On affiche l'obstacle
+                SDL_RenderCopy(renderer, tab_tex[18], NULL, &dstRect); // On affiche l'obstacle
             }
             if (map[x][y] == MARCHAND)
             {
@@ -774,20 +788,20 @@ void rendu(int map[][LONG_SALLE_BOSS], int tailleI, int tailleJ, SDL_Renderer *r
                 Marchand.h = 38;  // Hauteur de la frame
                 dstRect.x = posX; // Position de la frame
                 dstRect.y = posY;
-                SDL_RenderCopy(renderer, tab_tex[3], &Marchand, &dstRect); // On affiche l'obstacle
+                SDL_RenderCopy(renderer, tab_tex[18], &Marchand, &dstRect); // On affiche l'obstacle
             }
             if (map[x][y] >= PROJ_FLECHE_H)
                 dstRect.x = posX; // Position de la boule magique ou de la fleche
                 dstRect.y = posY;
                 switch(map[x][y]){
-                    case PROJ_BOULE_H: SDL_RenderCopy(renderer, tab_tex[12], NULL, &dstRect); break;
-                    case PROJ_BOULE_B: SDL_RenderCopy(renderer, tab_tex[13], NULL, &dstRect); break;
-                    case PROJ_BOULE_D: SDL_RenderCopy(renderer, tab_tex[14], NULL, &dstRect); break;
-                    case PROJ_BOULE_G: SDL_RenderCopy(renderer, tab_tex[15], NULL, &dstRect); break;
-                    case PROJ_FLECHE_H: SDL_RenderCopy(renderer, tab_tex[16], NULL, &dstRect); break;
-                    case PROJ_FLECHE_B: SDL_RenderCopy(renderer, tab_tex[17], NULL, &dstRect); break;
-                    case PROJ_FLECHE_D: SDL_RenderCopy(renderer, tab_tex[18], NULL, &dstRect); break;
-                    case PROJ_FLECHE_G: SDL_RenderCopy(renderer, tab_tex[19], NULL, &dstRect); break;
+                    case PROJ_BOULE_H: SDL_RenderCopy(renderer, tab_tex[7], NULL, &dstRect); break;
+                    case PROJ_BOULE_B: SDL_RenderCopy(renderer, tab_tex[8], NULL, &dstRect); break;
+                    case PROJ_BOULE_D: SDL_RenderCopy(renderer, tab_tex[9], NULL, &dstRect); break;
+                    case PROJ_BOULE_G: SDL_RenderCopy(renderer, tab_tex[10], NULL, &dstRect); break;
+                    case PROJ_FLECHE_H: SDL_RenderCopy(renderer, tab_tex[11], NULL, &dstRect); break;
+                    case PROJ_FLECHE_B: SDL_RenderCopy(renderer, tab_tex[12], NULL, &dstRect); break;
+                    case PROJ_FLECHE_D: SDL_RenderCopy(renderer, tab_tex[13], NULL, &dstRect); break;
+                    case PROJ_FLECHE_G: SDL_RenderCopy(renderer, tab_tex[14], NULL, &dstRect); break;
                 }
             if(map[x][y] == BOSS){
                 MobRect.x = frame * 32; // Combien de Pixel on doit décaler pour afficher la bonne frame
